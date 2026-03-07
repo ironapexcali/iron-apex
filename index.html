@@ -12,86 +12,176 @@
 
 <style>
 
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
+
 body{
-font-family:Poppins;
+font-family:'Poppins',sans-serif;
 background:#0f0f0f;
 color:white;
-margin:0;
 line-height:1.6;
 }
 
+/* NAV */
+
+nav{
+display:flex;
+justify-content:center;
+gap:40px;
+padding:30px;
+}
+
+nav a{
+text-decoration:none;
+color:white;
+opacity:0.8;
+}
+
+nav a:hover{
+opacity:1;
+}
+
+/* HERO */
+
+.hero{
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+gap:60px;
+
+max-width:1100px;
+margin:auto;
+
+padding:100px 20px;
+
+}
+
+.hero-image img{
+
+width:420px;
+height:420px;
+
+object-fit:cover;
+
+border-radius:18px;
+
+}
+
+.hero-text{
+max-width:520px;
+}
+
+.hero-text h1{
+font-size:52px;
+margin-bottom:20px;
+}
+
+.hero-text p{
+opacity:0.85;
+margin-bottom:30px;
+}
+
+.cta{
+
+display:inline-block;
+
+background:#4ade80;
+color:black;
+
+padding:14px 28px;
+
+border-radius:10px;
+
+text-decoration:none;
+font-weight:600;
+
+}
+
+/* SECTIONS */
+
 section{
-max-width:1000px;
+max-width:900px;
 margin:auto;
 padding:100px 20px;
 }
 
-h1{
-font-size:52px;
-margin-bottom:10px;
+section h2{
+font-size:36px;
+margin-bottom:20px;
 }
 
-h2{
-font-size:34px;
-margin-bottom:10px;
-color:#4ade80;
-}
-
-p{
-opacity:0.85;
-max-width:700px;
-}
-
-.hero{
-display:flex;
-align-items:center;
-gap:60px;
-flex-wrap:wrap;
-}
-
-.hero img{
-width:420px;
-border-radius:16px;
-}
-
-.cta{
-background:#4ade80;
-color:black;
-padding:14px 26px;
-border-radius:8px;
-text-decoration:none;
-display:inline-block;
-margin-top:20px;
-font-weight:600;
-}
+/* PROGRAM CARDS */
 
 .cards{
+
 display:flex;
 gap:30px;
+
+justify-content:center;
+
 flex-wrap:wrap;
+
 margin-top:40px;
+
 }
 
 .card{
+
 background:#1a1a1a;
-padding:30px;
-border-radius:12px;
+
+padding:35px;
+
+border-radius:16px;
+
 width:260px;
-border:1px solid #222;
+
 text-decoration:none;
 color:white;
-transition:0.2s;
+
+transition:0.3s;
+
 }
 
 .card:hover{
+
 transform:translateY(-6px);
-border-color:#4ade80;
+background:#222;
+
 }
 
+/* FOOTER */
+
 footer{
+
 text-align:center;
-padding:60px;
+
+padding:80px;
+
 opacity:0.6;
+
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+.hero{
+
+flex-direction:column;
+text-align:center;
+
+}
+
+.hero-image img{
+width:320px;
+height:320px;
+}
+
 }
 
 </style>
@@ -100,38 +190,56 @@ opacity:0.6;
 
 <body>
 
+
+<nav>
+
+<a href="#story">Story</a>
+<a href="#programs">Programs</a>
+
+</nav>
+
+
+
 <section class="hero">
 
+<div class="hero-image">
 <img src="IMG_8792.jpg">
+</div>
 
-<div>
+<div class="hero-text">
 
 <h1>Build elite calisthenics strength.</h1>
 
 <p>
-I built Iron Apex to help people develop real pulling power, muscle-ups, and bodyweight strength without wasting time on useless programs.
+I built Iron Apex to help people develop real pulling power,
+muscle-ups and serious bodyweight strength without wasting time
+on generic workout programs.
 </p>
 
-<a href="#programs" class="cta">Explore Training Programs</a>
+<a class="cta" href="#programs">Explore Programs</a>
 
 </div>
 
 </section>
 
 
-<section>
+
+<section id="story">
 
 <h2>Who’s behind Iron Apex</h2>
 
 <p>
-I started Iron Apex after years of focusing on calisthenics strength — pull-ups, muscle-ups and advanced bodyweight control.
+Iron Apex was built around one goal: developing real calisthenics strength.
+Pull-ups, muscle-ups, explosive power and total body control.
 </p>
 
 <p>
-Everything here is built around simple, brutal strength training that actually works.
+Everything here focuses on simple training principles that actually
+build strength instead of complicated routines that go nowhere.
 </p>
 
 </section>
+
 
 
 <section>
@@ -140,32 +248,16 @@ Everything here is built around simple, brutal strength training that actually w
 
 <p>
 Most workout programs are either overly complicated or completely generic.
+I wanted something different: a system focused on real calisthenics strength.
 </p>
 
 <p>
-What I wanted was something different: a clear system focused on real calisthenics strength — pulling power, explosive muscle-ups, planche strength and control on the bar.
-</p>
-
-<p>
-Iron Apex is built around that idea.
+Iron Apex focuses on pulling power, explosive muscle-ups,
+planche strength and control on the bar.
 </p>
 
 </section>
 
-
-<section>
-
-<h2>What you can build</h2>
-
-<p>
-The goal is simple: get brutally strong at pull-ups, muscle-ups and bodyweight control.
-</p>
-
-<p>
-These programs focus on real calisthenics strength — the kind that transfers to skills like front lever, planche and freestyle bar work.
-</p>
-
-</section>
 
 
 <section id="programs">
@@ -174,12 +266,13 @@ These programs focus on real calisthenics strength — the kind that transfers t
 
 <div class="cards">
 
+
 <a href="beginner.html" class="card">
 
 <h3>Beginner Program</h3>
 
 <p>
-Build your pulling strength, push strength and bar confidence.
+Build foundational strength, pull-ups, dips and core control.
 </p>
 
 </a>
@@ -206,9 +299,11 @@ Train advanced planche strength, weighted pulling and freestyle skills.
 
 </a>
 
+
 </div>
 
 </section>
+
 
 
 <section>
@@ -216,14 +311,17 @@ Train advanced planche strength, weighted pulling and freestyle skills.
 <h2>Iron Apex Athletes</h2>
 
 <p>
-Iron Apex is about people chasing elite bodyweight strength — mastering pull-ups, muscle-ups and full control of their body.
+Iron Apex is about people chasing elite bodyweight strength —
+mastering pull-ups, muscle-ups and total body control.
 </p>
 
 <p>
-If you love calisthenics and want to get brutally strong, you’re in the right place.
+If you love calisthenics and want to get brutally strong,
+you’re in the right place.
 </p>
 
 </section>
+
 
 
 <footer>
@@ -232,5 +330,7 @@ Iron Apex © 2026
 
 </footer>
 
+
 </body>
+
 </html>
