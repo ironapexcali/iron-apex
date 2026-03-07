@@ -6,215 +6,92 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Iron Apex Calisthenics</title>
+<title>Iron Apex</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-}
-
 body{
-
-font-family:Poppins,sans-serif;
-
-background:#111111;
-
-color:#f1f1f1;
-
-}
-
-/* NAV */
-
-nav{
-
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:30px 8%;
-
-border-bottom:1px solid #1e1e1e;
-
-}
-
-.logo{
-
-font-weight:700;
-font-size:22px;
-
-color:#4ade80;
-
-}
-
-nav a{
-
-text-decoration:none;
-
-color:#ccc;
-
-margin-left:30px;
-
-}
-
-nav a:hover{
-
+font-family:Poppins;
+background:#0f0f0f;
 color:white;
-
+margin:0;
+line-height:1.6;
 }
 
-/* HERO */
+section{
+max-width:1000px;
+margin:auto;
+padding:100px 20px;
+}
+
+h1{
+font-size:52px;
+margin-bottom:10px;
+}
+
+h2{
+font-size:34px;
+margin-bottom:10px;
+color:#4ade80;
+}
+
+p{
+opacity:0.85;
+max-width:700px;
+}
 
 .hero{
-
-max-width:1100px;
-
-margin:auto;
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:70px;
-
-padding:120px 20px;
-
+display:flex;
 align-items:center;
-
+gap:60px;
+flex-wrap:wrap;
 }
 
 .hero img{
-
-width:100%;
-
-border-radius:18px;
-
-}
-
-.hero h1{
-
-font-size:56px;
-
-margin-bottom:20px;
-
-}
-
-.hero p{
-
-opacity:0.8;
-
-margin-bottom:30px;
-
+width:420px;
+border-radius:16px;
 }
 
 .cta{
-
 background:#4ade80;
-
 color:black;
-
-padding:15px 28px;
-
+padding:14px 26px;
 border-radius:8px;
-
-font-weight:600;
-
 text-decoration:none;
-
+display:inline-block;
+margin-top:20px;
+font-weight:600;
 }
-
-/* SECTIONS */
-
-.section{
-
-max-width:900px;
-
-margin:auto;
-
-padding:100px 20px;
-
-text-align:center;
-
-}
-
-.section h2{
-
-font-size:36px;
-
-margin-bottom:30px;
-
-}
-
-/* PROGRAM CARDS */
 
 .cards{
-
-display:grid;
-
-grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-
+display:flex;
 gap:30px;
-
+flex-wrap:wrap;
 margin-top:40px;
-
 }
 
 .card{
-
 background:#1a1a1a;
-
-padding:35px;
-
+padding:30px;
 border-radius:12px;
-
-text-decoration:none;
-
-color:white;
-
-transition:0.25s;
-
+width:260px;
 border:1px solid #222;
-
+text-decoration:none;
+color:white;
+transition:0.2s;
 }
 
 .card:hover{
-
 transform:translateY(-6px);
-
 border-color:#4ade80;
-
 }
-
-/* FOOTER */
 
 footer{
-
 text-align:center;
-
-padding:50px;
-
+padding:60px;
 opacity:0.6;
-
-border-top:1px solid #1e1e1e;
-
-}
-
-/* MOBILE */
-
-@media(max-width:900px){
-
-.hero{
-
-grid-template-columns:1fr;
-
-text-align:center;
-
-}
-
 }
 
 </style>
@@ -223,68 +100,75 @@ text-align:center;
 
 <body>
 
-<nav>
-
-<div class="logo">Iron Apex</div>
-
-<div>
-
-<a href="#journey">Journey</a>
-<a href="#programs">Programs</a>
-<a href="#contact">Contact</a>
-
-</div>
-
-</nav>
-
-
 <section class="hero">
 
 <img src="IMG_8792.jpg">
 
 <div>
 
-<h1>Iron Apex Calisthenics</h1>
+<h1>Build elite calisthenics strength.</h1>
 
 <p>
-
-Build elite bodyweight strength and unlock advanced skills
-like muscle ups, front lever and full planche.
-
+I built Iron Apex to help people develop real pulling power, muscle-ups, and bodyweight strength without wasting time on useless programs.
 </p>
 
-<a class="cta" href="#programs">Start Training</a>
+<a href="#programs" class="cta">Explore Training Programs</a>
 
 </div>
 
 </section>
 
 
-<section id="journey" class="section">
+<section>
 
-<h2>My Journey</h2>
+<h2>Who’s behind Iron Apex</h2>
 
 <p>
+I started Iron Apex after years of focusing on calisthenics strength — pull-ups, muscle-ups and advanced bodyweight control.
+</p>
 
-When I first started calisthenics I struggled with mobility,
-poor technique and very slow progress.
-
-Like many beginners I rushed skills too early and constantly
-ran into plateaus. I lacked the understanding of how to build
-strength properly and how mobility affects performance.
-
-Over time I rebuilt my training from the ground up. I focused
-on fundamentals, structured progression and mobility.
-
-These programs are built from that experience and designed
-to help athletes avoid the mistakes that cause most plateaus.
-
+<p>
+Everything here is built around simple, brutal strength training that actually works.
 </p>
 
 </section>
 
 
-<section id="programs" class="section">
+<section>
+
+<h2>Why Iron Apex exists</h2>
+
+<p>
+Most workout programs are either overly complicated or completely generic.
+</p>
+
+<p>
+What I wanted was something different: a clear system focused on real calisthenics strength — pulling power, explosive muscle-ups, planche strength and control on the bar.
+</p>
+
+<p>
+Iron Apex is built around that idea.
+</p>
+
+</section>
+
+
+<section>
+
+<h2>What you can build</h2>
+
+<p>
+The goal is simple: get brutally strong at pull-ups, muscle-ups and bodyweight control.
+</p>
+
+<p>
+These programs focus on real calisthenics strength — the kind that transfers to skills like front lever, planche and freestyle bar work.
+</p>
+
+</section>
+
+
+<section id="programs">
 
 <h2>Training Programs</h2>
 
@@ -294,7 +178,9 @@ to help athletes avoid the mistakes that cause most plateaus.
 
 <h3>Beginner Program</h3>
 
-<p>Build your first pull-ups, dips and core strength.</p>
+<p>
+Build your pulling strength, push strength and bar confidence.
+</p>
 
 </a>
 
@@ -303,7 +189,9 @@ to help athletes avoid the mistakes that cause most plateaus.
 
 <h3>Intermediate Program</h3>
 
-<p>Develop handstand strength and front lever progressions.</p>
+<p>
+Develop muscle-ups, high pull-ups and freestyle foundations.
+</p>
 
 </a>
 
@@ -312,7 +200,9 @@ to help athletes avoid the mistakes that cause most plateaus.
 
 <h3>Elite Program</h3>
 
-<p>Train for planche, front lever and elite calisthenics strength.</p>
+<p>
+Train advanced planche strength, weighted pulling and freestyle skills.
+</p>
 
 </a>
 
@@ -321,27 +211,24 @@ to help athletes avoid the mistakes that cause most plateaus.
 </section>
 
 
-<section id="contact" class="section">
+<section>
 
-<h2>Contact</h2>
+<h2>Iron Apex Athletes</h2>
 
-<p>Questions? Message me on Instagram.</p>
+<p>
+Iron Apex is about people chasing elite bodyweight strength — mastering pull-ups, muscle-ups and full control of their body.
+</p>
 
-<p style="margin-top:15px">
-
-<a style="color:#4ade80;text-decoration:none;" href="https://instagram.com/sambrooks1223">
-
-@sambrooks1223
-
-</a>
-
+<p>
+If you love calisthenics and want to get brutally strong, you’re in the right place.
 </p>
 
 </section>
 
+
 <footer>
 
-Iron Apex Calisthenics © 2026
+Iron Apex © 2026
 
 </footer>
 
