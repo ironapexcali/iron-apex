@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -18,24 +20,24 @@ padding:0;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#0a0a0a;
+background:#0c0c0c;
 color:white;
 line-height:1.6;
 }
 
-/* NAVBAR */
+/* NAV */
 
 nav{
 display:flex;
 justify-content:center;
 gap:40px;
-padding:25px;
+padding:30px;
 font-weight:500;
 }
 
 nav a{
-color:white;
 text-decoration:none;
+color:white;
 opacity:0.8;
 }
 
@@ -43,7 +45,7 @@ nav a:hover{
 opacity:1;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
 display:flex;
@@ -52,46 +54,52 @@ justify-content:center;
 gap:80px;
 max-width:1200px;
 margin:auto;
-padding:80px 20px;
+padding:100px 20px;
 }
+
+/* IMAGE LEFT */
+
+.hero-image img{
+width:420px;
+border-radius:20px;
+box-shadow:0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* TEXT RIGHT */
 
 .hero-text{
-max-width:520px;
+max-width:500px;
 }
 
-.hero h1{
-font-size:52px;
+.hero-text h1{
+font-size:54px;
 margin-bottom:20px;
+font-weight:700;
 }
 
-.hero p{
-opacity:0.8;
+.hero-text p{
+opacity:0.75;
 margin-bottom:30px;
+font-size:17px;
 }
+
+/* BUTTON */
 
 .cta{
 display:inline-block;
-background:#67ff63;
+background:#6aff63;
 color:black;
-padding:14px 28px;
-border-radius:10px;
+padding:15px 30px;
+border-radius:12px;
 font-weight:600;
 text-decoration:none;
-}
-
-/* HERO IMAGE */
-
-.hero img{
-width:420px;
-border-radius:18px;
-box-shadow:0 20px 60px rgba(0,0,0,0.6);
 }
 
 /* PROGRAM SECTION */
 
 .programs{
 text-align:center;
-padding:100px 20px;
+padding:120px 20px;
 max-width:1000px;
 margin:auto;
 }
@@ -103,7 +111,7 @@ margin-bottom:20px;
 
 .section-sub{
 opacity:0.7;
-margin-bottom:50px;
+margin-bottom:60px;
 }
 
 .cards{
@@ -116,7 +124,7 @@ flex-wrap:wrap;
 .card{
 background:#151515;
 padding:30px;
-border-radius:16px;
+border-radius:18px;
 width:260px;
 }
 
@@ -138,26 +146,37 @@ flex-direction:column;
 text-align:center;
 }
 
-.hero img{
+.hero-image img{
 width:300px;
 }
 
 }
 
 </style>
+
 </head>
 
 <body>
 
 <nav>
+
 <a href="#programs">Programs</a>
 <a href="#">Method</a>
 <a href="#">Skills</a>
 <a href="#">Results</a>
 <a href="#">Contact</a>
+
 </nav>
 
+
 <section class="hero">
+
+<div class="hero-image">
+
+<img src="IMG_8792.jpg">
+
+</div>
+
 
 <div class="hero-text">
 
@@ -171,8 +190,6 @@ handstand push-ups, front lever and press handstand.
 <a class="cta" href="#programs">Start Training</a>
 
 </div>
-
-<img src="IMG_8792.jpg">
 
 </section>
 
@@ -195,13 +212,13 @@ Simple skill-focused programs designed for calisthenics athletes.
 
 <div class="card">
 <h3>Skill Builder</h3>
-<p>Learn handstands, levers and advanced progressions.</p>
+<p>Handstands, levers and advanced progressions.</p>
 <div class="price">8 Week Program — €25</div>
 </div>
 
 <div class="card">
 <h3>Elite Strength</h3>
-<p>Planche, front lever and high level skills.</p>
+<p>Planche, front lever and high level strength.</p>
 <div class="price">12 Week Program — €35</div>
 </div>
 
@@ -210,4 +227,5 @@ Simple skill-focused programs designed for calisthenics athletes.
 </section>
 
 </body>
+
 </html>
