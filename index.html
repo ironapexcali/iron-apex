@@ -73,7 +73,7 @@ margin-bottom:20px;
 
 .hero-text p{
 opacity:0.8;
-margin-bottom:30px;
+margin-bottom:15px;
 }
 
 .cta{
@@ -84,9 +84,10 @@ padding:15px 30px;
 border-radius:12px;
 font-weight:600;
 text-decoration:none;
+margin-top:10px;
 }
 
-/* JOURNEY SECTION */
+/* JOURNEY */
 
 .journey{
 max-width:800px;
@@ -103,8 +104,40 @@ text-align:center;
 .journey p{
 opacity:0.8;
 margin-bottom:20px;
-font-size:16px;
-line-height:1.7;
+}
+
+/* SKILLS */
+
+.skills{
+text-align:center;
+padding:100px 20px;
+max-width:1000px;
+margin:auto;
+}
+
+.skills h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.skill-grid{
+display:flex;
+flex-wrap:wrap;
+justify-content:center;
+gap:30px;
+}
+
+.skill{
+background:#151515;
+padding:25px;
+border-radius:16px;
+width:220px;
+transition:0.3s;
+}
+
+.skill:hover{
+transform:translateY(-5px);
+background:#1e1e1e;
 }
 
 /* PROGRAMS */
@@ -114,16 +147,6 @@ text-align:center;
 padding:120px 20px;
 max-width:1000px;
 margin:auto;
-}
-
-.programs h2{
-font-size:36px;
-margin-bottom:20px;
-}
-
-.section-sub{
-opacity:0.7;
-margin-bottom:60px;
 }
 
 .cards{
@@ -148,8 +171,53 @@ transform:translateY(-6px);
 background:#1e1e1e;
 }
 
-.card h3{
-margin-bottom:10px;
+/* SUPPORT */
+
+.support{
+text-align:center;
+padding:120px 20px;
+max-width:900px;
+margin:auto;
+}
+
+.support h2{
+font-size:36px;
+margin-bottom:40px;
+}
+
+.support-grid{
+display:flex;
+justify-content:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.support-box{
+background:#151515;
+padding:25px;
+border-radius:16px;
+width:220px;
+}
+
+/* CONTACT */
+
+.contact{
+text-align:center;
+padding:120px 20px;
+}
+
+.contact a{
+color:#6aff63;
+text-decoration:none;
+font-weight:600;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:40px;
+opacity:0.6;
 }
 
 /* MOBILE */
@@ -175,8 +243,9 @@ width:300px;
 
 <nav>
 
-<a href="#programs">Programs</a>
 <a href="#journey">Journey</a>
+<a href="#skills">Skills</a>
+<a href="#programs">Programs</a>
 
 </nav>
 
@@ -192,8 +261,13 @@ width:300px;
 <h1>Iron Apex Calisthenics</h1>
 
 <p>
-Build elite bodyweight strength and unlock advanced skills like the full planche,
-handstand push-ups, front lever and press handstand.
+Build elite bodyweight strength and unlock skills like the
+muscle up, front lever and full planche.
+</p>
+
+<p>
+Structured training programs designed to help you avoid
+plateaus and progress faster.
 </p>
 
 <a class="cta" href="#programs">Start Training</a>
@@ -208,34 +282,42 @@ handstand push-ups, front lever and press handstand.
 <h2>My Journey</h2>
 
 <p>
-My progress in calisthenics wasn’t fast or clean. When I started I lacked mobility,
-my technique was poor, and I had almost no understanding of how to structure
-training properly.
+When I first started calisthenics I struggled with mobility,
+poor technique and very slow progress.
 </p>
 
 <p>
-Like most beginners I chased skills too early. I constantly ran into plateaus
-because I didn't understand progression, mobility work, or how to build the
-foundational strength required for advanced movements.
+Like many beginners I rushed skills too early and constantly
+ran into plateaus. I lacked the understanding of how to build
+strength properly and how mobility affects performance.
 </p>
 
 <p>
-Progress felt slow. Some skills took months of work before even small
-improvements appeared. I had to step back, rebuild fundamentals, and learn
-how the body actually adapts to strength training.
+Over time I rebuilt my training from the ground up. I focused
+on fundamentals, structured progression and mobility.
 </p>
 
 <p>
-If I could restart from day one, I would train very differently. I would focus on
-mobility earlier, build stronger basics, and structure training to avoid the
-plateaus that most athletes eventually hit.
+These programs are built from that experience and designed
+to help athletes avoid the mistakes that cause most plateaus.
 </p>
 
-<p>
-The programs on this site are built from those lessons. They focus on steady
-progression, strong fundamentals, and the kind of training that actually leads
-to advanced skills like the planche, front lever and press handstand.
-</p>
+</section>
+
+
+<section id="skills" class="skills">
+
+<h2>Skills You Can Unlock</h2>
+
+<div class="skill-grid">
+
+<div class="skill">Muscle Up</div>
+<div class="skill">Handstand</div>
+<div class="skill">Front Lever</div>
+<div class="skill">Planche</div>
+<div class="skill">Press Handstand</div>
+
+</div>
 
 </section>
 
@@ -244,19 +326,13 @@ to advanced skills like the planche, front lever and press handstand.
 
 <h2>Training Programs</h2>
 
-<p class="section-sub">
-Click a program and start training immediately.
-</p>
-
 <div class="cards">
 
 <a href="beginner.html" class="card">
 
 <h3>Beginner Program</h3>
 
-<p>
-Build pull-ups, push-ups, dips and core strength.
-</p>
+<p>Build your first pull-ups, dips and core strength.</p>
 
 </a>
 
@@ -265,9 +341,7 @@ Build pull-ups, push-ups, dips and core strength.
 
 <h3>Skill Builder</h3>
 
-<p>
-Learn handstands, front lever and advanced progressions.
-</p>
+<p>Learn handstands, front lever and advanced progressions.</p>
 
 </a>
 
@@ -276,9 +350,7 @@ Learn handstands, front lever and advanced progressions.
 
 <h3>Elite Strength</h3>
 
-<p>
-Train for planche, front lever and elite calisthenics strength.
-</p>
+<p>Train for planche and elite calisthenics strength.</p>
 
 </a>
 
@@ -286,5 +358,60 @@ Train for planche, front lever and elite calisthenics strength.
 
 </section>
 
+
+<section class="support">
+
+<h2>Coaching Support</h2>
+
+<p>
+When you follow one of the programs you won't be training alone.
+You can reach out anytime if you have questions.
+</p>
+
+<div class="support-grid">
+
+<div class="support-box">
+<h3>Fast Replies</h3>
+<p>I usually respond within 8 hours (often faster).</p>
+</div>
+
+<div class="support-box">
+<h3>Calls Available</h3>
+<p>We can schedule a call if you need help with progressions.</p>
+</div>
+
+<div class="support-box">
+<h3>Instagram Support</h3>
+<p>Message me directly for feedback and questions.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section class="contact">
+
+<h2>Questions?</h2>
+
+<p>Message me on Instagram:</p>
+
+<p>
+<a href="https://instagram.com/sambrooks1223">
+@sambrooks1223
+</a>
+</p>
+
+</section>
+
+
+<footer>
+
+Iron Apex Calisthenics © 2026
+
+</footer>
+
+
 </body>
+
 </html>
