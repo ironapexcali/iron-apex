@@ -29,9 +29,16 @@ line-height:1.7;
 
 nav{
 display:flex;
-justify-content:center;
+justify-content:space-between;
+align-items:center;
+max-width:1100px;
+margin:auto;
+padding:30px 20px;
+}
+
+.nav-left{
+display:flex;
 gap:40px;
-padding:30px;
 }
 
 nav a{
@@ -43,6 +50,10 @@ font-weight:500;
 
 nav a:hover{
 opacity:1;
+}
+
+#google_translate_element{
+transform:scale(0.9);
 }
 
 /* HERO */
@@ -201,8 +212,12 @@ align-items:center;
 
 <nav>
 
+<div class="nav-left">
 <a href="#programs">Programs</a>
 <a href="#story">My Story</a>
+</div>
+
+<div id="google_translate_element"></div>
 
 </nav>
 
@@ -228,9 +243,8 @@ pull-ups, muscle-ups, front lever, planche and total body control.
 </p>
 
 <p>
-These programs are designed to guide athletes from beginner
-strength to advanced calisthenics skills using structured
-weekly workouts and progressive training.
+These programs guide athletes from beginner strength to advanced
+calisthenics skills through structured weekly training.
 </p>
 
 <a class="cta" href="#programs">Explore Programs</a>
@@ -249,7 +263,7 @@ weekly workouts and progressive training.
 
 <p style="opacity:0.8;margin-top:10px;">
 Choose the program that matches your current strength level.
-Each program contains full weekly workouts, skill training
+Each program includes full weekly workouts, skill training
 and mobility work.
 </p>
 
@@ -292,7 +306,7 @@ Requirements:<br>
 
 <h3>Advanced</h3>
 
-<p>Muscle ups, lever strength and handstand power.</p>
+<p>Muscle ups, lever training and handstand strength.</p>
 
 <div class="requirements">
 Requirements:<br>
@@ -337,7 +351,7 @@ and long-term strength development.
 
 <p style="opacity:0.8;">
 Consistent calisthenics training focusing on pull-ups,
-dips and core strength can completely transform your body.
+dips and core strength can transform your physique.
 </p>
 
 <div class="transformation-images">
@@ -373,23 +387,22 @@ real calisthenics strength.
 </p>
 
 <p>
-Over time I started focusing on the fundamentals —
-pulling strength, pushing strength, core control and
-mobility. Instead of chasing skills too early I built a
-solid strength base first.
+Instead of chasing skills too early, I focused on building
+real pulling strength, pushing strength and mobility.
+Once the fundamentals improved everything else became easier.
 </p>
 
 <p>
-Within about six months of consistent calisthenics
-training my physique and strength started to change
-dramatically. Pull-ups improved, skills became easier
-and training finally started to feel structured.
+Within about six months of consistent calisthenics training
+my strength and physique started changing dramatically.
+Pull-ups improved, skills became easier and training finally
+felt structured.
 </p>
 
 <p>
-Iron Apex was created to share that same structured
-approach so others can progress faster without hitting
-the same plateaus.
+Iron Apex was created to share that structured approach
+so others can progress faster without hitting the same
+plateaus.
 </p>
 
 </section>
@@ -401,6 +414,25 @@ the same plateaus.
 Iron Apex © 2026
 
 </footer>
+
+
+
+<script>
+
+function googleTranslateElementInit() {
+new google.translate.TranslateElement(
+{
+pageLanguage: 'en',
+includedLanguages: 'en,fr,es',
+layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+},
+'google_translate_element'
+);
+}
+
+</script>
+
+<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
 
 </body>
