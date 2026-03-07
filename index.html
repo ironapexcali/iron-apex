@@ -51,24 +51,19 @@ nav a:hover{
 opacity:1;
 }
 
-/* LANGUAGE BUTTONS */
+/* LANGUAGE BUTTON */
 
-.language-buttons{
-display:flex;
-gap:10px;
-}
-
-.language-buttons button{
+.lang-btn{
 background:#151515;
 border:1px solid #222;
 color:white;
-padding:6px 12px;
-border-radius:6px;
+padding:6px 14px;
+border-radius:8px;
 cursor:pointer;
 font-weight:600;
 }
 
-.language-buttons button:hover{
+.lang-btn:hover{
 border-color:#4ade80;
 }
 
@@ -163,11 +158,6 @@ width:220px;
 border-radius:14px;
 }
 
-.transformation-label{
-margin-top:8px;
-opacity:0.7;
-}
-
 /* PROGRAMS */
 
 .programs{
@@ -211,8 +201,6 @@ padding:80px;
 opacity:0.6;
 }
 
-/* MOBILE */
-
 @media (max-width:900px){
 
 .hero{
@@ -245,11 +233,7 @@ align-items:center;
 <a href="#story">My Story</a>
 </div>
 
-<div class="language-buttons">
-<button onclick="translatePage('en')">EN</button>
-<button onclick="translatePage('fr')">FR</button>
-<button onclick="translatePage('es')">ES</button>
-</div>
+<button class="lang-btn">Language</button>
 
 </nav>
 
@@ -268,160 +252,16 @@ align-items:center;
 <h1>Build elite bodyweight strength.</h1>
 
 <p>
-Iron Apex focuses on real calisthenics strength training —
-pull-ups, muscle-ups, front lever, planche and total body control.
+From zero pull-ups to elite calisthenics skills through structured training.
 </p>
 
 <p>
-From zero pull-ups to elite skills through structured training.
+Pull-ups, muscle-ups, front lever, handstand pushups and planche strength.
 </p>
 
 <a class="cta" href="#programs">Explore Programs</a>
 
 </div>
-
-</section>
-
-
-
-<section>
-
-<h2>Skills You Will Build</h2>
-
-<p>
-Calisthenics training develops elite bodyweight strength and control.
-As you progress you will begin mastering some of the most respected
-bodyweight skills.
-</p>
-
-<div class="skill-grid">
-
-<div class="skill">Pull-Ups</div>
-<div class="skill">Muscle Ups</div>
-<div class="skill">Front Lever</div>
-<div class="skill">Straddle Planche</div>
-<div class="skill">Handstand Pushups</div>
-<div class="skill">L-Sit & V-Sit</div>
-
-</div>
-
-</section>
-
-
-
-<section>
-
-<h2>Why Calisthenics Strength Matters</h2>
-
-<p>
-Calisthenics builds real functional strength. Instead of isolating
-muscles on machines, your entire body must work together to perform
-movements like pull-ups, muscle-ups and levers.
-</p>
-
-<p>
-This develops stronger joints, better mobility and total body control.
-</p>
-
-</section>
-
-
-
-<section class="transformation">
-
-<h2>6 Month Transformation</h2>
-
-<p>
-Within six months of consistent calisthenics training strength and
-physique can change dramatically.
-</p>
-
-<div class="transformation-images">
-
-<div>
-<img src="IMG_8839.jpg">
-<div class="transformation-label">Before</div>
-</div>
-
-<div>
-<img src="IMG_8841.jpg">
-<div class="transformation-label">After (6 months)</div>
-</div>
-
-</div>
-
-</section>
-
-
-
-<div class="programs" id="programs">
-
-<h2>Training Programs</h2>
-
-<p style="opacity:0.8;">
-Choose the program that matches your level.
-</p>
-
-<div class="cards">
-
-<a href="beginner.html" class="card">
-<h3>Beginner</h3>
-<p>Build foundational strength.</p>
-<div class="requirements">
-0–5 pullups<br>
-0–5 dips<br>
-0–20 pushups
-</div>
-</a>
-
-<a href="intermediate.html" class="card">
-<h3>Intermediate</h3>
-<p>Weighted strength and first skills.</p>
-<div class="requirements">
-8 pullups<br>
-10 dips<br>
-30 pushups
-</div>
-</a>
-
-<a href="advanced.html" class="card">
-<h3>Advanced</h3>
-<p>Muscle ups and lever strength.</p>
-<div class="requirements">
-15 pullups<br>
-20 dips<br>
-Freestanding handstand
-</div>
-</a>
-
-<a href="elite.html" class="card">
-<h3>Elite</h3>
-<p>Planche and elite calisthenics strength.</p>
-<div class="requirements">
-Muscle up<br>
-Front lever<br>
-Handstand pushups
-</div>
-</a>
-
-</div>
-
-</div>
-
-
-
-<section>
-
-<h2>Iron Apex Athletes</h2>
-
-<p>
-Iron Apex is more than a program. It's a mindset of chasing
-stronger pull-ups, cleaner muscle-ups and elite body control.
-</p>
-
-<p>
-Every rep builds strength. Every session builds discipline.
-</p>
 
 </section>
 
@@ -443,8 +283,127 @@ front lever, handstand pushups and straddle planche.
 </p>
 
 <p>
-Iron Apex was created to help others reach that level
+Iron Apex was built to help others reach that level
 without wasting years on bad training methods.
+</p>
+
+</section>
+
+
+
+<section class="transformation">
+
+<h2>6 Month Transformation</h2>
+
+<div class="transformation-images">
+
+<div>
+<img src="IMG_8839.jpg">
+<p>Before</p>
+</div>
+
+<div>
+<img src="IMG_8841.jpg">
+<p>After (6 months)</p>
+</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Skills You Will Build</h2>
+
+<div class="skill-grid">
+
+<div class="skill">Pull-Ups</div>
+<div class="skill">Muscle Ups</div>
+<div class="skill">Front Lever</div>
+<div class="skill">Straddle Planche</div>
+<div class="skill">Handstand Pushups</div>
+<div class="skill">L-Sit & V-Sit</div>
+
+</div>
+
+</section>
+
+
+
+<section>
+
+<h2>Why Calisthenics Strength Matters</h2>
+
+<p>
+Calisthenics builds real strength. Your entire body must work
+together to perform movements like pull-ups, muscle-ups and levers.
+</p>
+
+<p>
+This creates stronger joints, better mobility and full body control.
+</p>
+
+</section>
+
+
+
+<div class="programs" id="programs">
+
+<h2>Training Programs</h2>
+
+<div class="cards">
+
+<a href="beginner.html" class="card">
+<h3>Beginner</h3>
+<div class="requirements">
+0–5 pullups<br>
+0–5 dips<br>
+0–20 pushups
+</div>
+</a>
+
+<a href="intermediate.html" class="card">
+<h3>Intermediate</h3>
+<div class="requirements">
+8 pullups<br>
+10 dips<br>
+30 pushups
+</div>
+</a>
+
+<a href="advanced.html" class="card">
+<h3>Advanced</h3>
+<div class="requirements">
+15 pullups<br>
+20 dips<br>
+Freestanding handstand
+</div>
+</a>
+
+<a href="elite.html" class="card">
+<h3>Elite</h3>
+<div class="requirements">
+Muscle up<br>
+Front lever<br>
+Handstand pushups
+</div>
+</a>
+
+</div>
+
+</div>
+
+
+
+<section>
+
+<h2>Iron Apex Athletes</h2>
+
+<p>
+Iron Apex is about athletes chasing elite bodyweight strength.
+Every rep builds discipline and real strength.
 </p>
 
 </section>
@@ -456,37 +415,6 @@ without wasting years on bad training methods.
 Iron Apex © 2026
 
 </footer>
-
-
-
-<script>
-
-function translatePage(lang) {
-
-let script = document.createElement("script");
-script.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
-document.body.appendChild(script);
-
-window.googleTranslateElementInit = function(){
-
-new google.translate.TranslateElement(
-{pageLanguage:'en'},
-'google_translate_element');
-
-let select=document.querySelector(".goog-te-combo");
-
-if(select){
-select.value=lang;
-select.dispatchEvent(new Event("change"));
-}
-
-};
-
-}
-
-</script>
-
-<div id="google_translate_element" style="display:none"></div>
 
 </body>
 
