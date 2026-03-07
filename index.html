@@ -7,14 +7,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+.hero{
+display:flex;
+align-items:center;
+justify-content:center;
+gap:80px;
+padding:80px 20px;
+}
+
+.hero-text{
+max-width:500px;
+text-align:left;
+}
 .hero img{
 width:350px;
 max-width:90%;
 margin-top:30px;
 border-radius:12px;
 display:block;
-margin-left:auto;
-margin-right:auto;
 }
 *{box-sizing:border-box;scroll-behavior:smooth}
 body{font-family:'Poppins',sans-serif;margin:0;background:#0a0a0a;color:#fff;line-height:1.6}
@@ -113,10 +123,17 @@ window.location.href = `https://translate.google.com/translate?sl=auto&tl=${lang
 </nav>
 
 <section class="hero">
+
+<div class="hero-text">
 <h1>Iron Apex Calisthenics</h1>
+
 <p>Build elite bodyweight strength and unlock advanced skills like the full planche, handstand push-ups, front lever and press handstand.</p>
+
 <a class="cta" href="#programs">Start Training</a>
-<img src="IMG_8792.jpg" style="width:350px; max-width:350px; height:auto;">
+</div>
+
+<img src="IMG_8792.jpg" style="width:400px; max-width:350px height:auto;">
+
 </section>
 
 <section id="programs">
