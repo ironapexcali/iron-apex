@@ -32,7 +32,6 @@ display:flex;
 justify-content:center;
 gap:40px;
 padding:30px;
-font-weight:500;
 }
 
 nav a{
@@ -57,33 +56,25 @@ margin:auto;
 padding:100px 20px;
 }
 
-/* IMAGE LEFT */
-
 .hero-image img{
 width:420px;
 border-radius:20px;
 box-shadow:0 30px 80px rgba(0,0,0,0.6);
 }
 
-/* TEXT RIGHT */
-
 .hero-text{
 max-width:500px;
 }
 
 .hero-text h1{
-font-size:54px;
+font-size:52px;
 margin-bottom:20px;
-font-weight:700;
 }
 
 .hero-text p{
-opacity:0.75;
+opacity:0.8;
 margin-bottom:30px;
-font-size:17px;
 }
-
-/* BUTTON */
 
 .cta{
 display:inline-block;
@@ -95,7 +86,7 @@ font-weight:600;
 text-decoration:none;
 }
 
-/* PROGRAM SECTION */
+/* PROGRAMS */
 
 .programs{
 text-align:center;
@@ -123,18 +114,21 @@ flex-wrap:wrap;
 
 .card{
 background:#151515;
-padding:30px;
-border-radius:18px;
+padding:35px;
+border-radius:20px;
 width:260px;
+text-decoration:none;
+color:white;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+background:#1e1e1e;
 }
 
 .card h3{
 margin-bottom:10px;
-}
-
-.price{
-margin-top:15px;
-font-weight:600;
 }
 
 /* MOBILE */
@@ -163,7 +157,6 @@ width:300px;
 <a href="#programs">Programs</a>
 <a href="#">Method</a>
 <a href="#">Skills</a>
-<a href="#">Results</a>
 <a href="#">Contact</a>
 
 </nav>
@@ -172,11 +165,8 @@ width:300px;
 <section class="hero">
 
 <div class="hero-image">
-
 <img src="IMG_8792.jpg">
-
 </div>
-
 
 <div class="hero-text">
 
@@ -199,28 +189,42 @@ handstand push-ups, front lever and press handstand.
 <h2>Training Programs</h2>
 
 <p class="section-sub">
-Simple skill-focused programs designed for calisthenics athletes.
+Click a program and start training immediately.
 </p>
 
 <div class="cards">
 
-<div class="card">
-<h3>Beginner Calisthenics</h3>
-<p>Pull-ups, dips, push-ups and core strength.</p>
-<div class="price">8 Week Program — €15</div>
-</div>
+<a href="beginner.html" class="card">
 
-<div class="card">
+<h3>Beginner Program</h3>
+
+<p>
+Build pull-ups, push-ups, dips and core strength.
+</p>
+
+</a>
+
+
+<a href="skills.html" class="card">
+
 <h3>Skill Builder</h3>
-<p>Handstands, levers and advanced progressions.</p>
-<div class="price">8 Week Program — €25</div>
-</div>
 
-<div class="card">
+<p>
+Learn handstands, front lever and advanced progressions.
+</p>
+
+</a>
+
+
+<a href="elite.html" class="card">
+
 <h3>Elite Strength</h3>
-<p>Planche, front lever and high level strength.</p>
-<div class="price">12 Week Program — €35</div>
-</div>
+
+<p>
+Train for planche, front lever and elite calisthenics strength.
+</p>
+
+</a>
 
 </div>
 
