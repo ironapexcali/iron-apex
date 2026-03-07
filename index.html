@@ -25,6 +25,8 @@ color:white;
 line-height:1.6;
 }
 
+/* NAV */
+
 nav{
 display:flex;
 justify-content:center;
@@ -41,6 +43,8 @@ opacity:0.8;
 nav a:hover{
 opacity:1;
 }
+
+/* HERO */
 
 .hero{
 display:flex;
@@ -70,7 +74,7 @@ margin-bottom:20px;
 
 .hero-text p{
 opacity:0.85;
-margin-bottom:30px;
+margin-bottom:20px;
 }
 
 .cta{
@@ -81,7 +85,10 @@ padding:14px 28px;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
+margin-top:10px;
 }
+
+/* PROGRAM + TRANSFORMATION */
 
 .program-section{
 display:flex;
@@ -91,6 +98,8 @@ margin:120px auto;
 padding:0 20px;
 align-items:flex-start;
 }
+
+/* PROGRAM CARDS */
 
 .cards{
 display:flex;
@@ -121,6 +130,8 @@ font-size:14px;
 margin-top:12px;
 }
 
+/* TRANSFORMATION */
+
 .transformation{
 max-width:420px;
 }
@@ -143,16 +154,46 @@ opacity:0.75;
 font-size:14px;
 }
 
+/* STORY */
+
 section{
 max-width:900px;
 margin:140px auto;
 padding:0 20px;
 }
 
+section h2{
+margin-bottom:20px;
+font-size:34px;
+}
+
+/* FOOTER */
+
 footer{
 text-align:center;
 padding:80px;
 opacity:0.6;
+}
+
+/* MOBILE */
+
+@media (max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-image img{
+width:320px;
+height:320px;
+}
+
+.program-section{
+flex-direction:column;
+align-items:center;
+}
+
 }
 
 </style>
@@ -169,6 +210,7 @@ opacity:0.6;
 </nav>
 
 
+
 <section class="hero">
 
 <div class="hero-image">
@@ -177,11 +219,21 @@ opacity:0.6;
 
 <div class="hero-text">
 
+<p style="opacity:0.6;font-size:14px;margin-bottom:8px;">
+Iron Apex Training System
+</p>
+
 <h1>Build elite calisthenics strength.</h1>
 
 <p>
 Iron Apex focuses on real bodyweight strength training —
 pull-ups, muscle-ups, front lever, planche and total body control.
+</p>
+
+<p style="opacity:0.8;">
+The programs below are designed to guide athletes from beginner
+strength all the way to advanced calisthenics skills through
+structured weekly workouts and progressive training.
 </p>
 
 <a class="cta" href="#programs">Explore Programs</a>
@@ -191,11 +243,18 @@ pull-ups, muscle-ups, front lever, planche and total body control.
 </section>
 
 
+
 <div class="program-section" id="programs">
 
 <div>
 
 <h2>Training Programs</h2>
+
+<p style="opacity:0.8;margin-top:10px;">
+Choose the program that matches your current strength level.
+Each level includes structured weekly workouts, skill training
+and mobility work to help you progress safely.
+</p>
 
 <div class="cards">
 
@@ -203,6 +262,7 @@ pull-ups, muscle-ups, front lever, planche and total body control.
 <a href="beginner.html" class="card">
 
 <h3>Beginner</h3>
+
 <p>Foundational strength and balance skills.</p>
 
 <div class="requirements">
@@ -218,7 +278,8 @@ Requirements:<br>
 <a href="intermediate.html" class="card">
 
 <h3>Intermediate</h3>
-<p>Weighted strength and first skills.</p>
+
+<p>Weighted strength and first calisthenics skills.</p>
 
 <div class="requirements">
 Requirements:<br>
@@ -233,7 +294,8 @@ Requirements:<br>
 <a href="advanced.html" class="card">
 
 <h3>Advanced</h3>
-<p>Muscle ups and lever strength.</p>
+
+<p>Muscle ups, lever training and handstand strength.</p>
 
 <div class="requirements">
 Requirements:<br>
@@ -248,7 +310,8 @@ Freestanding handstand
 <a href="elite.html" class="card">
 
 <h3>Elite</h3>
-<p>High level calisthenics strength.</p>
+
+<p>High level calisthenics strength and elite skills.</p>
 
 <div class="requirements">
 Requirements:<br>
@@ -262,12 +325,23 @@ Handstand pushups
 
 </div>
 
+<p style="opacity:0.7;margin-top:25px;">
+All programs focus on progressive overload, proper technique,
+mobility and long-term strength development.
+</p>
+
 </div>
+
 
 
 <div class="transformation">
 
 <h2>1 Year Progress</h2>
+
+<p style="opacity:0.8;">
+Consistent calisthenics training focusing on pull-ups,
+dips, core strength and progressive overload.
+</p>
 
 <div class="transformation-images">
 
@@ -285,7 +359,9 @@ Handstand pushups
 
 </div>
 
+
 </div>
+
 
 
 <section id="story">
@@ -293,12 +369,20 @@ Handstand pushups
 <h2>Why Iron Apex Exists</h2>
 
 <p>
-Most workout programs are overly complicated or generic.
-Iron Apex focuses on simple training principles that build real
-calisthenics strength.
+Most workout programs are either overly complicated or completely
+generic. Iron Apex focuses on simple training principles that build
+real calisthenics strength through consistent work and progressive
+training.
+</p>
+
+<p>
+The goal is simple: develop elite bodyweight strength through
+pull-ups, muscle-ups, levers, planche training and strong
+fundamental movement patterns.
 </p>
 
 </section>
+
 
 
 <footer>
@@ -309,4 +393,5 @@ Iron Apex © 2026
 
 
 </body>
+
 </html>
