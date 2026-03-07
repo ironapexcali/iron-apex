@@ -4,36 +4,93 @@
 <head>
 
 <meta charset="UTF-8">
-<title>Beginner Program</title>
+<title>Beginner Calisthenics Program</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
+*{
+box-sizing:border-box;
+margin:0;
+padding:0;
+}
 
 body{
 font-family:Poppins,sans-serif;
 background:#0c0c0c;
 color:white;
-max-width:800px;
-margin:auto;
-padding:60px 20px;
 line-height:1.6;
 }
 
-h1{
-margin-bottom:30px;
+/* HEADER */
+
+.header{
+text-align:center;
+padding:60px 20px;
 }
 
-.week{
-background:#151515;
-padding:25px;
-border-radius:12px;
-margin-bottom:30px;
+.header h1{
+font-size:42px;
+margin-bottom:10px;
 }
+
+.header p{
+opacity:0.8;
+}
+
+/* CONTAINER */
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+/* DAY CARDS */
+
+.day{
+background:#151515;
+padding:30px;
+border-radius:16px;
+margin-bottom:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.4);
+}
+
+.day h2{
+margin-bottom:15px;
+color:#6aff63;
+}
+
+/* EXERCISES */
 
 .exercise{
-margin-bottom:10px;
-opacity:0.85;
+padding:8px 0;
+border-bottom:1px solid rgba(255,255,255,0.05);
+opacity:0.9;
+}
+
+/* BUTTON */
+
+.back{
+display:inline-block;
+margin-top:40px;
+background:#6aff63;
+color:black;
+padding:12px 24px;
+border-radius:10px;
+text-decoration:none;
+font-weight:600;
+}
+
+/* MOBILE */
+
+@media (max-width:800px){
+
+.day{
+padding:20px;
+}
+
 }
 
 </style>
@@ -42,35 +99,104 @@ opacity:0.85;
 
 <body>
 
+
+<div class="header">
+
 <h1>Beginner Calisthenics Program</h1>
 
 <p>
-This program builds the fundamentals needed for advanced calisthenics.
-Focus on good form and consistent progression.
+Build the foundation for advanced calisthenics skills with structured weekly training.
 </p>
 
-<div class="week">
+</div>
 
-<h2>Workout A</h2>
 
-<div class="exercise">Pull-ups — 4 x 5</div>
-<div class="exercise">Push-ups — 4 x 12</div>
+<div class="container">
+
+<div class="day">
+
+<h2>Monday — Pull Strength</h2>
+
+<div class="exercise">Pull-ups — 5 x 5</div>
+<div class="exercise">Australian Rows — 4 x 10</div>
+<div class="exercise">Chin-ups — 3 x 6</div>
+<div class="exercise">Hanging Knee Raises — 4 x 12</div>
+
+</div>
+
+
+<div class="day">
+
+<h2>Tuesday — Push Strength</h2>
+
+<div class="exercise">Push-ups — 5 x 15</div>
 <div class="exercise">Dips — 4 x 8</div>
-<div class="exercise">Plank — 3 x 45 seconds</div>
-
-</div>
-
-<div class="week">
-
-<h2>Workout B</h2>
-
-<div class="exercise">Rows — 4 x 10</div>
 <div class="exercise">Pike Push-ups — 4 x 10</div>
-<div class="exercise">Squats — 4 x 15</div>
-<div class="exercise">Leg Raises — 3 x 12</div>
+<div class="exercise">Plank — 3 x 60 sec</div>
 
 </div>
+
+
+<div class="day">
+
+<h2>Wednesday — Mobility & Core</h2>
+
+<div class="exercise">Pancake Stretch — 4 x 30 sec</div>
+<div class="exercise">Hamstring Stretch — 4 x 30 sec</div>
+<div class="exercise">Hollow Hold — 4 x 30 sec</div>
+<div class="exercise">L-sit Attempts — 5 sets</div>
+
+</div>
+
+
+<div class="day">
+
+<h2>Thursday — Pull + Core</h2>
+
+<div class="exercise">Pull-ups — 5 x 5</div>
+<div class="exercise">Rows — 4 x 12</div>
+<div class="exercise">Negative Pull-ups — 4 x 6</div>
+<div class="exercise">Leg Raises — 4 x 12</div>
+
+</div>
+
+
+<div class="day">
+
+<h2>Friday — Push + Skill</h2>
+
+<div class="exercise">Push-ups — 4 x 20</div>
+<div class="exercise">Dips — 4 x 10</div>
+<div class="exercise">Wall Handstand Hold — 5 sets</div>
+<div class="exercise">Handstand Kick-ups — 10 attempts</div>
+
+</div>
+
+
+<div class="day">
+
+<h2>Saturday — Active Recovery</h2>
+
+<div class="exercise">Light Stretching — 10 minutes</div>
+<div class="exercise">Shoulder Mobility — 10 minutes</div>
+<div class="exercise">Core Work — 3 x 15</div>
+
+</div>
+
+
+<div class="day">
+
+<h2>Sunday — Rest</h2>
+
+<div class="exercise">Full Rest Day</div>
+
+</div>
+
+
+<a class="back" href="index.html">← Back to Website</a>
+
+</div>
+
 
 </body>
-
 </html>
