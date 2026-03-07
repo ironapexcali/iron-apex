@@ -33,32 +33,38 @@ font-size:42px;
 margin-bottom:10px;
 }
 
-.header p{
-opacity:0.8;
-}
-
 .container{
 max-width:900px;
 margin:auto;
 padding:20px;
 }
 
-.day{
+.week{
 background:#151515;
 padding:30px;
 border-radius:16px;
-margin-bottom:30px;
+margin-bottom:40px;
 box-shadow:0 15px 40px rgba(0,0,0,0.4);
 }
 
-.day h2{
-margin-bottom:15px;
+.week h2{
 color:#6aff63;
+margin-bottom:15px;
+}
+
+.day{
+margin-bottom:20px;
 }
 
 .exercise{
+display:flex;
+justify-content:space-between;
 padding:8px 0;
 border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+.check{
+transform:scale(1.2);
 }
 
 .back{
@@ -82,81 +88,68 @@ font-weight:600;
 
 <h1>Skill Builder Program</h1>
 
-<p>
-Build strength for advanced calisthenics skills like handstand and front lever.
-</p>
+<p>8 Week Intermediate Skill Development</p>
 
 </div>
 
 <div class="container">
 
+<div class="week">
+
+<h2>Weeks 1–2</h2>
+
 <div class="day">
 
-<h2>Monday — Pull Strength</h2>
+<h3>Monday — Pull</h3>
 
-<div class="exercise">Pull-ups — 5 x 8</div>
-<div class="exercise">Front Lever Tuck Hold — 5 sets</div>
-<div class="exercise">Rows — 4 x 12</div>
-<div class="exercise">Hanging Leg Raises — 4 x 15</div>
+<div class="exercise">Pull-ups 5x8 <input class="check" type="checkbox"></div>
+<div class="exercise">Front Lever Tuck Hold 5 sets <input class="check" type="checkbox"></div>
+<div class="exercise">Rows 4x12 <input class="check" type="checkbox"></div>
 
 </div>
 
 <div class="day">
 
-<h2>Tuesday — Push Strength</h2>
+<h3>Tuesday — Push</h3>
 
-<div class="exercise">Dips — 5 x 10</div>
-<div class="exercise">Decline Push-ups — 4 x 20</div>
-<div class="exercise">Pike Push-ups — 4 x 12</div>
-<div class="exercise">Plank — 3 x 90 sec</div>
-
-</div>
-
-<div class="day">
-
-<h2>Wednesday — Mobility & Core</h2>
-
-<div class="exercise">Pancake Stretch — 5 x 30 sec</div>
-<div class="exercise">Shoulder Mobility — 10 minutes</div>
-<div class="exercise">Hollow Body Hold — 4 x 40 sec</div>
+<div class="exercise">Dips 5x10 <input class="check" type="checkbox"></div>
+<div class="exercise">Decline Push-ups 4x20 <input class="check" type="checkbox"></div>
+<div class="exercise">Plank 3x90s <input class="check" type="checkbox"></div>
 
 </div>
 
 <div class="day">
 
-<h2>Thursday — Front Lever Training</h2>
+<h3>Friday — Handstand</h3>
 
-<div class="exercise">Front Lever Raises — 5 x 5</div>
-<div class="exercise">Tuck Front Lever Hold — 5 sets</div>
-<div class="exercise">Pull-ups — 4 x 8</div>
-
-</div>
-
-<div class="day">
-
-<h2>Friday — Handstand Training</h2>
-
-<div class="exercise">Wall Handstand Hold — 6 sets</div>
-<div class="exercise">Handstand Kick-ups — 12 attempts</div>
-<div class="exercise">Handstand Shoulder Taps — 4 x 10</div>
+<div class="exercise">Wall Handstand Hold 6 sets <input class="check" type="checkbox"></div>
+<div class="exercise">Handstand Kick Ups 10 attempts <input class="check" type="checkbox"></div>
 
 </div>
 
-<div class="day">
+</div>
 
-<h2>Saturday — Light Conditioning</h2>
+<div class="week">
 
-<div class="exercise">Push-ups — 3 x 25</div>
-<div class="exercise">Rows — 3 x 15</div>
-<div class="exercise">Stretching — 10 minutes</div>
+<h2>Weeks 3–4</h2>
+
+<div class="exercise">Increase reps on main exercises</div>
 
 </div>
 
-<div class="day">
+<div class="week">
 
-<h2>Sunday — Rest</h2>
+<h2>Weeks 5–6</h2>
 
-<div class="exercise">Full Rest Day</div>
+<div class="exercise">Add one extra set to skill work</div>
+
+</div>
+
+<div class="week">
+
+<h2>Weeks 7–8</h2>
+
+<div class="exercise">Focus on controlled holds and clean technique</div>
 
 </div>
 
