@@ -51,6 +51,27 @@ nav a:hover{
 opacity:1;
 }
 
+/* LANGUAGE BUTTONS */
+
+.language-buttons{
+display:flex;
+gap:10px;
+}
+
+.language-buttons button{
+background:#151515;
+border:1px solid #222;
+color:white;
+padding:6px 12px;
+border-radius:6px;
+cursor:pointer;
+font-weight:600;
+}
+
+.language-buttons button:hover{
+border-color:#4ade80;
+}
+
 /* HERO */
 
 .hero{
@@ -95,7 +116,7 @@ font-weight:600;
 margin-top:10px;
 }
 
-/* SECTIONS */
+/* GENERAL SECTIONS */
 
 section{
 max-width:900px;
@@ -184,8 +205,6 @@ font-size:14px;
 margin-top:12px;
 }
 
-/* FOOTER */
-
 footer{
 text-align:center;
 padding:80px;
@@ -226,7 +245,11 @@ align-items:center;
 <a href="#story">My Story</a>
 </div>
 
-<div id="google_translate_element"></div>
+<div class="language-buttons">
+<button onclick="translatePage('en')">EN</button>
+<button onclick="translatePage('fr')">FR</button>
+<button onclick="translatePage('es')">ES</button>
+</div>
 
 </nav>
 
@@ -266,8 +289,8 @@ From zero pull-ups to elite skills through structured training.
 <h2>Skills You Will Build</h2>
 
 <p>
-Calisthenics develops real strength and body control.
-Through consistent training you will build elite
+Calisthenics training develops elite bodyweight strength and control.
+As you progress you will begin mastering some of the most respected
 bodyweight skills.
 </p>
 
@@ -291,14 +314,13 @@ bodyweight skills.
 <h2>Why Calisthenics Strength Matters</h2>
 
 <p>
-Calisthenics builds strength that machines can't.
-Your entire body must work together to perform
+Calisthenics builds real functional strength. Instead of isolating
+muscles on machines, your entire body must work together to perform
 movements like pull-ups, muscle-ups and levers.
 </p>
 
 <p>
-This creates stronger joints, better mobility
-and real athletic strength.
+This develops stronger joints, better mobility and total body control.
 </p>
 
 </section>
@@ -310,8 +332,8 @@ and real athletic strength.
 <h2>6 Month Transformation</h2>
 
 <p>
-Within six months of consistent calisthenics training
-strength and physique can change dramatically.
+Within six months of consistent calisthenics training strength and
+physique can change dramatically.
 </p>
 
 <div class="transformation-images">
@@ -337,7 +359,7 @@ strength and physique can change dramatically.
 <h2>Training Programs</h2>
 
 <p style="opacity:0.8;">
-Choose the program that matches your current level.
+Choose the program that matches your level.
 </p>
 
 <div class="cards">
@@ -374,7 +396,7 @@ Freestanding handstand
 
 <a href="elite.html" class="card">
 <h3>Elite</h3>
-<p>Planche, levers and elite strength.</p>
+<p>Planche and elite calisthenics strength.</p>
 <div class="requirements">
 Muscle up<br>
 Front lever<br>
@@ -393,12 +415,12 @@ Handstand pushups
 <h2>Iron Apex Athletes</h2>
 
 <p>
-Iron Apex isn't just a program. It's a mindset of chasing
+Iron Apex is more than a program. It's a mindset of chasing
 stronger pull-ups, cleaner muscle-ups and elite body control.
 </p>
 
 <p>
-Every rep is part of building real strength.
+Every rep builds strength. Every session builds discipline.
 </p>
 
 </section>
@@ -421,7 +443,7 @@ front lever, handstand pushups and straddle planche.
 </p>
 
 <p>
-Iron Apex was built to help others reach that level
+Iron Apex was created to help others reach that level
 without wasting years on bad training methods.
 </p>
 
@@ -439,19 +461,32 @@ Iron Apex © 2026
 
 <script>
 
-function googleTranslateElementInit() {
+function translatePage(lang) {
+
+let script = document.createElement("script");
+script.src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit";
+document.body.appendChild(script);
+
+window.googleTranslateElementInit = function(){
+
 new google.translate.TranslateElement(
-{
-pageLanguage: 'en',
-includedLanguages: 'en,fr,es'
-},
+{pageLanguage:'en'},
 'google_translate_element');
+
+let select=document.querySelector(".goog-te-combo");
+
+if(select){
+select.value=lang;
+select.dispatchEvent(new Event("change"));
+}
+
+};
+
 }
 
 </script>
 
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+<div id="google_translate_element" style="display:none"></div>
 
 </body>
 
