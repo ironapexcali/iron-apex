@@ -64,25 +64,39 @@ font-weight:600;
 /* HERO */
 
 .hero{
-max-width:900px;
+display:flex;
+align-items:center;
+justify-content:center;
+gap:70px;
+max-width:1100px;
 margin:90px auto;
 padding:0 20px;
-text-align:center;
 }
 
-.hero h1{
-font-size:48px;
-margin:20px 0;
+.hero-image img{
+width:380px;
+height:380px;
+object-fit:cover;
+border-radius:18px;
 }
 
-.hero h3{
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h3{
 color:#4ade80;
 margin-bottom:10px;
 }
 
-.hero p{
+.hero-text h1{
+font-size:48px;
+margin-bottom:18px;
+}
+
+.hero-text p{
 opacity:0.85;
-margin-bottom:14px;
+margin-bottom:16px;
 }
 
 .cta{
@@ -93,7 +107,7 @@ padding:14px 28px;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
-margin-top:20px;
+margin-top:10px;
 }
 
 /* SECTIONS */
@@ -107,22 +121,6 @@ padding:0 20px;
 section h2{
 font-size:32px;
 margin-bottom:16px;
-}
-
-/* SKILLS */
-
-.skill-grid{
-display:flex;
-flex-wrap:wrap;
-gap:16px;
-margin-top:25px;
-}
-
-.skill{
-background:#151515;
-padding:16px 20px;
-border-radius:10px;
-border:1px solid #222;
 }
 
 /* TRANSFORMATION */
@@ -141,6 +139,22 @@ margin-top:20px;
 .transformation-images img{
 width:210px;
 border-radius:12px;
+}
+
+/* SKILLS */
+
+.skill-grid{
+display:flex;
+flex-wrap:wrap;
+gap:16px;
+margin-top:25px;
+}
+
+.skill{
+background:#151515;
+padding:16px 20px;
+border-radius:10px;
+border:1px solid #222;
 }
 
 /* PROGRAMS */
@@ -188,6 +202,27 @@ padding:60px;
 opacity:0.6;
 }
 
+/* MOBILE */
+
+@media (max-width:900px){
+
+.hero{
+flex-direction:column;
+text-align:center;
+}
+
+.hero-image img{
+width:280px;
+height:280px;
+}
+
+.transformation-images{
+flex-direction:column;
+align-items:center;
+}
+
+}
+
 </style>
 
 </head>
@@ -209,16 +244,30 @@ opacity:0.6;
 
 <section class="hero">
 
+<div class="hero-image">
+<img src="IMG_8792.jpg">
+</div>
+
+<div class="hero-text">
+
 <h3>SPECIAL BEGINNER / INTERMEDIATE ROUTINE</h3>
 
 <h1>Build Real Strength<br>In Just 1 Month</h1>
 
 <p>
 (without complicated equipment, without wasting hours in the gym,
-and without random workouts that lead nowhere)
+and without random workouts that lead nowhere...)
+</p>
+
+<p>
+Most people train randomly and never build real strength.
+The Iron Apex system focuses on the exercises that actually
+develop elite bodyweight strength.
 </p>
 
 <a class="cta" href="#programs">START TRAINING</a>
+
+</div>
 
 </section>
 
@@ -229,8 +278,7 @@ and without random workouts that lead nowhere)
 <h2>I'm Going To Be Honest And Direct</h2>
 
 <p>
-NO you don't need to train for hours every day like an Olympic gymnast
-to build serious calisthenics strength.
+NO you don't need to train for hours every day like an Olympic gymnast.
 </p>
 
 <p>
@@ -239,22 +287,12 @@ muscle-ups, front lever or handstand pushups.
 </p>
 
 <p>
-NO you don't need complicated training systems
-or hundreds of random exercises.
+NO you don't need hundreds of random exercises.
 </p>
 
 <p>
-And NO there are no magic workouts that instantly make you strong.
-</p>
-
-<p>
-All you need is the right training structure,
-the right progressions and consistent work.
-</p>
-
-<p>
-Most people train randomly and hit plateaus.
-When you follow a structured system everything changes.
+What you actually need is the right training structure
+and consistent progressive overload.
 </p>
 
 </section>
