@@ -10,69 +10,51 @@
 
 <style>
 
-*{
-box-sizing:border-box;
-margin:0;
-padding:0;
-}
-
 body{
 font-family:Poppins,sans-serif;
 background:#0c0c0c;
 color:white;
-line-height:1.6;
-}
-
-.header{
-text-align:center;
+max-width:900px;
+margin:auto;
 padding:60px 20px;
 }
 
-.header h1{
-font-size:42px;
-margin-bottom:10px;
+h1{
+text-align:center;
+margin-bottom:20px;
 }
 
-.container{
-max-width:900px;
-margin:auto;
-padding:20px;
-}
-
-.week{
+.day{
 background:#151515;
-padding:30px;
+padding:25px;
 border-radius:16px;
-margin-bottom:40px;
-box-shadow:0 15px 40px rgba(0,0,0,0.4);
+margin-bottom:30px;
 }
 
-.week h2{
+.day h2{
 color:#6aff63;
 margin-bottom:15px;
 }
 
-.day{
-margin-bottom:20px;
-}
-
 .exercise{
 display:flex;
-justify-content:space-between;
-padding:8px 0;
-border-bottom:1px solid rgba(255,255,255,0.05);
+align-items:center;
+gap:15px;
+margin-bottom:10px;
 }
 
-.check{
-transform:scale(1.2);
+.exercise img{
+width:80px;
+border-radius:8px;
 }
 
 .back{
-display:inline-block;
+display:block;
+text-align:center;
 margin-top:40px;
 background:#6aff63;
 color:black;
-padding:12px 24px;
+padding:12px;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
@@ -84,78 +66,122 @@ font-weight:600;
 
 <body>
 
-<div class="header">
-
 <h1>Skill Builder Program</h1>
 
-<p>8 Week Intermediate Skill Development</p>
+<p style="text-align:center;margin-bottom:40px;">
+Focus on front lever, handstand strength and overall pulling power.
+</p>
 
-</div>
-
-<div class="container">
-
-<div class="week">
-
-<h2>Weeks 1–2</h2>
 
 <div class="day">
 
-<h3>Monday — Pull</h3>
+<h2>Monday — Pull Strength</h2>
 
-<div class="exercise">Pull-ups 5x8 <input class="check" type="checkbox"></div>
-<div class="exercise">Front Lever Tuck Hold 5 sets <input class="check" type="checkbox"></div>
-<div class="exercise">Rows 4x12 <input class="check" type="checkbox"></div>
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Pullup.gif">
+Pull-ups — 5 x 8
+</div>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Front_lever.gif">
+Front Lever Tuck Hold — 5 sets
+</div>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Inverted_row.gif">
+Rows — 4 x 12
+</div>
 
 </div>
+
 
 <div class="day">
 
-<h3>Tuesday — Push</h3>
+<h2>Tuesday — Push Strength</h2>
 
-<div class="exercise">Dips 5x10 <input class="check" type="checkbox"></div>
-<div class="exercise">Decline Push-ups 4x20 <input class="check" type="checkbox"></div>
-<div class="exercise">Plank 3x90s <input class="check" type="checkbox"></div>
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Pushups.gif">
+Push-ups — 4 x 25
+</div>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Dips.gif">
+Dips — 5 x 10
+</div>
 
 </div>
+
 
 <div class="day">
 
-<h3>Friday — Handstand</h3>
+<h2>Wednesday — Skill Work</h2>
 
-<div class="exercise">Wall Handstand Hold 6 sets <input class="check" type="checkbox"></div>
-<div class="exercise">Handstand Kick Ups 10 attempts <input class="check" type="checkbox"></div>
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Handstand.gif">
+Wall Handstand Hold — 6 sets
+</div>
 
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/8/8e/Handstand.gif">
+Handstand Kick Ups — 12 attempts
 </div>
 
 </div>
 
-<div class="week">
 
-<h2>Weeks 3–4</h2>
+<div class="day">
 
-<div class="exercise">Increase reps on main exercises</div>
+<h2>Thursday — Core + Lever</h2>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/b/b0/Front_lever.gif">
+Front Lever Raises — 4 x 6
+</div>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/f/f4/Hanging_leg_raise.gif">
+Hanging Leg Raises — 4 x 15
+</div>
 
 </div>
 
-<div class="week">
 
-<h2>Weeks 5–6</h2>
+<div class="day">
 
-<div class="exercise">Add one extra set to skill work</div>
+<h2>Friday — Conditioning</h2>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Pushups.gif">
+Push-ups — 4 x 30
+</div>
+
+<div class="exercise">
+<img src="https://upload.wikimedia.org/wikipedia/commons/1/1d/Inverted_row.gif">
+Rows — 4 x 15
+</div>
 
 </div>
 
-<div class="week">
 
-<h2>Weeks 7–8</h2>
+<div class="day">
 
-<div class="exercise">Focus on controlled holds and clean technique</div>
+<h2>Saturday — Rest</h2>
+
+Recovery and light stretching.
+
+</div>
+
+
+<div class="day">
+
+<h2>Sunday — Rest</h2>
+
+Full rest day.
 
 </div>
 
-<a class="back" href="index.html">← Back to Website</a>
 
-</div>
+<a class="back" href="index.html">Back to main site</a>
 
 </body>
 </html>
