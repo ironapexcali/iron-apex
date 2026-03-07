@@ -25,8 +25,6 @@ color:white;
 line-height:1.6;
 }
 
-/* NAV */
-
 nav{
 display:flex;
 justify-content:center;
@@ -43,8 +41,6 @@ opacity:0.8;
 nav a:hover{
 opacity:1;
 }
-
-/* HERO */
 
 .hero{
 display:flex;
@@ -87,8 +83,6 @@ text-decoration:none;
 font-weight:600;
 }
 
-/* PROGRAM + TRANSFORMATION */
-
 .program-section{
 display:flex;
 gap:90px;
@@ -97,8 +91,6 @@ margin:120px auto;
 padding:0 20px;
 align-items:flex-start;
 }
-
-/* PROGRAM CARDS */
 
 .cards{
 display:flex;
@@ -123,14 +115,14 @@ transform:translateY(-6px);
 border-color:#4ade80;
 }
 
-/* TRANSFORMATION */
+.requirements{
+opacity:0.7;
+font-size:14px;
+margin-top:12px;
+}
 
 .transformation{
 max-width:420px;
-}
-
-.transformation h2{
-margin-bottom:20px;
 }
 
 .transformation-images{
@@ -151,46 +143,16 @@ opacity:0.75;
 font-size:14px;
 }
 
-/* STORY */
-
 section{
 max-width:900px;
 margin:140px auto;
 padding:0 20px;
 }
 
-section h2{
-margin-bottom:20px;
-font-size:34px;
-}
-
-/* FOOTER */
-
 footer{
 text-align:center;
 padding:80px;
 opacity:0.6;
-}
-
-/* MOBILE */
-
-@media (max-width:900px){
-
-.hero{
-flex-direction:column;
-text-align:center;
-}
-
-.hero-image img{
-width:320px;
-height:320px;
-}
-
-.program-section{
-flex-direction:column;
-align-items:center;
-}
-
 }
 
 </style>
@@ -199,14 +161,12 @@ align-items:center;
 
 <body>
 
-
 <nav>
 
 <a href="#programs">Programs</a>
 <a href="#story">Story</a>
 
 </nav>
-
 
 
 <section class="hero">
@@ -221,7 +181,7 @@ align-items:center;
 
 <p>
 Iron Apex focuses on real bodyweight strength training —
-pull-ups, muscle-ups, explosive power and total control.
+pull-ups, muscle-ups, front lever, planche and total body control.
 </p>
 
 <a class="cta" href="#programs">Explore Programs</a>
@@ -231,9 +191,7 @@ pull-ups, muscle-ups, explosive power and total control.
 </section>
 
 
-
 <div class="program-section" id="programs">
-
 
 <div>
 
@@ -241,36 +199,75 @@ pull-ups, muscle-ups, explosive power and total control.
 
 <div class="cards">
 
+
 <a href="beginner.html" class="card">
+
 <h3>Beginner</h3>
-<p>Build pull-ups, dips and core strength.</p>
+<p>Foundational strength and balance skills.</p>
+
+<div class="requirements">
+Requirements:<br>
+0–5 pullups<br>
+0–5 dips<br>
+0–20 pushups
+</div>
+
 </a>
 
-<a href="skills.html" class="card">
+
+<a href="intermediate.html" class="card">
+
 <h3>Intermediate</h3>
-<p>Muscle-ups, high pull-ups and freestyle basics.</p>
+<p>Weighted strength and first skills.</p>
+
+<div class="requirements">
+Requirements:<br>
+8 pullups<br>
+10 dips<br>
+30 pushups
+</div>
+
 </a>
+
+
+<a href="advanced.html" class="card">
+
+<h3>Advanced</h3>
+<p>Muscle ups and lever strength.</p>
+
+<div class="requirements">
+Requirements:<br>
+15 pullups<br>
+20 dips<br>
+Freestanding handstand
+</div>
+
+</a>
+
 
 <a href="elite.html" class="card">
+
 <h3>Elite</h3>
-<p>Planche, weighted calisthenics and advanced strength.</p>
+<p>High level calisthenics strength.</p>
+
+<div class="requirements">
+Requirements:<br>
+Muscle up<br>
+Front lever<br>
+Handstand pushups
+</div>
+
 </a>
 
-</div>
 
 </div>
 
+</div>
 
 
 <div class="transformation">
 
 <h2>1 Year Progress</h2>
-
-<p style="opacity:0.8;">
-Consistent calisthenics training focusing on pull-ups,
-dips, core strength and progressive overload.
-</p>
-
 
 <div class="transformation-images">
 
@@ -288,9 +285,7 @@ dips, core strength and progressive overload.
 
 </div>
 
-
 </div>
-
 
 
 <section id="story">
@@ -298,19 +293,12 @@ dips, core strength and progressive overload.
 <h2>Why Iron Apex Exists</h2>
 
 <p>
-Most workout programs are either overly complicated or
-completely generic. Iron Apex focuses on simple training
-principles that build real calisthenics strength.
-</p>
-
-<p>
-The goal is simple: develop elite bodyweight strength
-through consistency, progressive overload and proper
-movement control.
+Most workout programs are overly complicated or generic.
+Iron Apex focuses on simple training principles that build real
+calisthenics strength.
 </p>
 
 </section>
-
 
 
 <footer>
@@ -321,5 +309,4 @@ Iron Apex © 2026
 
 
 </body>
-
 </html>
