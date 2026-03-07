@@ -22,9 +22,9 @@ body{
 
 font-family:Poppins,sans-serif;
 
-background:linear-gradient(135deg,#0f172a,#020617);
+background:#111111;
 
-color:white;
+color:#f1f1f1;
 
 }
 
@@ -36,14 +36,17 @@ display:flex;
 justify-content:space-between;
 align-items:center;
 
-padding:30px 10%;
+padding:30px 8%;
+
+border-bottom:1px solid #1e1e1e;
 
 }
 
 .logo{
 
 font-weight:700;
-font-size:20px;
+font-size:22px;
+
 color:#4ade80;
 
 }
@@ -51,15 +54,16 @@ color:#4ade80;
 nav a{
 
 text-decoration:none;
-color:white;
+
+color:#ccc;
+
 margin-left:30px;
-opacity:0.8;
 
 }
 
 nav a:hover{
 
-opacity:1;
+color:white;
 
 }
 
@@ -68,12 +72,14 @@ opacity:1;
 .hero{
 
 max-width:1100px;
+
 margin:auto;
 
 display:grid;
+
 grid-template-columns:1fr 1fr;
 
-gap:60px;
+gap:70px;
 
 padding:120px 20px;
 
@@ -84,15 +90,15 @@ align-items:center;
 .hero img{
 
 width:100%;
-border-radius:20px;
 
-box-shadow:0 40px 80px rgba(0,0,0,0.6);
+border-radius:18px;
 
 }
 
 .hero h1{
 
 font-size:56px;
+
 margin-bottom:20px;
 
 }
@@ -100,6 +106,7 @@ margin-bottom:20px;
 .hero p{
 
 opacity:0.8;
+
 margin-bottom:30px;
 
 }
@@ -110,21 +117,21 @@ background:#4ade80;
 
 color:black;
 
-padding:15px 30px;
+padding:15px 28px;
 
-border-radius:10px;
-
-text-decoration:none;
+border-radius:8px;
 
 font-weight:600;
 
+text-decoration:none;
+
 }
 
-/* SECTION */
+/* SECTIONS */
 
 .section{
 
-max-width:1000px;
+max-width:900px;
 
 margin:auto;
 
@@ -138,7 +145,7 @@ text-align:center;
 
 font-size:36px;
 
-margin-bottom:20px;
+margin-bottom:30px;
 
 }
 
@@ -148,7 +155,7 @@ margin-bottom:20px;
 
 display:grid;
 
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
 
 gap:30px;
 
@@ -158,29 +165,27 @@ margin-top:40px;
 
 .card{
 
-background:rgba(255,255,255,0.05);
+background:#1a1a1a;
 
-backdrop-filter:blur(10px);
+padding:35px;
 
-padding:40px;
-
-border-radius:16px;
+border-radius:12px;
 
 text-decoration:none;
 
 color:white;
 
-transition:0.3s;
+transition:0.25s;
 
-border:1px solid rgba(255,255,255,0.05);
+border:1px solid #222;
 
 }
 
 .card:hover{
 
-transform:translateY(-8px);
+transform:translateY(-6px);
 
-background:rgba(255,255,255,0.08);
+border-color:#4ade80;
 
 }
 
@@ -190,11 +195,15 @@ footer{
 
 text-align:center;
 
-padding:40px;
+padding:50px;
 
 opacity:0.6;
 
+border-top:1px solid #1e1e1e;
+
 }
+
+/* MOBILE */
 
 @media(max-width:900px){
 
@@ -240,7 +249,7 @@ text-align:center;
 <p>
 
 Build elite bodyweight strength and unlock advanced skills
-like muscle ups, front levers and full planche.
+like muscle ups, front lever and full planche.
 
 </p>
 
@@ -257,14 +266,18 @@ like muscle ups, front levers and full planche.
 
 <p>
 
-When I started calisthenics I struggled with mobility,
-slow progress and constant plateaus.
+When I first started calisthenics I struggled with mobility,
+poor technique and very slow progress.
 
-Over time I rebuilt my training from the ground up
-focusing on fundamentals, mobility and structured progression.
+Like many beginners I rushed skills too early and constantly
+ran into plateaus. I lacked the understanding of how to build
+strength properly and how mobility affects performance.
 
-These programs are designed to help you avoid the mistakes
-most beginners make and progress faster.
+Over time I rebuilt my training from the ground up. I focused
+on fundamentals, structured progression and mobility.
+
+These programs are built from that experience and designed
+to help athletes avoid the mistakes that cause most plateaus.
 
 </p>
 
@@ -277,16 +290,16 @@ most beginners make and progress faster.
 
 <div class="cards">
 
-<a class="card" href="beginner.html">
+<a href="beginner.html" class="card">
 
 <h3>Beginner Program</h3>
 
-<p>Build your first pull ups, dips and core strength.</p>
+<p>Build your first pull-ups, dips and core strength.</p>
 
 </a>
 
 
-<a class="card" href="skills.html">
+<a href="skills.html" class="card">
 
 <h3>Intermediate Program</h3>
 
@@ -295,11 +308,11 @@ most beginners make and progress faster.
 </a>
 
 
-<a class="card" href="elite.html">
+<a href="elite.html" class="card">
 
 <h3>Elite Program</h3>
 
-<p>Train for planche, front lever and elite strength.</p>
+<p>Train for planche, front lever and elite calisthenics strength.</p>
 
 </a>
 
