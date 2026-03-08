@@ -20,7 +20,7 @@ padding:0;
 
 body{
 font-family:'Poppins',sans-serif;
-background:#0b0b0b;
+background:#070707;
 color:white;
 line-height:1.6;
 }
@@ -49,16 +49,6 @@ opacity:0.8;
 
 nav a:hover{
 opacity:1;
-}
-
-.lang-btn{
-background:#151515;
-border:1px solid #222;
-color:white;
-padding:6px 14px;
-border-radius:8px;
-cursor:pointer;
-font-weight:600;
 }
 
 /* HERO */
@@ -96,31 +86,32 @@ margin-bottom:16px;
 
 .cta{
 display:inline-block;
-background:#4ade80;
+background:#55ff88;
 color:black;
 padding:14px 28px;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
 margin-top:10px;
+transition:0.2s;
+}
+
+.cta:hover{
+transform:translateY(-3px);
+box-shadow:0 0 15px #55ff88;
 }
 
 /* SECTIONS */
 
 section{
 max-width:900px;
-margin:70px auto;
+margin:80px auto;
 padding:0 20px;
 }
 
 section h2{
 font-size:32px;
 margin-bottom:16px;
-}
-
-section p{
-opacity:0.85;
-margin-bottom:12px;
 }
 
 /* TRANSFORMATION */
@@ -151,7 +142,7 @@ margin-top:25px;
 }
 
 .skill{
-background:#151515;
+background:#111;
 padding:16px 20px;
 border-radius:10px;
 border:1px solid #222;
@@ -173,7 +164,7 @@ margin-top:25px;
 }
 
 .card{
-background:#151515;
+background:#111;
 padding:25px;
 border-radius:14px;
 width:240px;
@@ -184,8 +175,9 @@ transition:0.25s;
 }
 
 .card:hover{
-transform:translateY(-5px);
-border-color:#4ade80;
+transform:translateY(-6px);
+border-color:#55ff88;
+box-shadow:0 0 12px #55ff88;
 }
 
 .requirements{
@@ -215,9 +207,8 @@ opacity:0.6;
 <a href="#story">My Story</a>
 </div>
 
-<button class="lang-btn">Language</button>
-
 </nav>
+
 
 
 <section class="hero">
@@ -228,12 +219,17 @@ opacity:0.6;
 
 <div class="hero-text">
 
-<h1>Build Elite Calisthenics Strength</h1>
+<h1>Build Real Strength<br>In Just 1 Month</h1>
 
 <p>
-A structured training system designed to take you from basic bodyweight strength
-to advanced calisthenics skills like muscle-ups, front lever progressions,
-and even one-arm pull-ups.
+(without complicated equipment, without wasting hours in the gym,
+and without random workouts that lead nowhere...)
+</p>
+
+<p>
+Most people train randomly and never build real strength.
+The Iron Apex system focuses on the exercises that actually
+develop elite bodyweight strength.
 </p>
 
 <a class="cta" href="#programs">START TRAINING</a>
@@ -248,15 +244,10 @@ and even one-arm pull-ups.
 
 <h2>I'm Going To Be Honest And Direct</h2>
 
-<p>NO you don't need to train like an Olympic gymnast for hours every day.</p>
-<p>NO you don't need perfect genetics to achieve advanced calisthenics skills.</p>
+<p>NO you don't need to train for hours every day like an Olympic gymnast.</p>
+<p>NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
 <p>NO you don't need hundreds of random exercises.</p>
-
-<p>
-What you actually need is structured training, progressive overload,
-and consistency. Most athletes never reach advanced strength because
-their workouts are random and unstructured.
-</p>
+<p>What you actually need is the right training structure and progressive overload.</p>
 
 </section>
 
@@ -266,25 +257,18 @@ their workouts are random and unstructured.
 
 <h2>My Story</h2>
 
-<p>
-When I first started calisthenics I couldn't do a single pull-up.
-I lacked mobility, strength, and constantly hit frustrating plateaus.
-</p>
+<p>When I started calisthenics I couldn't do a single pull-up.</p>
+<p>I lacked mobility and constantly hit plateaus.</p>
 
 <p>
-Instead of quitting, I started rebuilding my training from the ground up.
-I focused on fundamentals, progressive overload, and proper skill training.
-</p>
-
-<p>
-Through consistent training I eventually reached
+Through structured training I eventually progressed to
 30 pull-ups, +50kg weighted pull-ups,
 clean slow muscle-ups, front lever,
-handstand push-ups and straddle planche.
+handstand pushups and straddle planche.
 </p>
 
 <p>
-Iron Apex was created so others can reach those levels of strength
+Iron Apex was built to help others reach that level
 without wasting years on bad training methods.
 </p>
 
@@ -314,25 +298,6 @@ without wasting years on bad training methods.
 
 
 
-<section>
-
-<h2>Skills You Will Build</h2>
-
-<div class="skill-grid">
-
-<div class="skill">Pull-Ups</div>
-<div class="skill">Muscle Ups</div>
-<div class="skill">Front Lever</div>
-<div class="skill">Straddle Planche</div>
-<div class="skill">Handstand Push-Ups</div>
-<div class="skill">L-Sit / V-Sit</div>
-
-</div>
-
-</section>
-
-
-
 <div class="programs" id="programs">
 
 <h2>Training Programs</h2>
@@ -352,24 +317,27 @@ Explosive Pull Strength
 <a href="beginner.html" class="card">
 <h3>Beginner</h3>
 <div class="requirements">
+Requirements:<br>
 0–5 Pull-ups<br>
 0–5 Dips<br>
-0–20 Push-ups
+0–20 Pushups
 </div>
 </a>
 
 <a href="intermediate.html" class="card">
 <h3>Intermediate</h3>
 <div class="requirements">
+Requirements:<br>
 8 Pull-ups<br>
 10 Dips<br>
-30 Push-ups
+30 Pushups
 </div>
 </a>
 
 <a href="advanced.html" class="card">
 <h3>Advanced</h3>
 <div class="requirements">
+Requirements:<br>
 15 Pull-ups<br>
 20 Dips<br>
 Freestanding Handstand
@@ -379,9 +347,10 @@ Freestanding Handstand
 <a href="elite.html" class="card">
 <h3>Elite</h3>
 <div class="requirements">
-Muscle-Up<br>
+Requirements:<br>
+Muscle Up<br>
 Front Lever Hold<br>
-Handstand Push-Ups
+Handstand Pushups
 </div>
 </a>
 
@@ -396,23 +365,42 @@ Handstand Push-Ups
 <h2>How The Iron Apex Program Works</h2>
 
 <p>
-The Iron Apex system is built around progressive overload and structured
-strength development. The system is divided into four levels:
-Beginner, Intermediate, Advanced, and Elite.
+The Iron Apex system is built around progressive overload and structured strength development.
+The program is divided into four levels: Beginner, Intermediate, Advanced, and Elite.
 </p>
 
 <p>
-Each level follows a structured weekly routine designed to develop
-pulling strength, pushing power, core stability, and advanced calisthenics skills.
-Athletes repeat the weekly structure while gradually increasing reps,
-difficulty, and hold times.
+Each level follows a structured weekly routine designed to develop pulling power,
+pushing strength, and advanced calisthenics skills.
 </p>
 
 <p>
-Progression is based on strength standards.
-Athletes only move to the next level once they reach the required benchmarks.
-This ensures proper strength development and reduces injury risk.
+Athletes repeat the weekly training structure while progressively increasing reps,
+exercise difficulty, or hold times.
 </p>
+
+<p>
+Progression is based on strength standards so athletes build real strength before advancing.
+</p>
+
+</section>
+
+
+
+<section>
+
+<h2>Skills You Will Build</h2>
+
+<div class="skill-grid">
+
+<div class="skill">Pull-Ups</div>
+<div class="skill">Muscle Ups</div>
+<div class="skill">Front Lever</div>
+<div class="skill">Straddle Planche</div>
+<div class="skill">Handstand Pushups</div>
+<div class="skill">L-Sit & V-Sit</div>
+
+</div>
 
 </section>
 
@@ -426,8 +414,8 @@ This ensures proper strength development and reduces injury risk.
 <p>• Explosive pull-ups</p>
 <p>• Muscle-up technique</p>
 <p>• Front lever progressions</p>
-<p>• Handstand push-up strength</p>
-<p>• Core strength and body control</p>
+<p>• Handstand pushup strength</p>
+<p>• Core strength and mobility</p>
 
 </section>
 
@@ -437,15 +425,20 @@ This ensures proper strength development and reduces injury risk.
 
 <h2>Iron Apex Training Philosophy</h2>
 
+<p>Strength comes first.</p>
+
 <p>
-Strength comes first. Many athletes chase advanced skills without building
+Most athletes chase flashy skills before building
 the strength required to control them.
 </p>
 
-<p>
-Iron Apex focuses on progressive overload, strong pulling power,
-core control, and consistent training.
-</p>
+<p>Iron Apex focuses on:</p>
+
+<p>• Progressive overload</p>
+<p>• Perfect technique</p>
+<p>• Strong pulling power</p>
+<p>• Core control</p>
+<p>• Consistency</p>
 
 </section>
 
@@ -456,25 +449,42 @@ core control, and consistent training.
 <h2>Frequently Asked Questions</h2>
 
 <p><b>Do I need equipment?</b></p>
-<p>A pull-up bar and dip bars are enough to start.</p>
+<p>Just a pull-up bar and dip bars.</p>
 
 <p><b>How long are the workouts?</b></p>
-<p>Most sessions take around 60–90 minutes.</p>
+<p>Most sessions take about 60–90 minutes.</p>
 
-<p><b>How fast will I see progress?</b></p>
+<p><b>How fast will I see results?</b></p>
 <p>Most athletes notice strength improvements within 4–8 weeks.</p>
 
 </section>
 
 
 
-<section>
+<section class="cta-section">
+
+<h2>Ready To Start?</h2>
+
+<p>
+Choose the program that matches your level
+and begin building real calisthenics strength.
+</p>
+
+<a class="cta" href="#programs">Explore Programs</a>
+
+</section>
+
+
+
+<section class="instagram">
 
 <h2>Need Help With Training?</h2>
 
 <p>DM me for tips or coaching:</p>
 
-<p><b>@sambrooks1223</b></p>
+<p>
+<a href="https://instagram.com/sambrooks1223">@sambrooks1223</a>
+</p>
 
 </section>
 
