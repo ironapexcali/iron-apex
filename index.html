@@ -11,7 +11,7 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V6 - OPTIMIZED HIERARCHY
+           IRON APEX V6 - OPTIMIZED SALES FUNNEL HIERARCHY
            ========================================================================== */
 
         :root {
@@ -251,7 +251,7 @@
             border: 2px solid var(--border-color);
         }
 
-        .transform-img-box { position: relative; background-color: var(--bg-pure); }
+        .transform-img-box { position: relative; background-color: var(--bg-pure); overflow: hidden; }
 
         .transform-img-box img {
             width: 100%; height: 700px;
@@ -259,7 +259,7 @@
             transition: var(--transition);
         }
 
-        .transform-img-box:hover img { filter: grayscale(0%); }
+        .transform-img-box:hover img { filter: grayscale(0%); transform: scale(1.02); }
 
         .transform-label {
             position: absolute; top: 30px; left: 30px;
@@ -332,7 +332,7 @@
         .program-card:hover { border-color: var(--text-main); transform: translateY(-5px); }
 
         /* --- FOUNDER & BENCHMARKS --- */
-        .founder-section { padding: var(--pad-section); background-color: var(--bg-pure); border-top: 1px solid var(--border-color); }
+        .founder-section { padding: var(--pad-section); background-color: var(--bg-pure); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
 
         .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 
@@ -446,9 +446,9 @@
         <div class="container nav-inner">
             <a href="#" class="logo">IRON<span>APEX</span></a>
             <nav class="nav-links">
+                <a href="#founder">About</a>
                 <a href="#results">Results</a>
                 <a href="#programs">Shop Programs</a>
-                <a href="#founder">The Founder</a>
             </nav>
         </div>
     </header>
@@ -497,10 +497,52 @@
         </div>
     </section>
 
-    <section id="results" class="transform-section">
+    <section id="founder" class="founder-section">
+        <div class="container">
+            <div class="founder-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: clamp(35px, 5vw, 60px); line-height: 1.1; margin-bottom: 30px;">
+                        BEFORE WE GO FURTHER,<br><span class="text-accent">MY STORY.</span>
+                    </h2>
+                    
+                    <p class="text-muted" style="margin-bottom: 20px; font-size: 18px;">
+                        I'm Sam, the athlete behind @sambrooks1223. I've been fully immersed in the world of elite calisthenics, which has given me solid, battle-tested knowledge and an experience hard to match.
+                    </p>
+                    
+                    <p class="text-muted" style="margin-bottom: 20px; font-size: 18px;">
+                        Much more than a passion, it's a real vocation for me to help other people build raw bodyweight strength and take absolute control of their physical health.
+                    </p>
+                    
+                    <p style="margin-bottom: 40px; font-size: 18px; font-weight: 600;">
+                        I have the keys to unlock your potential, and I don't want to keep them to myself forever... 🔑
+                    </p>
+
+                    <h4 style="font-size: 24px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
+                    <ul class="stat-list">
+                        <li>One-Arm Pull-Up <span>Unlocked</span></li>
+                        <li>Handstand Push-Ups <span>Mastered</span></li>
+                        <li>Weighted Pull-Up <span>+50kg</span></li>
+                        <li>Strict Pull-Ups <span>30 Reps</span></li>
+                        <li>Front Lever <span>Mastered</span></li>
+                        <li>Straddle Planche <span>Unlocked</span></li>
+                    </ul>
+                </div>
+                
+                <div class="founder-img-wrapper">
+                    <img src="pullup-demo.jpg" alt="Founder Demonstration">
+                    <div class="founder-img-caption">
+                        Founder Demonstration<br>
+                        <span style="color: var(--text-secondary); font-size: 14px; font-weight: 400;">Building true vertical pulling power.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="transform-section" style="background-color: var(--bg-elevated);">
         <div class="container text-center" style="margin-bottom: 60px;">
             <h2 class="section-title">UNDENIABLE PROOF</h2>
-            <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. The system works if you do.</p>
+            <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. I built the system I use.</p>
         </div>
         
         <div class="container" style="max-width: 1200px;">
@@ -510,8 +552,24 @@
                     <img src="IMG_8839.jpg" alt="Before Iron Apex">
                 </div>
                 <div class="transform-img-box">
-                    <div class="transform-label text-accent">YEAR 1.5</div>
+                    <div class="transform-label" style="border-color: var(--accent-neon); color: var(--accent-neon);">YEAR 1.5</div>
                     <img src="IMG_8841.jpg" alt="After Iron Apex">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="clients" class="transform-section">
+        <div class="container text-center" style="margin-bottom: 60px;">
+            <h2 class="section-title">ATHLETE EVOLUTION</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
+        </div>
+        
+        <div class="container" style="max-width: 800px; margin: 0 auto;">
+            <div class="transform-grid" style="grid-template-columns: 1fr;">
+                <div class="transform-img-box">
+                    <div class="transform-label text-accent">[CLIENT NAME] - TRANSFORMATION</div>
+                    <img src="IMG_8851.jpg" alt="Client Transformation">
                 </div>
             </div>
         </div>
@@ -582,64 +640,6 @@
                         <div class="card-action">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <section id="clients" class="transform-section">
-        <div class="container text-center" style="margin-bottom: 60px;">
-            <h2 class="section-title">ATHLETE EVOLUTION</h2>
-            <p class="section-subtitle" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
-        </div>
-        
-        <div class="container" style="max-width: 800px; margin: 0 auto;">
-            <div class="transform-grid" style="grid-template-columns: 1fr;">
-                <div class="transform-img-box">
-                    <div class="transform-label text-accent">[CLIENT NAME] - TRANSFORMATION</div>
-                    <img src="IMG_8851.jpg" alt="Client Transformation">
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="founder" class="founder-section">
-        <div class="container">
-            <div class="founder-grid">
-                <div>
-                    <h2 class="section-title" style="font-size: clamp(35px, 5vw, 60px); line-height: 1.1; margin-bottom: 30px;">
-                        BEFORE WE GO FURTHER,<br><span class="text-accent">MY STORY.</span>
-                    </h2>
-                    
-                    <p class="text-muted" style="margin-bottom: 20px; font-size: 18px;">
-                        I'm Sam, the athlete behind @sambrooks1223. I've been fully immersed in the world of elite calisthenics, which has given me solid, battle-tested knowledge and an experience hard to match.
-                    </p>
-                    
-                    <p class="text-muted" style="margin-bottom: 20px; font-size: 18px;">
-                        Much more than a passion, it's a real vocation for me to help other people build raw bodyweight strength and take absolute control of their physical health.
-                    </p>
-                    
-                    <p style="margin-bottom: 40px; font-size: 18px; font-weight: 600;">
-                        I have the keys to unlock your potential, and I don't want to keep them to myself forever... 🔑
-                    </p>
-
-                    <h4 style="font-size: 24px; border-bottom: 2px solid var(--border-color); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
-                    <ul class="stat-list">
-                        <li>One-Arm Pull-Up <span>Unlocked</span></li>
-                        <li>Handstand Push-Ups <span>Mastered</span></li>
-                        <li>Weighted Pull-Up <span>+50kg</span></li>
-                        <li>Strict Pull-Ups <span>30 Reps</span></li>
-                        <li>Front Lever <span>Mastered</span></li>
-                        <li>Straddle Planche <span>Unlocked</span></li>
-                    </ul>
-                </div>
-                
-                <div class="founder-img-wrapper">
-                    <img src="pullup-demo.jpg" alt="Founder Demonstration">
-                    <div class="founder-img-caption">
-                        Founder Demonstration<br>
-                        <span style="color: var(--text-secondary); font-size: 14px; font-weight: 400;">Building true vertical pulling power.</span>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
