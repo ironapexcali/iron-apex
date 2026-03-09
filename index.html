@@ -1,449 +1,533 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Apex - Elite Calisthenics Training</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    /* Reset styles */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Apex | Elite Calisthenics Strength</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(to bottom, #0f0f0f, #1a1a1a);
-      color: white;
-      line-height: 1.6;
-      position: relative;
-    }
+    <style>
+        :root {
+            --bg-black: #0a0a0a;
+            --bg-card: #141414;
+            --bg-accent: #1c1c1c;
+            --primary: #55ff88;
+            --primary-glow: rgba(85, 255, 136, 0.3);
+            --text-main: #ffffff;
+            --text-muted: #a0a0a0;
+            --section-padding: 100px 20px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
 
-    /* Subtle grain effect */
-    body::after {
-      content: "";
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      background-image: url("https://grainy-gradients.vercel.app/noise.svg");
-      opacity: 0.04;
-      z-index: -1;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
 
-    /* Navigation */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1200px;
-      margin: auto;
-      padding: 22px 20px;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-    .nav-left {
-      display: flex;
-      gap: 32px;
-    }
+        /* Subtle Background Texture */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 9999;
+        }
 
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-size: 14px;
-      opacity: 0.8;
-      transition: opacity 0.3s;
-    }
+        /* --- NAVIGATION --- */
+        nav {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
 
-    nav a:hover {
-      opacity: 1;
-    }
+        .nav-left {
+            display: flex;
+            gap: 30px;
+        }
 
-    /* Hero section */
-    .hero {
-      height: 85vh;
-      background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 60%), url("IMG_8792.jpg") center/cover no-repeat;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
+        nav a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.6;
+            transition: var(--transition);
+        }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
-      z-index: 1;
-    }
+        nav a:hover {
+            opacity: 1;
+            color: var(--primary);
+        }
 
-    .hero-content {
-      max-width: 800px;
-      padding: 20px;
-      position: relative;
-      z-index: 2;
-    }
+        /* --- HERO SECTION --- */
+        .hero {
+            height: 100vh;
+            min-height: 700px;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url("IMG_8792.jpg") center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+        }
 
-    .hero h1 {
-      font-size: 64px;
-      margin-bottom: 18px;
-    }
+        .hero-content {
+            max-width: 900px;
+            animation: fadeIn 1s ease-out;
+        }
 
-    .hero p {
-      opacity: 0.9;
-      margin-bottom: 26px;
-    }
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 80px);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
 
-    /* Buttons */
-    .hero-buttons a,
-    .cta {
-      display: inline-block;
-      background: linear-gradient(to right, #55ff88, #63ff96);
-      color: black;
-      padding: 16px 36px;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 10px rgba(85, 255, 136, 0.4);
-    }
+        .hero p {
+            font-size: clamp(16px, 2vw, 20px);
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
 
-    .hero-buttons a:hover,
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 15px rgba(85, 255, 136, 0.6);
-    }
+        /* --- BUTTONS --- */
+        .hero-buttons a, .cta {
+            display: inline-block;
+            background: var(--primary);
+            color: #000;
+            padding: 18px 45px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            border: 2px solid var(--primary);
+        }
 
-    /* Sections */
-    section {
-      max-width: 1000px;
-      margin: auto;
-      padding: 80px 20px;
-    }
+        .hero-buttons a:hover, .cta:hover {
+            background: transparent;
+            color: var(--primary);
+            box-shadow: 0 0 30px var(--primary-glow);
+            transform: translateY(-3px);
+        }
 
-    .alt {
-      background: #181818;
-    }
+        /* --- SECTIONS --- */
+        section {
+            padding: var(--section-padding);
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    /* Headings */
-    section h2 {
-      font-size: 42px;
-      margin-bottom: 18px;
-    }
+        .alt {
+            background: var(--bg-card);
+            max-width: 100%;
+            width: 100%;
+            border-top: 1px solid rgba(255,255,255,0.03);
+            border-bottom: 1px solid rgba(255,255,255,0.03);
+        }
 
-    /* Transformation */
-    .transformation {
-      text-align: center;
-    }
+        .alt-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .transformation-images {
-      display: flex;
-      justify-content: center;
-      gap: 35px;
-      margin-top: 22px;
-    }
+        h2 {
+            font-size: clamp(30px, 5vw, 45px);
+            font-weight: 700;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
 
-    .transformation-images img {
-      width: 240px;
-      border-radius: 10px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        p {
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            font-size: 17px;
+        }
 
-    .transformation-images img:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8);
-    }
+        /* --- TRANSFORMATION --- */
+        .transformation {
+            text-align: center;
+        }
 
-    /* Skills */
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 16px;
-      margin-top: 25px;
-    }
+        .transformation-images {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
+        }
 
-    .skill {
-      background: #1c1c1c;
-      padding: 18px 22px;
-      border-radius: 8px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+        .transformation-images div {
+            flex: 1;
+            max-width: 400px;
+        }
 
-    .skill:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
-    }
+        .transformation-images img {
+            width: 100%;
+            border-radius: 4px;
+            filter: grayscale(20%);
+            transition: var(--transition);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
 
-    /* Programs */
-    .programs {
-      max-width: 1200px;
-      margin: 80px auto;
-      padding: 0 20px;
-    }
+        .transformation-images img:hover {
+            filter: grayscale(0%);
+            border-color: var(--primary);
+        }
 
-    .cards {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 26px;
-      margin-top: 30px;
-    }
+        .transformation-images p {
+            margin-top: 15px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 1px;
+        }
 
-    .card {
-      background: #1c1c1c;
-      padding: 28px;
-      border-radius: 12px;
-      width: 280px;
-      text-decoration: none;
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.06);
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
-    }
+        /* --- SKILLS --- */
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
+        }
 
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #55ff88;
-      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
-    }
+        .skill {
+            background: var(--bg-card);
+            padding: 20px;
+            border-radius: 4px;
+            border: 1px solid rgba(255,255,255,0.05);
+            text-align: center;
+            font-weight: 600;
+            transition: var(--transition);
+        }
 
-    .card h3 {
-      font-size: 22px;
-      margin-bottom: 12px;
-    }
+        .skill:hover {
+            border-color: var(--primary);
+            color: var(--primary);
+            background: #1a1a1a;
+        }
 
-    .requirements {
-      opacity: 0.75;
-      font-size: 14px;
-      margin-top: 10px;
-    }
+        /* --- PROGRAMS --- */
+        .programs {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: var(--section-padding);
+        }
 
-    .program-detail {
-      margin-top: 10px;
-      opacity: 0.9;
-      font-size: 15px;
-    }
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 50px;
+        }
 
-    .pricing {
-      margin-top: 16px;
-      font-size: 18px;
-      font-weight: 600;
-    }
+        .card {
+            background: var(--bg-card);
+            padding: 40px 30px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+        }
 
-    /* CTA section */
-    .cta-section {
-      text-align: center;
-    }
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 60px;
-      opacity: 0.6;
-    }
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: var(--primary);
+            text-transform: uppercase;
+        }
 
-    /* Mobile responsiveness */
-    @media (max-width: 1024px) {
-      .hero {
-        height: 75vh;
-      }
+        .requirements {
+            background: rgba(255, 255, 255, 0.05);
+            display: inline-block;
+            padding: 4px 12px;
+            font-size: 12px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            border-radius: 2px;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
 
-      .hero h1 {
-        font-size: 48px;
-      }
+        .program-detail {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.5;
+        }
 
-      .cards {
-        justify-content: center;
-      }
+        /* --- CTA SECTION --- */
+        .cta-section {
+            text-align: center;
+            padding: 120px 20px;
+            background: linear-gradient(to bottom, var(--bg-black), #111);
+        }
 
-      .card {
-        width: 100%;
-        max-width: 360px;
-      }
+        /* --- INSTAGRAM SECTION --- */
+        .instagram {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
 
-      .transformation-images {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-      }
+        .instagram a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 24px;
+        }
 
-      .transformation-images img {
-        width: 200px;
-      }
-    }
+        /* --- FOOTER --- */
+        footer {
+            text-align: center;
+            padding: 50px;
+            font-size: 12px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
 
-    @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 38px;
-      }
-    }
-  </style>
+        /* --- ANIMATIONS --- */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- MOBILE RESPONSIVENESS --- */
+        @media (max-width: 900px) {
+            nav .nav-left {
+                gap: 15px;
+            }
+            nav a {
+                font-size: 11px;
+            }
+            .hero h1 {
+                font-size: 45px;
+            }
+            .transformation-images {
+                flex-direction: column;
+                align-items: center;
+            }
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <nav>
-    <div class="nav-left">
-      <a href="#programs">Programs</a>
-      <a href="#story">My Story</a>
-      <a href="#transformation">Transformation</a>
-      <a href="#skills">Skills</a>
-      <a href="#system">System</a>
-    </div>
-  </nav>
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Build Elite Calisthenics Strength</h1>
-      <p>
-        A structured training system designed to help you build real bodyweight strength and progress toward advanced skills like muscle-ups, front lever and one-arm pull-ups.
-      </p>
-      <div class="hero-buttons">
-        <a href="#programs" class="cta">Start Training</a>
-      </div>
-    </div>
-  </section>
-
-  <section>
-    <h2>Founder Demonstration</h2>
-    <p>
-      The Iron Apex system is based on real strength development. Demonstrations of advanced skills like one-arm pull-ups, explosive muscle-ups and weighted pull-ups will be shown here.
-    </p>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <section class="alt">
-    <h2>I'm Going To Be Honest And Direct</h2>
-    <p>NO you don't need to train for hours every day like an Olympic gymnast.</p>
-    <p>NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
-    <p>NO you don't need hundreds of random exercises.</p>
-    <p>
-      What you actually need is structured training, progressive overload and consistency. That is exactly what the Iron Apex system focuses on.
-    </p>
-  </section>
-
-  <section style="text-align:center;">
-    <img src="pullup-demo.jpg" style="width:360px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
-    <p style="opacity:0.7;margin-top:10px;font-size:14px;">
-      Training demonstration — building real pulling strength.
-    </p>
-  </section>
-
-  <section id="story" class="alt">
-    <h2>My Story</h2>
-    <p>
-      When I first started calisthenics I couldn't do a single pull-up and constantly hit frustrating plateaus.
-    </p>
-    <p>
-      Through structured training I eventually reached:
-    </p>
-    <ul>
-      <li>30 strict pull-ups</li>
-      <li>+50kg weighted pull-ups</li>
-      <li>clean slow muscle-ups</li>
-      <li>front lever</li>
-      <li>handstand push-ups</li>
-      <li>straddle planche strength</li>
-    </ul>
-  </section>
-
-  <section id="transformation" class="transformation">
-    <h2>My 1.5 Year Transformation</h2>
-    <div class="transformation-images">
-      <div>
-        <img src="IMG_8839.jpg" alt="Before">
-        <p>Before</p>
-      </div>
-      <div>
-        <img src="IMG_8841.jpg" alt="After">
-        <p>After (1.5 years)</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="skills">
-    <h2>Skills You Will Build</h2>
-    <div class="skill-grid">
-      <div class="skill">Pull-Ups</div>
-      <div class="skill">Muscle Ups</div>
-      <div class="skill">Front Lever</div>
-      <div class="skill">Straddle Planche</div>
-      <div class="skill">Handstand Push-Ups</div>
-      <div class="skill">L-Sit / V-Sit</div>
-    </div>
-  </section>
-
-  <div class="programs" id="programs">
-    <h2>Training Programs</h2>
-    <div class="cards">
-      <a href="muscleup.html" class="card">
-        <h3>Muscle-Up Program</h3>
-        <div class="requirements">10 pull-ups / 12 dips</div>
-        <div class="program-detail">
-          4 sessions per week focused on explosive pulling power and muscle-up technique.
+    <nav>
+        <div class="nav-left">
+            <a href="#programs">Programs</a>
+            <a href="#story">My Story</a>
+            <a href="#transformation">Transformation</a>
+            <a href="#skills">Skills</a>
+            <a href="#system">System</a>
         </div>
-        <div class="pricing">$47/month</div>
-      </a>
-      <a href="beginner.html" class="card">
-        <h3>Beginner</h3>
-        <div class="requirements">0–5 pull-ups</div>
-        <div class="program-detail">
-          Build foundational strength and core stability.
+    </nav>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Build Elite Calisthenics Strength</h1>
+            <p>
+                A structured training system designed to help you build real bodyweight strength and progress toward advanced skills like muscle-ups, front lever and one-arm pull-ups.
+            </p>
+            <div class="hero-buttons">
+                <a href="#programs">Start Training</a>
+            </div>
         </div>
-        <div class="pricing">$37/month</div>
-      </a>
-      <a href="intermediate.html" class="card">
-        <h3>Intermediate</h3>
-        <div class="requirements">8 pull-ups</div>
-        <div class="program-detail">
-          Explosive pull-ups, muscle-up strength and handstand control.
+    </section>
+
+    <section>
+        <div class="content-wrapper">
+            <h2>Founder Demonstration</h2>
+            <p>
+                The Iron Apex system is based on real strength development. Demonstrations of advanced skills like one-arm pull-ups, explosive muscle-ups and weighted pull-ups will be shown here.
+            </p>
         </div>
-        <div class="pricing">$47/month</div>
-      </a>
-      <a href="advanced.html" class="card">
-        <h3>Advanced</h3>
-        <div class="requirements">15 pull-ups</div>
-        <div class="program-detail">
-          Front lever progressions and weighted calisthenics.
-        </div>
-        <div class="pricing">$57/month</div>
-      </a>
-      <a href="elite.html" class="card">
-        <h3>Elite</h3>
-        <div class="requirements">Muscle-up / front lever</div>
-        <div class="program-detail">
-          Planche training and elite calisthenics strength.
-        </div>
-        <div class="pricing">$67/month</div>
-      </a>
+    </section>
+
+    <div class="alt">
+        <section class="alt-container">
+            <h2>I'm Going To Be Honest And Direct</h2>
+            <p>NO you don't need to train for hours every day like an Olympic gymnast.</p>
+            <p>NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
+            <p>NO you don't need hundreds of random exercises.</p>
+            <p>
+                What you actually need is structured training, progressive overload and consistency. That is exactly what the Iron Apex system focuses on.
+            </p>
+        </section>
     </div>
-  </div>
 
-  <section id="system" class="alt">
-    <h2>How The Iron Apex System Works</h2>
-    <p>
-      The Iron Apex system is built around progressive overload and structured strength development.
-    </p>
-    <p>
-      Athletes build foundational strength before progressing to advanced calisthenics skills.
-    </p>
-  </section>
+    <section style="text-align:center;">
+        <img src="pullup-demo.jpg" alt="Pull-up demonstration" 
+             style="width:100%; max-width:500px; border-radius:4px; box-shadow: 0 30px 60px rgba(0,0,0,0.5); border: 1px solid rgba(255,255,255,0.1);">
+        <p style="opacity:0.5; margin-top:25px; font-size:14px; text-transform: uppercase; letter-spacing: 1px;">
+            Training demonstration — building real pulling strength.
+        </p>
+    </section>
 
-  <section class="cta-section">
-    <h2>Start Your Training</h2>
-    <p>Choose the program that matches your current strength level.</p>
-    <a href="#programs" class="cta">BEGIN THE PROGRAM</a>
-  </section>
+    <div class="alt" id="story">
+        <section class="alt-container">
+            <h2>My Story</h2>
+            <p>
+                When I first started calisthenics I couldn't do a single pull-up and constantly hit frustrating plateaus.
+            </p>
+            <p>
+                Through structured training I eventually reached:
+            </p>
+            <p style="color: var(--primary); font-weight: 600; line-height: 2;">
+                • 30 strict pull-ups <br>
+                • +50kg weighted pull-ups <br>
+                • clean slow muscle-ups <br>
+                • front lever <br>
+                • handstand push-ups <br>
+                • straddle planche strength
+            </p>
+        </section>
+    </div>
 
-  <section class="instagram">
-    <h2>Need Help With
+    <section id="transformation" class="transformation">
+        <h2>My 1.5 Year Transformation</h2>
+        <div class="transformation-images">
+            <div>
+                <img src="IMG_8839.jpg" alt="Before">
+                <p>Before</p>
+            </div>
+            <div>
+                <img src="IMG_8841.jpg" alt="After">
+                <p>After (1.5 years)</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <h2>Skills You Will Build</h2>
+        <div class="skill-grid">
+            <div class="skill">Pull-Ups</div>
+            <div class="skill">Muscle Ups</div>
+            <div class="skill">Front Lever</div>
+            <div class="skill">Straddle Planche</div>
+            <div class="skill">Handstand Push-Ups</div>
+            <div class="skill">L-Sit / V-Sit</div>
+        </div>
+    </section>
+
+    <div class="programs" id="programs">
+        <h2>Training Programs</h2>
+        <div class="cards">
+            <a href="muscleup.html" class="card">
+                <h3>Muscle-Up Program</h3>
+                <div class="requirements">10 pull-ups / 12 dips</div>
+                <div class="program-detail">
+                    4 sessions per week focused on explosive pulling power and muscle-up technique.
+                </div>
+            </a>
+
+            <a href="beginner.html" class="card">
+                <h3>Beginner</h3>
+                <div class="requirements">0–5 pull-ups</div>
+                <div class="program-detail">
+                    Build foundational strength and core stability.
+                </div>
+            </a>
+
+            <a href="intermediate.html" class="card">
+                <h3>Intermediate</h3>
+                <div class="requirements">8 pull-ups</div>
+                <div class="program-detail">
+                    Explosive pull-ups, muscle-up strength and handstand control.
+                </div>
+            </a>
+
+            <a href="advanced.html" class="card">
+                <h3>Advanced</h3>
+                <div class="requirements">15 pull-ups</div>
+                <div class="program-detail">
+                    Front lever progressions and weighted calisthenics.
+                </div>
+            </a>
+
+            <a href="elite.html" class="card">
+                <h3>Elite</h3>
+                <div class="requirements">Muscle-up / front lever</div>
+                <div class="program-detail">
+                    Planche training and elite calisthenics strength.
+                </div>
+            </a>
+        </div>
+    </div>
+
+    <div class="alt" id="system">
+        <section class="alt-container">
+            <h2>How The Iron Apex System Works</h2>
+            <p>
+                The Iron Apex system is built around progressive overload and structured strength development.
+            </p>
+            <p>
+                Athletes build foundational strength before progressing to advanced calisthenics skills.
+            </p>
+        </section>
+    </div>
+
+    <section class="cta-section">
+        <h2>Start Your Training</h2>
+        <p>Choose the program that matches your current strength level.</p>
+        <br>
+        <a class="cta" href="#programs">BEGIN THE PROGRAM</a>
+    </section>
+
+    <section class="instagram">
+        <h2>Need Help With Training?</h2>
+        <p>DM me for tips or coaching:</p>
+        <p>
+            <a href="https://instagram.com/sambrooks1223">@sambrooks1223</a>
+        </p>
+    </section>
+
+    <footer>
+        Iron Apex © 2026
+    </footer>
+
+</body>
+</html>
