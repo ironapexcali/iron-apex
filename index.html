@@ -11,7 +11,7 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V5 - FULL MASTER INDEX (ZERO DELETIONS)
+           IRON APEX V6 - OPTIMIZED HIERARCHY
            ========================================================================== */
 
         :root {
@@ -46,7 +46,7 @@
             background-color: var(--bg-pure);
             line-height: 1.6;
             overflow-x: hidden;
-            padding-bottom: 80px; /* Space for sticky mobile button */
+            padding-bottom: 80px; 
         }
 
         h1, h2, h3, h4, .oswald {
@@ -78,7 +78,7 @@
             font-weight: 300;
         }
 
-        /* --- BUTTONS WITH UPGRADED ANIMATIONS --- */
+        /* --- BUTTONS --- */
         .btn {
             display: inline-flex;
             align-items: center;
@@ -157,10 +157,9 @@
             font-size: 14px;
             letter-spacing: 1px;
             transition: var(--transition);
-            opacity: 0.7;
         }
 
-        .nav-links a:hover { color: var(--accent-neon); opacity: 1; }
+        .nav-links a:hover { color: var(--accent-neon); }
 
         /* --- HERO --- */
         .hero {
@@ -243,8 +242,35 @@
 
         .honesty-card h3 { font-size: 24px; color: var(--accent-neon); margin-bottom: 15px; }
 
+        /* --- TRANSFORMATIONS (REPOSITIONED) --- */
+        .transform-section { padding: var(--pad-section); background-color: var(--bg-pure); border-bottom: 1px solid var(--border-color); }
+
+        .transform-grid {
+            display: grid; grid-template-columns: 1fr 1fr;
+            gap: 2px; background-color: var(--border-color);
+            border: 2px solid var(--border-color);
+        }
+
+        .transform-img-box { position: relative; background-color: var(--bg-pure); }
+
+        .transform-img-box img {
+            width: 100%; height: 700px;
+            object-fit: cover; filter: grayscale(100%);
+            transition: var(--transition);
+        }
+
+        .transform-img-box:hover img { filter: grayscale(0%); }
+
+        .transform-label {
+            position: absolute; top: 30px; left: 30px;
+            background-color: var(--bg-pure); color: var(--text-main);
+            padding: 10px 20px; font-family: 'Oswald', sans-serif;
+            font-size: 18px; text-transform: uppercase; font-weight: 700;
+            z-index: 2;
+        }
+
         /* --- PROGRAMS --- */
-        .programs-section { padding: var(--pad-section); background-color: var(--bg-pure); }
+        .programs-section { padding: var(--pad-section); background-color: var(--bg-elevated); }
 
         .program-grid {
             display: grid;
@@ -256,7 +282,7 @@
             display: block;
             text-decoration: none;
             color: var(--text-main);
-            background-color: var(--bg-elevated);
+            background-color: var(--bg-pure);
             border: 1px solid var(--border-color);
             transition: var(--transition);
             position: relative;
@@ -306,7 +332,7 @@
         .program-card:hover { border-color: var(--text-main); transform: translateY(-5px); }
 
         /* --- FOUNDER & BENCHMARKS --- */
-        .founder-section { padding: var(--pad-section); background-color: var(--bg-elevated); border-top: 1px solid var(--border-color); }
+        .founder-section { padding: var(--pad-section); background-color: var(--bg-pure); border-top: 1px solid var(--border-color); }
 
         .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
 
@@ -337,7 +363,7 @@
         .stat-list li span { color: var(--accent-neon); }
 
         /* --- SKILLS --- */
-        .skills-section { padding: 80px 0; border-bottom: 1px solid var(--border-color); }
+        .skills-section { padding: 80px 0; border-bottom: 1px solid var(--border-color); background: var(--bg-elevated); }
 
         .skills-grid {
             display: flex; flex-wrap: wrap; gap: 20px;
@@ -348,40 +374,13 @@
         .skill-item {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(24px, 4vw, 40px);
-            color: var(--bg-pure);
+            color: var(--bg-elevated);
             -webkit-text-stroke: 1px var(--text-secondary);
             text-transform: uppercase;
             transition: var(--transition);
         }
 
         .skill-item:hover { color: var(--text-main); -webkit-text-stroke: 1px var(--text-main); }
-
-        /* --- TRANSFORMATIONS --- */
-        .transform-section { padding: var(--pad-section); background-color: var(--bg-pure); }
-
-        .transform-grid {
-            display: grid; grid-template-columns: 1fr 1fr;
-            gap: 2px; background-color: var(--border-color);
-            border: 2px solid var(--border-color);
-        }
-
-        .transform-img-box { position: relative; background-color: var(--bg-pure); }
-
-        .transform-img-box img {
-            width: 100%; height: 700px;
-            object-fit: cover; filter: grayscale(100%);
-            transition: var(--transition);
-        }
-
-        .transform-img-box:hover img { filter: grayscale(0%); }
-
-        .transform-label {
-            position: absolute; top: 30px; left: 30px;
-            background-color: var(--bg-pure); color: var(--text-main);
-            padding: 10px 20px; font-family: 'Oswald', sans-serif;
-            font-size: 18px; text-transform: uppercase; font-weight: 700;
-            z-index: 2;
-        }
 
         /* --- STICKY MOBILE BUTTON --- */
         .mobile-sticky-cta {
@@ -417,7 +416,7 @@
         }
 
         /* --- FOOTER --- */
-        footer { background-color: var(--bg-elevated); padding: 80px 24px 40px; border-top: 1px solid var(--border-color); text-align: center; }
+        footer { background-color: var(--bg-pure); padding: 80px 24px 40px; border-top: 1px solid var(--border-color); text-align: center; }
 
         .footer-logo { font-family: 'Oswald', sans-serif; font-size: 40px; color: var(--text-main); text-decoration: none; display: inline-block; margin-bottom: 20px; }
 
@@ -447,9 +446,9 @@
         <div class="container nav-inner">
             <a href="#" class="logo">IRON<span>APEX</span></a>
             <nav class="nav-links">
+                <a href="#results">Results</a>
                 <a href="#programs">Shop Programs</a>
                 <a href="#founder">The Founder</a>
-                <a href="#results">Results</a>
             </nav>
         </div>
     </header>
@@ -462,7 +461,7 @@
             </p>
             <div class="hero-btn-group">
                 <a href="#programs" class="btn btn-solid">EXPLORE PROGRAMS</a>
-                <a href="#founder" class="btn btn-outline">MY STORY</a>
+                <a href="#results" class="btn btn-outline">SEE PROOF</a>
             </div>
         </div>
         <div class="hero-image-side">
@@ -493,6 +492,26 @@
                 <div class="honesty-card">
                     <h3>03. NO RANDOM WORKOUTS</h3>
                     <p class="text-muted">Doing random exercises yields random results. Iron Apex provides the exact structural map to success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="results" class="transform-section">
+        <div class="container text-center" style="margin-bottom: 60px;">
+            <h2 class="section-title">UNDENIABLE PROOF</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. The system works if you do.</p>
+        </div>
+        
+        <div class="container" style="max-width: 1200px;">
+            <div class="transform-grid">
+                <div class="transform-img-box">
+                    <div class="transform-label">DAY 01</div>
+                    <img src="IMG_8839.jpg" alt="Before Iron Apex">
+                </div>
+                <div class="transform-img-box">
+                    <div class="transform-label text-accent">YEAR 1.5</div>
+                    <img src="IMG_8841.jpg" alt="After Iron Apex">
                 </div>
             </div>
         </div>
@@ -609,26 +628,6 @@
             <div class="skill-item">PLANCHE</div>
             <div class="skill-item">•</div>
             <div class="skill-item">HANDSTAND PUSHUP</div>
-        </div>
-    </section>
-
-    <section id="results" class="transform-section">
-        <div class="container text-center" style="margin-bottom: 60px;">
-            <h2 class="section-title">UNDENIABLE PROOF</h2>
-            <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. The system works if you do.</p>
-        </div>
-        
-        <div class="container" style="max-width: 1200px;">
-            <div class="transform-grid">
-                <div class="transform-img-box">
-                    <div class="transform-label">DAY 01</div>
-                    <img src="IMG_8839.jpg" alt="Before Iron Apex">
-                </div>
-                <div class="transform-img-box">
-                    <div class="transform-label text-accent">YEAR 1.5</div>
-                    <img src="IMG_8841.jpg" alt="After Iron Apex">
-                </div>
-            </div>
         </div>
     </section>
 
