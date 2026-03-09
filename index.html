@@ -27,7 +27,7 @@ line-height:1.7;
 
 /* NAV */
 
-  nav{
+nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
@@ -61,9 +61,36 @@ opacity:1;
 background:#111;
 border:1px solid #222;
 border-radius:8px;
-padding:6px 10px;
+padding:6px 12px;
 color:white;
 outline:none;
+margin-left:20px;
+font-size:14px;
+}
+
+/* QUICK NAV BUTTONS */
+
+.quick-nav{
+text-align:center;
+margin-top:30px;
+}
+
+.quick-nav a{
+display:inline-block;
+margin:8px;
+padding:10px 18px;
+background:#111;
+border:1px solid #222;
+border-radius:8px;
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:0.2s;
+}
+
+.quick-nav a:hover{
+border-color:#55ff88;
+box-shadow:0 0 10px #55ff88;
 }
 
 /* HERO */
@@ -222,7 +249,7 @@ padding:70px;
 opacity:0.6;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 
 @media (max-width:900px){
 
@@ -276,6 +303,15 @@ align-items:center;
 <input class="search-box" type="text" placeholder="Search...">
 
 </nav>
+
+<!-- QUICK NAVIGATION -->
+
+<div class="quick-nav">
+<a href="#programs">Programs</a>
+<a href="#skills">Skills</a>
+<a href="#system">System</a>
+<a href="#transformation">Transformation</a>
+</div>
 
 <section class="hero">
 
@@ -383,6 +419,26 @@ toward these skills without wasting years on ineffective training.
 <img src="IMG_8841.jpg">
 <p>After (1.5 years)</p>
 </div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<h2>Skill Showcase</h2>
+
+<p style="opacity:0.8;">
+Examples of calisthenics skills built through the Iron Apex training system.
+</p>
+
+<div class="skill-grid">
+
+<div class="skill">Muscle Up</div>
+<div class="skill">Front Lever</div>
+<div class="skill">Planche</div>
+<div class="skill">Handstand</div>
 
 </div>
 
@@ -510,6 +566,23 @@ and begin building elite calisthenics strength.
 </p>
 
 <a class="cta" href="#programs">BEGIN THE PROGRAM</a>
+
+</section>
+
+
+<section class="alt">
+
+<h2>Athlete Progress</h2>
+
+<p>
+Athletes following the Iron Apex system gradually develop stronger pull-ups,
+dips, explosive pulling strength and advanced calisthenics skills.
+</p>
+
+<p>
+Consistent training allows athletes to progress toward muscle-ups,
+front lever progressions and elite bodyweight strength.
+</p>
 
 </section>
 
