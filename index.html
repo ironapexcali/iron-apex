@@ -27,13 +27,19 @@ line-height:1.7;
 
 /* NAV */
 
-nav{
+  nav{
 display:flex;
 justify-content:space-between;
 align-items:center;
 max-width:1100px;
 margin:auto;
 padding:25px 20px;
+
+position:sticky;
+top:0;
+background:#070707;
+z-index:1000;
+border-bottom:1px solid #111;
 }
 
 .nav-left{
@@ -49,6 +55,15 @@ opacity:0.8;
 
 nav a:hover{
 opacity:1;
+}
+
+.search-box{
+background:#111;
+border:1px solid #222;
+border-radius:8px;
+padding:6px 10px;
+color:white;
+outline:none;
 }
 
 /* HERO */
