@@ -1,348 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUSCLE-UP MASTER | IRON APEX</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-pure: #000000;
+            --bg-elevated: #0a0a0a;
+            --border-color: #222222;
+            --text-main: #ffffff;
+            --text-secondary: #888888;
+            --accent-neon: #ccff00; 
+            --transition: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
 
-<meta charset="UTF-8">
-<title>Iron Apex Muscle-Up Program</title>
+        * { margin: 0; padding: 0; box-sizing: border-box; -webkit-font-smoothing: antialiased; }
+        body { font-family: 'Inter', sans-serif; color: var(--text-main); background-color: var(--bg-pure); line-height: 1.6; padding-bottom: 100px; }
+        h1, h2, h3, .oswald { font-family: 'Oswald', sans-serif; text-transform: uppercase; }
 
-<style>
+        .container { max-width: 1000px; margin: 0 auto; padding: 0 24px; }
+        .text-accent { color: var(--accent-neon); }
 
-body{
-background:#0b0b0b;
-color:white;
-font-family:Arial;
-max-width:900px;
-margin:auto;
-padding:40px;
-line-height:1.6;
-}
+        /* --- NAV --- */
+        nav { padding: 30px 0; }
+        .back-link { color: var(--text-secondary); text-decoration: none; font-family: 'Oswald'; font-size: 12px; letter-spacing: 2px; border: 1px solid var(--border-color); padding: 8px 15px; transition: 0.3s; }
+        .back-link:hover { border-color: var(--accent-neon); color: var(--accent-neon); }
 
-h1,h2{
-color:#4ade80;
-margin-top:40px;
-}
+        /* --- HERO --- */
+        .hero { padding: 60px 0; border-bottom: 1px solid var(--border-color); }
+        .hero h1 { font-size: clamp(50px, 8vw, 90px); line-height: 0.9; margin-bottom: 15px; }
+        .hero p { color: var(--text-secondary); max-width: 550px; font-weight: 300; font-size: 18px; }
 
-.exercise{
-background:#151515;
-padding:20px;
-margin-top:15px;
-border-radius:10px;
-}
+        /* --- INTEL CARDS (SLEEK) --- */
+        .intel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .intel-card { background: var(--bg-elevated); padding: 30px; border: 1px solid var(--border-color); position: relative; overflow: hidden; }
+        .intel-card h3 { font-size: 20px; margin-bottom: 10px; color: var(--accent-neon); }
+        .intel-card p { font-size: 14px; color: var(--text-secondary); line-height: 1.5; }
 
-.tip{
-opacity:0.8;
-font-style:italic;
-}
+        /* --- THE SWING (IMPORTANT SECTION) --- */
+        .swing-box { background: linear-gradient(45deg, #0a0a0a, #000); border: 1px solid var(--accent-neon); padding: 30px; margin-bottom: 40px; }
+        .swing-box h2 { font-size: 24px; margin-bottom: 10px; }
 
-</style>
+        /* --- WEEKLY LOGIC (CLEAN) --- */
+        .day-row { 
+            display: flex; justify-content: space-between; align-items: center; 
+            padding: 18px 0; border-bottom: 1px solid var(--border-color);
+        }
+        .day-name { font-family: 'Oswald'; font-size: 20px; width: 120px; }
+        .day-focus { flex: 1; color: var(--text-secondary); font-size: 15px; }
+        .day-tag { font-family: 'Oswald'; font-size: 14px; font-weight: 700; color: var(--accent-neon); }
+        .rest-day { opacity: 0.3; }
 
+        /* --- WORKOUT LIST --- */
+        .workout-header { margin: 60px 0 30px; border-left: 3px solid var(--accent-neon); padding-left: 20px; }
+        .ex-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .ex-item span:last-child { font-family: 'Oswald'; color: var(--accent-neon); font-size: 18px; }
+
+        /* --- MOBILE STICKY --- */
+        .sticky-mobile { position: fixed; bottom: 0; left: 0; width: 100%; padding: 20px; background: rgba(0,0,0,0.9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-top: 1px solid var(--border-color); z-index: 100; display: none; }
+        .sticky-btn { display: block; background: var(--accent-neon); color: black; text-align: center; padding: 15px; font-family: 'Oswald'; font-weight: 800; text-decoration: none; text-transform: uppercase; font-size: 16px; }
+
+        @media (max-width: 768px) {
+            .intel-grid { grid-template-columns: 1fr; }
+            .day-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+            .sticky-mobile { display: block; }
+        }
+    </style>
 </head>
-
 <body>
 
-<h1>Iron Apex Muscle-Up Program</h1>
-
-<p>
-This program is designed to help athletes achieve clean muscle ups by developing
-explosive pulling strength, strong bar dips and proper swing mechanics.
-</p>
-
-<h2>Requirements</h2>
-
-<p>
-Minimum 10 pullups<br>
-Minimum 12 dips<br>
-Basic core strength
-</p>
-
-<h2>Understanding The Swing</h2>
-
-<p>
-A common mistake when learning muscle ups is relying only on pulling strength.
-In reality, understanding the swing and bar momentum helps position your body
-for a powerful transition over the bar.
-</p>
-
-<p>
-The goal is not to excessively kip, but to use a controlled swing to create
-efficient upward momentum.
-</p>
-
-<p>
-Practice controlled bar swings by maintaining a tight hollow body position
-and generating power from the shoulders.
-</p>
-
-<h2>Weekly Training Structure</h2>
-
-<p>
-Monday — Pull Strength<br>
-Tuesday — Swing + Skill<br>
-Wednesday — Mobility<br>
-Thursday — Explosive Pull Training<br>
-Friday — Transition Training<br>
-Saturday — Strength + Volume<br>
-Sunday — Rest
-</p>
-
-<h2>Warmup</h2>
-
-<div class="exercise">
-
-Jump rope — 2 minutes
-
-Band shoulder rotations — 3×20
-
-Scapula pullups — 3×10
-
-Dead hang — 2×30 seconds
-
-Light pullups — 2×5
-
-</div>
-
-<p class="tip">
-Proper warmups protect the shoulders during explosive pulling.
-</p>
-
-<h2>MONDAY — Pull Strength</h2>
-
-<div class="exercise">
-
-Weighted Pullups  
-5 × 5
-
-</div>
-
-<div class="exercise">
-
-Pullups  
-4 × 10
-
-</div>
-
-<div class="exercise">
-
-High Pullups (chest to bar)  
-5 × 4
-
-</div>
-
-<div class="exercise">
-
-Front Lever Tuck Hold  
-5 × 12 seconds
-
-</div>
-
-<div class="exercise">
-
-Hanging Leg Raises  
-4 × 12
-
-</div>
-
-<p class="tip">
-High pullups are one of the most important exercises for muscle ups.
-</p>
-
-<h2>TUESDAY — Swing + Skill</h2>
-
-<div class="exercise">
-
-Bar Swing Practice  
-10 minutes
-
-</div>
-
-<div class="exercise">
-
-Band Assisted Muscle Ups  
-8 attempts
-
-</div>
-
-<div class="exercise">
-
-Jumping Muscle Ups  
-6 attempts
-
-</div>
-
-<div class="exercise">
-
-Straight Bar Dips  
-5 × 8
-
-</div>
-
-<div class="exercise">
-
-L-Sit Hold  
-4 × 20 seconds
-
-</div>
-
-<h2>WEDNESDAY — Mobility</h2>
-
-<div class="exercise">
-
-Deep squat hold — 3 minutes
-
-</div>
-
-<div class="exercise">
-
-Shoulder stretch — 2 minutes
-
-</div>
-
-<div class="exercise">
-
-Thoracic mobility drills — 3 minutes
-
-</div>
-
-<div class="exercise">
-
-Light core work — 5 minutes
-
-</div>
-
-<h2>THURSDAY — Explosive Pull Training</h2>
-
-<div class="exercise">
-
-Explosive Pullups  
-6 × 4
-
-</div>
-
-<div class="exercise">
-
-Chest to Bar Pullups  
-5 × 5
-
-</div>
-
-<div class="exercise">
-
-High Pullups (belly button height)  
-4 × 4
-
-</div>
-
-<div class="exercise">
-
-Front Lever Rows  
-4 × 6
-
-</div>
-
-<div class="exercise">
-
-Toes to Bar  
-4 × 10
-
-</div>
-
-<p class="tip">
-The higher you pull, the easier the muscle up transition becomes.
-</p>
-
-<h2>FRIDAY — Transition Training</h2>
-
-<div class="exercise">
-
-Muscle Up Attempts  
-8 attempts
-
-</div>
-
-<div class="exercise">
-
-Low Bar Muscle Ups  
-5 × 3
-
-</div>
-
-<div class="exercise">
-
-Straight Bar Dips  
-4 × 10
-
-</div>
-
-<div class="exercise">
-
-Negative Muscle Ups  
-4 × 3
-
-</div>
-
-<div class="exercise">
-
-Hanging Knee Raises  
-4 × 15
-
-</div>
-
-<h2>SATURDAY — Strength + Volume</h2>
-
-<div class="exercise">
-
-Pullups  
-5 × max reps
-
-</div>
-
-<div class="exercise">
-
-Dips  
-5 × 10
-
-</div>
-
-<div class="exercise">
-
-Explosive Pullups  
-5 × 4
-
-</div>
-
-<div class="exercise">
-
-Core Circuit  
-3 rounds
-</div>
-
-<h2>Technique Tips</h2>
-
-<p>
-Pull explosively toward the lower chest.
-</p>
-
-<p>
-Lean forward during the transition.
-</p>
-
-<p>
-Keep elbows close to your body.
-</p>
-
-<p>
-Finish with a strong dip lockout.
-</p>
-
-<h2>Expected Progress</h2>
-
-<p>
-Athletes who follow this program consistently should
-develop the strength and coordination needed for their
-first clean muscle up.
-</p>
+    <nav class="container">
+        <a href="index.html" class="back-link">SYSTEM_HOME</a>
+    </nav>
+
+    <section class="hero container">
+        <h1>MUSCLE-UP<br><span class="text-accent">MASTER.</span></h1>
+        <p>The bridge between vertical pulling and total bar dominance. Master the transition. Own the air.</p>
+    </section>
+
+    <div class="container">
+        <div class="intel-grid">
+            <div class="intel-card">
+                <h3>THE "C" SWING</h3>
+                <p>You cannot pull straight up. You must swing slightly forward to create a 'C' path, allowing your body to clear the bar during the transition.</p>
+            </div>
+            <div class="intel-card">
+                <h3>FALSE GRIP</h3>
+                <p>Roll your wrists over the bar. This shortens the distance of the turn-over and prevents the "stuck" position at the chest.</p>
+            </div>
+        </div>
+
+        <div class="swing-box">
+            <h2 class="text-accent">MASTER THE MOMENTUM</h2>
+            <p style="font-size: 15px; color: #ccc;">The biggest mistake is a dead-hang pull. You must learn to use a <strong>weighted-body swing</strong>. As you swing forward, engage your lats to "pull" the bar down to your hips. Momentum isn't cheating—it's mechanics.</p>
+        </div>
+
+        <h2 class="oswald" style="margin-bottom: 20px;">7-DAY PROTOCOL</h2>
+        <div class="day-row">
+            <span class="day-name">MON</span>
+            <span class="day-focus">Explosive High Pulls & Lat Power</span>
+            <span class="day-tag">EXPLOSIVE</span>
+        </div>
+        <div class="day-row">
+            <span class="day-name">TUE</span>
+            <span class="day-focus">Straight Bar Dips & Negative Transitions</span>
+            <span class="day-tag">STRENGTH</span>
+        </div>
+        <div class="day-row rest-day">
+            <span class="day-name">WED</span>
+            <span class="day-focus">Active Recovery & Grip Work</span>
+            <span class="day-tag">REST</span>
+        </div>
+        <div class="day-row">
+            <span class="day-name">THU</span>
+            <span class="day-focus">Weighted Pull-Ups & Chest-to-Bar Sets</span>
+            <span class="day-tag">LOAD</span>
+        </div>
+        <div class="day-row">
+            <span class="day-name">FRI</span>
+            <span class="day-focus">Skill Work: The Swing & Kipping Mechanics</span>
+            <span class="day-tag">TECHNIQUE</span>
+        </div>
+        <div class="day-row">
+            <span class="day-name">SAT</span>
+            <span class="day-focus">Full Attempts & Pullover Finishers</span>
+            <span class="day-tag">APEX</span>
+        </div>
+        <div class="day-row rest-day">
+            <span class="day-name">SUN</span>
+            <span class="day-focus">Full Neural Recovery</span>
+            <span class="day-tag">REST</span>
+        </div>
+
+        <div class="workout-header">
+            <h2 class="oswald">SATURDAY: THE PEAK SESSION</h2>
+        </div>
+
+        <div class="ex-item">
+            <span>Explosive High Pulls (Belly to Bar)</span>
+            <span>5 SETS x 4 REPS</span>
+        </div>
+        <div class="ex-item">
+            <span>Weighted Pull-Ups (Strict)</span>
+            <span>4 SETS x 6 REPS</span>
+        </div>
+        <div class="ex-item">
+            <span>Muscle-Up Negative (5 Sec Descent)</span>
+            <span>3 SETS x 5 REPS</span>
+        </div>
+        <div class="ex-item">
+            <span>Bar Pullovers (Controlled)</span>
+            <span>3 SETS x 8 REPS</span>
+        </div>
+        <div class="ex-item" style="border:none;">
+            <span>Straight Bar Dips</span>
+            <span>4 SETS x MAX</span>
+        </div>
+    </div>
+
+    <div class="sticky-mobile">
+        <a href="https://instagram.com/sambrooks1223" class="sticky-btn">SUBMIT FORM FOR REVIEW</a>
+    </div>
 
 </body>
-
 </html>
