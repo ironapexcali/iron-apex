@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Iron Apex</title>
+  <title>Iron Apex - Elite Calisthenics Training</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
   <style>
     /* Reset styles */
@@ -40,7 +40,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      max-width: 1100px;
+      max-width: 1200px;
       margin: auto;
       padding: 22px 20px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -65,7 +65,7 @@
 
     /* Hero section */
     .hero {
-      height: 75vh;
+      height: 85vh;
       background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1), transparent 60%), url("IMG_8792.jpg") center/cover no-repeat;
       display: flex;
       align-items: center;
@@ -87,14 +87,14 @@
     }
 
     .hero-content {
-      max-width: 700px;
+      max-width: 800px;
       padding: 20px;
       position: relative;
       z-index: 2;
     }
 
     .hero h1 {
-      font-size: 56px;
+      font-size: 64px;
       margin-bottom: 18px;
     }
 
@@ -109,7 +109,7 @@
       display: inline-block;
       background: linear-gradient(to right, #55ff88, #63ff96);
       color: black;
-      padding: 14px 30px;
+      padding: 16px 36px;
       border-radius: 8px;
       text-decoration: none;
       font-weight: 600;
@@ -125,9 +125,9 @@
 
     /* Sections */
     section {
-      max-width: 900px;
+      max-width: 1000px;
       margin: auto;
-      padding: 70px 20px;
+      padding: 80px 20px;
     }
 
     .alt {
@@ -136,7 +136,7 @@
 
     /* Headings */
     section h2 {
-      font-size: 36px;
+      font-size: 42px;
       margin-bottom: 18px;
     }
 
@@ -153,7 +153,7 @@
     }
 
     .transformation-images img {
-      width: 210px;
+      width: 240px;
       border-radius: 10px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -167,14 +167,14 @@
     /* Skills */
     .skill-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 16px;
       margin-top: 25px;
     }
 
     .skill {
       background: #1c1c1c;
-      padding: 14px 18px;
+      padding: 18px 22px;
       border-radius: 8px;
       border: 1px solid rgba(255, 255, 255, 0.05);
       transition: transform 0.3s, box-shadow 0.3s;
@@ -187,8 +187,8 @@
 
     /* Programs */
     .programs {
-      max-width: 1100px;
-      margin: 70px auto;
+      max-width: 1200px;
+      margin: 80px auto;
       padding: 0 20px;
     }
 
@@ -196,14 +196,14 @@
       display: flex;
       flex-wrap: wrap;
       gap: 26px;
-      margin-top: 25px;
+      margin-top: 30px;
     }
 
     .card {
       background: #1c1c1c;
-      padding: 24px;
+      padding: 28px;
       border-radius: 12px;
-      width: 230px;
+      width: 280px;
       text-decoration: none;
       color: white;
       border: 1px solid rgba(255, 255, 255, 0.06);
@@ -217,6 +217,11 @@
       box-shadow: 0 14px 40px rgba(0, 0, 0, 0.7);
     }
 
+    .card h3 {
+      font-size: 22px;
+      margin-bottom: 12px;
+    }
+
     .requirements {
       opacity: 0.75;
       font-size: 14px;
@@ -226,7 +231,13 @@
     .program-detail {
       margin-top: 10px;
       opacity: 0.9;
-      font-size: 14px;
+      font-size: 15px;
+    }
+
+    .pricing {
+      margin-top: 16px;
+      font-size: 18px;
+      font-weight: 600;
     }
 
     /* CTA section */
@@ -242,13 +253,13 @@
     }
 
     /* Mobile responsiveness */
-    @media (max-width: 900px) {
+    @media (max-width: 1024px) {
       .hero {
-        height: 65vh;
+        height: 75vh;
       }
 
       .hero h1 {
-        font-size: 38px;
+        font-size: 48px;
       }
 
       .cards {
@@ -257,7 +268,7 @@
 
       .card {
         width: 100%;
-        max-width: 320px;
+        max-width: 360px;
       }
 
       .transformation-images {
@@ -267,7 +278,13 @@
       }
 
       .transformation-images img {
-        width: 180px;
+        width: 200px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 38px;
       }
     }
   </style>
@@ -316,7 +333,7 @@
   </section>
 
   <section style="text-align:center;">
-    <img src="pullup-demo.jpg" style="width:320px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
+    <img src="pullup-demo.jpg" style="width:360px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
     <p style="opacity:0.7;margin-top:10px;font-size:14px;">
       Training demonstration — building real pulling strength.
     </p>
@@ -375,6 +392,7 @@
         <div class="program-detail">
           4 sessions per week focused on explosive pulling power and muscle-up technique.
         </div>
+        <div class="pricing">$47/month</div>
       </a>
       <a href="beginner.html" class="card">
         <h3>Beginner</h3>
@@ -382,6 +400,7 @@
         <div class="program-detail">
           Build foundational strength and core stability.
         </div>
+        <div class="pricing">$37/month</div>
       </a>
       <a href="intermediate.html" class="card">
         <h3>Intermediate</h3>
@@ -389,6 +408,7 @@
         <div class="program-detail">
           Explosive pull-ups, muscle-up strength and handstand control.
         </div>
+        <div class="pricing">$47/month</div>
       </a>
       <a href="advanced.html" class="card">
         <h3>Advanced</h3>
@@ -396,6 +416,7 @@
         <div class="program-detail">
           Front lever progressions and weighted calisthenics.
         </div>
+        <div class="pricing">$57/month</div>
       </a>
       <a href="elite.html" class="card">
         <h3>Elite</h3>
@@ -403,6 +424,7 @@
         <div class="program-detail">
           Planche training and elite calisthenics strength.
         </div>
+        <div class="pricing">$67/month</div>
       </a>
     </div>
   </div>
@@ -424,15 +446,4 @@
   </section>
 
   <section class="instagram">
-    <h2>Need Help With Training?</h2>
-    <p>DM me for tips or coaching:</p>
-    <p>
-      <a href="https://instagram.com/sambrooks1223">@sambrooks1223</a>
-    </p>
-  </section>
-
-  <footer>
-    Iron Apex © 2026
-  </footer>
-</body>
-</html>
+    <h2>Need Help With
