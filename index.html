@@ -7,7 +7,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700;ฤ900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Oswald:wght@500;700;900&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
@@ -184,7 +184,7 @@
            HERO SECTION (SPLIT SCREEN FOR DESKTOP FIX)
            ========================================================================== */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             margin-top: 80px; /* Offset for header */
             border-bottom: 1px solid var(--border-color);
@@ -562,18 +562,20 @@
             .hero {
                 flex-direction: column;
                 height: auto;
+                min-height: auto;
             }
             .hero-text-side {
-                padding: 100px 24px;
+                padding: 120px 24px 80px;
                 text-align: center;
                 align-items: center;
             }
             .hero-image-side {
-                height: 60vh;
+                height: 50vh;
                 width: 100%;
             }
             .founder-grid {
                 grid-template-columns: 1fr;
+                gap: 50px;
             }
             .transform-img-box img {
                 height: 500px;
@@ -585,13 +587,31 @@
                 grid-template-columns: 1fr;
             }
             .nav-links {
-                display: none; /* In a real build, add a hamburger menu here */
+                display: none; 
             }
             .transform-grid {
                 grid-template-columns: 1fr;
             }
             .transform-img-box img {
-                height: 400px;
+                height: 450px;
+            }
+            .section-title {
+                font-size: 42px;
+            }
+            .hero-btn-group {
+                flex-direction: column;
+                width: 100%;
+            }
+            .btn {
+                width: 100%;
+            }
+            .founder-img-caption {
+                right: 0;
+                bottom: 0;
+                width: 100%;
+                max-width: none;
+                position: relative;
+                margin-top: 10px;
             }
         }
     </style>
@@ -738,6 +758,8 @@
                     <ul class="stat-list">
                         <li>Strict Pull-Ups <span>30 Reps</span></li>
                         <li>Weighted Pull-Up <span>+50kg</span></li>
+                        <li>One-Arm Pull-up <span>Unlocked</span></li>
+                        <li>Handstand Push-ups <span>Unlocked</span></li>
                         <li>Slow Muscle-Ups <span>Unlocked</span></li>
                         <li>Front Lever <span>Mastered</span></li>
                         <li>Straddle Planche <span>Unlocked</span></li>
@@ -770,7 +792,7 @@
     </section>
 
     <section id="results" class="transform-section">
-        <div class="container text-center" style="margin-bottom: 60px;">
+        <div class="container text-center" style="text-align: center; margin-bottom: 60px;">
             <h2 class="section-title">UNDENIABLE PROOF</h2>
             <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. The system works if you do.</p>
         </div>
