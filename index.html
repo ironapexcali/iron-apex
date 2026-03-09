@@ -78,46 +78,48 @@ opacity:1;
 .hero{
 height:80vh;
 background:
-radial-gradient(circle at center, rgba(255,255,255,0.04), transparent 60%),
+radial-gradient(circle at center, rgba(255,255,255,0.05), transparent 60%),
 url("IMG_8792.jpg") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:center;
 text-align:center;
-position:relative;
 }
 
 .hero-content{
-position:relative;
-z-index:2;
 max-width:700px;
 padding:20px;
 }
 
 .hero h1{
-font-size:60px;
-margin-bottom:20px;
+font-size:56px;
+margin-bottom:18px;
 }
 
 .hero p{
 opacity:0.9;
-margin-bottom:25px;
+margin-bottom:26px;
 }
 
-.hero-buttons a{
+/* BUTTONS */
+
+.hero-buttons a,
+.cta{
 display:inline-block;
-margin:8px;
-padding:14px 30px;
 background:#55ff88;
 color:black;
-text-decoration:none;
+padding:14px 30px;
 border-radius:8px;
+text-decoration:none;
 font-weight:600;
-transition:0.2s;
+transition:all 0.2s ease;
 }
 
-.hero-buttons a:hover{
-background:#6bff9a;
+.hero-buttons a:hover,
+.cta:hover{
+transform:translateY(-2px);
+box-shadow:0 0 15px #55ff88;
+background:#63ff96;
 }
 
 /* SECTIONS */
@@ -131,7 +133,6 @@ background:#111111;
 
 .alt{
 background:#181818;
-padding:80px 20px;
 border-top:1px solid rgba(255,255,255,0.04);
 border-bottom:1px solid rgba(255,255,255,0.04);
 }
@@ -220,23 +221,6 @@ font-size:14px;
 line-height:1.5;
 }
 
-/* CTA */
-
-.cta{
-display:inline-block;
-background:#55ff88;
-color:black;
-padding:14px 30px;
-border-radius:8px;
-text-decoration:none;
-font-weight:600;
-transition:0.2s;
-}
-
-.cta:hover{
-background:#6bff9a;
-}
-
 /* FOOTER */
 
 footer{
@@ -273,6 +257,9 @@ align-items:center;
 
 }
 
+
+
+
 </style>
 
 </head>
@@ -304,7 +291,6 @@ A structured training system designed to help you build real bodyweight strength
 
 <div class="hero-buttons">
 <a href="#programs">Start Training</a>
-<a href="#system">How It Works</a>
 </div>
 
 </div>
@@ -317,7 +303,7 @@ A structured training system designed to help you build real bodyweight strength
 <h2>Founder Demonstration</h2>
 
 <p>
-The Iron Apex training system is built from real strength training experience. Skill demonstrations such as one-arm pull-ups, explosive muscle-ups, and advanced pulling strength will be displayed here.
+The Iron Apex system is based on real strength development. Demonstrations of advanced skills like one-arm pull-ups, explosive muscle-ups and weighted pull-ups will be shown here.
 </p>
 
 </section>
@@ -341,9 +327,9 @@ What you actually need is structured training, progressive overload and consiste
 <section style="text-align:center;">
 
 <img src="pullup-demo.jpg"
-style="width:340px;border-radius:14px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
+style="width:320px;border-radius:12px;box-shadow:0 8px 20px rgba(0,0,0,0.6);">
 
-<p style="opacity:0.7;margin-top:12px;font-size:14px;">
+<p style="opacity:0.7;margin-top:10px;font-size:14px;">
 Training demonstration — building real pulling strength.
 </p>
 
@@ -355,18 +341,18 @@ Training demonstration — building real pulling strength.
 <h2>My Story</h2>
 
 <p>
-When I first started calisthenics I couldn’t do a single pull-up. I lacked mobility, strength and constantly hit frustrating plateaus.
+When I first started calisthenics I couldn't do a single pull-up and constantly hit frustrating plateaus.
 </p>
 
 <p>
-Over time that approach allowed me to reach:
+Through structured training I eventually reached:
 </p>
 
 <p>
 • 30 strict pull-ups  
 • +50kg weighted pull-ups  
 • clean slow muscle-ups  
-• front lever progressions  
+• front lever  
 • handstand push-ups  
 • straddle planche strength
 </p>
@@ -406,7 +392,7 @@ Over time that approach allowed me to reach:
 <div class="skill">Front Lever</div>
 <div class="skill">Straddle Planche</div>
 <div class="skill">Handstand Push-Ups</div>
-<div class="skill">L-Sit & V-Sit</div>
+<div class="skill">L-Sit / V-Sit</div>
 
 </div>
 
@@ -473,24 +459,13 @@ The Iron Apex system is built around progressive overload and structured strengt
 </p>
 
 <p>
-Athletes first build foundational strength through pull-ups, push-ups and dips before progressing into explosive pulling, advanced bodyweight skills and weighted calisthenics.
+Athletes build foundational strength before progressing to advanced calisthenics skills.
 </p>
 
 </section>
 
 
-<section>
-
-<h2>Athlete Progress</h2>
-
-<p>
-Client results and athlete progress will be displayed here.
-</p>
-
-</section>
-
-
-<section style="text-align:center">
+<section class="cta-section">
 
 <h2>Start Your Training</h2>
 
@@ -523,4 +498,5 @@ Iron Apex © 2026
 </footer>
 
 </body>
+
 </html>
