@@ -11,7 +11,7 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V6 - OPTIMIZED SALES FUNNEL HIERARCHY
+           IRON APEX V6.5 - OPTIMIZED SALES FUNNEL & DATA CARDS
            ========================================================================== */
 
         :root {
@@ -269,17 +269,18 @@
             z-index: 2;
         }
 
-        /* --- PROGRAMS --- */
+        /* --- PROGRAMS & CARD DETAILS --- */
         .programs-section { padding: var(--pad-section); background-color: var(--bg-elevated); }
 
         .program-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 40px;
         }
 
         .program-card {
-            display: block;
+            display: flex;
+            flex-direction: column;
             text-decoration: none;
             color: var(--text-main);
             background-color: var(--bg-pure);
@@ -289,7 +290,7 @@
         }
 
         .program-card-img {
-            height: 250px;
+            height: 200px;
             background-color: #1a1a1a;
             display: flex;
             align-items: center;
@@ -304,7 +305,7 @@
             background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
         }
 
-        .program-card-content { padding: 30px; }
+        .program-card-content { padding: 40px; flex: 1; display: flex; flex-direction: column; }
 
         .program-tag {
             position: absolute; top: 20px; right: 20px;
@@ -315,9 +316,63 @@
             padding: 5px 10px;
             font-weight: 700;
             text-transform: uppercase;
+            z-index: 5;
         }
 
-        .program-card h3 { font-size: 28px; margin-bottom: 10px; }
+        .program-card h3 { font-size: 32px; margin-bottom: 10px; }
+
+        /* The New Data Lists inside the Program Cards */
+        .program-desc-main {
+            font-size: 16px;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .program-details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+            flex: 1;
+        }
+
+        .detail-group {
+            border-left: 2px solid var(--border-color);
+            padding-left: 15px;
+        }
+
+        .detail-title {
+            font-family: 'Oswald', sans-serif;
+            color: var(--text-main);
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .detail-list {
+            list-style: none;
+        }
+
+        .detail-list li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            position: relative;
+            padding-left: 15px;
+            margin-bottom: 4px;
+            line-height: 1.4;
+        }
+
+        .detail-list li::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 7px;
+            width: 4px;
+            height: 4px;
+            background-color: var(--accent-neon);
+        }
 
         .card-action {
             font-family: 'Oswald', sans-serif;
@@ -327,9 +382,12 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            margin-top: auto;
+            padding-top: 20px;
+            border-top: 1px solid var(--border-color);
         }
 
-        .program-card:hover { border-color: var(--text-main); transform: translateY(-5px); }
+        .program-card:hover { border-color: var(--text-main); transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.5); }
 
         /* --- FOUNDER & BENCHMARKS --- */
         .founder-section { padding: var(--pad-section); background-color: var(--bg-pure); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); }
@@ -437,6 +495,7 @@
             .mobile-sticky-cta { display: block; }
             .transform-grid { grid-template-columns: 1fr; }
             .transform-img-box img { height: 400px; }
+            .program-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -581,26 +640,84 @@
             <p class="section-subtitle">Select the protocol that matches your current baseline strength.</p>
             
             <div class="program-grid">
+                
                 <a href="beginner.html" class="program-card">
-                    <div class="program-tag">0-5 Pull-Ups</div>
+                    <div class="program-tag">0–3 Pull-Ups</div>
                     <div class="program-card-img">
                         <span style="font-family: Oswald; color: #333; font-size: 40px; text-transform: uppercase;">Foundation</span>
                     </div>
                     <div class="program-card-content">
                         <h3>BEGINNER PROTOCOL</h3>
-                        <p>Build absolute core stability and the raw pulling strength needed to start your calisthenics journey.</p>
+                        <p class="program-desc-main">For people starting calisthenics.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS</span>
+                                <ul class="detail-list">
+                                    <li>0–3 Pull-ups</li>
+                                    <li>0–5 Dips</li>
+                                    <li>0–10 Push-ups</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL</span>
+                                <ul class="detail-list">
+                                    <li>Build first real upper body strength</li>
+                                    <li>Reach 10–12 pull-ups</li>
+                                    <li>Build dip strength</li>
+                                    <li>Develop basic core control</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">SKILLS TRAINED</span>
+                                <ul class="detail-list">
+                                    <li>Pull-up strength</li>
+                                    <li>Push-up progressions</li>
+                                    <li>Dip strength & L-sit basics</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="card-action">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
 
                 <a href="intermediate.html" class="program-card">
-                    <div class="program-tag">8 Pull-Ups</div>
+                    <div class="program-tag">8–10 Pull-Ups</div>
                     <div class="program-card-img">
                         <span style="font-family: Oswald; color: #333; font-size: 40px; text-transform: uppercase;">Evolution</span>
                     </div>
                     <div class="program-card-content">
                         <h3>INTERMEDIATE</h3>
-                        <p>Focus on explosive velocity, handstand control, and introducing early muscle-up mechanics.</p>
+                        <p class="program-desc-main">Strength building stage.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS</span>
+                                <ul class="detail-list">
+                                    <li>8–10 Pull-ups</li>
+                                    <li>10–12 Dips</li>
+                                    <li>30 Push-ups</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL</span>
+                                <ul class="detail-list">
+                                    <li>First muscle-up</li>
+                                    <li>Develop explosive pulling power</li>
+                                    <li>Start handstand work</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">SKILLS TRAINED</span>
+                                <ul class="detail-list">
+                                    <li>Muscle-up drills</li>
+                                    <li>Explosive pull-ups</li>
+                                    <li>Handstand training & core compression</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="card-action">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
@@ -612,7 +729,33 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="text-accent">MUSCLE-UP MASTER</h3>
-                        <p>A specialized 4-day split focused entirely on explosive power, transition technique, and strict muscle-ups.</p>
+                        <p class="program-desc-main">Specialized protocol.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS</span>
+                                <ul class="detail-list">
+                                    <li>10 Strict pull-ups</li>
+                                    <li>12 Dips</li>
+                                    <li>Explosive pull strength</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">GOAL</span>
+                                <ul class="detail-list">
+                                    <li>Achieve first clean muscle-up</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">FOCUS</span>
+                                <ul class="detail-list">
+                                    <li>Explosive pull-ups & high pull-ups</li>
+                                    <li>Transition mechanics & swing understanding</li>
+                                    <li>Dip lockout strength</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="card-action" style="color: var(--text-main);">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
@@ -624,7 +767,34 @@
                     </div>
                     <div class="program-card-content">
                         <h3>ADVANCED</h3>
-                        <p>Master the front lever, begin weighted calisthenics, and push your physical limits.</p>
+                        <p class="program-desc-main">Skill development phase.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS</span>
+                                <ul class="detail-list">
+                                    <li>15 Pull-ups</li>
+                                    <li>20 Dips</li>
+                                    <li>Freestanding handstand</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL</span>
+                                <ul class="detail-list">
+                                    <li>Front lever progressions</li>
+                                    <li>Strict handstand push-ups</li>
+                                    <li>Strong weighted pull-ups</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">FOCUS</span>
+                                <ul class="detail-list">
+                                    <li>Front lever & weighted calisthenics</li>
+                                    <li>Explosive pulling & shoulder strength</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="card-action">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
@@ -636,7 +806,35 @@
                     </div>
                     <div class="program-card-content">
                         <h3>ELITE SYSTEM</h3>
-                        <p>Planche training, one-arm pull-up progressions, and top-tier calisthenics mastery.</p>
+                        <p class="program-desc-main">The pinnacle of bodyweight mastery.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS</span>
+                                <ul class="detail-list">
+                                    <li>Strict Muscle-Up</li>
+                                    <li>Advanced Front Lever</li>
+                                    <li>Handstand Push-Ups</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL</span>
+                                <ul class="detail-list">
+                                    <li>Full Planche</li>
+                                    <li>One-Arm Pull-up</li>
+                                    <li>Elite statics</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">FOCUS</span>
+                                <ul class="detail-list">
+                                    <li>Planche training mechanics</li>
+                                    <li>OAP progressions</li>
+                                    <li>Top-tier calisthenics mastery</li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <div class="card-action">VIEW PROGRAM &rarr;</div>
                     </div>
                 </a>
