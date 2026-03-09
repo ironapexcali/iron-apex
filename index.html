@@ -4,507 +4,828 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iron Apex | Elite Calisthenics Strength</title>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <title>IRON APEX | Elite Calisthenics Strength System</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Montserrat:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
 
     <style>
+        /* ========================================
+        IRON APEX DESIGN SYSTEM (V3.0)
+        ========================================
+        */
+
         :root {
-            /* Industrial Gunmetal Palette */
-            --bg-base: #0f1115;
-            --bg-surface: #161920;
-            --bg-card: #1c2129;
-            --primary: #55ff88;
-            --primary-glow: rgba(85, 255, 136, 0.2);
-            --text-main: #ffffff;
+            /* Primary Colors */
+            --brand-primary: #55ff88;
+            --brand-primary-rgb: 85, 255, 136;
+            --brand-dark: #0a0c10;
+            --brand-surface: #12151c;
+            --brand-card: #1a1f26;
+            --brand-accent: #232a35;
+            
+            /* Text Colors */
+            --text-white: #ffffff;
+            --text-silver: #cbd5e1;
             --text-muted: #94a3b8;
-            --accent-border: rgba(255, 255, 255, 0.08);
-            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Spacing & Layout */
+            --section-spacing: 120px;
+            --container-width: 1200px;
+            --border-radius: 12px;
+            
+            /* Shadows & Effects */
+            --shadow-sm: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+            --glass: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            
+            /* Transitions */
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-speed: 0.3s;
         }
 
+        /* ========================================
+        BASE STYLES & RESET
+        ========================================
+        */
+
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--bg-base);
-            /* Subtle mesh gradient for depth */
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--brand-dark);
+            /* NEW: Deep Carbon Background with Mesh Gradient */
             background-image: 
-                radial-gradient(at 0% 0%, rgba(85, 255, 136, 0.03) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(85, 255, 136, 0.03) 0px, transparent 50%);
-            color: var(--text-main);
+                radial-gradient(at 0% 0%, rgba(85, 255, 136, 0.05) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(85, 255, 136, 0.05) 0px, transparent 50%),
+                url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            color: var(--text-white);
             line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- NAVIGATION --- */
+        /* ========================================
+        TYPOGRAPHY
+        ========================================
+        */
+
+        h1, h2, h3 {
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            line-height: 1;
+        }
+
+        p {
+            font-size: 1.05rem;
+            font-weight: 400;
+        }
+
+        .text-primary { color: var(--brand-primary); }
+        .text-muted { color: var(--text-muted); }
+        .text-center { text-align: center; }
+
+        /* ========================================
+        UTILITY CLASSES (Grid & Spacing)
+        ========================================
+        */
+
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .section {
+            padding: var(--section-spacing) 0;
+            position: relative;
+        }
+
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
+        .flex-center { display: flex; align-items: center; justify-content: center; }
+
+        /* ========================================
+        NAVIGATION
+        ========================================
+        */
+
         nav {
-            display: flex;
-            justify-content: center;
-            padding: 20px;
             position: fixed;
             top: 0;
+            left: 0;
             width: 100%;
             z-index: 1000;
-            background: rgba(15, 17, 21, 0.85);
-            backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--accent-border);
+            background: rgba(10, 12, 16, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--glass-border);
+            padding: 15px 0;
+        }
+
+        .nav-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
 
         .nav-left {
             display: flex;
-            gap: clamp(15px, 4vw, 35px);
+            gap: 40px;
         }
 
-        nav a {
+        .nav-left a {
             text-decoration: none;
-            color: var(--text-main);
+            color: var(--text-white);
             font-weight: 700;
-            font-size: 11px;
+            font-size: 12px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            opacity: 0.5;
-            transition: var(--transition);
+            letter-spacing: 2px;
+            transition: var(--transition-speed) var(--ease);
+            opacity: 0.6;
         }
 
-        nav a:hover {
+        .nav-left a:hover {
             opacity: 1;
-            color: var(--primary);
+            color: var(--brand-primary);
         }
 
-        /* --- HERO SECTION (FIXED IMAGE VISIBILITY) --- */
+        /* ========================================
+        HERO SECTION (FIXED IMAGE VISIBILITY)
+        ========================================
+        */
+
         .hero {
             position: relative;
             height: 100vh;
-            min-height: 750px;
+            min-height: 850px;
             display: flex;
-            align-items: flex-end; /* Keeps content at bottom so image top is clear */
+            align-items: center;
             justify-content: center;
-            padding-bottom: 100px;
-            background: 
-                linear-gradient(to top, var(--bg-base) 10%, transparent 60%),
-                linear-gradient(to bottom, rgba(0,0,0,0.4), transparent 40%),
-                url("IMG_8792.jpg") top center/cover no-repeat; /* 'top center' fixes the cropping issue */
+            overflow: hidden;
         }
 
-        .hero-content {
-            max-width: 900px;
-            text-align: center;
-            padding: 0 20px;
+        .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        .hero-background img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center; /* CRITICAL: Prevents cutting off the top */
+            filter: brightness(0.5) contrast(1.1);
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background: linear-gradient(to top, var(--brand-dark) 10%, transparent 100%);
             z-index: 2;
         }
 
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            text-align: center;
+            max-width: 1000px;
+            padding: 20px;
+            animation: heroFadeIn 1s var(--ease);
+        }
+
         .hero h1 {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(60px, 12vw, 130px);
-            line-height: 0.85;
-            text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-            color: var(--text-main);
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            font-size: clamp(60px, 15vw, 150px);
+            margin-bottom: 10px;
+            color: var(--text-white);
+            text-shadow: 0 10px 50px rgba(0,0,0,0.8);
         }
 
         .hero p {
-            font-size: clamp(16px, 2vw, 20px);
-            color: var(--text-muted);
-            max-width: 600px;
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-silver);
+            max-width: 700px;
             margin: 0 auto 40px;
-            font-weight: 400;
+            font-weight: 500;
         }
 
-        .btn-main {
-            display: inline-block;
-            background: var(--primary);
-            color: #000;
+        /* ========================================
+        BUTTONS
+        ========================================
+        */
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             padding: 20px 50px;
             border-radius: 4px;
             text-decoration: none;
-            font-weight: 800;
-            font-size: 14px;
+            font-weight: 900;
+            font-size: 16px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: var(--transition);
+            transition: var(--transition-speed) var(--ease);
+            cursor: pointer;
+            border: none;
         }
 
-        .btn-main:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px var(--primary-glow);
+        .btn-primary {
+            background: var(--brand-primary);
+            color: #000;
         }
 
-        /* --- SECTION STRUCTURE --- */
-        section {
-            padding: 100px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(85, 255, 136, 0.4);
         }
 
-        .section-title {
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(32px, 5vw, 50px);
-            text-transform: uppercase;
-            margin-bottom: 30px;
-            line-height: 1;
+        /* ========================================
+        DEMONSTRATION & STORY (GRID BLOCKS)
+        ========================================
+        */
+
+        .feature-block {
+            background: var(--brand-surface);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 50px;
+            height: 100%;
             display: flex;
-            align-items: center;
-            gap: 15px;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        .section-title::after {
-            content: "";
-            height: 2px;
-            flex-grow: 1;
-            background: linear-gradient(to right, var(--primary), transparent);
-            opacity: 0.3;
+        .demo-image-container {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
         }
 
-        /* --- BENTO GRID FOR CONTENT --- */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr;
-            gap: 30px;
-            align-items: center;
+        .demo-image-container img {
+            width: 100%;
+            display: block;
+            transition: 0.5s var(--ease);
         }
 
-        .card-flat {
-            background: var(--bg-surface);
-            padding: 40px;
-            border-radius: 8px;
-            border: 1px solid var(--accent-border);
+        .demo-image-container:hover img {
+            transform: scale(1.05);
         }
+
+        .stats-badge {
+            background: var(--brand-primary);
+            color: #000;
+            padding: 8px 16px;
+            font-weight: 900;
+            border-radius: 4px;
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* ========================================
+        THE "HONEST" SECTION (ALERNATING BG)
+        ========================================
+        */
 
         .alt-section {
-            background-color: var(--bg-surface);
-            border-top: 1px solid var(--accent-border);
-            border-bottom: 1px solid var(--accent-border);
+            background: var(--brand-surface);
+            border-top: 1px solid var(--glass-border);
+            border-bottom: 1px solid var(--glass-border);
+            position: relative;
         }
 
-        /* --- SKILLS GRID --- */
-        .skills-flex {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 30px;
-        }
-
-        .skill-item {
-            background: var(--bg-card);
-            padding: 12px 24px;
-            border-radius: 4px;
-            font-weight: 700;
-            font-size: 13px;
-            text-transform: uppercase;
-            border: 1px solid var(--accent-border);
-            transition: var(--transition);
-        }
-
-        .skill-item:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-        }
-
-        /* --- PROGRAM CARDS --- */
-        .program-container {
+        .honest-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 20px;
             margin-top: 40px;
         }
 
-        .p-card {
-            background: var(--bg-card);
-            padding: 40px 30px;
+        .honest-card {
+            background: var(--brand-card);
+            padding: 30px;
             border-radius: 8px;
+            border-left: 4px solid var(--brand-primary);
+        }
+
+        /* ========================================
+        TRANSFORMATIONS (BENTO STYLE)
+        ========================================
+        */
+
+        .bento-transformation {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .trans-card {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            border: 1px solid var(--glass-border);
+        }
+
+        .trans-card img {
+            width: 100%;
+            height: 600px;
+            object-fit: cover;
+            display: block;
+            filter: grayscale(40%);
+            transition: 0.5s var(--ease);
+        }
+
+        .trans-card:hover img {
+            filter: grayscale(0%);
+        }
+
+        .trans-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            text-align: left;
+        }
+
+        /* ========================================
+        PROGRAM CARDS (PREMIUM UI)
+        ========================================
+        */
+
+        .program-card {
+            background: var(--brand-card);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--border-radius);
+            padding: 40px;
             text-decoration: none;
-            color: white;
-            border: 1px solid var(--accent-border);
-            transition: var(--transition);
+            color: inherit;
+            transition: var(--transition-speed) var(--ease);
             display: flex;
             flex-direction: column;
             position: relative;
             overflow: hidden;
         }
 
-        .p-card::before {
-            content: "";
+        .program-card::after {
+            content: '';
             position: absolute;
-            top: 0; left: 0; width: 4px; height: 0;
-            background: var(--primary);
-            transition: var(--transition);
+            top: 0; left: 0; width: 100%; height: 4px;
+            background: var(--brand-primary);
+            transform: scaleX(0);
+            transition: 0.3s var(--ease);
+            transform-origin: left;
         }
 
-        .p-card:hover {
-            transform: translateY(-8px);
-            background: #232933;
-            border-color: rgba(255,255,255,0.2);
+        .program-card:hover {
+            transform: translateY(-10px);
+            background: var(--brand-accent);
+            border-color: var(--brand-primary);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
         }
 
-        .p-card:hover::before { height: 100%; }
-
-        .p-card h3 {
-            font-family: 'Anton', sans-serif;
-            font-size: 24px;
-            text-transform: uppercase;
-            margin-bottom: 15px;
-            letter-spacing: 0.5px;
+        .program-card:hover::after {
+            transform: scaleX(1);
         }
 
-        .p-req {
+        .program-card h3 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: var(--brand-primary);
+        }
+
+        .req-tag {
             font-size: 11px;
-            font-weight: 800;
             text-transform: uppercase;
-            color: var(--primary);
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+            letter-spacing: 2px;
+            font-weight: 900;
+            color: var(--text-muted);
+            margin-bottom: 20px;
             display: block;
         }
 
-        .p-detail {
-            color: var(--text-muted);
-            font-size: 15px;
+        .program-card p {
+            color: var(--text-silver);
+            margin-bottom: 30px;
         }
 
-        /* --- TRANSFORMATIONS --- */
-        .trans-group {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-        }
-
-        .trans-item {
-            text-align: center;
-        }
-
-        .trans-item img {
-            width: 100%;
-            border-radius: 4px;
-            filter: grayscale(30%);
-            transition: var(--transition);
-            border: 1px solid var(--accent-border);
-        }
-
-        .trans-item img:hover { filter: grayscale(0%); border-color: var(--primary); }
-
-        .trans-label {
-            margin-top: 15px;
+        .program-footer {
+            margin-top: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
             font-weight: 800;
             text-transform: uppercase;
             font-size: 12px;
-            letter-spacing: 2px;
-            color: var(--text-muted);
         }
 
-        /* --- CONTACT BOX --- */
-        .cta-box {
-            background: var(--primary);
-            color: #000;
-            padding: 80px 40px;
-            border-radius: 12px;
-            text-align: center;
-            margin-top: 50px;
+        /* ========================================
+        SKILLS & SYSTEM
+        ========================================
+        */
+
+        .skill-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 15px;
+            margin-top: 40px;
         }
 
-        .cta-box h2 { font-family: 'Anton', sans-serif; font-size: 50px; margin-bottom: 10px; }
-        .cta-box a { color: #000; font-weight: 800; text-decoration: underline; font-size: 24px; }
-
-        /* --- FOOTER --- */
-        footer {
+        .skill-pill {
+            background: var(--brand-surface);
+            border: 1px solid var(--glass-border);
+            padding: 20px;
             text-align: center;
-            padding: 60px 20px;
-            font-size: 12px;
+            border-radius: 4px;
+            font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            color: var(--text-muted);
-            opacity: 0.6;
+            font-size: 13px;
+            transition: var(--transition-speed);
         }
 
-        /* --- MOBILE --- */
-        @media (max-width: 900px) {
-            .bento-grid, .trans-group { grid-template-columns: 1fr; }
-            .hero { align-items: center; padding-bottom: 0; }
-            .hero-content { margin-top: 100px; }
-            section { padding: 60px 20px; }
+        .skill-pill:hover {
+            background: var(--brand-primary);
+            color: #000;
         }
+
+        /* ========================================
+        CLIENT SECTION (PRO PLACEHOLDERS)
+        ========================================
+        */
+
+        .placeholder-client {
+            height: 350px;
+            background: repeating-linear-gradient(45deg, var(--brand-surface), var(--brand-surface) 10px, var(--brand-accent) 10px, var(--brand-accent) 20px);
+            border: 2px dashed var(--glass-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: var(--border-radius);
+            color: var(--text-muted);
+            font-weight: 800;
+        }
+
+        /* ========================================
+        INSTAGRAM / CTA BOX
+        ========================================
+        */
+
+        .cta-box {
+            background: var(--brand-primary);
+            padding: 80px 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+            color: #000;
+            margin-top: 40px;
+        }
+
+        .cta-box h2 { font-size: 60px; margin-bottom: 20px; }
+        .cta-box a { color: #000; font-weight: 900; font-size: 24px; text-decoration: none; border-bottom: 4px solid #000; }
+
+        /* ========================================
+        FOOTER
+        ========================================
+        */
+
+        footer {
+            padding: 80px 0;
+            text-align: center;
+            border-top: 1px solid var(--glass-border);
+            background: var(--brand-dark);
+        }
+
+        .footer-logo { font-family: 'Anton'; font-size: 30px; letter-spacing: 2px; margin-bottom: 20px; }
+        .footer-copy { font-size: 12px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-muted); }
+
+        /* ========================================
+        ANIMATIONS
+        ========================================
+        */
+
+        @keyframes heroFadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ========================================
+        RESPONSIVE DESIGN (MOBILE FIXES)
+        ========================================
+        */
+
+        @media (max-width: 1024px) {
+            .grid-2, .grid-3, .honest-grid { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 80px; }
+            .section { padding: 80px 0; }
+            .bento-transformation { grid-template-columns: 1fr; }
+            .nav-left { gap: 20px; }
+            .nav-left a { font-size: 10px; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 60px; }
+            .btn { width: 100%; padding: 20px; }
+        }
+
     </style>
 </head>
 
 <body>
 
     <nav>
-        <div class="nav-left">
-            <a href="#programs">Programs</a>
-            <a href="#story">Story</a>
-            <a href="#transformation">Transformation</a>
-            <a href="#skills">Skills</a>
-            <a href="#system">System</a>
+        <div class="container nav-content">
+            <div class="nav-left">
+                <a href="#programs">Programs</a>
+                <a href="#story">My Story</a>
+                <a href="#transformation">Transformation</a>
+                <a href="#skills">Skills</a>
+                <a href="#system">System</a>
+            </div>
         </div>
     </nav>
 
-    <div class="hero">
+    <header class="hero">
+        <div class="hero-background">
+            <img src="IMG_8792.jpg" alt="Iron Apex Training">
+        </div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <h1>Iron Apex</h1>
-            <p>A structured training system designed to help you build real bodyweight strength and progress toward advanced skills like muscle-ups, front lever and one-arm pull-ups.</p>
-            <a href="#programs" class="btn-main">Start Training</a>
-        </div>
-    </div>
-
-    <section>
-        <div class="bento-grid">
-            <div>
-                <h2 class="section-title">Founder Demonstration</h2>
-                <p>The Iron Apex system is based on real strength development. Demonstrations of advanced skills like one-arm pull-ups, explosive muscle-ups and weighted pull-ups will be shown here.</p>
+            <p>
+                The world's most effective training system for building elite calisthenics strength and advanced bodyweight skills.
+            </p>
+            <div class="hero-buttons">
+                <a href="#programs" class="btn btn-primary">Begin Your Evolution</a>
             </div>
-            <div style="text-align: center;">
-                <img src="pullup-demo.jpg" alt="Founder Pullup" style="width: 100%; max-width: 450px; border-radius: 8px; border: 1px solid var(--accent-border); box-shadow: 0 20px 40px rgba(0,0,0,0.4);">
-                <p style="font-size: 12px; margin-top: 15px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px;">Building real pulling strength.</p>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div class="feature-block">
+                    <span class="stats-badge">Proof of Concept</span>
+                    <h2>Founder Demonstration</h2>
+                    <p class="text-muted">
+                        The Iron Apex system isn't theory. It's built on raw, demonstrated power. Witness the transition from basic calisthenics to high-level mastery.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        Demonstrations of advanced skills like one-arm pull-ups, explosive muscle-ups and weighted pull-ups will be shown here.
+                    </p>
+                </div>
+                <div class="demo-image-container">
+                    <img src="pullup-demo.jpg" alt="Calisthenics Demo">
+                    <div class="trans-overlay">
+                        <p style="font-weight: 900; font-size: 12px; text-transform: uppercase;">Building Elite Pulling Strength</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <div class="alt-section">
-        <section>
-            <h2 class="section-title">I'm Going To Be Honest And Direct</h2>
-            <div class="bento-grid">
-                <div class="card-flat">
-                    <p style="color: var(--primary); font-weight: 800; font-size: 18px; margin-bottom: 10px;">NO you don't need to train for hours every day like an Olympic gymnast.</p>
-                    <p style="margin-bottom: 10px;">NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
+    <section class="section alt-section">
+        <div class="container text-center">
+            <h2 style="font-size: 50px; margin-bottom: 20px;">I'm Going To Be Honest And Direct</h2>
+            <p class="text-muted" style="max-width: 800px; margin: 0 auto;">Most fitness programs are designed to keep you busy, not to make you strong. Let's clear the air about what it actually takes.</p>
+            
+            <div class="honest-grid">
+                <div class="honest-card">
+                    <p>NO you don't need to train for hours every day like an Olympic gymnast.</p>
+                </div>
+                <div class="honest-card">
+                    <p>NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
+                </div>
+                <div class="honest-card">
                     <p>NO you don't need hundreds of random exercises.</p>
                 </div>
-                <p>What you actually need is structured training, progressive overload and consistency. That is exactly what the Iron Apex system focuses on.</p>
             </div>
-        </section>
-    </div>
-
-    <section id="story">
-        <div class="bento-grid">
-            <div>
-                <h2 class="section-title">My Story</h2>
-                <p>When I first started calisthenics I couldn't do a single pull-up and constantly hit frustrating plateaus. Through structured training I eventually reached elite levels of strength.</p>
-            </div>
-            <div class="card-flat" style="background: var(--bg-card);">
-                <p style="color: var(--primary); font-weight: 800; text-transform: uppercase; font-size: 12px; margin-bottom: 15px; letter-spacing: 1px;">Current Stats:</p>
-                <p style="line-height: 2; font-weight: 600;">
-                    • 30 strict pull-ups <br>
-                    • +50kg weighted pull-ups <br>
-                    • clean slow muscle-ups <br>
-                    • front lever <br>
-                    • handstand push-ups <br>
-                    • straddle planche strength
+            
+            <div style="margin-top: 50px; padding: 40px; background: var(--brand-dark); border-radius: 8px;">
+                <p style="font-size: 1.2rem; font-weight: 700;">
+                    What you actually need is <span class="text-primary">structured training</span>, <span class="text-primary">progressive overload</span> and <span class="text-primary">consistency</span>. That is exactly what the Iron Apex system focuses on.
                 </p>
             </div>
         </div>
     </section>
 
-    <section id="transformation" class="alt-section" style="max-width: 100%; width: 100%;">
-        <div style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
-            <h2 class="section-title">My 1.5 Year Transformation</h2>
-            <div class="trans-group">
-                <div class="trans-item">
-                    <img src="IMG_8839.jpg" alt="Before">
-                    <div class="trans-label">Before</div>
+    <section id="story" class="section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 style="font-size: 60px;">My Story</h2>
+                    <p class="text-muted" style="margin-top: 20px;">
+                        When I first started calisthenics I couldn't do a single pull-up and constantly hit frustrating plateaus. I wasted months on "random" workouts before discovering the science of bodyweight strength.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        Through the exact structure found in these programs, I eventually reached:
+                    </p>
                 </div>
-                <div class="trans-item">
-                    <img src="IMG_8841.jpg" alt="After">
-                    <div class="trans-label">After (1.5 years)</div>
+                <div class="feature-block" style="background: var(--brand-primary); color: #000;">
+                    <ul style="list-style: none; font-size: 1.2rem; font-weight: 900; text-transform: uppercase;">
+                        <li style="margin-bottom: 10px;">• 30 strict pull-ups</li>
+                        <li style="margin-bottom: 10px;">• +50kg weighted pull-ups</li>
+                        <li style="margin-bottom: 10px;">• clean slow muscle-ups</li>
+                        <li style="margin-bottom: 10px;">• front lever master</li>
+                        <li style="margin-bottom: 10px;">• handstand push-ups</li>
+                        <li>• straddle planche strength</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section>
-        <h2 class="section-title">Client Results</h2>
-        <p style="margin-bottom: 30px;">Real results from the Iron Apex system. New transformations are added as athletes progress through the programs.</p>
-        <div class="trans-group" style="grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); opacity: 0.4;">
-            <div class="card-flat" style="border: 2px dashed var(--accent-border); height: 300px; display: flex; align-items: center; justify-content: center;">
-                [CLIENT TRANSFORMATION]
-            </div>
-            <div class="card-flat" style="border: 2px dashed var(--accent-border); height: 300px; display: flex; align-items: center; justify-content: center;">
-                [CLIENT TRANSFORMATION]
+    <section id="transformation" class="section alt-section">
+        <div class="container text-center">
+            <h2 style="font-size: 50px;">The 1.5 Year Evolution</h2>
+            <p class="text-muted">Consistent work creates undeniable physical changes.</p>
+            
+            <div class="bento-transformation">
+                <div class="trans-card">
+                    <img src="IMG_8839.jpg" alt="Before Transformation">
+                    <div class="trans-overlay">
+                        <h3>Day 01</h3>
+                        <p>Foundation Stage</p>
+                    </div>
+                </div>
+                <div class="trans-card">
+                    <img src="IMG_8841.jpg" alt="After Transformation">
+                    <div class="trans-overlay">
+                        <h3 class="text-primary">1.5 Years</h3>
+                        <p>Iron Apex Results</p>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="skills">
-        <h2 class="section-title">Skills You Will Build</h2>
-        <div class="skills-flex">
-            <div class="skill-item">Pull-Ups</div>
-            <div class="skill-item">Muscle Ups</div>
-            <div class="skill-item">Front Lever</div>
-            <div class="skill-item">Straddle Planche</div>
-            <div class="skill-item">Handstand Push-Ups</div>
-            <div class="skill-item">L-Sit / V-Sit</div>
+    <section class="section">
+        <div class="container">
+            <h2 class="text-center" style="margin-bottom: 40px;">Client Transformations</h2>
+            <div class="grid-3">
+                <div class="placeholder-client">RESULTS LOADING...</div>
+                <div class="placeholder-client">RESULTS LOADING...</div>
+                <div class="placeholder-client">RESULTS LOADING...</div>
+            </div>
+            <p class="text-center text-muted" style="margin-top: 30px;">
+                Proof that the Iron Apex system works for everyone, not just me. Join the ranks today.
+            </p>
         </div>
     </section>
 
-    <div class="alt-section" id="programs">
-        <section>
-            <h2 class="section-title">Training Programs</h2>
-            <div class="program-container">
-                <a href="muscleup.html" class="p-card">
-                    <span class="p-req">10 pull-ups / 12 dips</span>
-                    <h3>Muscle-Up Program</h3>
-                    <p class="p-detail">4 sessions per week focused on explosive pulling power and muscle-up technique.</p>
-                </a>
+    <section id="skills" class="section alt-section">
+        <div class="container">
+            <h2 class="text-center">Skills You Will Master</h2>
+            <div class="skill-grid">
+                <div class="skill-pill">Pull-Ups</div>
+                <div class="skill-pill">Muscle Ups</div>
+                <div class="skill-pill">Front Lever</div>
+                <div class="skill-pill">Straddle Planche</div>
+                <div class="skill-pill">Handstand Push-Ups</div>
+                <div class="skill-pill">L-Sit / V-Sit</div>
+            </div>
+        </div>
+    </section>
 
-                <a href="beginner.html" class="p-card">
-                    <span class="p-req">0–5 pull-ups</span>
+    <section id="programs" class="section">
+        <div class="container">
+            <h2 class="text-center" style="font-size: 60px; margin-bottom: 10px;">Choose Your Path</h2>
+            <p class="text-center text-muted" style="margin-bottom: 50px;">Select a program designed for your current level of strength.</p>
+            
+            <div class="grid-3">
+                <a href="beginner.html" class="program-card">
+                    <span class="req-tag">0–5 pull-ups</span>
                     <h3>Beginner</h3>
-                    <p class="p-detail">Build foundational strength and core stability.</p>
+                    <p>Build the foundational core stability and absolute pulling strength needed to start your journey.</p>
+                    <div class="program-footer">
+                        <span>View Program</span>
+                        <span class="text-primary">→</span>
+                    </div>
                 </a>
 
-                <a href="intermediate.html" class="p-card">
-                    <span class="p-req">8 pull-ups</span>
+                <a href="intermediate.html" class="program-card">
+                    <span class="req-tag">8 pull-ups</span>
                     <h3>Intermediate</h3>
-                    <p class="p-detail">Explosive pull-ups, muscle-up strength and handstand control.</p>
+                    <p>Focus on explosive pull-ups, handstand control, and introducing muscle-up mechanics.</p>
+                    <div class="program-footer">
+                        <span>View Program</span>
+                        <span class="text-primary">→</span>
+                    </div>
                 </a>
 
-                <a href="advanced.html" class="p-card">
-                    <span class="p-req">15 pull-ups</span>
+                <a href="advanced.html" class="program-card">
+                    <span class="req-tag">15 pull-ups</span>
                     <h3>Advanced</h3>
-                    <p class="p-detail">Front lever progressions and weighted calisthenics.</p>
-                </a>
-
-                <a href="elite.html" class="p-card">
-                    <span class="p-req">Muscle-up / front lever</span>
-                    <h3>Elite</h3>
-                    <p class="p-detail">Planche training and elite calisthenics strength.</p>
+                    <p>Master the front lever and weighted calisthenics. Push into the elite strength brackets.</p>
+                    <div class="program-footer">
+                        <span>View Program</span>
+                        <span class="text-primary">→</span>
+                    </div>
                 </a>
             </div>
-        </section>
-    </div>
 
-    <section id="system">
-        <div class="bento-grid">
-            <div>
-                <h2 class="section-title">How The System Works</h2>
-                <p>The Iron Apex system is built around progressive overload and structured strength development. Athletes build foundational strength before progressing to advanced calisthenics skills.</p>
-            </div>
-            <div class="card-flat" style="text-align: center;">
-                <h2 style="font-family: 'Anton'; font-size: 60px; color: var(--primary);">01</h2>
-                <p style="text-transform: uppercase; font-weight: 800; font-size: 12px;">Foundation First</p>
+            <div class="grid-2" style="margin-top: 30px;">
+                <a href="muscleup.html" class="program-card">
+                    <span class="req-tag">10 pull-ups / 12 dips</span>
+                    <h3>Muscle-Up Master</h3>
+                    <p>A specialized 4-session-per-week plan focused entirely on explosive power and technique.</p>
+                    <div class="program-footer">
+                        <span>View Program</span>
+                        <span class="text-primary">→</span>
+                    </div>
+                </a>
+
+                <a href="elite.html" class="program-card">
+                    <span class="req-tag">Muscle-up / front lever</span>
+                    <h3>Elite System</h3>
+                    <p>Planche training and the highest tier of calisthenics mastery for the dedicated athlete.</p>
+                    <div class="program-footer">
+                        <span>View Program</span>
+                        <span class="text-primary">→</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <section style="text-align: center;">
-        <h2 class="section-title" style="justify-content: center;">Start Your Training</h2>
-        <p style="margin-bottom: 40px;">Choose the program that matches your current strength level.</p>
-        <a href="#programs" class="btn-main">BEGIN THE PROGRAM</a>
+    <section id="system" class="section alt-section">
+        <div class="container">
+            <div class="grid-2">
+                <div>
+                    <h2 style="font-size: 50px;">How The System Works</h2>
+                    <p class="text-muted" style="margin-top: 20px;">
+                        The Iron Apex system is built around progressive overload and structured strength development. Athletes build foundational strength before progressing to advanced calisthenics skills.
+                    </p>
+                    <p style="margin-top: 20px;">
+                        We don't use "filler" workouts. Every set and rep is a calculated step toward your goal.
+                    </p>
+                </div>
+                <div class="feature-block">
+                    <div style="margin-bottom: 20px;">
+                        <h4 class="text-primary">Step 01: Assessment</h4>
+                        <p style="font-size: 14px;">Define your current baseline strength.</p>
+                    </div>
+                    <div style="margin-bottom: 20px;">
+                        <h4 class="text-primary">Step 02: Progression</h4>
+                        <p style="font-size: 14px;">Follow the structured daily training split.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-primary">Step 03: Mastery</h4>
+                        <p style="font-size: 14px;">Test and unlock your targeted skills.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section>
-        <div class="cta-box">
-            <h2>Need Help?</h2>
-            <p style="color: #000; font-weight: 600; margin-bottom: 10px;">DM me for tips or coaching:</p>
-            <a href="https://instagram.com/sambrooks1223">@sambrooks1223</a>
+    <section class="section">
+        <div class="container">
+            <div class="cta-box">
+                <h2>Start Your Training</h2>
+                <p style="font-weight: 700; margin-bottom: 30px;">Stop guessing. Start building real strength today.</p>
+                <a href="#programs" class="btn btn-primary" style="background: #000; color: var(--brand-primary);">ACCESS ALL PROGRAMS</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" style="padding-top: 0;">
+        <div class="container text-center">
+            <h2 style="margin-bottom: 20px;">Need Help With Training?</h2>
+            <p class="text-muted">Follow me for daily tips, coaching, and tutorials.</p>
+            <div style="margin-top: 30px;">
+                <a href="https://instagram.com/sambrooks1223" style="text-decoration: none; color: var(--brand-primary); font-size: 30px; font-weight: 900;">
+                    @SAMBROOKS1223
+                </a>
+            </div>
         </div>
     </section>
 
     <footer>
-        Iron Apex © 2026
+        <div class="container">
+            <div class="footer-logo">IRON APEX</div>
+            <div class="footer-copy">
+                Iron Apex © 2026 | Build Your Legacy
+            </div>
+        </div>
     </footer>
 
 </body>
