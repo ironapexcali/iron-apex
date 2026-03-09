@@ -22,7 +22,7 @@ body{
 font-family:'Poppins',sans-serif;
 background:#070707;
 color:white;
-line-height:1.6;
+line-height:1.7;
 }
 
 /* NAV */
@@ -59,7 +59,7 @@ align-items:center;
 justify-content:center;
 gap:70px;
 max-width:1100px;
-margin:90px auto;
+margin:100px auto;
 padding:0 20px;
 }
 
@@ -75,8 +75,8 @@ max-width:500px;
 }
 
 .hero-text h1{
-font-size:48px;
-margin-bottom:18px;
+font-size:52px;
+margin-bottom:20px;
 }
 
 .hero-text p{
@@ -88,11 +88,11 @@ margin-bottom:16px;
 display:inline-block;
 background:#55ff88;
 color:black;
-padding:14px 28px;
+padding:14px 30px;
 border-radius:10px;
 text-decoration:none;
 font-weight:600;
-margin-top:10px;
+margin-top:12px;
 transition:0.2s;
 }
 
@@ -104,14 +104,21 @@ box-shadow:0 0 15px #55ff88;
 /* SECTIONS */
 
 section{
-max-width:900px;
-margin:80px auto;
+max-width:950px;
+margin:90px auto;
 padding:0 20px;
 }
 
 section h2{
-font-size:32px;
-margin-bottom:16px;
+font-size:40px;
+margin-bottom:20px;
+}
+
+.alt{
+background:#0e0e0e;
+padding:70px 20px;
+border-top:1px solid #111;
+border-bottom:1px solid #111;
 }
 
 /* TRANSFORMATION */
@@ -123,12 +130,12 @@ text-align:center;
 .transformation-images{
 display:flex;
 justify-content:center;
-gap:35px;
-margin-top:20px;
+gap:40px;
+margin-top:25px;
 }
 
 .transformation-images img{
-width:210px;
+width:220px;
 border-radius:12px;
 }
 
@@ -137,13 +144,13 @@ border-radius:12px;
 .skill-grid{
 display:flex;
 flex-wrap:wrap;
-gap:16px;
-margin-top:25px;
+gap:18px;
+margin-top:30px;
 }
 
 .skill{
 background:#111;
-padding:16px 20px;
+padding:16px 22px;
 border-radius:10px;
 border:1px solid #222;
 }
@@ -152,20 +159,20 @@ border:1px solid #222;
 
 .programs{
 max-width:1100px;
-margin:80px auto;
+margin:100px auto;
 padding:0 20px;
 }
 
 .cards{
 display:flex;
 flex-wrap:wrap;
-gap:25px;
-margin-top:25px;
+gap:30px;
+margin-top:35px;
 }
 
 .card{
 background:#111;
-padding:25px;
+padding:28px;
 border-radius:14px;
 width:240px;
 text-decoration:none;
@@ -181,27 +188,33 @@ box-shadow:0 0 12px #55ff88;
 }
 
 .requirements{
-opacity:0.7;
+opacity:0.75;
 font-size:14px;
 margin-top:10px;
+}
+
+.program-detail{
+margin-top:10px;
+opacity:0.8;
+font-size:14px;
 }
 
 /* FOOTER */
 
 footer{
 text-align:center;
-padding:60px;
+padding:70px;
 opacity:0.6;
 }
 
 /* MOBILE FIX */
+
 @media (max-width:900px){
 
 .hero{
 flex-direction:column;
 text-align:center;
 gap:30px;
-margin:60px auto;
 }
 
 .hero-image img{
@@ -211,16 +224,6 @@ height:300px;
 
 .hero-text h1{
 font-size:36px;
-line-height:1.2;
-}
-
-.hero-text p{
-font-size:15px;
-}
-
-.transformation-images{
-flex-direction:column;
-align-items:center;
 }
 
 .cards{
@@ -232,12 +235,9 @@ width:100%;
 max-width:320px;
 }
 
-.skill-grid{
-justify-content:center;
-}
-
-section{
-margin:60px auto;
+.transformation-images{
+flex-direction:column;
+align-items:center;
 }
 
 }
@@ -258,7 +258,6 @@ margin:60px auto;
 </nav>
 
 
-
 <section class="hero">
 
 <div class="hero-image">
@@ -267,21 +266,17 @@ margin:60px auto;
 
 <div class="hero-text">
 
-<h1>Build Real Strength<br>In Just 1 Month</h1>
+<h1>Build Elite Calisthenics Strength</h1>
 
 <p>
-(without complicated equipment, without wasting hours in the gym,
-and without random workouts that lead nowhere...)
+A structured training system designed to help you build real bodyweight strength and progress toward advanced skills like muscle-ups, front lever and one-arm pull-ups.
 </p>
 
 <p>
-Most people train randomly and never build real strength.
-The Iron Apex system focuses on the exercises that actually
-develop elite bodyweight strength.
+Most people train randomly and stay stuck. Iron Apex focuses on the exercises that actually build elite pulling power, pushing strength and body control.
 </p>
 
-<a class="cta" href="#programs">START TRAINING</a>
-
+<a class="cta" href="#programs">START YOUR TRAINING</a>
 
 </div>
 
@@ -296,9 +291,14 @@ develop elite bodyweight strength.
 <p>NO you don't need to train for hours every day like an Olympic gymnast.</p>
 <p>NO you don't need perfect genetics to perform skills like muscle-ups or front lever.</p>
 <p>NO you don't need hundreds of random exercises.</p>
-<p>What you actually need is the right training structure and progressive overload.</p>
+
+<p>
+What you actually need is structured training, progressive overload and consistency.
+That is exactly what the Iron Apex system focuses on.
+</p>
 
 </section>
+
 
 <section style="text-align:center;margin-top:40px;">
 
@@ -313,23 +313,36 @@ Training demonstration — building real pulling strength.
 
 
 
-<section id="story">
+<section id="story" class="alt">
 
 <h2>My Story</h2>
 
-<p>When I started calisthenics I couldn't do a single pull-up.</p>
-<p>I lacked mobility and constantly hit plateaus.</p>
-
 <p>
-Through structured training I eventually progressed to
-30 pull-ups, +50kg weighted pull-ups,
-clean slow muscle-ups, front lever,
-handstand pushups and straddle planche.
+When I first started calisthenics I couldn’t do a single pull-up.
+I lacked mobility, strength and constantly hit frustrating plateaus.
 </p>
 
 <p>
-Iron Apex was built to help others reach that level
-without wasting years on bad training methods.
+Instead of quitting, I started focusing on progressive overload,
+fundamental strength and skill-specific training.
+</p>
+
+<p>
+Over time that approach allowed me to reach:
+</p>
+
+<p>
+• 30 strict pull-ups  
+• +50kg weighted pull-ups  
+• clean slow muscle-ups  
+• front lever progressions  
+• handstand push-ups  
+• straddle planche strength
+</p>
+
+<p>
+Iron Apex was created to help athletes follow a structured path
+toward these skills without wasting years on ineffective training.
 </p>
 
 </section>
@@ -367,50 +380,55 @@ without wasting years on bad training methods.
 <a href="muscleup.html" class="card">
 <h3>Muscle-Up Program</h3>
 <div class="requirements">
-Requirements:<br>
-10 Pull-ups<br>
-12 Dips<br>
-Explosive Pull Strength
+Requirements: 10 pull-ups / 12 dips
+</div>
+<div class="program-detail">
+4 training sessions per week focused on explosive pulling power,
+high pull-ups and muscle-up technique.
 </div>
 </a>
 
 <a href="beginner.html" class="card">
 <h3>Beginner</h3>
 <div class="requirements">
-Requirements:<br>
-0–5 Pull-ups<br>
-0–5 Dips<br>
-0–20 Pushups
+0-5 pull-ups / 0-5 dips
+</div>
+<div class="program-detail">
+3-4 sessions per week focused on pull-up strength,
+push-up strength and core stability.
 </div>
 </a>
 
 <a href="intermediate.html" class="card">
 <h3>Intermediate</h3>
 <div class="requirements">
-Requirements:<br>
-8 Pull-ups<br>
-10 Dips<br>
-30 Pushups
+8 pull-ups / 10 dips
+</div>
+<div class="program-detail">
+5 weekly sessions building explosive pull-ups,
+muscle-up strength and handstand control.
 </div>
 </a>
 
 <a href="advanced.html" class="card">
 <h3>Advanced</h3>
 <div class="requirements">
-Requirements:<br>
-15 Pull-ups<br>
-20 Dips<br>
-Freestanding Handstand
+15 pull-ups / freestanding handstand
+</div>
+<div class="program-detail">
+Front lever progressions, weighted calisthenics
+and advanced strength development.
 </div>
 </a>
 
 <a href="elite.html" class="card">
 <h3>Elite</h3>
 <div class="requirements">
-Requirements:<br>
-Muscle Up<br>
-Front Lever Hold<br>
-Handstand Pushups
+Muscle-up / front lever
+</div>
+<div class="program-detail">
+Elite-level calisthenics strength including planche,
+advanced pulling power and high-level body control.
 </div>
 </a>
 
@@ -420,27 +438,24 @@ Handstand Pushups
 
 
 
-<section>
+<section class="alt">
 
-<h2>How The Iron Apex Program Works</h2>
+<h2>How The Iron Apex System Works</h2>
 
 <p>
-The Iron Apex system is built around progressive overload and structured strength development.
-The program is divided into four levels: Beginner, Intermediate, Advanced, and Elite.
+The Iron Apex system is built around progressive overload
+and structured strength development.
 </p>
 
 <p>
-Each level follows a structured weekly routine designed to develop pulling power,
-pushing strength, and advanced calisthenics skills.
+Athletes first build foundational strength through pull-ups,
+push-ups and dips before progressing into explosive pulling,
+advanced bodyweight skills and weighted calisthenics.
 </p>
 
 <p>
-Athletes repeat the weekly training structure while progressively increasing reps,
-exercise difficulty, or hold times.
-</p>
-
-<p>
-Progression is based on strength standards so athletes build real strength before advancing.
+Each level builds on the previous one so strength develops
+step-by-step rather than randomly.
 </p>
 
 </section>
@@ -457,7 +472,7 @@ Progression is based on strength standards so athletes build real strength befor
 <div class="skill">Muscle Ups</div>
 <div class="skill">Front Lever</div>
 <div class="skill">Straddle Planche</div>
-<div class="skill">Handstand Pushups</div>
+<div class="skill">Handstand Push-Ups</div>
 <div class="skill">L-Sit & V-Sit</div>
 
 </div>
@@ -466,71 +481,16 @@ Progression is based on strength standards so athletes build real strength befor
 
 
 
-<section>
-
-<h2>What You'll Learn</h2>
-
-<p>• Strict pull-up strength</p>
-<p>• Explosive pull-ups</p>
-<p>• Muscle-up technique</p>
-<p>• Front lever progressions</p>
-<p>• Handstand pushup strength</p>
-<p>• Core strength and mobility</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Iron Apex Training Philosophy</h2>
-
-<p>Strength comes first.</p>
-
-<p>
-Most athletes chase flashy skills before building
-the strength required to control them.
-</p>
-
-<p>Iron Apex focuses on:</p>
-
-<p>• Progressive overload</p>
-<p>• Perfect technique</p>
-<p>• Strong pulling power</p>
-<p>• Core control</p>
-<p>• Consistency</p>
-
-</section>
-
-
-
-<section>
-
-<h2>Frequently Asked Questions</h2>
-
-<p><b>Do I need equipment?</b></p>
-<p>Just a pull-up bar and dip bars.</p>
-
-<p><b>How long are the workouts?</b></p>
-<p>Most sessions take about 60–90 minutes.</p>
-
-<p><b>How fast will I see results?</b></p>
-<p>Most athletes notice strength improvements within 4–8 weeks.</p>
-
-</section>
-
-
-
 <section class="cta-section">
 
-<h2>Ready To Start?</h2>
+<h2>Start Your Training</h2>
 
 <p>
-Choose the program that matches your level
-and begin building real calisthenics strength.
+Choose the program that matches your current strength level
+and begin building elite calisthenics strength.
 </p>
 
-<a class="cta" href="#programs">Explore Programs</a>
+<a class="cta" href="#programs">BEGIN THE PROGRAM</a>
 
 </section>
 
