@@ -7,49 +7,46 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Oswald:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Oswald:ital,wght@0,400;0,600;0,700;0,900;1,700;1,900&display=swap" rel="stylesheet">
 
     <style>
         /* ==========================================================================
-           IRON APEX V10.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
+           IRON APEX V10 - THE "GYMSHARK" E-COMMERCE ARCHITECTURE
            ========================================================================== */
 
         :root {
-            /* Brand Identity Colors */
+            /* Core Brand Colors */
             --bg-pure: #000000;
-            --bg-elevated: #090909;
+            --bg-elevated: #0a0a0a;
             --bg-card: #111111;
-            --bg-card-hover: #161616;
             
-            /* Border System */
-            --border-light: rgba(255, 255, 255, 0.08);
-            --border-medium: rgba(255, 255, 255, 0.15);
-            --border-heavy: #222222;
+            /* E-Commerce Banner Color */
+            --bg-promo: #f5f5f5;
+            --text-promo: #000000;
             
-            /* Typography System */
+            /* Borders */
+            --border-color: #222222;
+            --border-light: rgba(255, 255, 255, 0.1);
+            
+            /* Typography Colors */
             --text-main: #ffffff;
-            --text-secondary: #999999;
-            --text-tertiary: #666666;
+            --text-secondary: #aaaaaa;
             --text-dark: #000000;
             
-            /* The Apex Accent */
+            /* The Signature Accent */
             --accent-neon: #ccff00; 
-            --accent-glow: rgba(204, 255, 0, 0.2);
-            --accent-glow-strong: rgba(204, 255, 0, 0.4);
             
-            /* Spacing & Layout */
-            --container-w: 1440px;
-            --section-padding-y: 160px;
-            --section-padding-x: 24px;
+            /* Sizing & Spacing */
+            --container-w: 1600px; /* Wider container for that e-commerce feel */
+            --pad-section-y: 120px;
             
-            /* Transitions */
-            --ease-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-            --ease-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-            --ease-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            /* Animation */
+            --transition-fast: 0.2s ease;
+            --transition-smooth: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         /* ==========================================================================
-           1. RESET & VIEWPORT LOCK (MOBILE FIX)
+           RESET & MOBILE VIEWPORT LOCK (FIXES iPHONE WOBBLE)
            ========================================================================== */
         * {
             margin: 0;
@@ -62,7 +59,7 @@
         html, body {
             width: 100%;
             max-width: 100vw;
-            overflow-x: hidden;
+            overflow-x: hidden; 
             scroll-behavior: smooth;
             background-color: var(--bg-pure);
         }
@@ -71,25 +68,11 @@
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
             line-height: 1.6;
-            padding-bottom: 90px;
-            position: relative;
+            padding-bottom: 90px; 
         }
 
-        /* High-End Texture Overlay (The "Iron" Grain) */
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.04;
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-        }
-
-        section, header, footer {
+        /* Prevent sections from breaking the viewport width */
+        section, header, footer, .marquee-container {
             width: 100%;
             max-width: 100vw;
             overflow-x: hidden;
@@ -97,13 +80,12 @@
         }
 
         /* ==========================================================================
-           2. GLOBAL TYPOGRAPHY & UTILITIES
+           GLOBAL TYPOGRAPHY
            ========================================================================== */
         h1, h2, h3, h4, h5, .oswald {
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
             line-height: 1.1;
-            letter-spacing: -0.01em;
         }
 
         .text-accent { color: var(--accent-neon); }
@@ -116,152 +98,87 @@
             margin-right: auto;
             padding-left: 40px;
             padding-right: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        /* Editorial Streetwear Background Text */
-        .bg-text-massive {
-            position: absolute;
-            top: 10%;
-            left: -5%;
-            font-family: 'Oswald', sans-serif;
-            font-size: 20vw;
-            font-weight: 900;
-            color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
-            text-transform: uppercase;
-            line-height: 0.8;
-            pointer-events: none;
-            z-index: 0;
-            white-space: nowrap;
-            user-select: none;
         }
 
         .section-title {
-            font-size: clamp(45px, 6vw, 90px);
+            font-size: clamp(45px, 6vw, 80px);
             font-weight: 800;
-            margin-bottom: 25px;
-            letter-spacing: -1.5px;
-            position: relative;
-            z-index: 2;
+            font-style: italic; /* Gymshark athletic styling */
+            margin-bottom: 20px;
+            letter-spacing: -1px;
         }
 
         .section-subtitle {
-            font-size: clamp(18px, 2vw, 22px);
+            font-size: clamp(16px, 2vw, 18px);
             color: var(--text-secondary);
-            max-width: 650px;
-            margin-bottom: 70px;
-            font-weight: 300;
+            max-width: 700px;
+            margin-bottom: 60px;
+            font-weight: 400;
             line-height: 1.6;
-            position: relative;
-            z-index: 2;
-        }
-
-        .eyebrow {
-            font-family: 'Oswald', sans-serif;
-            font-size: 14px;
-            letter-spacing: 4px;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 600;
-        }
-        
-        .eyebrow::before {
-            content: '';
-            display: block;
-            width: 30px;
-            height: 2px;
-            background-color: var(--accent-neon);
         }
 
         /* ==========================================================================
-           3. E-COMMERCE BUTTON SYSTEM
+           TOP PROMO BANNER (GYMSHARK STYLE)
            ========================================================================== */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 45px;
-            padding-right: 45px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: var(--ease-smooth);
+        .promo-banner {
+            width: 100%;
+            background-color: var(--bg-promo);
+            color: var(--text-promo);
+            text-align: center;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
             position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-
-        .btn-solid {
-            background-color: var(--text-main);
-            color: var(--text-dark);
-        }
-
-        .btn-solid::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--accent-neon);
-            transform: translateY(100%);
-            transition: var(--ease-smooth);
-            z-index: -1;
-        }
-
-        .btn-solid:hover {
-            color: var(--text-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px var(--accent-glow);
-        }
-
-        .btn-solid:hover::after {
-            transform: translateY(0);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-medium);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-main);
-            background-color: var(--text-main);
-            color: var(--text-dark);
-            transform: translateY(-4px);
+            z-index: 1001;
         }
 
         /* ==========================================================================
-           4. NAVIGATION (PREMIUM GLASS)
+           HEADER & NAVIGATION (CENTERED E-COMMERCE STYLE)
            ========================================================================== */
         header {
-            position: fixed;
+            position: sticky;
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(25px);
-            -webkit-backdrop-filter: blur(25px);
-            border-bottom: 1px solid var(--border-light);
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-color);
         }
 
         .nav-inner {
-            display: flex;
-            justify-content: space-between;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr; /* 3 column layout */
             align-items: center;
-            height: 90px;
+            height: 80px;
+        }
+
+        /* Left Side Links */
+        .nav-links-left {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .nav-links-left a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            font-size: 14px;
+            transition: var(--transition-fast);
+        }
+
+        .nav-links-left a:hover {
+            color: var(--accent-neon);
+        }
+
+        /* Centered Logo */
+        .logo-container {
+            text-align: center;
         }
 
         .logo {
@@ -270,162 +187,160 @@
             font-weight: 900;
             text-decoration: none;
             color: var(--text-main);
-            letter-spacing: 2px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .logo-slash {
-            color: var(--accent-neon);
-            font-weight: 400;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .nav-links a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 14px;
             letter-spacing: 1px;
-            opacity: 0.6;
-            transition: var(--ease-fast);
-            position: relative;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background-color: var(--accent-neon);
-            transition: var(--ease-fast);
+        /* Right Side Utility Icons */
+        .nav-icons-right {
+            display: flex;
+            justify-content: flex-end;
+            gap: 25px;
+            align-items: center;
         }
 
-        .nav-links a:hover {
-            opacity: 1;
+        .nav-icon {
+            width: 24px;
+            height: 24px;
+            fill: none;
+            stroke: var(--text-main);
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            cursor: pointer;
+            transition: var(--transition-fast);
         }
 
-        .nav-links a:hover::after {
-            width: 100%;
+        .nav-icon:hover {
+            stroke: var(--accent-neon);
         }
 
         /* ==========================================================================
-           5. HERO SECTION (EDITORIAL LAYOUT)
+           HERO SECTION (FULL EDGE-TO-EDGE)
            ========================================================================== */
         .hero {
-            height: 100vh;
-            display: flex;
             position: relative;
-            background-color: var(--bg-pure);
-            border-bottom: 1px solid var(--border-heavy);
-        }
-
-        .hero-text-side {
-            flex: 1.1;
+            height: calc(100vh - 110px); /* Subtracts banner and header height */
+            width: 100vw;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
-            padding-left: 8%;
-            padding-right: 5%;
-            position: relative;
-            z-index: 3;
-            background: linear-gradient(to right, var(--bg-pure) 80%, transparent);
-        }
-
-        .hero-title {
-            font-size: clamp(70px, 9vw, 150px);
-            line-height: 0.9;
-            margin-bottom: 30px;
-            letter-spacing: -2px;
-        }
-
-        .hero-desc {
-            font-size: clamp(16px, 1.8vw, 22px);
-            color: var(--text-secondary);
-            max-width: 500px;
-            margin-bottom: 50px;
-            font-weight: 400;
-            line-height: 1.6;
-        }
-
-        .hero-btn-group {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-
-        .hero-image-side {
-            flex: 1;
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 55%;
-            height: 100%;
-            z-index: 1;
+            align-items: center; /* Centers text vertically */
             overflow: hidden;
         }
 
-        .hero-image-side::after {
-            content: '';
+        /* The Image explicitly placed to guarantee it shows */
+        .hero-img-bg {
             position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to right, var(--bg-pure) 0%, transparent 40%);
-            pointer-events: none;
-        }
-
-        .hero-image-side img {
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%;
-            filter: grayscale(100%) brightness(0.7) contrast(1.2);
-            transition: var(--ease-slow);
+            object-position: center 20%; /* Keeps the athlete in frame */
+            z-index: 1;
         }
 
-        .hero:hover .hero-image-side img {
-            filter: grayscale(30%) brightness(0.9) contrast(1.1);
-            transform: scale(1.03);
+        /* Gradient overlay so text is readable */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            z-index: 2;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 3;
+            width: 100%;
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        /* Massive Italic Typography like the reference image */
+        .hero-title {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(60px, 9vw, 140px);
+            font-weight: 900;
+            font-style: italic;
+            line-height: 0.9;
+            color: var(--text-main);
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
+
+        .hero-subtitle {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 700;
+            color: var(--text-main);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .hero-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(14px, 1.5vw, 16px);
+            color: #dddddd;
+            max-width: 500px;
+            margin-bottom: 40px;
+            font-weight: 400;
+        }
+
+        /* Gymshark style Underline Links */
+        .hero-links {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .hero-link {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text-main);
+            text-decoration: none;
+            text-transform: uppercase;
+            padding-bottom: 5px;
+            border-bottom: 2px solid var(--text-main);
+            transition: var(--transition-fast);
+        }
+
+        .hero-link:hover {
+            color: var(--accent-neon);
+            border-bottom-color: var(--accent-neon);
         }
 
         /* ==========================================================================
-           6. TICKER MARQUEE
+           TICKER MARQUEE
            ========================================================================== */
         .marquee-container {
             width: 100%;
             background-color: var(--accent-neon);
-            padding-top: 18px;
-            padding-bottom: 18px;
+            padding-top: 15px;
+            padding-bottom: 15px;
             overflow: hidden;
             white-space: nowrap;
-            position: relative;
-            border-top: 2px solid var(--text-dark);
-            border-bottom: 2px solid var(--text-dark);
         }
 
         .marquee-content {
             display: inline-block;
             animation: marquee 25s linear infinite;
             font-family: 'Oswald', sans-serif;
-            font-size: 26px;
-            font-weight: 800;
+            font-size: 24px;
+            font-weight: 700;
             color: var(--text-dark);
             text-transform: uppercase;
             letter-spacing: 2px;
         }
 
         .marquee-content span {
-            opacity: 0.4;
-            margin-left: 25px;
-            margin-right: 25px;
+            margin-left: 20px;
+            margin-right: 20px;
+            opacity: 0.5;
         }
 
         @keyframes marquee {
@@ -434,148 +349,101 @@
         }
 
         /* ==========================================================================
-           7. THE PROBLEM / HONESTY SECTION (GRID)
+           THE PROBLEM / HONESTY SECTION
            ========================================================================== */
         .honesty-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-elevated);
-            position: relative;
-            border-bottom: 1px solid var(--border-heavy);
+            padding-top: var(--pad-section-y);
+            padding-bottom: var(--pad-section-y);
+            background-color: var(--bg-pure);
         }
 
         .honesty-intro {
             font-family: 'Oswald', sans-serif;
-            font-size: 26px;
-            font-weight: 700;
+            font-size: 20px;
             color: var(--accent-neon);
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             letter-spacing: 1px;
-            text-transform: uppercase;
+            font-weight: 600;
         }
 
         .honesty-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 40px;
-            margin-top: 80px;
-            position: relative;
-            z-index: 2;
+            gap: 30px;
+            margin-top: 60px;
         }
 
         .honesty-card {
-            background-color: var(--bg-card);
-            padding-top: 60px;
-            padding-bottom: 60px;
+            background-color: var(--bg-elevated);
+            padding-top: 50px;
+            padding-bottom: 50px;
             padding-left: 40px;
             padding-right: 40px;
-            border: 1px solid var(--border-light);
-            text-align: left;
-            transition: var(--ease-smooth);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .honesty-card::before {
-            content: attr(data-num);
-            position: absolute;
-            top: -10px;
-            right: 10px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 120px;
-            font-weight: 900;
-            color: rgba(255, 255, 255, 0.02);
-            line-height: 1;
-            transition: var(--ease-smooth);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
         }
 
         .honesty-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--border-medium);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
-            background-color: var(--bg-card-hover);
-        }
-
-        .honesty-card:hover::before {
-            color: var(--accent-glow);
-            transform: scale(1.1);
+            transform: translateY(-5px);
+            border-color: var(--border-light);
         }
 
         .honesty-card h3 {
-            font-size: 26px;
-            margin-bottom: 20px;
+            font-size: 24px;
+            margin-bottom: 15px;
             color: var(--text-main);
-            position: relative;
-            z-index: 2;
+            font-style: italic;
         }
 
         .honesty-card p {
             color: var(--text-secondary);
             font-size: 16px;
-            line-height: 1.7;
-            position: relative;
-            z-index: 2;
         }
 
         /* ==========================================================================
-           8. FOUNDER & STORY SECTION
+           FOUNDER & STORY SECTION
            ========================================================================== */
         .founder-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-pure);
-            border-bottom: 1px solid var(--border-heavy);
-            position: relative;
+            padding-top: var(--pad-section-y);
+            padding-bottom: var(--pad-section-y);
+            background-color: var(--bg-elevated);
+            border-top: 1px solid var(--border-color);
         }
 
         .founder-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1fr;
-            gap: 100px;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
             align-items: center;
         }
 
         .story-text {
             color: var(--text-secondary);
-            font-size: 18px;
+            font-size: 16px;
             line-height: 1.8;
             margin-bottom: 25px;
-            font-weight: 400;
         }
 
         .story-highlight {
             color: var(--text-main);
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
-            margin-bottom: 60px;
-            padding-left: 20px;
-            border-left: 3px solid var(--accent-neon);
+            margin-bottom: 50px;
         }
 
         .founder-img-wrapper {
             position: relative;
-            padding: 20px;
-        }
-
-        /* Technical Photo Corners */
-        .founder-img-wrapper::before {
-            content: ''; position: absolute; top: 0; right: 0; width: 80px; height: 80px;
-            border-top: 3px solid var(--accent-neon); border-right: 3px solid var(--accent-neon);
-        }
-        .founder-img-wrapper::after {
-            content: ''; position: absolute; bottom: 0; left: 0; width: 80px; height: 80px;
-            border-bottom: 3px solid var(--accent-neon); border-left: 3px solid var(--accent-neon);
         }
 
         .founder-img-wrapper img {
             width: 100%;
             display: block;
-            filter: grayscale(100%) contrast(1.1);
-            transition: var(--ease-smooth);
+            filter: grayscale(100%);
+            transition: var(--transition-smooth);
         }
 
         .founder-img-wrapper:hover img {
-            filter: grayscale(0%) contrast(1.05);
+            filter: grayscale(0%);
         }
 
         .stat-list {
@@ -584,44 +452,44 @@
         }
 
         .stat-list li {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid var(--border-light);
+            padding-top: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border-color);
             font-family: 'Oswald', sans-serif;
-            font-size: 22px;
+            font-size: 18px;
             font-weight: 600;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            text-transform: uppercase;
         }
 
         .stat-list li span {
             color: var(--accent-neon);
-            font-weight: 900;
+            font-style: italic;
         }
 
         /* ==========================================================================
-           9. PROOF & TRANSFORMATIONS (MASSIVE SCALE)
+           PROOF & TRANSFORMATIONS (MASSIVE SCALING)
            ========================================================================== */
         .proof-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-elevated);
-            position: relative;
+            padding-top: var(--pad-section-y);
+            padding-bottom: var(--pad-section-y);
+            background-color: var(--bg-pure);
+            border-top: 1px solid var(--border-color);
         }
 
         .proof-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 5px;
-            background-color: var(--border-heavy);
-            border: 5px solid var(--border-heavy);
-            border-radius: var(--radius-sm);
+            gap: 2px;
+            background-color: var(--border-color);
+            border: 2px solid var(--border-color);
         }
 
         .proof-box {
             position: relative;
-            height: 900px; /* Massive height for maximum impact */
+            height: 900px; /* Massive height */
             background-color: var(--bg-pure);
             overflow: hidden;
         }
@@ -632,37 +500,33 @@
             object-fit: cover;
             object-position: center;
             display: block;
-            filter: grayscale(100%) contrast(1.1);
-            transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), filter 1s ease;
+            filter: grayscale(100%);
+            transition: var(--transition-smooth);
         }
 
         .proof-box:hover img {
-            filter: grayscale(0%) contrast(1.05);
-            transform: scale(1.03);
+            filter: grayscale(0%);
+            transform: scale(1.02);
         }
 
         .proof-label {
             position: absolute;
-            bottom: 50px;
-            left: 50px;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(10px);
+            bottom: 40px;
+            left: 40px;
+            background-color: var(--bg-pure);
             color: var(--text-main);
             padding-top: 15px;
             padding-bottom: 15px;
-            padding-left: 30px;
-            padding-right: 30px;
+            padding-left: 25px;
+            padding-right: 25px;
             font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 900;
+            font-size: 20px;
+            font-weight: 800;
+            font-style: italic;
             text-transform: uppercase;
-            border-left: 4px solid var(--text-main);
-            z-index: 2;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .proof-label.accent {
-            border-color: var(--accent-neon);
             color: var(--accent-neon);
         }
 
@@ -673,7 +537,7 @@
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            border: 5px solid var(--border-heavy);
+            border: 2px solid var(--border-color);
         }
 
         .client-grid .proof-box {
@@ -681,89 +545,77 @@
         }
 
         /* ==========================================================================
-           10. ZERO EXCUSES (NO GEAR)
+           ZERO EXCUSES SECTION
            ========================================================================== */
         .zero-excuses {
-            padding-top: 200px;
-            padding-bottom: 200px;
-            background-color: var(--bg-pure);
-            border-top: 1px solid var(--border-heavy);
-            border-bottom: 1px solid var(--border-heavy);
+            padding-top: 150px;
+            padding-bottom: 150px;
+            background-color: var(--bg-elevated);
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .zero-excuses::before {
-            content: 'APEX';
-            position: absolute;
-            top: 50%; left: 50%; transform: translate(-50%, -50%);
-            font-family: 'Oswald', sans-serif; font-size: 30vw; font-weight: 900;
-            color: rgba(255,255,255,0.02); pointer-events: none; z-index: 0;
+            border-top: 1px solid var(--border-color);
         }
 
         .zero-title {
-            font-size: clamp(60px, 9vw, 140px);
+            font-size: clamp(60px, 9vw, 130px);
             font-family: 'Oswald', sans-serif;
             font-weight: 900;
+            font-style: italic;
             text-transform: uppercase;
             line-height: 0.9;
-            margin-bottom: 30px;
-            position: relative; z-index: 2;
+            margin-bottom: 20px;
         }
 
         .zero-subtitle {
-            font-size: 24px;
+            font-size: 18px;
             color: var(--text-secondary);
-            max-width: 800px;
+            max-width: 700px;
             margin-left: auto;
             margin-right: auto;
-            margin-bottom: 80px;
-            position: relative; z-index: 2;
+            margin-bottom: 60px;
         }
 
         .equipment-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-light);
-            padding-top: 80px;
-            padding-bottom: 80px;
+            background-color: var(--bg-pure);
+            border: 1px solid var(--border-color);
+            padding-top: 60px;
+            padding-bottom: 60px;
             padding-left: 40px;
             padding-right: 40px;
-            max-width: 1000px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
-            position: relative; z-index: 2;
-            box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02), 0 40px 100px rgba(0,0,0,0.8);
         }
 
         .equipment-box h3 {
             font-family: 'Oswald', sans-serif;
             text-transform: uppercase;
-            font-size: 38px;
+            font-size: 28px;
             color: var(--text-main);
-            margin-bottom: 20px;
+            margin-bottom: 10px;
+            font-style: italic;
         }
 
         .equipment-box span {
             font-family: 'Oswald', sans-serif;
-            font-size: 28px;
+            font-size: 20px;
             color: var(--accent-neon);
-            letter-spacing: 3px;
+            letter-spacing: 1px;
         }
 
         /* ==========================================================================
-           11. THE SHOP (E-COMMERCE PROGRAM CARDS)
+           PROGRAMS "STOREFRONT" (E-COMMERCE CARDS)
            ========================================================================== */
         .programs-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-elevated);
+            padding-top: var(--pad-section-y);
+            padding-bottom: var(--pad-section-y);
+            background-color: var(--bg-pure);
+            border-top: 1px solid var(--border-color);
         }
 
         .program-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 30px;
         }
 
         .program-card {
@@ -771,102 +623,97 @@
             flex-direction: column;
             text-decoration: none;
             color: var(--text-main);
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-heavy);
-            transition: var(--ease-smooth);
+            background-color: var(--bg-elevated);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-smooth);
             position: relative;
         }
 
         .program-card-img {
-            height: 320px;
-            background-color: #050505;
+            height: 350px; /* Taller images for e-commerce feel */
+            background-color: #1a1a1a;
             display: flex;
             align-items: center;
             justify-content: center;
-            border-bottom: 1px solid var(--border-heavy);
             position: relative;
             overflow: hidden;
         }
 
-        /* Placeholder graphic pattern */
+        /* Placeholder graphic for missing images */
         .program-card-img::before {
             content: '';
             position: absolute;
             width: 200%; 
             height: 200%;
-            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.02) 10px, rgba(255,255,255,0.02) 20px);
+            background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
         }
 
         .program-card-img img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: grayscale(100%) opacity(0.6);
-            transition: var(--ease-smooth);
+            filter: grayscale(100%);
+            transition: var(--transition-smooth);
             position: relative;
             z-index: 2;
         }
 
         .program-card-content {
-            padding-top: 50px;
-            padding-bottom: 50px;
-            padding-left: 40px;
-            padding-right: 40px;
+            padding: 30px;
             flex: 1;
             display: flex;
             flex-direction: column;
-            background: linear-gradient(180deg, var(--bg-card), var(--bg-pure));
         }
 
         .program-tag {
             position: absolute;
-            top: 25px;
-            right: 25px;
+            top: 20px;
+            left: 20px; /* Gymshark places tags top left usually */
             background-color: var(--text-main);
             color: var(--text-dark);
             font-family: 'Oswald', sans-serif;
-            font-size: 13px;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            padding-left: 20px;
-            padding-right: 20px;
-            font-weight: 800;
+            font-size: 12px;
+            padding-top: 6px;
+            padding-bottom: 6px;
+            padding-left: 12px;
+            padding-right: 12px;
+            font-weight: 700;
             text-transform: uppercase;
             z-index: 5;
-            letter-spacing: 1px;
         }
 
         .program-card h3 {
-            font-size: 38px;
-            margin-bottom: 10px;
-            letter-spacing: 1px;
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-style: italic;
         }
 
         .program-desc-main {
-            font-size: 18px;
+            font-size: 14px;
             color: var(--text-secondary);
-            margin-bottom: 40px;
+            margin-bottom: 25px;
         }
 
+        /* Detailed Lists styling */
         .program-details {
             display: flex;
             flex-direction: column;
-            gap: 25px;
-            margin-bottom: 50px;
+            gap: 15px;
+            margin-bottom: 30px;
             flex: 1;
         }
 
         .detail-group {
-            border-left: 2px solid var(--border-light);
-            padding-left: 20px;
+            border-left: 1px solid var(--border-color);
+            padding-left: 15px;
         }
 
         .detail-title {
             font-family: 'Oswald', sans-serif;
             color: var(--text-main);
-            font-size: 15px;
-            letter-spacing: 2px;
-            margin-bottom: 12px;
+            font-size: 13px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
             display: block;
         }
 
@@ -875,228 +722,169 @@
         }
 
         .detail-list li {
-            font-size: 16px;
+            font-size: 13px;
             color: var(--text-secondary);
             position: relative;
-            padding-left: 24px;
-            margin-bottom: 8px;
-            line-height: 1.5;
+            padding-left: 12px;
+            margin-bottom: 3px;
         }
 
         .detail-list li::before {
             content: '';
             position: absolute;
             left: 0;
-            top: 8px;
-            width: 6px;
-            height: 6px;
-            background-color: var(--accent-neon);
-            border-radius: 1px;
+            top: 7px;
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background-color: var(--text-secondary);
         }
 
+        /* Full width add-to-cart style button */
         .card-action {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Inter', sans-serif;
             text-transform: uppercase;
-            font-weight: 800;
-            font-size: 18px;
-            color: var(--text-main);
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-light);
-            padding-top: 20px;
-            padding-bottom: 20px;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-dark);
+            background-color: var(--text-main);
             text-align: center;
-            transition: var(--ease-fast);
-            margin-top: auto;
+            padding-top: 15px;
+            padding-bottom: 15px;
+            transition: var(--transition-fast);
+            width: 100%;
+            border: none;
+            cursor: pointer;
         }
 
-        /* Card Hover Effects */
+        /* Hover Effects */
         .program-card:hover {
-            border-color: var(--border-medium);
-            transform: translateY(-10px);
-            box-shadow: 0 40px 80px rgba(0, 0, 0, 0.9);
+            transform: translateY(-5px);
         }
 
         .program-card:hover .program-card-img img {
-            filter: grayscale(0%) opacity(1);
-            transform: scale(1.05);
+            filter: grayscale(0%);
         }
 
         .program-card:hover .card-action {
             background-color: var(--accent-neon);
-            color: var(--text-dark);
-            border-color: var(--accent-neon);
         }
 
         /* Muscle-Up Special Card */
-        .card-special {
-            border-color: var(--border-medium);
-        }
-
         .card-special .program-tag {
             background-color: var(--accent-neon);
         }
-        
-        .card-special .detail-list li::before {
-            background-color: var(--text-main);
-        }
-
-        .card-special:hover {
-            border-color: var(--accent-neon);
-            box-shadow: 0 40px 80px rgba(204, 255, 0, 0.1);
-        }
 
         /* ==========================================================================
-           12. FAQ SECTION
+           FAQ SECTION
            ========================================================================== */
         .faq-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-pure);
-            border-top: 1px solid var(--border-heavy);
+            padding-top: 120px;
+            padding-bottom: 120px;
+            background-color: var(--bg-elevated);
+            border-top: 1px solid var(--border-color);
         }
 
         .faq-wrapper {
-            max-width: 900px;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
         }
 
         details {
-            border-bottom: 1px solid var(--border-heavy);
+            border-bottom: 1px solid var(--border-color);
         }
 
         summary {
-            padding-top: 35px;
-            padding-bottom: 35px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
             color: var(--text-main);
             cursor: pointer;
             list-style: none;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: var(--ease-fast);
         }
 
         summary::-webkit-details-marker {
             display: none;
         }
 
-        summary:hover {
-            color: var(--accent-neon);
-        }
-
         summary::after {
             content: '+';
-            font-size: 34px;
+            font-size: 24px;
             font-weight: 300;
             color: var(--text-secondary);
         }
 
         details[open] summary::after {
             content: '-';
-            color: var(--accent-neon);
         }
 
         .faq-answer {
-            padding-bottom: 35px;
+            padding-bottom: 20px;
             color: var(--text-secondary);
-            font-size: 18px;
-            line-height: 1.8;
+            font-size: 14px;
+            line-height: 1.6;
         }
 
         /* ==========================================================================
-           13. SKILLS MARQUEE
-           ========================================================================== */
-        .skills-section {
-            padding-top: 100px;
-            padding-bottom: 100px;
-            border-top: 1px solid var(--border-heavy);
-            border-bottom: 1px solid var(--border-heavy);
-            background-color: var(--bg-elevated);
-        }
-
-        .skills-grid {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 30px;
-            justify-content: center;
-            padding-left: 24px;
-            padding-right: 24px;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .skill-item {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(30px, 5vw, 60px);
-            color: transparent;
-            -webkit-text-stroke: 1px var(--border-heavy);
-            text-transform: uppercase;
-            transition: var(--ease-smooth);
-            cursor: default;
-        }
-
-        .skill-item:hover {
-            color: var(--text-main);
-            -webkit-text-stroke: 1px var(--text-main);
-        }
-
-        /* ==========================================================================
-           14. FOOTER
+           FOOTER
            ========================================================================== */
         footer {
             background-color: var(--bg-pure);
-            padding-top: 100px;
-            padding-bottom: 60px;
-            padding-left: 24px;
-            padding-right: 24px;
-            text-align: center;
+            padding-top: 80px;
+            padding-bottom: 40px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 60px;
         }
 
         .footer-logo {
             font-family: 'Oswald', sans-serif;
-            font-size: 50px;
+            font-size: 32px;
+            font-weight: 900;
             color: var(--text-main);
             text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 25px;
-            letter-spacing: 2px;
+            display: block;
+            margin-bottom: 15px;
+            letter-spacing: 1px;
         }
 
         .footer-desc {
             color: var(--text-secondary);
-            font-size: 18px;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 40px;
+            font-size: 14px;
+            max-width: 300px;
+            margin-bottom: 30px;
         }
 
         .social-link {
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            color: var(--accent-neon);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 80px;
-            letter-spacing: 1px;
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-main);
+            text-decoration: underline;
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--border-heavy);
-            padding-top: 40px;
-            color: var(--text-tertiary);
-            font-size: 14px;
-            letter-spacing: 1px;
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            color: var(--text-secondary);
+            font-size: 12px;
+            display: flex;
+            justify-content: space-between;
         }
 
         /* ==========================================================================
-           15. STICKY MOBILE BUTTON (iPHONE OPTIMIZED)
+           STICKY MOBILE BUTTON (iPHONE OPTIMIZED)
            ========================================================================== */
         .mobile-sticky-cta {
             display: none;
@@ -1104,35 +892,34 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,1) 50%, rgba(0,0,0,0));
+            background: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0));
             padding-top: 30px;
-            padding-bottom: 35px; /* Clearance for iPhone home indicator */
-            padding-left: 24px;
-            padding-right: 24px;
+            padding-bottom: 30px; 
+            padding-left: 20px;
+            padding-right: 20px;
             z-index: 9999;
-            pointer-events: none; /* Allows scrolling through the gradient */
+            pointer-events: none; /* Let user scroll through background */
         }
 
         .sticky-btn {
             display: block;
             width: 100%;
-            background-color: var(--accent-neon);
+            background-color: var(--text-main);
             color: var(--text-dark);
             text-align: center;
-            padding-top: 24px;
-            padding-bottom: 24px;
-            font-family: 'Oswald', sans-serif;
-            font-weight: 900;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
             text-transform: uppercase;
             text-decoration: none;
-            font-size: 18px;
-            letter-spacing: 2px;
-            box-shadow: 0 0 30px rgba(204, 255, 0, 0.3);
-            pointer-events: auto; /* Re-enables clicking on the button */
+            font-size: 14px;
+            letter-spacing: 1px;
+            pointer-events: auto; /* Re-enable click for button */
         }
 
         /* ==========================================================================
-           16. RESPONSIVE DESIGN (TABLET & MOBILE)
+           RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 1024px) {
             .hero {
@@ -1140,16 +927,13 @@
                 height: auto;
             }
             .hero-text-side {
-                padding-top: 150px;
-                padding-bottom: 100px;
+                padding-top: 120px;
+                padding-bottom: 60px;
                 padding-left: 24px;
                 padding-right: 24px;
                 text-align: center;
                 align-items: center;
                 background: var(--bg-pure);
-            }
-            .hero-text-side::after {
-                display: none;
             }
             .hero-image-side {
                 height: 60vh;
@@ -1158,7 +942,6 @@
             }
             .founder-grid {
                 grid-template-columns: 1fr;
-                gap: 60px;
             }
             .proof-box {
                 height: 600px;
@@ -1166,17 +949,27 @@
             .client-grid .proof-box {
                 height: 600px;
             }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 768px) {
-            :root {
-                --section-padding-y: 100px;
+            .nav-inner {
+                grid-template-columns: 1fr auto 1fr;
+            }
+            .nav-links-left {
+                display: none; /* Hide text links on mobile */
+            }
+            .logo-container {
+                grid-column: 2; /* Center logo on mobile */
+            }
+            .nav-icons-right {
+                grid-column: 3;
+                justify-content: flex-end;
             }
             .honesty-grid {
                 grid-template-columns: 1fr;
-            }
-            .nav-links {
-                display: none; 
             }
             .mobile-sticky-cta {
                 display: block;
@@ -1197,40 +990,55 @@
                 padding-left: 24px;
                 padding-right: 24px;
             }
-            .bg-text-massive {
-                display: none;
+            .footer-bottom {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
 
+    <div class="promo-banner">
+        FREE PROGRAM UPDATES INCLUDED WITH EVERY PROTOCOL 🚚
+    </div>
+
     <header>
         <div class="container nav-inner">
-            <a href="#" class="logo">IRON<span class="logo-slash">/</span><span>APEX</span></a>
-            <nav class="nav-links">
-                <a href="#philosophy">The Truth</a>
-                <a href="#founder">My Story</a>
+            <div class="nav-links-left">
+                <a href="#programs">Femmes</a>
+                <a href="#programs">Hommes</a>
                 <a href="#results">Proof</a>
-                <a href="#programs">Shop Programs</a>
-            </nav>
+            </div>
+            
+            <div class="logo-container">
+                <a href="#" class="logo">IRON<span>APEX</span></a>
+            </div>
+            
+            <div class="nav-icons-right">
+                <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+            </div>
         </div>
     </header>
 
     <section class="hero">
-        <div class="hero-text-side">
-            <span class="hero-tag">EST. 2026 // ELITE SYSTEM</span>
-            <h1 class="hero-title">BUILD<br>ELITE<br><span class="text-accent">STRENGTH.</span></h1>
+        <img src="IMG_8792.jpg" alt="Iron Apex Training" class="hero-img-bg">
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <h1 class="hero-title">CALISTHENICS<br>+STRICT +ELITE</h1>
+            <p class="hero-subtitle">NEW ELITE PROTOCOLS UNLOCKED</p>
             <p class="hero-desc">
                 The structured bodyweight training system designed to break plateaus. Master the muscle-up, front lever, and raw pulling power.
             </p>
-            <div class="hero-btn-group">
-                <a href="#programs" class="btn btn-solid">EXPLORE PROGRAMS</a>
-                <a href="#results" class="btn btn-outline">SEE PROOF</a>
+            
+            <div class="hero-links">
+                <a href="#programs" class="hero-link">SHOP BEGINNER</a>
+                <a href="#programs" class="hero-link">SHOP ADVANCED</a>
             </div>
-        </div>
-        <div class="hero-image-side">
-            <img src="IMG_8792.jpg" alt="Iron Apex Training">
         </div>
     </section>
 
@@ -1241,7 +1049,6 @@
     </div>
 
     <section id="philosophy" class="honesty-section">
-        <div class="bg-text-massive">THE TRUTH</div>
         <div class="container">
             <div class="honesty-intro">I'M GOING TO BE COMPLETELY HONEST.</div>
             <h2 class="section-title">THE HARSH TRUTH</h2>
@@ -1249,15 +1056,15 @@
             
             <div class="honesty-grid">
                 <div class="honesty-card" data-num="01">
-                    <h3>NO ENDLESS REPS</h3>
+                    <h3 class="oswald">NO ENDLESS REPS</h3>
                     <p>You don't need to do 500 pushups a day. You need progressive overload tailored to specific strength mechanics.</p>
                 </div>
                 <div class="honesty-card" data-num="02">
-                    <h3>NO GENETIC LOTTERY</h3>
+                    <h3 class="oswald">NO GENETIC LOTTERY</h3>
                     <p>Skills like the muscle-up or front lever aren't reserved for gymnasts. They are equations of leverage and force.</p>
                 </div>
                 <div class="honesty-card" data-num="03">
-                    <h3>NO RANDOM WORKOUTS</h3>
+                    <h3 class="oswald">NO RANDOM WORKOUTS</h3>
                     <p>Doing random exercises yields random results. Iron Apex provides the exact structural map to success.</p>
                 </div>
             </div>
@@ -1285,7 +1092,7 @@
                         I have the keys to unlock your potential, and I don't want to keep them to myself forever... 🔑
                     </p>
 
-                    <h4 style="font-size: 24px; border-bottom: 2px solid var(--border-light); padding-bottom: 15px;">CURRENT BENCHMARKS</h4>
+                    <h4 style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
                     <ul class="stat-list">
                         <li>One-Arm Pull-Up <span>Unlocked</span></li>
                         <li>Handstand Push-Ups <span>Mastered</span></li>
@@ -1304,8 +1111,7 @@
     </section>
 
     <section id="results" class="proof-section">
-        <div class="bg-text-massive" style="top: 25%;">DATA & PROOF</div>
-        <div class="container text-center" style="margin-bottom: 80px; text-align: center;">
+        <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
             <h2 class="section-title">UNDENIABLE PROOF</h2>
             <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. I built the system I use.</p>
         </div>
@@ -1325,7 +1131,7 @@
     </section>
 
     <section class="proof-section" style="border-top: none; background-color: var(--bg-pure);">
-        <div class="container text-center" style="margin-bottom: 80px; text-align: center;">
+        <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
             <h2 class="section-title">ATHLETE EVOLUTION</h2>
             <p class="section-subtitle" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
         </div>
@@ -1353,11 +1159,9 @@
     </section>
 
     <section id="programs" class="programs-section">
-        <div class="bg-text-massive">THE SHOP</div>
         <div class="container">
-            <span class="eyebrow">THE ARSENAL</span>
             <h2 class="section-title">CHOOSE YOUR PATH</h2>
-            <p class="section-subtitle" style="margin-bottom: 100px;">Select the protocol that matches your current baseline strength.</p>
+            <p class="section-subtitle" style="margin-bottom: 80px;">Select the protocol that matches your current baseline strength.</p>
             
             <div class="program-grid">
                 
@@ -1367,7 +1171,7 @@
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3>BEGINNER</h3>
+                        <h3 class="oswald">BEGINNER</h3>
                         <p class="program-desc-main">For people starting calisthenics.</p>
                         
                         <div class="program-details">
@@ -1398,7 +1202,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL &rarr;</div>
+                        <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
@@ -1408,7 +1212,7 @@
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3>INTERMEDIATE</h3>
+                        <h3 class="oswald">INTERMEDIATE</h3>
                         <p class="program-desc-main">Strength building stage.</p>
                         
                         <div class="program-details">
@@ -1438,7 +1242,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL &rarr;</div>
+                        <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
@@ -1448,26 +1252,26 @@
                         <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="text-accent">MUSCLE-UP MASTER</h3>
-                        <p class="program-desc-main" style="color: var(--text-main);">Specialized program.</p>
+                        <h3 class="oswald">MUSCLE-UP MASTER</h3>
+                        <p class="program-desc-main">Specialized program.</p>
                         
                         <div class="program-details">
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
-                                <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS:</span>
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS:</span>
                                 <ul class="detail-list">
                                     <li>10 strict pull-ups</li>
                                     <li>12 dips</li>
                                     <li>Explosive pull strength</li>
                                 </ul>
                             </div>
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
-                                <span class="detail-title" style="color: var(--text-main);">GOAL:</span>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL:</span>
                                 <ul class="detail-list">
                                     <li>Achieve first clean muscle-up</li>
                                 </ul>
                             </div>
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
-                                <span class="detail-title" style="color: var(--text-main);">FOCUS:</span>
+                            <div class="detail-group">
+                                <span class="detail-title">FOCUS:</span>
                                 <ul class="detail-list">
                                     <li>Explosive pull-ups</li>
                                     <li>High pull-ups</li>
@@ -1477,7 +1281,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL &rarr;</div>
+                        <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
@@ -1487,7 +1291,7 @@
                         <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3>ADVANCED</h3>
+                        <h3 class="oswald">ADVANCED</h3>
                         <p class="program-desc-main">Skill development phase.</p>
                         
                         <div class="program-details">
@@ -1517,7 +1321,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL &rarr;</div>
+                        <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
@@ -1527,7 +1331,7 @@
                         <img src="program-cover-elite.jpg" alt="Elite Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3>ELITE SYSTEM</h3>
+                        <h3 class="oswald">ELITE SYSTEM</h3>
                         <p class="program-desc-main">The pinnacle of bodyweight mastery.</p>
                         
                         <div class="program-details">
@@ -1556,7 +1360,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL &rarr;</div>
+                        <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
@@ -1570,7 +1374,7 @@
             <div class="faq-wrapper">
                 <details>
                     <summary>Do I need to go to a gym for this?</summary>
-                    <div class="faq-answer">No. The entire Iron Apex system is built around gravity and leverage. As long as you have access to a pull-up bar and dip bars, you can execute 100% of these protocols.</div>
+                    <div class="faq-answer">No. The entire Iron Apex system is built around gravity and leverage. As long as you have access to a pull-up bar, dip bars, and floor space, you can execute 100% of these protocols.</div>
                 </details>
                 <details>
                     <summary>How many days a week do I train?</summary>
@@ -1584,36 +1388,30 @@
         </div>
     </section>
 
-    <section class="skills-section">
-        <div class="skills-grid">
-            <div class="skill-item">MUSCLE-UP</div>
-            <div class="skill-item">•</div>
-            <div class="skill-item">FRONT LEVER</div>
-            <div class="skill-item">•</div>
-            <div class="skill-item">ONE-ARM PULLUP</div>
-            <div class="skill-item">•</div>
-            <div class="skill-item">PLANCHE</div>
-            <div class="skill-item">•</div>
-            <div class="skill-item">HANDSTAND PUSHUP</div>
-        </div>
-    </section>
-
     <footer>
         <div class="container">
-            <a href="#" class="footer-logo">IRON<span class="logo-slash" style="color: var(--accent-neon); font-weight: 400;">/</span><span>APEX</span></a>
-            <p class="footer-desc">
-                Elite bodyweight strength programs designed for those who refuse to remain average.
-            </p>
-            <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">@SAMBROOKS1223</a>
-
+            <div class="footer-grid">
+                <div>
+                    <a href="#" class="footer-logo">IRON<span>APEX</span></a>
+                    <p class="footer-desc">
+                        Elite bodyweight strength programs designed for those who refuse to remain average. Build raw mechanical power.
+                    </p>
+                </div>
+                <div>
+                    <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 20px;">SUPPORT</h4>
+                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
+                </div>
+            </div>
+            
             <div class="footer-bottom">
-                &copy; 2026 Iron Apex Training. All rights reserved.
+                <span>&copy; 2026 Iron Apex Training. All rights reserved.</span>
+                <span>ENGINEERED FOR ELITE PERFORMANCE.</span>
             </div>
         </div>
     </footer>
 
     <div class="mobile-sticky-cta">
-        <a href="#programs" class="sticky-btn">JOIN THE SYSTEM</a>
+        <a href="#programs" class="sticky-btn">SHOP PROGRAMS</a>
     </div>
 
 </body>
