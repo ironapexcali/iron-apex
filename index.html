@@ -1125,6 +1125,154 @@
                 gap: 10px;
             }
         }
+
+
+        /* =========================================================
+   MOBILE OPTIMIZATION IMPROVEMENTS
+   (does not change desktop design)
+   ========================================================= */
+
+@media (max-width: 768px) {
+
+    /* Reduce giant section spacing */
+    :root{
+        --section-padding-y: 100px;
+    }
+
+    .container{
+        padding-left:20px;
+        padding-right:20px;
+    }
+
+    /* HERO MOBILE */
+    .hero{
+        height:auto;
+        min-height:85vh;
+        align-items:flex-end;
+    }
+
+    .hero-overlay{
+        background:linear-gradient(to top, rgba(0,0,0,0.9) 30%, rgba(0,0,0,0.4) 70%);
+    }
+
+    .hero-content{
+        padding-bottom:40px;
+    }
+
+    .hero-title{
+        font-size: clamp(42px, 12vw, 60px);
+        line-height:0.95;
+    }
+
+    .hero-subtitle{
+        font-size:16px;
+    }
+
+    .hero-desc{
+        font-size:14px;
+        max-width:100%;
+    }
+
+    .hero-links{
+        flex-direction:column;
+        gap:12px;
+    }
+
+    .hero-link{
+        font-size:14px;
+    }
+
+    /* MASSIVE BACKGROUND TEXT */
+    .bg-text-massive{
+        font-size:35vw;
+        top:5%;
+        left:-10%;
+    }
+
+    /* SECTION TITLES */
+    .section-title{
+        font-size: clamp(36px, 10vw, 50px);
+    }
+
+    .section-subtitle{
+        font-size:15px;
+    }
+
+    /* HONESTY GRID */
+    .honesty-grid{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .honesty-card{
+        padding:30px;
+    }
+
+    /* FOUNDER SECTION */
+    .founder-grid{
+        grid-template-columns:1fr;
+        gap:40px;
+    }
+
+    .founder-img-wrapper img{
+        max-height:500px;
+        object-fit:cover;
+    }
+
+    /* PROOF IMAGES */
+    .proof-box{
+        height:420px;
+    }
+
+    .proof-label{
+        font-size:14px;
+        padding:10px 16px;
+        bottom:20px;
+        left:20px;
+    }
+
+    /* CLIENT IMAGE */
+    .client-grid .proof-box{
+        height:420px;
+    }
+
+    /* PROGRAM CARDS */
+    .program-grid{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .program-card-img{
+        height:240px;
+    }
+
+    .program-card-content{
+        padding:22px;
+    }
+
+    .program-card h3{
+        font-size:22px;
+    }
+
+    .program-desc-main{
+        font-size:13px;
+    }
+
+    /* ZERO EXCUSES */
+    .zero-title{
+        font-size:60px;
+    }
+
+    .equipment-box{
+        padding:40px 20px;
+    }
+
+    /* FAQ */
+    summary{
+        font-size:15px;
+    }
+
+}
     </style>
 </head>
 <body>
