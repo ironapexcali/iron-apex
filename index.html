@@ -36,10 +36,10 @@
             --text-tertiary: #666666;
             --text-dark: #000000;
             
-            /* The Apex Accent */
-            --accent-neon: #ccff00; 
-            --accent-glow: rgba(204, 255, 0, 0.2);
-            --accent-glow-strong: rgba(204, 255, 0, 0.4);
+            /* The Apex Accent - Aggressive Red/Orange */
+            --accent-neon: #ff3300; 
+            --accent-glow: rgba(255, 51, 0, 0.25);
+            --accent-glow-strong: rgba(255, 51, 0, 0.5);
             
             /* Spacing & Layout */
             --container-w: 1440px;
@@ -113,7 +113,7 @@
             left: 5%;
             width: 90%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(204, 255, 0, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 51, 0, 0.15), transparent);
             z-index: 10;
             pointer-events: none;
         }
@@ -233,14 +233,14 @@
         .btn-solid {
             background-color: var(--text-main);
             color: var(--text-dark);
-            box-shadow: 0 0 20px rgba(204, 255, 0, 0.15);
+            box-shadow: 0 0 20px rgba(255, 51, 0, 0.15);
         }
 
         .btn-solid::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #e6ff00;
+            background-color: var(--accent-neon);
             transform: translateY(100%);
             transition: var(--ease-smooth);
             z-index: -1;
@@ -249,7 +249,7 @@
         .btn-solid:hover {
             color: var(--text-dark);
             transform: translateY(-4px);
-            box-shadow: 0 15px 35px rgba(204, 255, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.3);
+            box-shadow: 0 15px 35px rgba(255, 51, 0, 0.4), inset 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .btn-solid:hover::after {
@@ -527,7 +527,7 @@
         .honesty-card:hover {
             transform: translateY(-10px);
             border-color: var(--accent-neon);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(204, 255, 0, 0.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.8), 0 0 30px rgba(255, 51, 0, 0.05);
         }
 
         .honesty-card h3 {
@@ -930,22 +930,21 @@
             text-transform: uppercase;
             font-weight: 700;
             font-size: 14px;
-            color: var(--text-main);
-            background-color: transparent;
-            border: 2px solid var(--border-medium);
+            color: var(--text-dark);
+            background-color: var(--text-main);
             text-align: center;
             padding-top: 15px;
             padding-bottom: 15px;
             transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
             width: 100%;
+            border: none;
             cursor: pointer;
-            letter-spacing: 1px;
         }
 
         /* Hover Effects */
         .program-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(204, 255, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255, 51, 0, 0.15);
             border-color: var(--accent-neon);
         }
 
@@ -957,7 +956,7 @@
         .program-card:hover .card-action {
             background-color: var(--accent-neon);
             border-color: var(--accent-neon);
-            color: var(--text-dark);
+            color: var(--text-main);
             box-shadow: 0 0 20px var(--accent-glow-strong);
         }
 
@@ -972,12 +971,12 @@
 
         /* Muscle-Up Special Card */
         .card-special {
-            border-color: rgba(204, 255, 0, 0.3);
+            border-color: rgba(255, 51, 0, 0.3);
         }
         
         .card-special .program-tag {
             background-color: var(--accent-neon);
-            color: var(--text-dark);
+            color: var(--text-main);
         }
 
         .card-special:hover {
@@ -1510,41 +1509,6 @@
         </div>
     </section>
 
-    <section id="coaching" class="coaching-section">
-        <div class="container">
-            <div class="founder-grid">
-                <div class="founder-img-wrapper" style="border: 1px solid var(--accent-neon); box-shadow: 0 0 40px var(--accent-glow);">
-                    <img src="program-cover-baseline.jpg" alt="Form Correction Coaching">
-                    <div class="proof-label accent">FORM ANALYSIS</div>
-                </div>
-                
-                <div>
-                    <span class="eyebrow">DIRECT ACCESS</span>
-                    <h2 class="section-title" style="line-height: 1.0; margin-bottom: 20px;">
-                        1-ON-1 FORM<br><span class="text-accent flicker-effect">COACHING.</span>
-                    </h2>
-                    
-                    <p class="story-text">
-                        A program is only as good as the execution. If you're stuck, plateaued, or your pull-ups are asymmetrical, you need eyes on your mechanics.
-                    </p>
-                    
-                    <p class="story-highlight" style="margin-bottom: 30px;">
-                        Send me videos of your sets directly on Instagram (@sambrooks1223), and I will personally tear down your leaks and rebuild your form.
-                    </p>
-
-                    <ul class="stat-list">
-                        <li>Video Form Analysis <span>Direct DM</span></li>
-                        <li>Mechanical Corrections <span>Rapid Response</span></li>
-                        <li>Custom Cues & Tips <span>Tailored to you</span></li>
-                        <li>Plateau Breaking <span>Guaranteed</span></li>
-                    </ul>
-
-                    <a href="baseline.html" class="btn btn-solid" style="margin-top: 40px; width: 100%;">APPLY FOR BASELINE COACHING</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="equipment" class="zero-excuses">
         <div class="container">
             <h2 class="zero-title animate-up">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
@@ -1565,40 +1529,8 @@
             <p class="section-subtitle animate-up" style="margin-bottom: 100px;">Select the protocol that matches your current baseline strength.</p>
             
             <div class="program-grid">
-
-                <a href="baseline.html" class="program-card animate-up">
-                    <div class="program-tag">1-on-1 Direct Coaching</div>
-                    <div class="program-card-img">
-                        <img src="program-cover-baseline.jpg" alt="Baseline Form Coaching">
-                    </div>
-                    <div class="program-card-content">
-                        <h3 class="oswald">BASELINE</h3>
-                        <p class="program-desc-main">DM me videos of your form on Instagram for rapid, direct mechanical corrections.</p>
-                        
-                        <div class="program-details">
-                            <div class="detail-group">
-                                <span class="detail-title">HOW IT WORKS:</span>
-                                <ul class="detail-list">
-                                    <li>Submit videos via Insta DM</li>
-                                    <li>Get fast, targeted feedback</li>
-                                    <li>Correct mechanical leaks</li>
-                                    <li>Perfect your execution</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title">PERFECT FOR:</span>
-                                <ul class="detail-list">
-                                    <li>Breaking through plateaus</li>
-                                    <li>Fixing asymmetric pulling</li>
-                                    <li>Mastering absolute basics</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-action">UNLOCK COACHING</div>
-                    </div>
-                </a>
                 
-                <a href="beginner.html" class="program-card animate-up" style="transition-delay: 0.1s">
+                <a href="beginner.html" class="program-card animate-up">
                     <div class="program-tag">0–3 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
@@ -1639,7 +1571,7 @@
                     </div>
                 </a>
 
-                <a href="intermediate.html" class="program-card animate-up" style="transition-delay: 0.2s">
+                <a href="intermediate.html" class="program-card animate-up" style="transition-delay: 0.1s">
                     <div class="program-tag">8–10 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
@@ -1679,7 +1611,7 @@
                     </div>
                 </a>
 
-                <a href="muscleup.html" class="program-card card-special animate-up" style="transition-delay: 0.3s">
+                <a href="muscleup.html" class="program-card card-special animate-up" style="transition-delay: 0.2s">
                     <div class="program-tag">10 Pull-Ups / 12 Dips</div>
                     <div class="program-card-img">
                         <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
@@ -1850,10 +1782,12 @@
         document.addEventListener("DOMContentLoaded", () => {
             
             // 1. Initial Load Animations (Hero Section)
+            // We want these to happen immediately, not waiting for a scroll
             const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-desc, .hero-links');
             heroElements.forEach((el, index) => {
                 el.classList.add('animate-up');
                 el.style.transitionDelay = `${index * 0.15}s`; 
+                // Trigger reflow then add the view class so they animate in
                 setTimeout(() => el.classList.add('is-in-view'), 100); 
             });
 
@@ -1892,6 +1826,7 @@
                 });
             }, observerOptions);
 
+            // Observe all elements we prepped (excluding the hero ones we already triggered)
             document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
                 .forEach(el => observer.observe(el));
             
@@ -1913,13 +1848,14 @@
                 if(progressBar) progressBar.style.width = scrolled + "%";
             });
 
-            // 6. Advanced Chalk Dust Particle System
+            // 6. Advanced Chalk Dust Particle System 
             const canvas = document.getElementById('chalkCanvas');
             const ctx = canvas.getContext('2d');
             
             let particlesArray = [];
             const numberOfParticles = 80; 
             
+            // Resize canvas to match window
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
@@ -1928,21 +1864,25 @@
                 canvas.height = window.innerHeight;
             });
             
+            // Particle Class
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height + canvas.height;
-                    this.size = Math.random() * 3 + 0.5;
-                    this.speedY = (Math.random() * 1.5 + 0.5) * -1;
-                    this.speedX = (Math.random() * 1 - 0.5);
-                    this.opacity = Math.random() * 0.4 + 0.1;
+                    this.y = Math.random() * canvas.height + canvas.height; // Start slightly below screen
+                    this.size = Math.random() * 3 + 0.5; // Chalk dust is small and varied
+                    this.speedY = (Math.random() * 1.5 + 0.5) * -1; // Floating upwards
+                    this.speedX = (Math.random() * 1 - 0.5); // Slight drift
+                    this.opacity = Math.random() * 0.4 + 0.1; // Very subtle visibility
                 }
                 
                 update() {
                     this.y += this.speedY;
                     this.x += this.speedX;
+                    
+                    // Add a slight wave/drift to the floating chalk
                     this.x += Math.sin(this.y * 0.01) * 0.5;
                     
+                    // Reset particle to bottom when it floats off the top
                     if (this.y < 0 - this.size) {
                         this.y = canvas.height + this.size;
                         this.x = Math.random() * canvas.width;
@@ -1963,6 +1903,7 @@
                 for (let i = 0; i < numberOfParticles; i++) {
                     particlesArray.push(new Particle());
                 }
+                // Randomize starting Y positions so they don't all appear from the bottom at once
                 particlesArray.forEach(p => p.y = Math.random() * canvas.height);
             }
             
