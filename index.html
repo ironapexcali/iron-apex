@@ -258,7 +258,7 @@
             background-color: rgba(0, 0, 0, 0.9);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-inner {
@@ -281,7 +281,7 @@
             font-family: 'Inter', sans-serif;
             font-weight: 500;
             font-size: 14px;
-            transition: var(--transition-fast);
+            transition: color 0.3s ease;
         }
 
         .nav-links-left a:hover {
@@ -300,6 +300,15 @@
             text-decoration: none;
             color: var(--text-main);
             letter-spacing: 1px;
+            transition: text-shadow 0.3s ease;
+        }
+        
+        .logo:hover {
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+
+        .logo span {
+            color: var(--accent-neon);
         }
 
         /* Right Side Utility Icons */
@@ -319,11 +328,12 @@
             stroke-linecap: round;
             stroke-linejoin: round;
             cursor: pointer;
-            transition: var(--transition-fast);
+            transition: stroke 0.3s ease, transform 0.3s ease;
         }
 
         .nav-icon:hover {
             stroke: var(--accent-neon);
+            transform: scale(1.1);
         }
 
         /* ==========================================================================
@@ -348,6 +358,13 @@
             object-fit: cover;
             object-position: center 20%; /* Keeps the athlete in frame */
             z-index: 1;
+            /* Added smooth pulse/zoom animation to hero */
+            animation: heroBreathing 20s infinite alternate ease-in-out;
+        }
+
+        @keyframes heroBreathing {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
         }
 
         /* Gradient overlay so text is readable */
@@ -418,7 +435,7 @@
             text-transform: uppercase;
             padding-bottom: 5px;
             border-bottom: 2px solid var(--text-main);
-            transition: var(--transition-fast);
+            transition: color 0.3s ease, border-color 0.3s ease;
         }
 
         .hero-link:hover {
@@ -464,8 +481,8 @@
            THE PROBLEM / HONESTY SECTION
            ========================================================================== */
         .honesty-section {
-            padding-top: var(--pad-section-y);
-            padding-bottom: var(--pad-section-y);
+            padding-top: var(--section-padding-y);
+            padding-bottom: var(--section-padding-y);
             background-color: var(--bg-pure);
         }
 
@@ -491,13 +508,14 @@
             padding-bottom: 50px;
             padding-left: 40px;
             padding-right: 40px;
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
 
         .honesty-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-light);
+            transform: translateY(-10px);
+            border-color: var(--border-medium);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
 
         .honesty-card h3 {
@@ -516,10 +534,10 @@
            FOUNDER & STORY SECTION
            ========================================================================== */
         .founder-section {
-            padding-top: var(--pad-section-y);
-            padding-bottom: var(--pad-section-y);
+            padding-top: var(--section-padding-y);
+            padding-bottom: var(--section-padding-y);
             background-color: var(--bg-elevated);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .founder-grid {
@@ -545,17 +563,20 @@
 
         .founder-img-wrapper {
             position: relative;
+            overflow: hidden;
+            border-radius: 4px;
         }
 
         .founder-img-wrapper img {
             width: 100%;
             display: block;
             filter: grayscale(100%);
-            transition: var(--transition-smooth);
+            transition: filter 0.6s ease, transform 0.6s ease;
         }
 
         .founder-img-wrapper:hover img {
             filter: grayscale(0%);
+            transform: scale(1.03);
         }
 
         .stat-list {
@@ -566,7 +587,7 @@
         .stat-list li {
             padding-top: 15px;
             padding-bottom: 15px;
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
             font-family: 'Oswald', sans-serif;
             font-size: 18px;
             font-weight: 600;
@@ -585,18 +606,18 @@
            PROOF & TRANSFORMATIONS (MASSIVE SCALING)
            ========================================================================== */
         .proof-section {
-            padding-top: var(--pad-section-y);
-            padding-bottom: var(--pad-section-y);
+            padding-top: var(--section-padding-y);
+            padding-bottom: var(--section-padding-y);
             background-color: var(--bg-pure);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .proof-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 2px;
-            background-color: var(--border-color);
-            border: 2px solid var(--border-color);
+            background-color: var(--border-heavy);
+            border: 2px solid var(--border-heavy);
         }
 
         .proof-box {
@@ -613,19 +634,20 @@
             object-position: center;
             display: block;
             filter: grayscale(100%);
-            transition: var(--transition-smooth);
+            transition: filter 0.8s ease, transform 0.8s ease;
         }
 
         .proof-box:hover img {
             filter: grayscale(0%);
-            transform: scale(1.02);
+            transform: scale(1.05);
         }
 
         .proof-label {
             position: absolute;
             bottom: 40px;
             left: 40px;
-            background-color: var(--bg-pure);
+            background-color: rgba(0,0,0,0.8);
+            backdrop-filter: blur(5px);
             color: var(--text-main);
             padding-top: 15px;
             padding-bottom: 15px;
@@ -636,6 +658,7 @@
             font-weight: 800;
             font-style: italic;
             text-transform: uppercase;
+            z-index: 2;
         }
 
         .proof-label.accent {
@@ -649,7 +672,7 @@
             max-width: 1000px;
             margin-left: auto;
             margin-right: auto;
-            border: 2px solid var(--border-color);
+            border: 2px solid var(--border-heavy);
         }
 
         .client-grid .proof-box {
@@ -664,7 +687,7 @@
             padding-bottom: 150px;
             background-color: var(--bg-elevated);
             text-align: center;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .zero-title {
@@ -688,7 +711,7 @@
 
         .equipment-box {
             background-color: var(--bg-pure);
-            border: 1px solid var(--border-color);
+            border: 1px solid var(--border-medium);
             padding-top: 60px;
             padding-bottom: 60px;
             padding-left: 40px;
@@ -696,6 +719,13 @@
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .equipment-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 40px var(--accent-glow);
+            border-color: var(--accent-neon);
         }
 
         .equipment-box h3 {
@@ -718,10 +748,10 @@
            PROGRAMS "STOREFRONT" (E-COMMERCE CARDS)
            ========================================================================== */
         .programs-section {
-            padding-top: var(--pad-section-y);
-            padding-bottom: var(--pad-section-y);
+            padding-top: var(--section-padding-y);
+            padding-bottom: var(--section-padding-y);
             background-color: var(--bg-pure);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .program-grid {
@@ -736,9 +766,10 @@
             text-decoration: none;
             color: var(--text-main);
             background-color: var(--bg-elevated);
-            border: 1px solid var(--border-color);
-            transition: var(--transition-smooth);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
             position: relative;
+            overflow: hidden;
         }
 
         .program-card-img {
@@ -765,7 +796,7 @@
             height: 100%;
             object-fit: cover;
             filter: grayscale(100%);
-            transition: var(--transition-smooth);
+            transition: filter 0.5s ease, transform 0.5s ease;
             position: relative;
             z-index: 2;
         }
@@ -775,12 +806,13 @@
             flex: 1;
             display: flex;
             flex-direction: column;
+            background: linear-gradient(to top, var(--bg-card), var(--bg-elevated));
         }
 
         .program-tag {
             position: absolute;
             top: 20px;
-            left: 20px; /* Gymshark places tags top left usually */
+            left: 20px;
             background-color: var(--text-main);
             color: var(--text-dark);
             font-family: 'Oswald', sans-serif;
@@ -792,6 +824,7 @@
             font-weight: 700;
             text-transform: uppercase;
             z-index: 5;
+            transition: background-color 0.3s ease;
         }
 
         .program-card h3 {
@@ -816,8 +849,9 @@
         }
 
         .detail-group {
-            border-left: 1px solid var(--border-color);
+            border-left: 1px solid rgba(255, 255, 255, 0.1);
             padding-left: 15px;
+            transition: border-color 0.3s ease;
         }
 
         .detail-title {
@@ -863,7 +897,7 @@
             text-align: center;
             padding-top: 15px;
             padding-bottom: 15px;
-            transition: var(--transition-fast);
+            transition: background-color 0.3s ease, color 0.3s ease;
             width: 100%;
             border: none;
             cursor: pointer;
@@ -871,20 +905,36 @@
 
         /* Hover Effects */
         .program-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+            border-color: rgba(255, 255, 255, 0.15);
         }
 
         .program-card:hover .program-card-img img {
             filter: grayscale(0%);
+            transform: scale(1.05);
         }
 
         .program-card:hover .card-action {
             background-color: var(--accent-neon);
         }
 
+        .program-card:hover .detail-group {
+            border-left-color: var(--accent-neon);
+        }
+
         /* Muscle-Up Special Card */
+        .card-special {
+            border-color: rgba(204, 255, 0, 0.2);
+        }
+        
         .card-special .program-tag {
             background-color: var(--accent-neon);
+        }
+
+        .card-special:hover {
+            box-shadow: 0 15px 35px var(--accent-glow);
+            border-color: var(--accent-neon);
         }
 
         /* ==========================================================================
@@ -911,7 +961,7 @@
             padding-top: 120px;
             padding-bottom: 120px;
             background-color: var(--bg-elevated);
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .faq-wrapper {
@@ -921,12 +971,19 @@
         }
 
         details {
-            border-bottom: 1px solid var(--border-color);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            transition: background-color 0.3s ease;
+        }
+
+        details:hover {
+            background-color: rgba(255,255,255,0.02);
         }
 
         summary {
             padding-top: 20px;
             padding-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
             font-family: 'Inter', sans-serif;
             font-size: 16px;
             font-weight: 600;
@@ -947,17 +1004,28 @@
             font-size: 24px;
             font-weight: 300;
             color: var(--text-secondary);
+            transition: transform 0.3s ease, color 0.3s ease;
         }
 
         details[open] summary::after {
-            content: '-';
+            content: '+';
+            transform: rotate(45deg);
+            color: var(--accent-neon);
         }
 
         .faq-answer {
+            padding-left: 10px;
+            padding-right: 10px;
             padding-bottom: 20px;
             color: var(--text-secondary);
             font-size: 14px;
             line-height: 1.6;
+            animation: fadeIn 0.4s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* ==========================================================================
@@ -967,7 +1035,7 @@
             background-color: var(--bg-pure);
             padding-top: 80px;
             padding-bottom: 40px;
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .footer-grid {
@@ -988,6 +1056,10 @@
             letter-spacing: 1px;
         }
 
+        .footer-logo span {
+            color: var(--accent-neon);
+        }
+
         .footer-desc {
             color: var(--text-secondary);
             font-size: 14px;
@@ -1001,10 +1073,15 @@
             font-weight: 600;
             color: var(--text-main);
             text-decoration: underline;
+            transition: color 0.3s ease;
+        }
+
+        .social-link:hover {
+            color: var(--accent-neon);
         }
 
         .footer-bottom {
-            border-top: 1px solid var(--border-color);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
             padding-top: 20px;
             color: var(--text-secondary);
             font-size: 12px;
@@ -1027,7 +1104,7 @@
             padding-left: 20px;
             padding-right: 20px;
             z-index: 9999;
-            pointer-events: none; /* Let user scroll through background */
+            pointer-events: none;
         }
 
         .sticky-btn {
@@ -1044,7 +1121,41 @@
             text-decoration: none;
             font-size: 14px;
             letter-spacing: 1px;
-            pointer-events: auto; /* Re-enable click for button */
+            pointer-events: auto;
+            transition: background-color 0.3s ease;
+        }
+
+        .sticky-btn:hover {
+            background-color: var(--accent-neon);
+        }
+
+        /* ==========================================================================
+           SCROLL ANIMATION ENGINE CLASSES
+           ========================================================================== */
+        .animate-up { 
+            opacity: 0; 
+            transform: translateY(40px); 
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .animate-left { 
+            opacity: 0; 
+            transform: translateX(-40px); 
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .animate-right { 
+            opacity: 0; 
+            transform: translateX(40px); 
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        .animate-scale { 
+            opacity: 0; 
+            transform: scale(0.95); 
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
+        }
+        
+        .is-in-view { 
+            opacity: 1 !important; 
+            transform: translate(0) scale(1) !important; 
         }
 
         /* ==========================================================================
@@ -1055,19 +1166,18 @@
                 flex-direction: column;
                 height: auto;
             }
-            .hero-text-side {
+            .hero-content {
                 padding-top: 120px;
                 padding-bottom: 60px;
                 padding-left: 24px;
                 padding-right: 24px;
                 text-align: center;
+                display: flex;
+                flex-direction: column;
                 align-items: center;
-                background: var(--bg-pure);
             }
-            .hero-image-side {
-                height: 60vh;
-                width: 100%;
-                position: relative;
+            .hero-links {
+                justify-content: center;
             }
             .founder-grid {
                 grid-template-columns: 1fr;
@@ -1088,10 +1198,10 @@
                 grid-template-columns: 1fr auto 1fr;
             }
             .nav-links-left {
-                display: none; /* Hide text links on mobile */
+                display: none;
             }
             .logo-container {
-                grid-column: 2; /* Center logo on mobile */
+                grid-column: 2;
             }
             .nav-icons-right {
                 grid-column: 3;
@@ -1222,7 +1332,7 @@
                         I have the keys to unlock your potential, and I don't want to keep them to myself forever... 🔑
                     </p>
 
-                    <h4 style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid var(--border-color); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
+                    <h4 style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
                     <ul class="stat-list">
                         <li>One-Arm Pull-Up <span>Unlocked</span></li>
                         <li>Handstand Push-Ups <span>Mastered</span></li>
@@ -1389,7 +1499,7 @@
                         <p class="program-desc-main" style="color: var(--text-main);">Specialized program.</p>
                         
                         <div class="program-details">
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
+                            <div class="detail-group">
                                 <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS:</span>
                                 <ul class="detail-list">
                                     <li>10 strict pull-ups</li>
@@ -1397,13 +1507,13 @@
                                     <li>Explosive pull strength</li>
                                 </ul>
                             </div>
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
+                            <div class="detail-group">
                                 <span class="detail-title" style="color: var(--text-main);">GOAL:</span>
                                 <ul class="detail-list">
                                     <li>Achieve first clean muscle-up</li>
                                 </ul>
                             </div>
-                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
+                            <div class="detail-group">
                                 <span class="detail-title" style="color: var(--text-main);">FOCUS:</span>
                                 <ul class="detail-list">
                                     <li>Explosive pull-ups</li>
@@ -1546,6 +1656,60 @@
     <div class="mobile-sticky-cta">
         <a href="#programs" class="sticky-btn">SHOP PROGRAMS</a>
     </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            // 1. Initial Load Animations (Hero Section)
+            // We want these to happen immediately, not waiting for a scroll
+            const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-desc, .hero-links');
+            heroElements.forEach((el, index) => {
+                el.classList.add('animate-up');
+                el.style.transitionDelay = `${index * 0.15}s`; // Stagger
+                // Trigger reflow then add the view class so they animate in
+                setTimeout(() => el.classList.add('is-in-view'), 100); 
+            });
+
+            // 2. Prep remaining elements for the scroll observer
+            const applyAnimation = (selector, animationClass, stagger = false) => {
+                const elements = document.querySelectorAll(selector);
+                elements.forEach((el, index) => {
+                    el.classList.add(animationClass);
+                    if (stagger) el.style.transitionDelay = `${index * 0.15}s`;
+                });
+            };
+
+            applyAnimation('.section-title, .section-subtitle, .eyebrow', 'animate-up');
+            applyAnimation('.bg-text-massive', 'animate-right');
+            applyAnimation('.honesty-card', 'animate-up', true);
+            applyAnimation('.story-text, .story-highlight, .stat-list li', 'animate-left', true);
+            applyAnimation('.founder-img-wrapper', 'animate-right');
+            applyAnimation('.proof-box', 'animate-scale', true);
+            applyAnimation('.zero-title, .zero-subtitle', 'animate-up');
+            applyAnimation('.equipment-box', 'animate-scale');
+            applyAnimation('.program-card', 'animate-up', true);
+            applyAnimation('.faq-wrapper details', 'animate-up', true);
+
+            // 3. Intersection Observer to trigger animations on scroll
+            const observerOptions = { 
+                threshold: 0.15,
+                rootMargin: "0px 0px -50px 0px" 
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-in-view');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe all elements we prepped (excluding the hero ones we already triggered)
+            document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
+                .forEach(el => observer.observe(el));
+        });
+    </script>
 
 </body>
 </html>
