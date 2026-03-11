@@ -11,7 +11,7 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V10.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
+           IRON APEX V12.0 - ULTIMATE KINETIC EDITION
            ========================================================================== */
 
         :root {
@@ -50,6 +50,7 @@
             --ease-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --ease-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --ease-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+            --ease-elastic: 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         /* ==========================================================================
@@ -68,6 +69,8 @@
             max-width: 100vw;
             overflow-x: hidden;
             background-color: var(--bg-pure);
+            /* Hide default cursor to use custom cursor */
+            cursor: none; 
         }
 
         /* This prevents the sticky header from covering sections when clicked */
@@ -85,16 +88,11 @@
         }
 
         /* High-End Texture Overlay (The "Iron" Grain) */
-        body::before {
+        body::after {
             content: "";
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            pointer-events: none;
-            z-index: 9999;
-            opacity: 0.04;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none; z-index: 9999; opacity: 0.04;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
         }
 
@@ -103,6 +101,69 @@
             max-width: 100vw;
             overflow-x: hidden;
             position: relative;
+        }
+
+        /* ==========================================================================
+           CUSTOM CURSOR
+           ========================================================================== */
+        .cursor-dot {
+            width: 8px; height: 8px; background-color: var(--accent-neon);
+            border-radius: 50%; position: fixed; top: 0; left: 0;
+            transform: translate(-50%, -50%); z-index: 10000; pointer-events: none;
+            transition: width 0.2s, height 0.2s, background-color 0.2s;
+        }
+
+        .cursor-outline {
+            width: 40px; height: 40px; border: 1px solid rgba(204, 255, 0, 0.5);
+            border-radius: 50%; position: fixed; top: 0; left: 0;
+            transform: translate(-50%, -50%); z-index: 9999; pointer-events: none;
+            transition: width 0.2s, height 0.2s, border-color 0.2s;
+        }
+
+        /* Hover states for cursor */
+        .cursor-hover .cursor-dot {
+            width: 0; height: 0; background-color: transparent;
+        }
+        .cursor-hover .cursor-outline {
+            width: 60px; height: 60px; background-color: var(--accent-glow);
+            border-color: var(--accent-neon); mix-blend-mode: exclusion;
+        }
+
+        /* ==========================================================================
+           DYNAMIC AMBIENT BACKGROUND GLOW
+           ========================================================================== */
+        .ambient-glow-container {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: 0; pointer-events: none; overflow: hidden;
+        }
+
+        .glow-orb {
+            position: absolute; border-radius: 50%; filter: blur(150px);
+            opacity: 0.15; animation: floatOrb 25s infinite alternate ease-in-out;
+        }
+
+        .orb-1 {
+            top: -10%; left: -10%; width: 50vw; height: 50vw;
+            background: radial-gradient(circle, var(--accent-neon), transparent 70%);
+        }
+
+        .orb-2 {
+            bottom: -20%; right: -10%; width: 60vw; height: 60vw;
+            background: radial-gradient(circle, #ffffff, transparent 70%);
+            animation-delay: -10s;
+        }
+
+        .orb-3 {
+            top: 40%; left: 60%; width: 40vw; height: 40vw;
+            background: radial-gradient(circle, rgba(204,255,0,0.5), transparent 70%);
+            animation-duration: 35s; animation-delay: -5s;
+        }
+
+        @keyframes floatOrb {
+            0% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(5vw, 10vh) scale(1.1); }
+            66% { transform: translate(-10vw, 5vh) scale(0.9); }
+            100% { transform: translate(0, -10vh) scale(1.2); }
         }
 
         /* ==========================================================================
@@ -129,7 +190,7 @@
             z-index: 2;
         }
 
-        /* Editorial Streetwear Background Text */
+        /* Editorial Streetwear Background Text - Now hooked up to Parallax JS */
         .bg-text-massive {
             position: absolute;
             top: 10%;
@@ -138,13 +199,14 @@
             font-size: 20vw;
             font-weight: 900;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.04);
             text-transform: uppercase;
             line-height: 0.8;
             pointer-events: none;
             z-index: 0;
             white-space: nowrap;
             user-select: none;
+            transition: transform 0.1s linear; /* Smooths out parallax jitter */
         }
 
         .section-title {
@@ -188,1075 +250,477 @@
         }
 
         /* ==========================================================================
-           3. E-COMMERCE BUTTON SYSTEM
+           3. E-COMMERCE BUTTON SYSTEM (NOW MAGNETIC)
            ========================================================================== */
         .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 45px;
-            padding-right: 45px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-decoration: none;
-            cursor: pointer;
-            border: none;
-            transition: var(--ease-smooth);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            display: inline-flex; align-items: center; justify-content: center;
+            padding: 20px 45px; font-family: 'Oswald', sans-serif; font-size: 16px;
+            font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
+            text-decoration: none; border: none; position: relative; overflow: hidden;
+            z-index: 1; transition: color 0.3s ease;
         }
 
-        .btn-solid {
-            background-color: var(--text-main);
-            color: var(--text-dark);
-        }
-
+        .btn-solid { background-color: var(--text-main); color: var(--text-dark); }
         .btn-solid::after {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-color: var(--accent-neon);
-            transform: translateY(100%);
-            transition: var(--ease-smooth);
-            z-index: -1;
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background-color: var(--accent-neon); transform: translateY(100%);
+            transition: transform 0.4s var(--ease-smooth); z-index: -1;
+        }
+        
+        .magnetic-btn { /* Class injected via JS for the pull effect */
+            display: inline-block; transition: transform 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
         }
 
-        .btn-solid:hover {
-            color: var(--text-dark);
-            transform: translateY(-4px);
-            box-shadow: 0 15px 30px var(--accent-glow);
-        }
-
-        .btn-solid:hover::after {
-            transform: translateY(0);
-        }
+        .btn-solid:hover { color: var(--text-dark); box-shadow: 0 15px 30px var(--accent-glow); }
+        .btn-solid:hover::after { transform: translateY(0); }
 
         /* ==========================================================================
            4. NAVIGATION (PREMIUM GLASS)
            ========================================================================== */
         header {
-            position: sticky;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.9);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            position: sticky; top: 0; left: 0; width: 100%; z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.85); backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px); border-bottom: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .nav-inner {
-            display: grid;
-            grid-template-columns: 1fr auto 1fr; /* 3 column layout */
-            align-items: center;
-            height: 80px;
+            display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 80px;
         }
 
-        /* Left Side Links */
-        .nav-links-left {
-            display: flex;
-            gap: 25px; /* Slightly reduced gap to fit the new links */
-            align-items: center;
-        }
-
+        .nav-links-left { display: flex; gap: 30px; align-items: center; }
         .nav-links-left a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-family: 'Inter', sans-serif;
-            font-weight: 500;
-            font-size: 14px;
-            transition: color 0.3s ease;
-            white-space: nowrap;
-        }
-
-        .nav-links-left a:hover {
-            color: var(--accent-neon);
-        }
-
-        /* Centered Logo */
-        .logo-container {
-            text-align: center;
-        }
-
-        .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 32px;
-            font-weight: 900;
-            text-decoration: none;
-            color: var(--text-main);
-            letter-spacing: 1px;
-            transition: text-shadow 0.3s ease;
+            color: var(--text-main); text-decoration: none; font-family: 'Inter', sans-serif;
+            font-weight: 500; font-size: 14px; transition: color 0.3s ease;
+            position: relative;
         }
         
-        .logo:hover {
-            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        /* Underline animation on hover */
+        .nav-links-left a::after {
+            content: ''; position: absolute; bottom: -5px; left: 0; width: 0; height: 2px;
+            background-color: var(--accent-neon); transition: width 0.3s var(--ease-smooth);
         }
+        .nav-links-left a:hover { color: var(--accent-neon); }
+        .nav-links-left a:hover::after { width: 100%; }
 
-        .logo span {
-            color: var(--accent-neon);
+        .logo-container { text-align: center; }
+        .logo {
+            font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 900;
+            text-decoration: none; color: var(--text-main); letter-spacing: 1px;
+            transition: text-shadow 0.3s ease;
         }
+        .logo:hover { text-shadow: 0 0 25px rgba(204, 255, 0, 0.4); }
+        .logo span { color: var(--accent-neon); }
 
-        /* Right Side Utility Icons */
-        .nav-icons-right {
-            display: flex;
-            justify-content: flex-end;
-            gap: 25px;
-            align-items: center;
-        }
-
+        .nav-icons-right { display: flex; justify-content: flex-end; gap: 25px; align-items: center; }
         .nav-icon {
-            width: 24px;
-            height: 24px;
-            fill: none;
-            stroke: var(--text-main);
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            cursor: pointer;
-            transition: stroke 0.3s ease, transform 0.3s ease;
+            width: 24px; height: 24px; fill: none; stroke: var(--text-main); stroke-width: 2;
+            transition: stroke 0.3s ease, transform 0.3s var(--ease-elastic);
         }
-
-        .nav-icon:hover {
-            stroke: var(--accent-neon);
-            transform: scale(1.1);
-        }
+        .nav-icon:hover { stroke: var(--accent-neon); transform: scale(1.2) rotate(5deg); }
 
         /* ==========================================================================
-           HERO SECTION (FULL EDGE-TO-EDGE)
+           HERO SECTION WITH PARTICLE ENGINE
            ========================================================================== */
         .hero {
-            position: relative;
-            height: calc(100vh - 110px); /* Subtracts banner and header height */
-            width: 100vw;
-            display: flex;
-            align-items: center; /* Centers text vertically */
-            overflow: hidden;
+            position: relative; height: calc(100vh - 110px); width: 100vw;
+            display: flex; align-items: center; overflow: hidden;
         }
 
-        /* The Image explicitly placed to guarantee it shows */
         .hero-img-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center 20%; /* Keeps the athlete in frame */
-            z-index: 1;
-            animation: heroBreathing 20s infinite alternate ease-in-out;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            object-fit: cover; object-position: center 20%; z-index: 1;
+            transform: scale(1.05); /* Slight scale to allow parallax/breathing */
         }
 
-        @keyframes heroBreathing {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+        /* The HTML5 Canvas for the magnesium dust particles */
+        #particle-canvas {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 2; pointer-events: none; opacity: 0.8;
         }
 
-        /* Gradient overlay so text is readable */
         .hero-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
-            z-index: 2;
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.6) 40%, transparent 100%);
+            z-index: 3;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 3;
-            width: 100%;
-            max-width: var(--container-w);
-            margin: 0 auto;
-            padding-left: 40px;
-            padding-right: 40px;
+            position: relative; z-index: 4; width: 100%; max-width: var(--container-w);
+            margin: 0 auto; padding-left: 40px; padding-right: 40px;
         }
 
-        /* Massive Italic Typography like the reference image */
         .hero-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(60px, 9vw, 140px);
-            font-weight: 900;
-            font-style: italic;
-            line-height: 0.9;
-            color: var(--text-main);
-            margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: -2px;
+            font-family: 'Oswald', sans-serif; font-size: clamp(60px, 9vw, 140px);
+            font-weight: 900; font-style: italic; line-height: 0.9; color: var(--text-main);
+            margin-bottom: 20px; text-transform: uppercase; letter-spacing: -2px;
+            /* Glitch effect base */
+            position: relative;
+        }
+
+        /* Cool text hover glitch effect */
+        .hero-title:hover { animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite; }
+        
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg); }
+            20% { transform: skew(-10deg); }
+            40% { transform: skew(10deg); }
+            60% { transform: skew(-5deg); }
+            80% { transform: skew(5deg); }
+            100% { transform: skew(0deg); }
         }
 
         .hero-subtitle {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(18px, 2.5vw, 24px);
-            font-weight: 700;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            text-transform: uppercase;
+            font-family: 'Inter', sans-serif; font-size: clamp(18px, 2.5vw, 24px);
+            font-weight: 700; color: var(--text-main); margin-bottom: 10px; text-transform: uppercase;
         }
 
         .hero-desc {
-            font-family: 'Inter', sans-serif;
-            font-size: clamp(14px, 1.5vw, 16px);
-            color: #dddddd;
-            max-width: 500px;
-            margin-bottom: 40px;
-            font-weight: 400;
+            font-family: 'Inter', sans-serif; font-size: clamp(14px, 1.5vw, 16px);
+            color: #dddddd; max-width: 500px; margin-bottom: 40px; font-weight: 400;
         }
 
-        /* Gymshark style Underline Links */
-        .hero-links {
-            display: flex;
-            gap: 30px;
-            flex-wrap: wrap;
-        }
-
+        .hero-links { display: flex; gap: 30px; flex-wrap: wrap; }
         .hero-link {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: var(--text-main);
-            text-decoration: none;
-            text-transform: uppercase;
-            padding-bottom: 5px;
-            border-bottom: 2px solid var(--text-main);
-            transition: color 0.3s ease, border-color 0.3s ease;
+            font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 700;
+            color: var(--text-main); text-decoration: none; text-transform: uppercase;
+            padding-bottom: 5px; border-bottom: 2px solid var(--text-main);
+            transition: color 0.3s ease, border-bottom-color 0.3s ease; position: relative;
         }
-
-        .hero-link:hover {
-            color: var(--accent-neon);
-            border-bottom-color: var(--accent-neon);
-        }
+        .hero-link:hover { color: var(--accent-neon); border-bottom-color: var(--accent-neon); }
 
         /* ==========================================================================
            TICKER MARQUEE
            ========================================================================== */
         .marquee-container {
-            width: 100%;
-            background-color: var(--accent-neon);
-            padding-top: 15px;
-            padding-bottom: 15px;
-            overflow: hidden;
-            white-space: nowrap;
+            width: 100%; background-color: var(--accent-neon); padding: 15px 0;
+            overflow: hidden; white-space: nowrap; border-top: 1px solid var(--border-heavy);
+            position: relative; z-index: 10;
         }
 
         .marquee-content {
-            display: inline-block;
-            animation: marquee 25s linear infinite;
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            display: inline-block; animation: marquee 25s linear infinite;
+            font-family: 'Oswald', sans-serif; font-size: 24px; font-weight: 700;
+            color: var(--text-dark); text-transform: uppercase; letter-spacing: 2px;
         }
 
-        .marquee-content span {
-            margin-left: 20px;
-            margin-right: 20px;
-            opacity: 0.5;
-        }
+        .marquee-content span { margin: 0 20px; opacity: 0.5; }
 
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
+        @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
 
         /* ==========================================================================
-           THE PROBLEM / HONESTY SECTION
+           THE PROBLEM / HONESTY SECTION (WITH 3D TILT)
            ========================================================================== */
-        .honesty-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-pure);
-        }
+        .honesty-section { padding: var(--section-padding-y) 0; background-color: transparent; }
 
         .honesty-intro {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            color: var(--accent-neon);
-            margin-bottom: 10px;
-            letter-spacing: 1px;
-            font-weight: 600;
+            font-family: 'Oswald', sans-serif; font-size: 20px; color: var(--accent-neon);
+            margin-bottom: 10px; letter-spacing: 1px; font-weight: 600;
         }
 
-        .honesty-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 30px;
-            margin-top: 60px;
+        .honesty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; margin-top: 60px; perspective: 1500px; }
+
+        /* Setup for 3D JS Tilt */
+        .tilt-card {
+            transform-style: preserve-3d; transform: perspective(1000px);
+            position: relative;
         }
+        
+        .tilt-glare {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%);
+            opacity: 0; pointer-events: none; z-index: 10; transition: opacity 0.3s; mix-blend-mode: overlay;
+        }
+        
+        .tilt-card:hover .tilt-glare { opacity: 1; }
 
         .honesty-card {
-            background-color: var(--bg-elevated);
-            padding-top: 50px;
-            padding-bottom: 50px;
-            padding-left: 40px;
-            padding-right: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+            background-color: rgba(17, 17, 17, 0.7); backdrop-filter: blur(10px);
+            padding: 50px 40px; border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
         .honesty-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--border-medium);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border-color: rgba(204, 255, 0, 0.3); box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px var(--accent-glow);
         }
 
-        .honesty-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
-            color: var(--text-main);
-            font-style: italic;
-        }
-
-        .honesty-card p {
-            color: var(--text-secondary);
-            font-size: 16px;
-        }
+        .honesty-card h3 { font-size: 24px; margin-bottom: 15px; color: var(--text-main); font-style: italic; transform: translateZ(30px); }
+        .honesty-card p { color: var(--text-secondary); font-size: 16px; transform: translateZ(20px); }
 
         /* ==========================================================================
            FOUNDER & STORY SECTION
            ========================================================================== */
         .founder-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-elevated);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: var(--section-padding-y) 0; background-color: rgba(9, 9, 9, 0.8);
+            border-top: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
         }
 
-        .founder-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
+        .founder-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+        .story-text { color: var(--text-secondary); font-size: 16px; line-height: 1.8; margin-bottom: 25px; }
+        .story-highlight { color: var(--text-main); font-size: 18px; font-weight: 600; margin-bottom: 50px; }
 
-        .story-text {
-            color: var(--text-secondary);
-            font-size: 16px;
-            line-height: 1.8;
-            margin-bottom: 25px;
+        .founder-img-wrapper { position: relative; overflow: hidden; border-radius: 4px; box-shadow: 0 20px 50px rgba(0,0,0,0.5); }
+        .founder-img-wrapper::after {
+            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(204,255,0,0.1), transparent);
+            transform: translateX(-100%); transition: transform 0.6s; z-index: 2; pointer-events: none;
         }
-
-        .story-highlight {
-            color: var(--text-main);
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 50px;
-        }
-
-        .founder-img-wrapper {
-            position: relative;
-            overflow: hidden;
-            border-radius: 4px;
-        }
-
+        .founder-img-wrapper:hover::after { transform: translateX(100%); }
         .founder-img-wrapper img {
-            width: 100%;
-            display: block;
-            filter: grayscale(100%);
-            transition: filter 0.6s ease, transform 0.6s ease;
+            width: 100%; display: block; filter: grayscale(100%) contrast(1.2); transition: filter 0.6s ease, transform 0.8s ease;
         }
+        .founder-img-wrapper:hover img { filter: grayscale(0%) contrast(1.1); transform: scale(1.05); }
 
-        .founder-img-wrapper:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.03);
-        }
-
-        .stat-list {
-            list-style: none;
-            margin-top: 20px;
-        }
-
+        .stat-list { list-style: none; margin-top: 20px; }
         .stat-list li {
-            padding-top: 15px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            text-transform: uppercase;
+            padding: 15px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            font-family: 'Oswald', sans-serif; font-size: 18px; font-weight: 600;
+            display: flex; justify-content: space-between; align-items: center; text-transform: uppercase;
         }
-
-        .stat-list li span {
-            color: var(--accent-neon);
-            font-style: italic;
-        }
+        .stat-list li span { color: var(--accent-neon); font-style: italic; }
 
         /* ==========================================================================
-           PROOF & TRANSFORMATIONS (MASSIVE SCALING)
+           PROOF & TRANSFORMATIONS
            ========================================================================== */
         .proof-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-pure);
+            padding: var(--section-padding-y) 0; background-color: transparent;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .proof-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2px;
-            background-color: var(--border-heavy);
-            border: 2px solid var(--border-heavy);
+            display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+            background-color: var(--border-heavy); border: 2px solid var(--border-heavy);
         }
 
-        .proof-box {
-            position: relative;
-            height: 900px; /* Massive height */
-            background-color: var(--bg-pure);
-            overflow: hidden;
-        }
-
+        .proof-box { position: relative; height: 900px; background-color: var(--bg-pure); overflow: hidden; }
         .proof-box img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: center;
-            display: block;
-            filter: grayscale(100%);
-            transition: filter 0.8s ease, transform 0.8s ease;
+            width: 100%; height: 100%; object-fit: cover; object-position: center; display: block;
+            filter: grayscale(100%); transition: filter 0.8s ease, transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
         }
-
-        .proof-box:hover img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
+        .proof-box:hover img { filter: grayscale(0%); transform: scale(1.08); }
 
         .proof-label {
-            position: absolute;
-            bottom: 40px;
-            left: 40px;
-            background-color: rgba(0,0,0,0.8);
-            backdrop-filter: blur(5px);
-            color: var(--text-main);
-            padding-top: 15px;
-            padding-bottom: 15px;
-            padding-left: 25px;
-            padding-right: 25px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 800;
-            font-style: italic;
-            text-transform: uppercase;
-            z-index: 2;
+            position: absolute; bottom: 40px; left: 40px; background-color: rgba(0,0,0,0.85);
+            backdrop-filter: blur(10px); color: var(--text-main); padding: 15px 25px;
+            font-family: 'Oswald', sans-serif; font-size: 20px; font-weight: 800; font-style: italic;
+            text-transform: uppercase; z-index: 2; border: 1px solid rgba(255,255,255,0.1);
         }
+        .proof-label.accent { color: var(--accent-neon); border-color: rgba(204,255,0,0.3); }
 
-        .proof-label.accent {
-            color: var(--accent-neon);
-        }
-
-        /* Client specific single grid */
         .client-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            max-width: 1000px;
-            margin-left: auto;
-            margin-right: auto;
+            display: grid; grid-template-columns: 1fr; max-width: 1000px; margin: 0 auto;
             border: 2px solid var(--border-heavy);
         }
-
-        .client-grid .proof-box {
-            height: 900px;
-        }
+        .client-grid .proof-box { height: 900px; }
 
         /* ==========================================================================
            ZERO EXCUSES SECTION
            ========================================================================== */
         .zero-excuses {
-            padding-top: 150px;
-            padding-bottom: 150px;
-            background-color: var(--bg-elevated);
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 150px 0; background-color: rgba(9, 9, 9, 0.6); text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(5px);
         }
 
         .zero-title {
-            font-size: clamp(60px, 9vw, 130px);
-            font-family: 'Oswald', sans-serif;
-            font-weight: 900;
-            font-style: italic;
-            text-transform: uppercase;
-            line-height: 0.9;
-            margin-bottom: 20px;
+            font-size: clamp(60px, 9vw, 130px); font-family: 'Oswald', sans-serif;
+            font-weight: 900; font-style: italic; text-transform: uppercase; line-height: 0.9; margin-bottom: 20px;
         }
 
-        .zero-subtitle {
-            font-size: 18px;
-            color: var(--text-secondary);
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            margin-bottom: 60px;
-        }
+        .zero-subtitle { font-size: 18px; color: var(--text-secondary); max-width: 700px; margin: 0 auto 60px; }
 
         .equipment-box {
-            background-color: var(--bg-pure);
-            border: 1px solid var(--border-medium);
-            padding-top: 60px;
-            padding-bottom: 60px;
-            padding-left: 40px;
-            padding-right: 40px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            background-color: var(--bg-pure); border: 1px solid var(--border-medium);
+            padding: 60px 40px; max-width: 800px; margin: 0 auto; position: relative; overflow: hidden;
         }
-
-        .equipment-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 40px var(--accent-glow);
-            border-color: var(--accent-neon);
+        
+        /* Animated border for equipment box */
+        .equipment-box::before {
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
+            background: conic-gradient(from 0deg, transparent 70%, var(--accent-neon) 100%);
+            animation: rotateBorder 4s linear infinite; z-index: 0; opacity: 0; transition: opacity 0.4s;
         }
-
-        .equipment-box h3 {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 28px;
-            color: var(--text-main);
-            margin-bottom: 10px;
-            font-style: italic;
+        .equipment-box::after {
+            content: ''; position: absolute; inset: 2px; background: var(--bg-pure); z-index: 1;
         }
-
-        .equipment-box span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            color: var(--accent-neon);
-            letter-spacing: 1px;
-        }
+        @keyframes rotateBorder { 100% { transform: rotate(360deg); } }
+        
+        .equipment-box:hover::before { opacity: 1; }
+        
+        .equipment-box h3, .equipment-box span { position: relative; z-index: 2; }
+        .equipment-box h3 { font-family: 'Oswald', sans-serif; text-transform: uppercase; font-size: 28px; margin-bottom: 10px; font-style: italic; }
+        .equipment-box span { font-family: 'Oswald', sans-serif; font-size: 20px; color: var(--accent-neon); letter-spacing: 1px; }
 
         /* ==========================================================================
-           PROGRAMS "STOREFRONT" (E-COMMERCE CARDS)
+           PROGRAMS "STOREFRONT" (MAGNETIC 3D CARDS)
            ========================================================================== */
-        .programs-section {
-            padding-top: var(--section-padding-y);
-            padding-bottom: var(--section-padding-y);
-            background-color: var(--bg-pure);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .programs-section { padding: var(--section-padding-y) 0; background-color: transparent; border-top: 1px solid rgba(255, 255, 255, 0.05); }
 
-        .program-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-            gap: 30px;
-        }
+        .program-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(380px, 1fr)); gap: 30px; perspective: 2000px; }
 
         .program-card {
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: var(--text-main);
-            background-color: var(--bg-elevated);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1);
-            position: relative;
-            overflow: hidden;
+            display: flex; flex-direction: column; text-decoration: none; color: var(--text-main);
+            background-color: rgba(17, 17, 17, 0.8); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden;
+            /* No transitions on transform here so JS handles the 3D tilt instantly */
         }
 
         .program-card-img {
-            height: 350px; /* Taller images for e-commerce feel */
-            background-color: #1a1a1a;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            overflow: hidden;
+            height: 350px; background-color: #1a1a1a; display: flex; align-items: center;
+            justify-content: center; position: relative; overflow: hidden; transform: translateZ(40px); /* Pops image out */
         }
-
-        /* Placeholder graphic for missing images */
         .program-card-img::before {
-            content: '';
-            position: absolute;
-            width: 200%; 
-            height: 200%;
+            content: ''; position: absolute; width: 200%; height: 200%;
             background: repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(255,255,255,0.03) 10px, rgba(255,255,255,0.03) 20px);
         }
-
         .program-card-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            filter: grayscale(100%);
-            transition: filter 0.5s ease, transform 0.5s ease;
-            position: relative;
-            z-index: 2;
+            width: 100%; height: 100%; object-fit: cover; filter: grayscale(100%);
+            transition: filter 0.5s ease, transform 0.8s ease; position: relative; z-index: 2;
         }
 
         .program-card-content {
-            padding: 30px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            background: linear-gradient(to top, var(--bg-card), var(--bg-elevated));
+            padding: 30px; flex: 1; display: flex; flex-direction: column;
+            background: linear-gradient(to top, rgba(17,17,17,0.9), transparent); transform: translateZ(20px);
         }
 
         .program-tag {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            background-color: var(--text-main);
-            color: var(--text-dark);
-            font-family: 'Oswald', sans-serif;
-            font-size: 12px;
-            padding-top: 6px;
-            padding-bottom: 6px;
-            padding-left: 12px;
-            padding-right: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            z-index: 5;
-            transition: background-color 0.3s ease;
+            position: absolute; top: 20px; left: 20px; background-color: var(--text-main);
+            color: var(--text-dark); font-family: 'Oswald', sans-serif; font-size: 12px;
+            padding: 6px 12px; font-weight: 700; text-transform: uppercase; z-index: 5;
+            transition: background-color 0.3s ease; transform: translateZ(50px); box-shadow: 0 5px 10px rgba(0,0,0,0.5);
         }
 
-        .program-card h3 {
-            font-size: 28px;
-            margin-bottom: 5px;
-            font-style: italic;
-        }
+        .program-card h3 { font-size: 28px; margin-bottom: 5px; font-style: italic; }
+        .program-desc-main { font-size: 14px; color: var(--text-secondary); margin-bottom: 25px; }
 
-        .program-desc-main {
-            font-size: 14px;
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-        }
+        .program-details { display: flex; flex-direction: column; gap: 15px; margin-bottom: 30px; flex: 1; }
+        .detail-group { border-left: 1px solid rgba(255, 255, 255, 0.1); padding-left: 15px; transition: border-color 0.3s ease; }
+        .detail-title { font-family: 'Oswald', sans-serif; color: var(--text-main); font-size: 13px; letter-spacing: 1px; margin-bottom: 5px; display: block; }
+        .detail-list { list-style: none; }
+        .detail-list li { font-size: 13px; color: var(--text-secondary); position: relative; padding-left: 12px; margin-bottom: 3px; }
+        .detail-list li::before { content: ''; position: absolute; left: 0; top: 7px; width: 4px; height: 4px; border-radius: 50%; background-color: var(--text-secondary); }
 
-        /* Detailed Lists styling */
-        .program-details {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            margin-bottom: 30px;
-            flex: 1;
-        }
-
-        .detail-group {
-            border-left: 1px solid rgba(255, 255, 255, 0.1);
-            padding-left: 15px;
-            transition: border-color 0.3s ease;
-        }
-
-        .detail-title {
-            font-family: 'Oswald', sans-serif;
-            color: var(--text-main);
-            font-size: 13px;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            display: block;
-        }
-
-        .detail-list {
-            list-style: none;
-        }
-
-        .detail-list li {
-            font-size: 13px;
-            color: var(--text-secondary);
-            position: relative;
-            padding-left: 12px;
-            margin-bottom: 3px;
-        }
-
-        .detail-list li::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 7px;
-            width: 4px;
-            height: 4px;
-            border-radius: 50%;
-            background-color: var(--text-secondary);
-        }
-
-        /* Full width add-to-cart style button */
         .card-action {
-            font-family: 'Inter', sans-serif;
-            text-transform: uppercase;
-            font-weight: 700;
-            font-size: 14px;
-            color: var(--text-dark);
-            background-color: var(--text-main);
-            text-align: center;
-            padding-top: 15px;
-            padding-bottom: 15px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            width: 100%;
-            border: none;
-            cursor: pointer;
+            font-family: 'Inter', sans-serif; text-transform: uppercase; font-weight: 700;
+            font-size: 14px; color: var(--text-dark); background-color: var(--text-main);
+            text-align: center; padding: 15px 0; transition: background-color 0.3s ease, color 0.3s ease;
+            width: 100%; border: none; cursor: pointer; transform: translateZ(30px);
         }
 
-        /* Hover Effects */
-        .program-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-            border-color: rgba(255, 255, 255, 0.15);
-        }
+        .program-card:hover { border-color: rgba(255, 255, 255, 0.2); box-shadow: 0 30px 60px rgba(0,0,0,0.8); z-index: 10; }
+        .program-card:hover .program-card-img img { filter: grayscale(0%); transform: scale(1.08); }
+        .program-card:hover .card-action { background-color: var(--accent-neon); }
+        .program-card:hover .detail-group { border-left-color: var(--accent-neon); }
 
-        .program-card:hover .program-card-img img {
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
-
-        .program-card:hover .card-action {
-            background-color: var(--accent-neon);
-        }
-
-        .program-card:hover .detail-group {
-            border-left-color: var(--accent-neon);
-        }
-
-        /* Muscle-Up Special Card */
-        .card-special {
-            border-color: rgba(204, 255, 0, 0.2);
-        }
-        
-        .card-special .program-tag {
-            background-color: var(--accent-neon);
-        }
-
-        .card-special:hover {
-            box-shadow: 0 15px 35px var(--accent-glow);
-            border-color: var(--accent-neon);
-        }
-
-        /* ==========================================================================
-           TOP PROMO BANNER (GYMSHARK STYLE) - PLACED AT THE VERY TOP
-           ========================================================================== */
-        .promo-banner {
-            width: 100%;
-            background-color: var(--bg-promo);
-            color: var(--text-promo);
-            text-align: center;
-            padding-top: 10px;
-            padding-bottom: 10px;
-            font-size: 12px;
-            font-weight: 600;
-            letter-spacing: 0.5px;
-            position: relative;
-            z-index: 1001;
-        }
+        .card-special { border-color: rgba(204, 255, 0, 0.2); }
+        .card-special .program-tag { background-color: var(--accent-neon); }
+        .card-special:hover { border-color: var(--accent-neon); box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 30px rgba(204,255,0,0.1); }
 
         /* ==========================================================================
            FAQ SECTION
            ========================================================================== */
-        .faq-section {
-            padding-top: 120px;
-            padding-bottom: 120px;
-            background-color: var(--bg-elevated);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
+        .faq-section { padding: 120px 0; background-color: rgba(9,9,9,0.8); border-top: 1px solid rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .faq-wrapper { max-width: 800px; margin: 0 auto; }
+        details { border-bottom: 1px solid rgba(255, 255, 255, 0.05); transition: background-color 0.3s ease; }
+        details:hover { background-color: rgba(255,255,255,0.02); }
+        summary { padding: 20px 10px; font-family: 'Inter', sans-serif; font-size: 16px; font-weight: 600; color: var(--text-main); cursor: pointer; list-style: none; display: flex; justify-content: space-between; align-items: center; }
+        summary::-webkit-details-marker { display: none; }
+        summary::after { content: '+'; font-size: 24px; font-weight: 300; color: var(--text-secondary); transition: transform 0.3s ease, color 0.3s ease; }
+        details[open] summary::after { transform: rotate(45deg); color: var(--accent-neon); }
+        .faq-answer { padding: 0 10px 20px; color: var(--text-secondary); font-size: 14px; line-height: 1.6; animation: fadeIn 0.4s ease-in-out; }
 
-        .faq-wrapper {
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        details {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: background-color 0.3s ease;
-        }
-
-        details:hover {
-            background-color: rgba(255,255,255,0.02);
-        }
-
-        summary {
-            padding-top: 20px;
-            padding-bottom: 20px;
-            padding-left: 10px;
-            padding-right: 10px;
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: var(--text-main);
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-        summary::after {
-            content: '+';
-            font-size: 24px;
-            font-weight: 300;
-            color: var(--text-secondary);
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-
-        details[open] summary::after {
-            content: '+';
-            transform: rotate(45deg);
-            color: var(--accent-neon);
-        }
-
-        .faq-answer {
-            padding-left: 10px;
-            padding-right: 10px;
-            padding-bottom: 20px;
-            color: var(--text-secondary);
-            font-size: 14px;
-            line-height: 1.6;
-            animation: fadeIn 0.4s ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* ==========================================================================
            FOOTER
            ========================================================================== */
-        footer {
-            background-color: var(--bg-pure);
-            padding-top: 80px;
-            padding-bottom: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 60px;
-        }
-
-        .footer-logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 32px;
-            font-weight: 900;
-            color: var(--text-main);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 15px;
-            letter-spacing: 1px;
-        }
-
-        .footer-logo span {
-            color: var(--accent-neon);
-        }
-
-        .footer-desc {
-            color: var(--text-secondary);
-            font-size: 14px;
-            max-width: 300px;
-            margin-bottom: 30px;
-        }
-
-        .social-link {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: var(--text-main);
-            text-decoration: underline;
-            transition: color 0.3s ease;
-        }
-
-        .social-link:hover {
-            color: var(--accent-neon);
-        }
-
-        .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding-top: 20px;
-            color: var(--text-secondary);
-            font-size: 12px;
-            display: flex;
-            justify-content: space-between;
-        }
-
-        /* ==========================================================================
-           STICKY MOBILE BUTTON (iPHONE OPTIMIZED)
-           ========================================================================== */
-        .mobile-sticky-cta {
-            display: none;
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            background: linear-gradient(to top, rgba(0,0,0,1) 40%, rgba(0,0,0,0));
-            padding-top: 30px;
-            padding-bottom: 30px; 
-            padding-left: 20px;
-            padding-right: 20px;
-            z-index: 9999;
-            pointer-events: none;
-        }
-
-        .sticky-btn {
-            display: block;
-            width: 100%;
-            background-color: var(--text-main);
-            color: var(--text-dark);
-            text-align: center;
-            padding-top: 20px;
-            padding-bottom: 20px;
-            font-family: 'Inter', sans-serif;
-            font-weight: 700;
-            text-transform: uppercase;
-            text-decoration: none;
-            font-size: 14px;
-            letter-spacing: 1px;
-            pointer-events: auto;
-            transition: background-color 0.3s ease;
-        }
-
-        .sticky-btn:hover {
-            background-color: var(--accent-neon);
-        }
-
-        /* ==========================================================================
-           SCROLL ANIMATION ENGINE CLASSES
-           ========================================================================== */
-        .animate-up { 
-            opacity: 0; 
-            transform: translateY(40px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-left { 
-            opacity: 0; 
-            transform: translateX(-40px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-right { 
-            opacity: 0; 
-            transform: translateX(40px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-scale { 
-            opacity: 0; 
-            transform: scale(0.95); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
+        footer { background-color: var(--bg-pure); padding: 80px 0 40px; border-top: 1px solid rgba(255, 255, 255, 0.05); position: relative; overflow: hidden; }
+        /* Add a subtle footer glow */
+        footer::before { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50%; height: 100px; background: radial-gradient(ellipse, rgba(204,255,0,0.05), transparent 70%); pointer-events: none; }
         
-        .is-in-view { 
-            opacity: 1 !important; 
-            transform: translate(0) scale(1) !important; 
-        }
+        .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 60px; }
+        .footer-logo { font-family: 'Oswald', sans-serif; font-size: 32px; font-weight: 900; color: var(--text-main); text-decoration: none; display: block; margin-bottom: 15px; letter-spacing: 1px; }
+        .footer-logo span { color: var(--accent-neon); }
+        .footer-desc { color: var(--text-secondary); font-size: 14px; max-width: 300px; margin-bottom: 30px; }
+        .social-link { font-family: 'Inter', sans-serif; font-size: 14px; font-weight: 600; color: var(--text-main); text-decoration: underline; transition: color 0.3s ease; }
+        .social-link:hover { color: var(--accent-neon); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 20px; color: var(--text-secondary); font-size: 12px; display: flex; justify-content: space-between; }
+
+        /* ==========================================================================
+           SCROLL ANIMATION ENGINE CLASSES (Intersection Observer Targets)
+           ========================================================================== */
+        .animate-up { opacity: 0; transform: translateY(50px); transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth); }
+        .animate-left { opacity: 0; transform: translateX(-50px); transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth); }
+        .animate-right { opacity: 0; transform: translateX(50px); transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth); }
+        .animate-scale { opacity: 0; transform: scale(0.9); transition: opacity 0.8s var(--ease-smooth), transform 0.8s var(--ease-smooth); }
+        .is-in-view { opacity: 1 !important; transform: translate(0) scale(1) !important; }
 
         /* ==========================================================================
            RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 1024px) {
-            .hero {
-                flex-direction: column;
-                height: auto;
-            }
-            .hero-content {
-                padding-top: 120px;
-                padding-bottom: 60px;
-                padding-left: 24px;
-                padding-right: 24px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .hero-links {
-                justify-content: center;
-            }
-            .founder-grid {
-                grid-template-columns: 1fr;
-            }
-            .proof-box {
-                height: 600px;
-            }
-            .client-grid .proof-box {
-                height: 600px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero { flex-direction: column; height: auto; }
+            .hero-content { padding: 120px 24px 60px; text-align: center; display: flex; flex-direction: column; align-items: center; }
+            .hero-links { justify-content: center; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .proof-box, .client-grid .proof-box { height: 600px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            /* Disable custom cursor on tablets/touch devices */
+            .cursor-dot, .cursor-outline { display: none; }
+            html, body { cursor: auto; }
         }
 
         @media (max-width: 768px) {
-            .nav-inner {
-                grid-template-columns: 1fr auto 1fr;
-            }
-            .nav-links-left {
-                display: none;
-            }
-            .logo-container {
-                grid-column: 2;
-            }
-            .nav-icons-right {
-                grid-column: 3;
-                justify-content: flex-end;
-            }
-            .honesty-grid {
-                grid-template-columns: 1fr;
-            }
-            .mobile-sticky-cta {
-                display: block;
-            }
-            .proof-grid {
-                grid-template-columns: 1fr;
-            }
-            .proof-box {
-                height: 500px;
-            }
-            .client-grid .proof-box {
-                height: 500px;
-            }
-            .program-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-            .footer-bottom {
-                flex-direction: column;
-                align-items: center;
-                gap: 10px;
-            }
+            .nav-inner { grid-template-columns: 1fr auto 1fr; }
+            .nav-links-left { display: none; }
+            .logo-container { grid-column: 2; }
+            .nav-icons-right { grid-column: 3; justify-content: flex-end; }
+            .honesty-grid, .proof-grid, .program-grid { grid-template-columns: 1fr; }
+            .proof-box, .client-grid .proof-box { height: 500px; }
+            .container { padding: 0 24px; }
+            .footer-bottom { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="promo-banner">
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-outline" id="cursor-outline"></div>
+
+    <div class="ambient-glow-container">
+        <div class="glow-orb orb-1"></div>
+        <div class="glow-orb orb-2"></div>
+        <div class="glow-orb orb-3"></div>
+    </div>
+
+    <div class="promo-banner" style="background-color: var(--bg-promo); color: var(--text-promo); text-align: center; padding: 10px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; position: relative; z-index: 1001;">
         ELITE PROTOCOLS. ONE-TIME PAYMENT. LIFETIME ACCESS ⚡️
     </div>
 
     <header>
         <div class="container nav-inner">
             <div class="nav-links-left">
-                <a href="#results">Transformations</a>
-                <a href="#programs">Programs</a>
-                <a href="#clients">Client Progress</a>
-                <a href="#equipment">Equipment</a>
+                <a href="#results" class="hover-target">Transformations</a>
+                <a href="#programs" class="hover-target">Programs</a>
+                <a href="#clients" class="hover-target">Client Progress</a>
+                <a href="#equipment" class="hover-target">Equipment</a>
             </div>
             
             <div class="logo-container">
-                <a href="#" class="logo">IRON<span>APEX</span></a>
+                <a href="#" class="logo hover-target">IRON<span>APEX</span></a>
             </div>
             
             <div class="nav-icons-right">
-                <svg class="nav-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
-                <svg class="nav-icon" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                <svg class="nav-icon hover-target" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <svg class="nav-icon hover-target" viewBox="0 0 24 24"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                <svg class="nav-icon hover-target" viewBox="0 0 24 24"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
             </div>
         </div>
     </header>
 
     <section class="hero">
         <img src="IMG_8792.jpg" alt="Iron Apex Training" class="hero-img-bg">
+        
+        <canvas id="particle-canvas"></canvas>
+        
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
@@ -1267,8 +731,8 @@
             </p>
             
             <div class="hero-links">
-                <a href="#programs" class="hero-link">SHOP BEGINNER</a>
-                <a href="#programs" class="hero-link">SHOP ADVANCED</a>
+                <a href="#programs" class="hero-link hover-target magnetic">SHOP BEGINNER</a>
+                <a href="#programs" class="hero-link hover-target magnetic">SHOP ADVANCED</a>
             </div>
         </div>
     </section>
@@ -1280,22 +744,25 @@
     </div>
 
     <section id="philosophy" class="honesty-section">
-        <div class="bg-text-massive">THE TRUTH</div>
+        <div class="bg-text-massive parallax-bg">THE TRUTH</div>
         <div class="container">
             <div class="honesty-intro">I'M GOING TO BE COMPLETELY HONEST.</div>
             <h2 class="section-title">THE HARSH TRUTH</h2>
             <p class="section-subtitle">Most fitness programs are designed to keep you busy, not to make you strong. If you want to perform elite skills, you need to stop guessing.</p>
             
             <div class="honesty-grid">
-                <div class="honesty-card" data-num="01">
+                <div class="honesty-card tilt-card" data-num="01">
+                    <div class="tilt-glare"></div>
                     <h3 class="oswald">NO ENDLESS REPS</h3>
                     <p>You don't need to do 500 pushups a day. You need progressive overload tailored to specific strength mechanics.</p>
                 </div>
-                <div class="honesty-card" data-num="02">
+                <div class="honesty-card tilt-card" data-num="02">
+                    <div class="tilt-glare"></div>
                     <h3 class="oswald">NO GENETIC LOTTERY</h3>
                     <p>Skills like the muscle-up or front lever aren't reserved for gymnasts. They are equations of leverage and force.</p>
                 </div>
-                <div class="honesty-card" data-num="03">
+                <div class="honesty-card tilt-card" data-num="03">
+                    <div class="tilt-glare"></div>
                     <h3 class="oswald">NO RANDOM WORKOUTS</h3>
                     <p>Doing random exercises yields random results. Iron Apex provides the exact structural map to success.</p>
                 </div>
@@ -1304,6 +771,7 @@
     </section>
 
     <section id="founder" class="founder-section">
+        <div class="bg-text-massive parallax-bg" style="top: 30%; right: -10%; left: auto; text-align: right;">ORIGIN</div>
         <div class="container">
             <div class="founder-grid">
                 <div>
@@ -1335,7 +803,7 @@
                     </ul>
                 </div>
                 
-                <div class="founder-img-wrapper">
+                <div class="founder-img-wrapper hover-target">
                     <img src="pullup-demo.jpg" alt="Founder Demonstration">
                 </div>
             </div>
@@ -1343,7 +811,7 @@
     </section>
 
     <section id="results" class="proof-section">
-        <div class="bg-text-massive" style="top: 25%;">DATA & PROOF</div>
+        <div class="bg-text-massive parallax-bg" style="top: 15%;">DATA & PROOF</div>
         <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
             <h2 class="section-title">UNDENIABLE PROOF</h2>
             <p class="section-subtitle" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. I built the system I use.</p>
@@ -1351,11 +819,11 @@
         
         <div class="container" style="max-width: 1400px;">
             <div class="proof-grid">
-                <div class="proof-box">
+                <div class="proof-box hover-target">
                     <div class="proof-label">DAY 01</div>
                     <img src="IMG_8839.jpg" alt="Before Iron Apex">
                 </div>
-                <div class="proof-box">
+                <div class="proof-box hover-target">
                     <div class="proof-label accent">YEAR 1.5</div>
                     <img src="IMG_8841.jpg" alt="After Iron Apex">
                 </div>
@@ -1363,15 +831,16 @@
         </div>
     </section>
 
-    <section id="clients" class="proof-section" style="border-top: none; background-color: var(--bg-pure);">
+    <section id="clients" class="proof-section" style="border-top: none; background-color: transparent;">
         <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
             <h2 class="section-title">ATHLETE EVOLUTION</h2>
             <p class="section-subtitle" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
         </div>
         
         <div class="container">
-            <div class="client-grid">
-                <div class="proof-box">
+            <div class="client-grid tilt-card">
+                <div class="tilt-glare"></div>
+                <div class="proof-box hover-target">
                     <div class="proof-label accent">[CLIENT NAME] - TRANSFORMATION</div>
                     <img src="IMG_8851.jpg" alt="Client Transformation">
                 </div>
@@ -1384,7 +853,8 @@
             <h2 class="zero-title">ZERO<br><span class="text-accent">EXCUSES.</span></h2>
             <p class="zero-subtitle">You don't need a $200/month gym membership or heavy machinery to build elite power. To master your bodyweight, the requirements are absolute and minimal.</p>
             
-            <div class="equipment-box">
+            <div class="equipment-box tilt-card">
+                <div class="tilt-glare"></div>
                 <h3>ALL YOU NEED IS A PULL-UP BAR AND A DIP BAR.</h3>
                 <span>GRAVITY DOES THE REST.</span>
             </div>
@@ -1392,7 +862,7 @@
     </section>
 
     <section id="programs" class="programs-section">
-        <div class="bg-text-massive">THE SHOP</div>
+        <div class="bg-text-massive parallax-bg">THE SHOP</div>
         <div class="container">
             <span class="eyebrow">THE ARSENAL</span>
             <h2 class="section-title">CHOOSE YOUR PATH</h2>
@@ -1400,7 +870,8 @@
             
             <div class="program-grid">
                 
-                <a href="beginner.html" class="program-card">
+                <a href="beginner.html" class="program-card tilt-card hover-target magnetic">
+                    <div class="tilt-glare"></div>
                     <div class="program-tag">0–3 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
@@ -1427,21 +898,13 @@
                                     <li>Develop basic core control</li>
                                 </ul>
                             </div>
-                            <div class="detail-group">
-                                <span class="detail-title">SKILLS TRAINED:</span>
-                                <ul class="detail-list">
-                                    <li>Pull-up strength</li>
-                                    <li>Push-up progressions</li>
-                                    <li>Dip strength</li>
-                                    <li>L-sit basics</li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
-                <a href="intermediate.html" class="program-card">
+                <a href="intermediate.html" class="program-card tilt-card hover-target magnetic">
+                    <div class="tilt-glare"></div>
                     <div class="program-tag">8–10 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
@@ -1467,21 +930,13 @@
                                     <li>Start handstand work</li>
                                 </ul>
                             </div>
-                            <div class="detail-group">
-                                <span class="detail-title">SKILLS TRAINED:</span>
-                                <ul class="detail-list">
-                                    <li>Muscle-up drills</li>
-                                    <li>Explosive pull-ups</li>
-                                    <li>Handstand training</li>
-                                    <li>Core compression</li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
-                <a href="muscleup.html" class="program-card card-special">
+                <a href="muscleup.html" class="program-card card-special tilt-card hover-target magnetic">
+                    <div class="tilt-glare"></div>
                     <div class="program-tag">10 Pull-Ups / 12 Dips</div>
                     <div class="program-card-img">
                         <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
@@ -1491,7 +946,7 @@
                         <p class="program-desc-main" style="color: var(--text-main);">Specialized program.</p>
                         
                         <div class="program-details">
-                            <div class="detail-group">
+                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
                                 <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS:</span>
                                 <ul class="detail-list">
                                     <li>10 strict pull-ups</li>
@@ -1499,20 +954,18 @@
                                     <li>Explosive pull strength</li>
                                 </ul>
                             </div>
-                            <div class="detail-group">
+                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
                                 <span class="detail-title" style="color: var(--text-main);">GOAL:</span>
                                 <ul class="detail-list">
                                     <li>Achieve first clean muscle-up</li>
                                 </ul>
                             </div>
-                            <div class="detail-group">
+                            <div class="detail-group" style="border-color: rgba(204, 255, 0, 0.3);">
                                 <span class="detail-title" style="color: var(--text-main);">FOCUS:</span>
                                 <ul class="detail-list">
                                     <li>Explosive pull-ups</li>
                                     <li>High pull-ups</li>
                                     <li>Transition mechanics</li>
-                                    <li>Swing understanding</li>
-                                    <li>Dip lockout strength</li>
                                 </ul>
                             </div>
                         </div>
@@ -1520,7 +973,8 @@
                     </div>
                 </a>
 
-                <a href="advanced.html" class="program-card">
+                <a href="advanced.html" class="program-card tilt-card hover-target magnetic">
+                    <div class="tilt-glare"></div>
                     <div class="program-tag">15 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
@@ -1546,21 +1000,13 @@
                                     <li>Strong weighted pull-ups</li>
                                 </ul>
                             </div>
-                            <div class="detail-group">
-                                <span class="detail-title">FOCUS:</span>
-                                <ul class="detail-list">
-                                    <li>Front lever</li>
-                                    <li>Weighted calisthenics</li>
-                                    <li>Explosive pulling</li>
-                                    <li>Shoulder strength</li>
-                                </ul>
-                            </div>
                         </div>
                         <div class="card-action">UNLOCK PROTOCOL</div>
                     </div>
                 </a>
 
-                <a href="elite.html" class="program-card">
+                <a href="elite.html" class="program-card tilt-card hover-target magnetic">
+                    <div class="tilt-glare"></div>
                     <div class="program-tag">Muscle-Up & Front Lever</div>
                     <div class="program-card-img">
                         <img src="program-cover-elite.jpg" alt="Elite Protocol">
@@ -1575,7 +1021,6 @@
                                 <ul class="detail-list">
                                     <li>Strict Muscle-Up</li>
                                     <li>Advanced Front Lever</li>
-                                    <li>Handstand Push-Ups</li>
                                 </ul>
                             </div>
                             <div class="detail-group">
@@ -1584,14 +1029,6 @@
                                     <li>Full Planche</li>
                                     <li>One-Arm Pull-up</li>
                                     <li>Elite statics</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title">FOCUS:</span>
-                                <ul class="detail-list">
-                                    <li>Planche training mechanics</li>
-                                    <li>OAP progressions</li>
-                                    <li>Top-tier calisthenics mastery</li>
                                 </ul>
                             </div>
                         </div>
@@ -1607,15 +1044,15 @@
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">SYSTEM FAQ</h2>
             <div class="faq-wrapper">
-                <details>
+                <details class="hover-target">
                     <summary>Do I need to go to a gym for this?</summary>
                     <div class="faq-answer">No. The entire Iron Apex system is built around gravity and leverage. As long as you have access to a pull-up bar, dip bars, and floor space, you can execute 100% of these protocols.</div>
                 </details>
-                <details>
+                <details class="hover-target">
                     <summary>How many days a week do I train?</summary>
                     <div class="faq-answer">Most protocols are 4 to 5 days a week. We strictly enforce rest days. Neurological adaptation requires deep rest.</div>
                 </details>
-                <details>
+                <details class="hover-target">
                     <summary>I can't do a pull-up yet. Where do I start?</summary>
                     <div class="faq-answer">Start with the Beginner Protocol. It is specifically designed to build your foundational core stability and vertical pulling strength from zero up to your first 5 strict reps.</div>
                 </details>
@@ -1627,14 +1064,14 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="#" class="footer-logo">IRON<span>APEX</span></a>
+                    <a href="#" class="footer-logo hover-target">IRON<span>APEX</span></a>
                     <p class="footer-desc">
                         Elite bodyweight strength programs designed for those who refuse to remain average. Build raw mechanical power.
                     </p>
                 </div>
                 <div>
                     <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 20px;">SUPPORT</h4>
-                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
+                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link hover-target">Instagram (@sambrooks1223)</a>
                 </div>
             </div>
             
@@ -1645,48 +1082,224 @@
         </div>
     </footer>
 
-    <div class="mobile-sticky-cta">
-        <a href="#programs" class="sticky-btn">SHOP PROGRAMS</a>
-    </div>
-
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
-            // 1. Initial Load Animations (Hero Section)
-            // We want these to happen immediately, not waiting for a scroll
+            /* --------------------------------------------------------------------------
+               1. CUSTOM CURSOR TRACKING
+               -------------------------------------------------------------------------- */
+            const cursorDot = document.getElementById('cursor-dot');
+            const cursorOutline = document.getElementById('cursor-outline');
+            const hoverTargets = document.querySelectorAll('.hover-target, a, button, details');
+
+            let mouseX = 0, mouseY = 0;
+            let outlineX = 0, outlineY = 0;
+
+            window.addEventListener('mousemove', (e) => {
+                mouseX = e.clientX;
+                mouseY = e.clientY;
+                cursorDot.style.left = `${mouseX}px`;
+                cursorDot.style.top = `${mouseY}px`;
+            });
+
+            // Smooth trailing animation for the outline ring
+            const animateCursor = () => {
+                let distX = mouseX - outlineX;
+                let distY = mouseY - outlineY;
+                outlineX += distX * 0.15; // Lower number = slower trail
+                outlineY += distY * 0.15;
+                
+                cursorOutline.style.left = `${outlineX}px`;
+                cursorOutline.style.top = `${outlineY}px`;
+                requestAnimationFrame(animateCursor);
+            };
+            animateCursor();
+
+            // Hover state trigger
+            hoverTargets.forEach(target => {
+                target.addEventListener('mouseenter', () => {
+                    document.body.classList.add('cursor-hover');
+                });
+                target.addEventListener('mouseleave', () => {
+                    document.body.classList.remove('cursor-hover');
+                });
+            });
+
+
+            /* --------------------------------------------------------------------------
+               2. MAGNESIUM/CHALK DUST PARTICLE ENGINE (HERO SECTION)
+               -------------------------------------------------------------------------- */
+            const canvas = document.getElementById('particle-canvas');
+            const ctx = canvas.getContext('2d');
+            let particlesArray = [];
+            
+            // Resize canvas to hero dimensions
+            canvas.width = window.innerWidth;
+            canvas.height = document.querySelector('.hero').offsetHeight;
+
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = document.querySelector('.hero').offsetHeight;
+            });
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 0.5; // Tiny dust particles
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * -1 - 0.5; // Always floating upwards slightly
+                    this.opacity = Math.random() * 0.5 + 0.1;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    
+                    // Reset if out of bounds to keep infinite loop
+                    if (this.y < 0 || this.x > canvas.width || this.x < 0) {
+                        this.x = Math.random() * canvas.width;
+                        this.y = canvas.height;
+                    }
+                }
+                draw() {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+
+            function initParticles() {
+                particlesArray = [];
+                let numberOfParticles = (canvas.width * canvas.height) / 9000; 
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
+            }
+
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            
+            initParticles();
+            animateParticles();
+
+
+            /* --------------------------------------------------------------------------
+               3. 3D MAGNETIC TILT EFFECT FOR CARDS
+               -------------------------------------------------------------------------- */
+            const tiltCards = document.querySelectorAll('.tilt-card');
+            
+            tiltCards.forEach(card => {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = e.clientX - rect.left; // x position within the element
+                    const y = e.clientY - rect.top;  // y position within the element
+                    
+                    const centerX = rect.width / 2;
+                    const centerY = rect.height / 2;
+                    
+                    // Calculate rotation (max 10 degrees)
+                    const rotateX = ((y - centerY) / centerY) * -10;
+                    const rotateY = ((x - centerX) / centerX) * 10;
+                    
+                    // Apply rotation to card
+                    card.style.transform = `perspective(1000px) scale(1.02) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+                    
+                    // Move the glare effect based on mouse position
+                    const glare = card.querySelector('.tilt-glare');
+                    if(glare) {
+                        glare.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255,255,255,0.2) 0%, transparent 50%)`;
+                    }
+                });
+                
+                // Reset card when mouse leaves
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'perspective(1000px) scale(1) rotateX(0deg) rotateY(0deg)';
+                    card.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                    
+                    const glare = card.querySelector('.tilt-glare');
+                    if(glare) glare.style.background = 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.1) 0%, transparent 60%)';
+                });
+                
+                // Remove transition during hover for instant tracking
+                card.addEventListener('mouseenter', () => {
+                    card.style.transition = 'none';
+                });
+            });
+
+            /* --------------------------------------------------------------------------
+               4. MAGNETIC BUTTON ATTRACTION
+               -------------------------------------------------------------------------- */
+            const magneticElements = document.querySelectorAll('.magnetic');
+            
+            magneticElements.forEach(btn => {
+                btn.addEventListener('mousemove', (e) => {
+                    const rect = btn.getBoundingClientRect();
+                    const x = e.clientX - rect.left - rect.width / 2;
+                    const y = e.clientY - rect.top - rect.height / 2;
+                    
+                    // Pull button slightly towards mouse (factor of 0.3)
+                    btn.style.transform = `translate(${x * 0.3}px, ${y * 0.3}px)`;
+                });
+                
+                btn.addEventListener('mouseleave', () => {
+                    btn.style.transform = `translate(0px, 0px)`;
+                });
+            });
+
+
+            /* --------------------------------------------------------------------------
+               5. PARALLAX BACKGROUND TEXT SCROLLING
+               -------------------------------------------------------------------------- */
+            const parallaxTexts = document.querySelectorAll('.parallax-bg');
+            
+            window.addEventListener('scroll', () => {
+                let scrollY = window.scrollY;
+                
+                parallaxTexts.forEach(text => {
+                    // Move the text slightly up as user scrolls down creating a depth illusion
+                    let speed = 0.15;
+                    text.style.transform = `translateY(${scrollY * speed}px)`;
+                });
+            });
+
+
+            /* --------------------------------------------------------------------------
+               6. STANDARD SCROLL REVEAL ANIMATIONS (Existing logic)
+               -------------------------------------------------------------------------- */
+            // Hero Initial Load
             const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-desc, .hero-links');
             heroElements.forEach((el, index) => {
                 el.classList.add('animate-up');
-                el.style.transitionDelay = `${index * 0.15}s`; // Stagger
-                // Trigger reflow then add the view class so they animate in
+                el.style.transitionDelay = `${index * 0.15}s`;
                 setTimeout(() => el.classList.add('is-in-view'), 100); 
             });
 
-            // 2. Prep remaining elements for the scroll observer
             const applyAnimation = (selector, animationClass, stagger = false) => {
                 const elements = document.querySelectorAll(selector);
                 elements.forEach((el, index) => {
-                    el.classList.add(animationClass);
-                    if (stagger) el.style.transitionDelay = `${index * 0.15}s`;
+                    // Don't apply default scroll animations to tilt cards as it conflicts with the 3D transform
+                    if(!el.classList.contains('tilt-card')) {
+                        el.classList.add(animationClass);
+                        if (stagger) el.style.transitionDelay = `${index * 0.15}s`;
+                    }
                 });
             };
 
             applyAnimation('.section-title, .section-subtitle, .eyebrow', 'animate-up');
-            applyAnimation('.bg-text-massive', 'animate-right');
-            applyAnimation('.honesty-card', 'animate-up', true);
             applyAnimation('.story-text, .story-highlight, .stat-list li', 'animate-left', true);
             applyAnimation('.founder-img-wrapper', 'animate-right');
-            applyAnimation('.proof-box', 'animate-scale', true);
+            applyAnimation('.proof-box:not(.tilt-card)', 'animate-scale', true);
             applyAnimation('.zero-title, .zero-subtitle', 'animate-up');
-            applyAnimation('.equipment-box', 'animate-scale');
-            applyAnimation('.program-card', 'animate-up', true);
             applyAnimation('.faq-wrapper details', 'animate-up', true);
 
-            // 3. Intersection Observer to trigger animations on scroll
-            const observerOptions = { 
-                threshold: 0.15,
-                rootMargin: "0px 0px -50px 0px" 
-            };
+            const observerOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1697,9 +1310,9 @@
                 });
             }, observerOptions);
 
-            // Observe all elements we prepped (excluding the hero ones we already triggered)
             document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
                 .forEach(el => observer.observe(el));
+                
         });
     </script>
 
