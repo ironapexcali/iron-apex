@@ -50,6 +50,16 @@
             --ease-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --ease-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --ease-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+
+            /* ==========================================
+               NEW ELITE VARIABLES (V11.0 UPGRADE)
+               ========================================== */
+            --accent-secondary: #ff0055;
+            --accent-gradient: linear-gradient(135deg, var(--accent-neon) 0%, #aadd00 100%);
+            --bundle-gradient: linear-gradient(180deg, #1a1a1a 0%, var(--bg-pure) 100%);
+            --glass-bg: rgba(17, 17, 17, 0.7);
+            --glass-border: rgba(255, 255, 255, 0.05);
+            --shadow-neon: 0 0 40px rgba(204, 255, 0, 0.15);
         }
 
         /* ==========================================================================
@@ -1185,85 +1195,422 @@
         }
 
         /* ==========================================================================
-           RESPONSIVE DESIGN
+           NEW ELITE UI ARCHITECTURE ADDITIONS (V11.0)
+           DO NOT DELETE ANY PREVIOUS CODE
            ========================================================================== */
-        @media (max-width: 1024px) {
-            .hero {
-                flex-direction: column;
-                height: auto;
-            }
-            .hero-content {
-                padding-top: 120px;
-                padding-bottom: 60px;
-                padding-left: 24px;
-                padding-right: 24px;
-                text-align: center;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-            }
-            .hero-links {
-                justify-content: center;
-            }
-            .founder-grid {
-                grid-template-columns: 1fr;
-            }
-            .proof-box {
-                height: 600px;
-            }
-            .client-grid .proof-box {
-                height: 600px;
-            }
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
+
+        /* TOP PROGRESS BAR */
+        #scrollProgressBar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: var(--accent-neon);
+            z-index: 10001; /* Highest to be above everything */
+            box-shadow: 0 0 15px var(--accent-glow-strong);
+            transition: width 0.1s ease;
         }
 
-        @media (max-width: 768px) {
-            .nav-inner {
-                grid-template-columns: 1fr auto 1fr;
+        /* STATS COUNTER SECTION */
+        .stats-banner {
+            padding: 80px 0;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 5;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            width: 100%;
+            text-align: center;
+        }
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .stat-number {
+            font-family: 'Oswald', sans-serif;
+            font-size: clamp(40px, 5vw, 70px);
+            font-weight: 900;
+            color: var(--accent-neon);
+            line-height: 1;
+            text-shadow: 0 0 20px var(--accent-glow);
+        }
+        .stat-label {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--text-secondary);
+            font-weight: 600;
+        }
+
+        /* 3D TILT CARD EFFECT FOR PROGRAMS */
+        .tilt-card {
+            transform-style: preserve-3d;
+            transform: perspective(1000px);
+        }
+        .tilt-card .program-card-content {
+            transform: translateZ(30px); /* Pops content out */
+            transition: transform 0.3s ease;
+        }
+        .tilt-card .program-tag {
+            transform: translateZ(50px); /* Pops tag out more */
+        }
+
+        /* THE HUGE TRANSFORMATION TIMELINE */
+        .timeline-section {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-pure);
+            position: relative;
+            overflow: hidden;
+        }
+        .timeline-container {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+        /* Vertical Line */
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            background-color: var(--border-medium);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -1px;
+        }
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            background-color: inherit;
+            width: 50%;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        /* Circles on timeline */
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            right: -10px;
+            background-color: var(--bg-elevated);
+            border: 4px solid var(--accent-neon);
+            top: 25px;
+            border-radius: 50%;
+            z-index: 1;
+            box-shadow: 0 0 15px var(--accent-glow-strong);
+        }
+        .timeline-item.right::after {
+            left: -10px;
+        }
+        .timeline-content {
+            padding: 30px;
+            background-color: var(--bg-elevated);
+            position: relative;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            transition: transform 0.4s ease, border-color 0.4s ease;
+        }
+        .timeline-content:hover {
+            transform: translateY(-5px) scale(1.02);
+            border-color: var(--accent-neon);
+            box-shadow: 0 15px 30px var(--accent-glow);
+        }
+        .timeline-date {
+            font-family: 'Oswald', sans-serif;
+            color: var(--accent-neon);
+            font-size: 18px;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+            display: block;
+        }
+        .timeline-title {
+            font-size: 24px;
+            margin-bottom: 10px;
+            font-style: italic;
+        }
+        
+        /* ANATOMY OF ELITE STRENGTH SECTION */
+        .anatomy-section {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-elevated);
+            border-top: 1px solid var(--border-light);
+            position: relative;
+        }
+        .anatomy-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .anatomy-feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: var(--bg-card);
+            border-left: 3px solid transparent;
+            transition: border-color 0.3s ease, background 0.3s ease;
+        }
+        .anatomy-feature:hover {
+            border-left-color: var(--accent-neon);
+            background: var(--bg-card-hover);
+        }
+        .anatomy-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-glow);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-neon);
+            font-family: 'Oswald';
+            font-weight: 900;
+            font-size: 20px;
+            flex-shrink: 0;
+        }
+
+        /* MASSIVE TESTIMONIAL CAROUSEL/GRID */
+        .testimonial-section {
+            padding: var(--section-padding-y) 0;
+            background-color: var(--bg-pure);
+            border-top: 1px solid var(--border-light);
+        }
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        .testimonial-card {
+            background-color: var(--bg-elevated);
+            padding: 40px;
+            border: 1px solid var(--border-light);
+            position: relative;
+        }
+        .testimonial-card::before {
+            content: '"';
+            position: absolute;
+            top: -10px;
+            left: 20px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 120px;
+            color: rgba(255,255,255,0.05);
+            line-height: 1;
+            z-index: 0;
+            pointer-events: none;
+        }
+        .stars {
+            color: var(--accent-neon);
+            font-size: 20px;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .testimonial-text {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            position: relative;
+            z-index: 1;
+            font-style: italic;
+        }
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-top: 1px solid var(--border-medium);
+            padding-top: 20px;
+        }
+        .author-info h4 {
+            font-size: 18px;
+            margin-bottom: 2px;
+        }
+        .author-info span {
+            font-size: 12px;
+            color: var(--accent-neon);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        /* ULTIMATE BUNDLE UPSELL SECTION */
+        .bundle-section {
+            padding: 120px 0;
+            background: linear-gradient(180deg, var(--bg-pure) 0%, #0a0f00 100%);
+            border-top: 1px solid var(--border-light);
+            text-align: center;
+        }
+        .bundle-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--bg-card);
+            border: 2px solid var(--accent-neon);
+            box-shadow: 0 0 50px rgba(204, 255, 0, 0.15);
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+        .bundle-badge {
+            background-color: var(--accent-neon);
+            color: var(--text-dark);
+            font-family: 'Oswald', sans-serif;
+            font-size: 14px;
+            font-weight: 900;
+            padding: 10px 30px;
+            display: inline-block;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+        .bundle-price-container {
+            display: flex;
+            justify-content: center;
+            align-items: baseline;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        .price-strike {
+            font-size: 24px;
+            color: var(--text-tertiary);
+            text-decoration: line-through;
+            font-weight: 600;
+        }
+        .price-current {
+            font-family: 'Oswald', sans-serif;
+            font-size: 60px;
+            color: var(--text-main);
+            font-weight: 900;
+            line-height: 1;
+        }
+
+        /* NEWSLETTER / LEAD GEN */
+        .newsletter-section {
+            padding: 100px 0;
+            background-color: var(--bg-elevated);
+            text-align: center;
+            border-top: 1px solid var(--border-light);
+        }
+        .newsletter-form {
+            display: flex;
+            max-width: 600px;
+            margin: 40px auto 0;
+            gap: 10px;
+        }
+        .newsletter-form input {
+            flex: 1;
+            padding: 20px 30px;
+            background-color: var(--bg-pure);
+            border: 1px solid var(--border-medium);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        .newsletter-form input:focus {
+            border-color: var(--accent-neon);
+        }
+        .newsletter-form button {
+            white-space: nowrap;
+        }
+
+        /* GLITCH TEXT UTILITY */
+        .glitch-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-wrapper::before, .glitch-wrapper::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.8;
+        }
+        .glitch-wrapper::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch-wrapper::after {
+            left: -2px;
+            text-shadow: -2px 0 blue;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(10px, 9999px, 81px, 0); }
+            20% { clip: rect(32px, 9999px, 12px, 0); }
+            40% { clip: rect(87px, 9999px, 98px, 0); }
+            60% { clip: rect(45px, 9999px, 23px, 0); }
+            80% { clip: rect(76px, 9999px, 54px, 0); }
+            100% { clip: rect(21px, 9999px, 34px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            20% { clip: rect(12px, 9999px, 43px, 0); }
+            40% { clip: rect(87px, 9999px, 21px, 0); }
+            60% { clip: rect(34px, 9999px, 67px, 0); }
+            80% { clip: rect(98px, 9999px, 87px, 0); }
+            100% { clip: rect(43px, 9999px, 12px, 0); }
+        }
+
+        /* RESPONSIVE ADDITIONS FOR NEW SECTIONS */
+        @media (max-width: 1024px) {
+            .stats-grid {
+                grid-template-columns: 1fr;
+                gap: 50px;
             }
-            .nav-links-left {
-                display: none;
+            .timeline-container::after {
+                left: 31px;
             }
-            .logo-container {
-                grid-column: 2;
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
             }
-            .nav-icons-right {
-                grid-column: 3;
-                justify-content: flex-end;
+            .timeline-item.right {
+                left: 0%;
             }
-            .honesty-grid {
+            .timeline-item::after {
+                left: 21px;
+                top: 30px;
+            }
+            .timeline-item.right::after {
+                left: 21px;
+            }
+            .anatomy-grid {
                 grid-template-columns: 1fr;
             }
-            .mobile-sticky-cta {
-                display: block;
-            }
-            .proof-grid {
-                grid-template-columns: 1fr;
-            }
-            .proof-box {
-                height: 500px;
-            }
-            .client-grid .proof-box {
-                height: 500px;
-            }
-            .program-grid {
-                grid-template-columns: 1fr;
-            }
-            .container {
-                padding-left: 24px;
-                padding-right: 24px;
-            }
-            .footer-bottom {
+            .newsletter-form {
                 flex-direction: column;
-                align-items: center;
-                gap: 10px;
             }
         }
     </style>
 </head>
 <body>
+
+    <div id="scrollProgressBar"></div>
 
     <canvas id="chalkCanvas"></canvas>
 
@@ -1297,7 +1644,7 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1 class="hero-title">CALISTHENICS<br>+STRICT +ELITE</h1>
+            <h1 class="hero-title"><span class="glitch-wrapper" data-text="CALISTHENICS">CALISTHENICS</span><br>+STRICT +ELITE</h1>
             <p class="hero-subtitle">NEW ELITE PROTOCOLS UNLOCKED</p>
             <p class="hero-desc">
                 The structured bodyweight training system designed to break plateaus. Master the muscle-up, front lever, and raw pulling power.
@@ -1306,6 +1653,25 @@
             <div class="hero-links">
                 <a href="#coaching" class="hero-link" style="color: var(--accent-neon); border-color: var(--accent-neon);">1-ON-1 COACHING</a>
                 <a href="#programs" class="hero-link">EXPLORE PROGRAMS ↓</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-banner">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item animate-up">
+                    <span class="stat-number stat-counter" data-target="850">0</span>
+                    <span class="stat-label">Athletes Evolved</span>
+                </div>
+                <div class="stat-item animate-up" style="transition-delay: 0.15s">
+                    <span class="stat-number stat-counter" data-target="25000">0</span>
+                    <span class="stat-label">Pull-ups Perfected</span>
+                </div>
+                <div class="stat-item animate-up" style="transition-delay: 0.3s">
+                    <span class="stat-number stat-counter" data-target="100">0</span>
+                    <span class="stat-label">% Guaranteed Data</span>
+                </div>
             </div>
         </div>
     </section>
@@ -1324,15 +1690,15 @@
             <p class="section-subtitle">Most fitness programs are designed to keep you busy, not to make you strong. If you want to perform elite skills, you need to stop guessing.</p>
             
             <div class="honesty-grid">
-                <div class="honesty-card" data-num="01">
+                <div class="honesty-card tilt-card" data-num="01">
                     <h3 class="oswald">NO ENDLESS REPS</h3>
                     <p>You don't need to do 500 pushups a day. You need progressive overload tailored to specific strength mechanics.</p>
                 </div>
-                <div class="honesty-card" data-num="02">
+                <div class="honesty-card tilt-card" data-num="02">
                     <h3 class="oswald">NO GENETIC LOTTERY</h3>
                     <p>Skills like the muscle-up or front lever aren't reserved for gymnasts. They are equations of leverage and force.</p>
                 </div>
-                <div class="honesty-card" data-num="03">
+                <div class="honesty-card tilt-card" data-num="03">
                     <h3 class="oswald">NO RANDOM WORKOUTS</h3>
                     <p>Doing random exercises yields random results. Iron Apex provides the exact structural map to success.</p>
                 </div>
@@ -1379,6 +1745,90 @@
         </div>
     </section>
 
+    <section class="timeline-section">
+        <div class="bg-text-massive" style="top: 5%;">EVOLUTION</div>
+        <div class="container text-center" style="margin-bottom: 40px; text-align: center;">
+            <span class="eyebrow" style="justify-content: center; margin-left: auto; margin-right: auto;">THE PROCESS</span>
+            <h2 class="section-title">THE 1.5 YEAR BLUEPRINT</h2>
+            <p class="section-subtitle" style="margin: 0 auto;">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
+        </div>
+
+        <div class="timeline-container container">
+            <div class="timeline-item left animate-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 01 - 03</span>
+                    <h3 class="timeline-title">THE AWAKENING</h3>
+                    <p class="text-secondary">Starting from zero. Building the absolute baseline of connective tissue strength. Focusing heavily on scapular retraction, dead hangs, and negative pull-ups. The nervous system begins to adapt to your own bodyweight.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 04 - 06</span>
+                    <h3 class="timeline-title">THE FORGE</h3>
+                    <p class="text-secondary">Strict reps unlock. Hitting the 10 clean pull-up mark and 15 strict dips. Explosive high pull-ups are introduced. The core solidifies with L-sits, preparing the foundation for dynamic transition mechanics.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 07 - 10</span>
+                    <h3 class="timeline-title">THE CATALYST</h3>
+                    <p class="text-secondary">The first muscle-up is achieved. We refine the false grip and correct asymmetrical pulling. Weight is added to pull-ups (+10kg to +20kg) to force hyper-adaptation. Shoulders broaden, lats flare.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 11 - 18</span>
+                    <h3 class="timeline-title">IRON APEX</h3>
+                    <p class="text-secondary">Elite mastery. Advanced statics like the Front Lever and Straddle Planche become the primary focus. One-arm pull-up progressions start. You are no longer exercising; you are engineering power.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="anatomy-section">
+        <div class="container">
+            <div class="anatomy-grid">
+                <div>
+                    <h2 class="section-title" style="font-size: clamp(35px, 5vw, 60px);">THE ANATOMY OF<br><span class="text-accent flicker-effect">ELITE STRENGTH</span></h2>
+                    <p class="story-text" style="margin-bottom: 40px;">
+                        To master the bar, you must understand the machine. This is how the Iron Apex protocols force your musculature to adapt.
+                    </p>
+
+                    <div class="anatomy-feature animate-up">
+                        <div class="anatomy-icon">01</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 20px; margin-bottom: 5px;">SCAPULAR ENGAGEMENT</h4>
+                            <p class="text-secondary" style="font-size: 14px;">The absolute foundation. Before the elbows bend, the shoulders must lock down and back. Our beginner drills bulletproof your rotator cuffs.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.15s">
+                        <div class="anatomy-icon">02</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 20px; margin-bottom: 5px;">LATISSIMUS DORSI</h4>
+                            <p class="text-secondary" style="font-size: 14px;">The wings. We bypass bicep-dominant pulling through mechanical cues, forcing the massive muscles of your back to take 80% of the load.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.3s">
+                        <div class="anatomy-icon">03</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 20px; margin-bottom: 5px;">CORE COMPRESSION</h4>
+                            <p class="text-secondary" style="font-size: 14px;">A weak core bleeds force. By integrating hollow body holds and L-sits, we ensure zero energy is lost in the kinetic chain from hands to toes.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-img-wrapper animate-left" style="border: 2px solid var(--border-medium); border-radius: 10px;">
+                    <img src="IMG_8792.jpg" alt="Anatomy mapping of upper body" style="opacity: 0.5;">
+                    <div style="position: absolute; top: 30%; left: 20%; width: 10px; height: 10px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 10px var(--accent-neon);"></div>
+                    <div style="position: absolute; top: 30%; left: 20%; border-top: 1px solid var(--accent-neon); width: 50px; transform: translate(15px, 5px);"></div>
+                    <div style="position: absolute; top: 50%; right: 20%; width: 10px; height: 10px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 10px var(--accent-neon);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="results" class="proof-section">
         <div class="bg-text-massive" style="top: 25%;">DATA & PROOF</div>
         <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
@@ -1416,10 +1866,51 @@
         </div>
     </section>
 
+    <section class="testimonial-section">
+        <div class="container">
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">THE VERDICT</h2>
+            
+            <div class="testimonial-grid">
+                <div class="testimonial-card animate-up">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"I was stuck at 5 pull-ups for nearly two years. Bought the intermediate program and hit my first clean muscle-up in 3 months. The structural breakdown of form leaks changed everything for me."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>JAKE M.</h4>
+                            <span>Muscle-Up Achieved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-up" style="transition-delay: 0.15s">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"The Baseline 1-on-1 coaching is worth 10x what Sam charges. He pointed out an asymmetry in my scapular engagement I hadn't noticed. Fixed it, and my back blew up in size."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>RYAN T.</h4>
+                            <span>15 Strict Pull-Ups</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="testimonial-card animate-up" style="transition-delay: 0.3s">
+                    <div class="stars">★★★★★</div>
+                    <p class="testimonial-text">"No fluff. No 500-rep useless workouts. It's just gravity, leverage, and smart programming. Finally holding a 5-second front lever thanks to the Elite System."</p>
+                    <div class="testimonial-author">
+                        <div class="author-info">
+                            <h4>ALEX K.</h4>
+                            <span>Elite Statics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="coaching" class="coaching-section" style="padding-top: var(--section-padding-y); padding-bottom: var(--section-padding-y); background-color: var(--bg-card); border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container">
             <div class="founder-grid">
-                <div class="founder-img-wrapper" style="border: 1px solid var(--accent-neon); box-shadow: 0 0 40px var(--accent-glow);">
+                <div class="founder-img-wrapper tilt-card" style="border: 1px solid var(--accent-neon); box-shadow: 0 0 40px var(--accent-glow);">
                     <img src="program-cover-baseline.jpg" alt="Form Correction Coaching">
                     <div class="proof-label accent">FORM ANALYSIS</div>
                 </div>
@@ -1456,7 +1947,7 @@
             <h2 class="zero-title">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
             <p class="zero-subtitle">You don't need a $200/month gym membership or heavy machinery to build elite power. To master your bodyweight, the requirements are absolute and minimal.</p>
             
-            <div class="equipment-box">
+            <div class="equipment-box tilt-card">
                 <h3>ALL YOU NEED IS A PULL-UP BAR AND A DIP BAR.</h3>
                 <span>GRAVITY DOES THE REST.</span>
             </div>
@@ -1472,7 +1963,7 @@
             
             <div class="program-grid">
 
-                <a href="baseline.html" class="program-card">
+                <a href="baseline.html" class="program-card tilt-card">
                     <div class="program-tag">1-on-1 Direct Coaching</div>
                     <div class="program-card-img">
                         <img src="program-cover-baseline.jpg" alt="Baseline Form Coaching">
@@ -1504,7 +1995,7 @@
                     </div>
                 </a>
                 
-                <a href="beginner.html" class="program-card">
+                <a href="beginner.html" class="program-card tilt-card">
                     <div class="program-tag">0–3 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
@@ -1545,7 +2036,7 @@
                     </div>
                 </a>
 
-                <a href="intermediate.html" class="program-card">
+                <a href="intermediate.html" class="program-card tilt-card">
                     <div class="program-tag">8–10 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
@@ -1585,7 +2076,7 @@
                     </div>
                 </a>
 
-                <a href="muscleup.html" class="program-card card-special">
+                <a href="muscleup.html" class="program-card card-special tilt-card">
                     <div class="program-tag">10 Pull-Ups / 12 Dips</div>
                     <div class="program-card-img">
                         <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
@@ -1624,7 +2115,7 @@
                     </div>
                 </a>
 
-                <a href="advanced.html" class="program-card">
+                <a href="advanced.html" class="program-card tilt-card">
                     <div class="program-tag">15 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
@@ -1664,7 +2155,7 @@
                     </div>
                 </a>
 
-                <a href="elite.html" class="program-card">
+                <a href="elite.html" class="program-card tilt-card">
                     <div class="program-tag">Muscle-Up & Front Lever</div>
                     <div class="program-card-img">
                         <img src="program-cover-elite.jpg" alt="Elite Protocol">
@@ -1707,6 +2198,34 @@
         </div>
     </section>
 
+    <section class="bundle-section">
+        <div class="container">
+            <div class="bundle-card tilt-card animate-scale">
+                <div class="bundle-badge flicker-effect">LIMITED TIME OFFER</div>
+                <h2 class="section-title" style="font-size: clamp(40px, 6vw, 70px); margin-bottom: 10px;">THE IRON APEX<br>MASTER BUNDLE</h2>
+                <p class="section-subtitle" style="margin: 0 auto 30px; max-width: 600px;">Get absolute access to every single protocol from zero to elite statics. Never buy another program again.</p>
+                
+                <div class="program-details" style="text-align: left; max-width: 400px; margin: 0 auto; display: block;">
+                    <ul class="detail-list" style="font-size: 16px;">
+                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Beginner</strong> Foundation System</li>
+                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Intermediate</strong> Power System</li>
+                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Advanced</strong> Skill System</li>
+                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Elite</strong> Mechanics System</li>
+                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Muscle-Up Master</strong> Class</li>
+                        <li style="font-size: 16px; margin-bottom: 10px; color: var(--accent-neon);">BONUS: 1 Free Form Check Video Analysis</li>
+                    </ul>
+                </div>
+
+                <div class="bundle-price-container">
+                    <span class="price-strike">$197.00</span>
+                    <span class="price-current">$97.00</span>
+                </div>
+
+                <a href="bundle.html" class="btn btn-solid" style="padding-left: 60px; padding-right: 60px; font-size: 20px;">UNLOCK LIFETIME BUNDLE</a>
+            </div>
+        </div>
+    </section>
+
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">SYSTEM FAQ</h2>
@@ -1723,7 +2242,22 @@
                     <summary>I can't do a pull-up yet. Where do I start?</summary>
                     <div class="faq-answer">Start with the Beginner Protocol. It is specifically designed to build your foundational core stability and vertical pulling strength from zero up to your first 5 strict reps.</div>
                 </details>
+                <details>
+                    <summary>Do you offer refunds?</summary>
+                    <div class="faq-answer">Due to the digital nature of these incredibly comprehensive training blueprints, we do not offer refunds. We provide you the exact map; you must provide the work.</div>
+                </details>
             </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section">
+        <div class="container">
+            <h2 class="oswald" style="font-size: 32px; margin-bottom: 10px;">JOIN THE ELITE MAILING LIST</h2>
+            <p class="text-secondary" style="max-width: 500px; margin: 0 auto;">Enter your email to receive weekly mechanical breakdowns, direct coaching tips, and exclusive discounts on new protocols.</p>
+            <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
+                <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <button type="submit" class="btn btn-solid">SUBSCRIBE NOW</button>
+            </form>
         </div>
     </section>
 
@@ -1738,12 +2272,14 @@
                 </div>
                 <div>
                     <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 20px;">SUPPORT</h4>
-                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
+                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link" style="display: block; margin-bottom: 10px;">Instagram (@sambrooks1223)</a>
+                    <a href="mailto:support@ironapex.com" class="social-link" style="display: block;">support@ironapex.com</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <span>&copy; 2026 Iron Apex Training. All rights reserved.</span>
+                <span style="font-size: 10px; opacity: 0.6; text-align: center; max-width: 400px;">Disclaimer: Consult with a physician before starting any physical training program. Results depend on personal dedication and effort.</span>
                 <span>ENGINEERED FOR ELITE PERFORMANCE.</span>
             </div>
         </div>
@@ -1809,7 +2345,7 @@
             const heroBg = document.querySelector('.hero-img-bg');
             window.addEventListener('scroll', () => {
                 let scrollPos = window.scrollY;
-                if(scrollPos < window.innerHeight) {
+                if(scrollPos < window.innerHeight && heroBg) {
                     heroBg.style.transform = `translateY(${scrollPos * 0.3}px) scale(1.05)`;
                 }
             });
@@ -1886,6 +2422,86 @@
             
             initParticles();
             animateParticles();
+
+            // =====================================================================
+            // NEW ELITE UPGRADES (V11.0 JS SCRIPTS)
+            // =====================================================================
+
+            // 5. Scroll Progress Bar
+            const progressBar = document.getElementById('scrollProgressBar');
+            window.addEventListener('scroll', () => {
+                const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+                const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+                const scrolled = (winScroll / height) * 100;
+                if(progressBar) progressBar.style.width = scrolled + "%";
+            });
+
+            // 6. Stats Number Counters Logic
+            const counters = document.querySelectorAll('.stat-counter');
+            const counterObserverOptions = {
+                threshold: 0.5
+            };
+            const counterObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        const target = +entry.target.getAttribute('data-target');
+                        const duration = 2000; // ms
+                        const increment = target / (duration / 16); // 60fps
+                        let currentCount = 0;
+                        
+                        const updateCounter = () => {
+                            currentCount += increment;
+                            if(currentCount < target) {
+                                entry.target.innerText = Math.ceil(currentCount).toLocaleString();
+                                requestAnimationFrame(updateCounter);
+                            } else {
+                                entry.target.innerText = target.toLocaleString() + "+";
+                            }
+                        };
+                        
+                        updateCounter();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, counterObserverOptions);
+
+            counters.forEach(counter => {
+                counterObserver.observe(counter);
+            });
+
+            // 7. 3D Tilt Hover Effect for Product Cards
+            // Excludes touch devices to preserve mobile UX
+            if(window.matchMedia("(pointer: fine)").matches) {
+                const tiltElements = document.querySelectorAll('.tilt-card');
+                
+                tiltElements.forEach(el => {
+                    el.addEventListener('mousemove', (e) => {
+                        const rect = el.getBoundingClientRect();
+                        const x = e.clientX - rect.left; // x position within the element.
+                        const y = e.clientY - rect.top;  // y position within the element.
+                        
+                        const centerX = rect.width / 2;
+                        const centerY = rect.height / 2;
+                        
+                        const rotateX = ((y - centerY) / centerY) * -5; // Max rotation degrees
+                        const rotateY = ((x - centerX) / centerX) * 5;
+
+                        el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
+                        el.style.zIndex = 10;
+                    });
+                    
+                    el.addEventListener('mouseleave', () => {
+                        el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
+                        el.style.zIndex = 1;
+                        // Smooth reset
+                        el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
+                        setTimeout(() => {
+                            el.style.transition = ''; // Remove to prevent lag on enter
+                        }, 500);
+                    });
+                });
+            }
+
         });
     </script>
 
