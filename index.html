@@ -67,8 +67,13 @@
             width: 100%;
             max-width: 100vw;
             overflow-x: hidden;
-            scroll-behavior: smooth;
             background-color: var(--bg-pure);
+        }
+
+        /* This prevents the sticky header from covering sections when clicked */
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; 
         }
 
         body {
@@ -232,20 +237,6 @@
             transform: translateY(0);
         }
 
-        .btn-outline {
-            background-color: transparent;
-            color: var(--text-main);
-            border: 1px solid var(--border-medium);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-outline:hover {
-            border-color: var(--text-main);
-            background-color: var(--text-main);
-            color: var(--text-dark);
-            transform: translateY(-4px);
-        }
-
         /* ==========================================================================
            4. NAVIGATION (PREMIUM GLASS)
            ========================================================================== */
@@ -271,7 +262,7 @@
         /* Left Side Links */
         .nav-links-left {
             display: flex;
-            gap: 30px;
+            gap: 25px; /* Slightly reduced gap to fit the new links */
             align-items: center;
         }
 
@@ -282,6 +273,7 @@
             font-weight: 500;
             font-size: 14px;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
 
         .nav-links-left a:hover {
@@ -358,7 +350,6 @@
             object-fit: cover;
             object-position: center 20%; /* Keeps the athlete in frame */
             z-index: 1;
-            /* Added smooth pulse/zoom animation to hero */
             animation: heroBreathing 20s infinite alternate ease-in-out;
         }
 
@@ -1246,9 +1237,10 @@
     <header>
         <div class="container nav-inner">
             <div class="nav-links-left">
-                <a href="#programs">Femmes</a>
-                <a href="#programs">Hommes</a>
-                <a href="#results">Proof</a>
+                <a href="#results">Transformations</a>
+                <a href="#programs">Programs</a>
+                <a href="#clients">Client Progress</a>
+                <a href="#equipment">Equipment</a>
             </div>
             
             <div class="logo-container">
@@ -1371,7 +1363,7 @@
         </div>
     </section>
 
-    <section class="proof-section" style="border-top: none; background-color: var(--bg-pure);">
+    <section id="clients" class="proof-section" style="border-top: none; background-color: var(--bg-pure);">
         <div class="container text-center" style="margin-bottom: 60px; text-align: center;">
             <h2 class="section-title">ATHLETE EVOLUTION</h2>
             <p class="section-subtitle" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
@@ -1387,7 +1379,7 @@
         </div>
     </section>
 
-    <section class="zero-excuses">
+    <section id="equipment" class="zero-excuses">
         <div class="container">
             <h2 class="zero-title">ZERO<br><span class="text-accent">EXCUSES.</span></h2>
             <p class="zero-subtitle">You don't need a $200/month gym membership or heavy machinery to build elite power. To master your bodyweight, the requirements are absolute and minimal.</p>
