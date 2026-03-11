@@ -11,7 +11,7 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V10.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
+           IRON APEX V11.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
            ========================================================================== */
 
         :root {
@@ -50,16 +50,6 @@
             --ease-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --ease-smooth: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
             --ease-slow: 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-
-            /* ==========================================
-               NEW ELITE VARIABLES (V11.0 UPGRADE)
-               ========================================== */
-            --accent-secondary: #ff0055;
-            --accent-gradient: linear-gradient(135deg, var(--accent-neon) 0%, #aadd00 100%);
-            --bundle-gradient: linear-gradient(180deg, #1a1a1a 0%, var(--bg-pure) 100%);
-            --glass-bg: rgba(17, 17, 17, 0.7);
-            --glass-border: rgba(255, 255, 255, 0.05);
-            --shadow-neon: 0 0 40px rgba(204, 255, 0, 0.15);
         }
 
         /* ==========================================================================
@@ -264,15 +254,14 @@
 
         .nav-inner {
             display: grid;
-            grid-template-columns: 1fr auto 1fr; /* 3 column layout */
+            grid-template-columns: 1fr auto 1fr;
             align-items: center;
             height: 80px;
         }
 
-        /* Left Side Links */
         .nav-links-left {
             display: flex;
-            gap: 25px; /* Slightly reduced gap to fit the new links */
+            gap: 25px;
             align-items: center;
         }
 
@@ -290,7 +279,6 @@
             color: var(--accent-neon);
         }
 
-        /* Centered Logo */
         .logo-container {
             text-align: center;
         }
@@ -313,7 +301,6 @@
             color: var(--accent-neon);
         }
 
-        /* Right Side Utility Icons */
         .nav-icons-right {
             display: flex;
             justify-content: flex-end;
@@ -343,14 +330,13 @@
            ========================================================================== */
         .hero {
             position: relative;
-            height: calc(100vh - 110px); /* Subtracts banner and header height */
+            height: calc(100vh - 110px);
             width: 100vw;
             display: flex;
-            align-items: center; /* Centers text vertically */
+            align-items: center;
             overflow: hidden;
         }
 
-        /* The Image explicitly placed to guarantee it shows */
         .hero-img-bg {
             position: absolute;
             top: 0;
@@ -358,14 +344,12 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            object-position: center 20%; /* Keeps the athlete in frame */
+            object-position: center 20%;
             z-index: 1;
-            /* Added transform to work with JS Parallax */
             transform: scale(1.05);
             transition: transform 0.1s linear; 
         }
 
-        /* Gradient overlay so text is readable */
         .hero-overlay {
             position: absolute;
             top: 0;
@@ -386,7 +370,6 @@
             padding-right: 40px;
         }
 
-        /* Massive Italic Typography like the reference image */
         .hero-title {
             font-family: 'Oswald', sans-serif;
             font-size: clamp(60px, 9vw, 140px);
@@ -412,12 +395,11 @@
             font-family: 'Inter', sans-serif;
             font-size: clamp(14px, 1.5vw, 16px);
             color: #dddddd;
-            max-width: 500px;
+            max-width: 550px;
             margin-bottom: 40px;
             font-weight: 400;
         }
 
-        /* Gymshark style Underline Links */
         .hero-links {
             display: flex;
             gap: 30px;
@@ -620,7 +602,7 @@
 
         .proof-box {
             position: relative;
-            height: 900px; /* Massive height */
+            height: 900px;
             background-color: var(--bg-pure);
             overflow: hidden;
         }
@@ -663,7 +645,6 @@
             color: var(--accent-neon);
         }
 
-        /* Client specific single grid */
         .client-grid {
             display: grid;
             grid-template-columns: 1fr;
@@ -781,7 +762,7 @@
         }
 
         .program-card-img {
-            height: 350px; /* Taller images for e-commerce feel */
+            height: 350px;
             background-color: #1a1a1a;
             display: flex;
             align-items: center;
@@ -790,7 +771,6 @@
             overflow: hidden;
         }
 
-        /* Placeholder graphic for missing images */
         .program-card-img::before {
             content: '';
             position: absolute;
@@ -841,13 +821,22 @@
             font-style: italic;
         }
 
+        /* NEW PRICE TAG */
+        .program-price {
+            font-family: 'Oswald', sans-serif;
+            font-size: 24px;
+            color: var(--accent-neon);
+            margin-bottom: 10px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
         .program-desc-main {
             font-size: 14px;
             color: var(--text-secondary);
             margin-bottom: 25px;
         }
 
-        /* Detailed Lists styling */
         .program-details {
             display: flex;
             flex-direction: column;
@@ -894,7 +883,6 @@
             background-color: var(--text-secondary);
         }
 
-        /* Full width add-to-cart style button */
         .card-action {
             font-family: 'Inter', sans-serif;
             text-transform: uppercase;
@@ -911,7 +899,6 @@
             cursor: pointer;
         }
 
-        /* Hover Effects */
         .program-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 15px 35px rgba(0,0,0,0.6);
@@ -931,7 +918,6 @@
             border-left-color: var(--accent-neon);
         }
 
-        /* Muscle-Up Special Card */
         .card-special {
             border-color: rgba(204, 255, 0, 0.2);
         }
@@ -946,7 +932,7 @@
         }
 
         /* ==========================================================================
-           TOP PROMO BANNER (GYMSHARK STYLE) - PLACED AT THE VERY TOP
+           TOP PROMO BANNER (GYMSHARK STYLE)
            ========================================================================== */
         .promo-banner {
             width: 100%;
@@ -1031,11 +1017,6 @@
             animation: fadeIn 0.4s ease-in-out;
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         /* ==========================================================================
            FOOTER
            ========================================================================== */
@@ -1097,9 +1078,6 @@
             justify-content: space-between;
         }
 
-        /* ==========================================================================
-           STICKY MOBILE BUTTON (iPHONE OPTIMIZED)
-           ========================================================================== */
         .mobile-sticky-cta {
             display: none;
             position: fixed;
@@ -1137,9 +1115,7 @@
             background-color: var(--accent-neon);
         }
 
-        /* ==========================================================================
-           SCROLL ANIMATION ENGINE CLASSES
-           ========================================================================== */
+        /* SCROLL ANIMATIONS & UTILS */
         .animate-up { 
             opacity: 0; 
             transform: translateY(40px); 
@@ -1160,15 +1136,11 @@
             transform: scale(0.95); 
             transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
         }
-        
         .is-in-view { 
             opacity: 1 !important; 
             transform: translate(0) scale(1) !important; 
         }
 
-        /* ==========================================================================
-           NEW COOL ANIMATIONS (NEON FLICKER & CANVAS SYSTEM)
-           ========================================================================== */
         @keyframes neonFlicker {
             0%, 18%, 22%, 25%, 53%, 57%, 100% {
                 opacity: 1;
@@ -1190,16 +1162,11 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            pointer-events: none; /* Crucial so you can still click things */
-            z-index: 9998; /* Underneath the grain overlay, over the background */
+            pointer-events: none;
+            z-index: 9998;
         }
 
-        /* ==========================================================================
-           NEW ELITE UI ARCHITECTURE ADDITIONS (V11.0)
-           DO NOT DELETE ANY PREVIOUS CODE
-           ========================================================================== */
-
-        /* TOP PROGRESS BAR */
+        /* NEW ELITE UI ADDITIONS */
         #scrollProgressBar {
             position: fixed;
             top: 0;
@@ -1207,12 +1174,11 @@
             width: 0%;
             height: 4px;
             background: var(--accent-neon);
-            z-index: 10001; /* Highest to be above everything */
+            z-index: 10001;
             box-shadow: 0 0 15px var(--accent-glow-strong);
             transition: width 0.1s ease;
         }
 
-        /* STATS COUNTER SECTION */
         .stats-banner {
             padding: 80px 0;
             background-color: var(--bg-card);
@@ -1253,20 +1219,18 @@
             font-weight: 600;
         }
 
-        /* 3D TILT CARD EFFECT FOR PROGRAMS */
         .tilt-card {
             transform-style: preserve-3d;
             transform: perspective(1000px);
         }
         .tilt-card .program-card-content {
-            transform: translateZ(30px); /* Pops content out */
+            transform: translateZ(30px);
             transition: transform 0.3s ease;
         }
         .tilt-card .program-tag {
-            transform: translateZ(50px); /* Pops tag out more */
+            transform: translateZ(50px);
         }
 
-        /* THE HUGE TRANSFORMATION TIMELINE */
         .timeline-section {
             padding: var(--section-padding-y) 0;
             background-color: var(--bg-pure);
@@ -1279,7 +1243,6 @@
             margin: 0 auto;
             padding: 40px 0;
         }
-        /* Vertical Line */
         .timeline-container::after {
             content: '';
             position: absolute;
@@ -1296,13 +1259,8 @@
             background-color: inherit;
             width: 50%;
         }
-        .timeline-item.left {
-            left: 0;
-        }
-        .timeline-item.right {
-            left: 50%;
-        }
-        /* Circles on timeline */
+        .timeline-item.left { left: 0; }
+        .timeline-item.right { left: 50%; }
         .timeline-item::after {
             content: '';
             position: absolute;
@@ -1316,9 +1274,7 @@
             z-index: 1;
             box-shadow: 0 0 15px var(--accent-glow-strong);
         }
-        .timeline-item.right::after {
-            left: -10px;
-        }
+        .timeline-item.right::after { left: -10px; }
         .timeline-content {
             padding: 30px;
             background-color: var(--bg-elevated);
@@ -1346,7 +1302,6 @@
             font-style: italic;
         }
         
-        /* ANATOMY OF ELITE STRENGTH SECTION */
         .anatomy-section {
             padding: var(--section-padding-y) 0;
             background-color: var(--bg-elevated);
@@ -1388,120 +1343,6 @@
             flex-shrink: 0;
         }
 
-        /* MASSIVE TESTIMONIAL CAROUSEL/GRID */
-        .testimonial-section {
-            padding: var(--section-padding-y) 0;
-            background-color: var(--bg-pure);
-            border-top: 1px solid var(--border-light);
-        }
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-        .testimonial-card {
-            background-color: var(--bg-elevated);
-            padding: 40px;
-            border: 1px solid var(--border-light);
-            position: relative;
-        }
-        .testimonial-card::before {
-            content: '"';
-            position: absolute;
-            top: -10px;
-            left: 20px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 120px;
-            color: rgba(255,255,255,0.05);
-            line-height: 1;
-            z-index: 0;
-            pointer-events: none;
-        }
-        .stars {
-            color: var(--accent-neon);
-            font-size: 20px;
-            margin-bottom: 15px;
-            position: relative;
-            z-index: 1;
-        }
-        .testimonial-text {
-            font-size: 16px;
-            color: var(--text-secondary);
-            margin-bottom: 25px;
-            position: relative;
-            z-index: 1;
-            font-style: italic;
-        }
-        .testimonial-author {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            border-top: 1px solid var(--border-medium);
-            padding-top: 20px;
-        }
-        .author-info h4 {
-            font-size: 18px;
-            margin-bottom: 2px;
-        }
-        .author-info span {
-            font-size: 12px;
-            color: var(--accent-neon);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: 600;
-        }
-
-        /* ULTIMATE BUNDLE UPSELL SECTION */
-        .bundle-section {
-            padding: 120px 0;
-            background: linear-gradient(180deg, var(--bg-pure) 0%, #0a0f00 100%);
-            border-top: 1px solid var(--border-light);
-            text-align: center;
-        }
-        .bundle-card {
-            max-width: 900px;
-            margin: 0 auto;
-            background: var(--bg-card);
-            border: 2px solid var(--accent-neon);
-            box-shadow: 0 0 50px rgba(204, 255, 0, 0.15);
-            padding: 60px;
-            position: relative;
-            overflow: hidden;
-        }
-        .bundle-badge {
-            background-color: var(--accent-neon);
-            color: var(--text-dark);
-            font-family: 'Oswald', sans-serif;
-            font-size: 14px;
-            font-weight: 900;
-            padding: 10px 30px;
-            display: inline-block;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-bottom: 30px;
-        }
-        .bundle-price-container {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-            gap: 15px;
-            margin: 30px 0;
-        }
-        .price-strike {
-            font-size: 24px;
-            color: var(--text-tertiary);
-            text-decoration: line-through;
-            font-weight: 600;
-        }
-        .price-current {
-            font-family: 'Oswald', sans-serif;
-            font-size: 60px;
-            color: var(--text-main);
-            font-weight: 900;
-            line-height: 1;
-        }
-
-        /* NEWSLETTER / LEAD GEN */
         .newsletter-section {
             padding: 100px 0;
             background-color: var(--bg-elevated);
@@ -1525,14 +1366,9 @@
             outline: none;
             transition: border-color 0.3s ease;
         }
-        .newsletter-form input:focus {
-            border-color: var(--accent-neon);
-        }
-        .newsletter-form button {
-            white-space: nowrap;
-        }
+        .newsletter-form input:focus { border-color: var(--accent-neon); }
+        .newsletter-form button { white-space: nowrap; }
 
-        /* GLITCH TEXT UTILITY */
         .glitch-wrapper {
             position: relative;
             display: inline-block;
@@ -1575,36 +1411,46 @@
             100% { clip: rect(43px, 9999px, 12px, 0); }
         }
 
-        /* RESPONSIVE ADDITIONS FOR NEW SECTIONS */
         @media (max-width: 1024px) {
-            .stats-grid {
-                grid-template-columns: 1fr;
-                gap: 50px;
-            }
-            .timeline-container::after {
-                left: 31px;
-            }
-            .timeline-item {
-                width: 100%;
-                padding-left: 70px;
-                padding-right: 25px;
-            }
-            .timeline-item.right {
-                left: 0%;
-            }
-            .timeline-item::after {
-                left: 21px;
-                top: 30px;
-            }
-            .timeline-item.right::after {
-                left: 21px;
-            }
-            .anatomy-grid {
-                grid-template-columns: 1fr;
-            }
-            .newsletter-form {
+            .hero { flex-direction: column; height: auto; }
+            .hero-content {
+                padding-top: 120px;
+                padding-bottom: 60px;
+                padding-left: 24px;
+                padding-right: 24px;
+                text-align: center;
+                display: flex;
                 flex-direction: column;
+                align-items: center;
             }
+            .hero-links { justify-content: center; }
+            .founder-grid { grid-template-columns: 1fr; }
+            .proof-box { height: 600px; }
+            .client-grid .proof-box { height: 600px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .stats-grid { grid-template-columns: 1fr; gap: 50px; }
+            .timeline-container::after { left: 31px; }
+            .timeline-item { width: 100%; padding-left: 70px; padding-right: 25px; }
+            .timeline-item.right { left: 0%; }
+            .timeline-item::after { left: 21px; top: 30px; }
+            .timeline-item.right::after { left: 21px; }
+            .anatomy-grid { grid-template-columns: 1fr; }
+            .newsletter-form { flex-direction: column; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-inner { grid-template-columns: 1fr auto 1fr; }
+            .nav-links-left { display: none; }
+            .logo-container { grid-column: 2; }
+            .nav-icons-right { grid-column: 3; justify-content: flex-end; }
+            .honesty-grid { grid-template-columns: 1fr; }
+            .mobile-sticky-cta { display: block; }
+            .proof-grid { grid-template-columns: 1fr; }
+            .proof-box { height: 500px; }
+            .client-grid .proof-box { height: 500px; }
+            .program-grid { grid-template-columns: 1fr; }
+            .container { padding-left: 24px; padding-right: 24px; }
+            .footer-bottom { flex-direction: column; align-items: center; gap: 10px; }
         }
     </style>
 </head>
@@ -1647,7 +1493,7 @@
             <h1 class="hero-title"><span class="glitch-wrapper" data-text="CALISTHENICS">CALISTHENICS</span><br>+STRICT +ELITE</h1>
             <p class="hero-subtitle">NEW ELITE PROTOCOLS UNLOCKED</p>
             <p class="hero-desc">
-                The structured bodyweight training system designed to break plateaus. Master the muscle-up, front lever, and raw pulling power.
+                The structured bodyweight training system designed to break plateaus. Master the muscle-up, front lever, handstands, strict HSPU, and raw pulling power.
             </p>
             
             <div class="hero-links">
@@ -1678,7 +1524,7 @@
 
     <div class="marquee-container">
         <div class="marquee-content">
-            NO EXCUSES <span>•</span> STRUCTURED OVERLOAD <span>•</span> ELITE CALISTHENICS <span>•</span> IRON APEX <span>•</span> DEFINE YOUR LEGACY <span>•</span> MASTER THE BASICS <span>•</span> PROGRESS DAILY <span>•</span> NO EXCUSES <span>•</span> STRUCTURED OVERLOAD <span>•</span> ELITE CALISTHENICS <span>•</span>
+            NO EXCUSES <span>•</span> STRICT HSPU <span>•</span> ELITE CALISTHENICS <span>•</span> FREESTANDING HANDSTAND <span>•</span> DEFINE YOUR LEGACY <span>•</span> MASTER THE BASICS <span>•</span> PROGRESS DAILY <span>•</span> NO EXCUSES <span>•</span> STRICT HSPU <span>•</span> ELITE CALISTHENICS <span>•</span>
         </div>
     </div>
 
@@ -1765,21 +1611,21 @@
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 04 - 06</span>
                     <h3 class="timeline-title">THE FORGE</h3>
-                    <p class="text-secondary">Strict reps unlock. Hitting the 10 clean pull-up mark and 15 strict dips. Explosive high pull-ups are introduced. The core solidifies with L-sits, preparing the foundation for dynamic transition mechanics.</p>
+                    <p class="text-secondary">Strict reps unlock. Hitting the 10 clean pull-up mark and 15 strict dips. Basic pike push-ups begin setting the foundation for handstands. The core solidifies with L-sits, preparing the foundation for dynamic transitions.</p>
                 </div>
             </div>
             <div class="timeline-item left animate-right">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 07 - 10</span>
                     <h3 class="timeline-title">THE CATALYST</h3>
-                    <p class="text-secondary">The first muscle-up is achieved. We refine the false grip and correct asymmetrical pulling. Weight is added to pull-ups (+10kg to +20kg) to force hyper-adaptation. Shoulders broaden, lats flare.</p>
+                    <p class="text-secondary">The first muscle-up is achieved. Wall handstand push-ups (HSPU) are introduced. Weight is added to pull-ups (+10kg to +20kg) to force hyper-adaptation. Shoulders broaden, lats flare.</p>
                 </div>
             </div>
             <div class="timeline-item right animate-left">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 11 - 18</span>
                     <h3 class="timeline-title">IRON APEX</h3>
-                    <p class="text-secondary">Elite mastery. Advanced statics like the Front Lever and Straddle Planche become the primary focus. One-arm pull-up progressions start. You are no longer exercising; you are engineering power.</p>
+                    <p class="text-secondary">Elite mastery. Advanced statics like the Front Lever, 90-Degree HSPU, and freestanding balance become the primary focus. One-arm pull-up progressions start. You are engineering power.</p>
                 </div>
             </div>
         </div>
@@ -1815,6 +1661,14 @@
                         <div>
                             <h4 class="oswald" style="font-size: 20px; margin-bottom: 5px;">CORE COMPRESSION</h4>
                             <p class="text-secondary" style="font-size: 14px;">A weak core bleeds force. By integrating hollow body holds and L-sits, we ensure zero energy is lost in the kinetic chain from hands to toes.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.45s">
+                        <div class="anatomy-icon">04</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 20px; margin-bottom: 5px;">OVERHEAD MECHANICS</h4>
+                            <p class="text-secondary" style="font-size: 14px;">Mastering the freestanding handstand and strict handstand push-up (HSPU) requires absolute spatial awareness, wrist conditioning, and shoulder stability. We build it from the ground up.</p>
                         </div>
                     </div>
                 </div>
@@ -1866,47 +1720,6 @@
         </div>
     </section>
 
-    <section class="testimonial-section">
-        <div class="container">
-            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">THE VERDICT</h2>
-            
-            <div class="testimonial-grid">
-                <div class="testimonial-card animate-up">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"I was stuck at 5 pull-ups for nearly two years. Bought the intermediate program and hit my first clean muscle-up in 3 months. The structural breakdown of form leaks changed everything for me."</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>JAKE M.</h4>
-                            <span>Muscle-Up Achieved</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card animate-up" style="transition-delay: 0.15s">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"The Baseline 1-on-1 coaching is worth 10x what Sam charges. He pointed out an asymmetry in my scapular engagement I hadn't noticed. Fixed it, and my back blew up in size."</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>RYAN T.</h4>
-                            <span>15 Strict Pull-Ups</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="testimonial-card animate-up" style="transition-delay: 0.3s">
-                    <div class="stars">★★★★★</div>
-                    <p class="testimonial-text">"No fluff. No 500-rep useless workouts. It's just gravity, leverage, and smart programming. Finally holding a 5-second front lever thanks to the Elite System."</p>
-                    <div class="testimonial-author">
-                        <div class="author-info">
-                            <h4>ALEX K.</h4>
-                            <span>Elite Statics</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section id="coaching" class="coaching-section" style="padding-top: var(--section-padding-y); padding-bottom: var(--section-padding-y); background-color: var(--bg-card); border-top: 1px solid rgba(255, 255, 255, 0.05);">
         <div class="container">
             <div class="founder-grid">
@@ -1936,7 +1749,7 @@
                         <li>Plateau Breaking <span>Guaranteed</span></li>
                     </ul>
 
-                    <a href="baseline.html" class="btn btn-solid" style="margin-top: 40px; width: 100%;">APPLY FOR BASELINE COACHING</a>
+                    <a href="baseline.html" class="btn btn-solid" style="margin-top: 40px; width: 100%;">APPLY FOR BASELINE COACHING - $6.99</a>
                 </div>
             </div>
         </div>
@@ -1970,6 +1783,7 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="oswald">BASELINE</h3>
+                        <div class="program-price">$6.99</div>
                         <p class="program-desc-main">DM me videos of your form on Instagram for rapid, direct mechanical corrections.</p>
                         
                         <div class="program-details">
@@ -1991,7 +1805,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK COACHING</div>
+                        <div class="card-action">UNLOCK COACHING FOR $6.99</div>
                     </div>
                 </a>
                 
@@ -2002,6 +1816,7 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="oswald">BEGINNER</h3>
+                        <div class="program-price">$7.99</div>
                         <p class="program-desc-main">For people starting calisthenics.</p>
                         
                         <div class="program-details">
@@ -2019,7 +1834,7 @@
                                     <li>Build first real upper body strength</li>
                                     <li>Reach 10–12 pull-ups</li>
                                     <li>Build dip strength</li>
-                                    <li>Develop basic core control</li>
+                                    <li>Basic Pike Push-Up (HSP intro)</li>
                                 </ul>
                             </div>
                             <div class="detail-group">
@@ -2032,7 +1847,7 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL</div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $7.99</div>
                     </div>
                 </a>
 
@@ -2043,6 +1858,7 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="oswald">INTERMEDIATE</h3>
+                        <div class="program-price">$9.99</div>
                         <p class="program-desc-main">Strength building stage.</p>
                         
                         <div class="program-details">
@@ -2059,7 +1875,7 @@
                                 <ul class="detail-list">
                                     <li>First muscle-up</li>
                                     <li>Develop explosive pulling power</li>
-                                    <li>Start handstand work</li>
+                                    <li>Freestanding handstand balance</li>
                                 </ul>
                             </div>
                             <div class="detail-group">
@@ -2067,12 +1883,53 @@
                                 <ul class="detail-list">
                                     <li>Muscle-up drills</li>
                                     <li>Explosive pull-ups</li>
-                                    <li>Handstand training</li>
+                                    <li>Handstand training & alignment</li>
                                     <li>Core compression</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL</div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $9.99</div>
+                    </div>
+                </a>
+
+                <a href="advanced.html" class="program-card tilt-card">
+                    <div class="program-tag">15 Pull-Ups</div>
+                    <div class="program-card-img">
+                        <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="oswald">ADVANCED</h3>
+                        <div class="program-price">$9.99</div>
+                        <p class="program-desc-main">Skill development phase.</p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title">REQUIREMENTS:</span>
+                                <ul class="detail-list">
+                                    <li>15 pull-ups</li>
+                                    <li>20 dips</li>
+                                    <li>Freestanding handstand</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">GOAL:</span>
+                                <ul class="detail-list">
+                                    <li>Front lever progressions</li>
+                                    <li>Strict handstand push-ups (HSPU)</li>
+                                    <li>Strong weighted pull-ups</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title">FOCUS:</span>
+                                <ul class="detail-list">
+                                    <li>Front lever</li>
+                                    <li>Weighted calisthenics</li>
+                                    <li>Wall HSPU to Freestanding</li>
+                                    <li>Shoulder strength & mass</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $9.99</div>
                     </div>
                 </a>
 
@@ -2083,6 +1940,7 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="oswald">MUSCLE-UP MASTER</h3>
+                        <div class="program-price">$12.99</div>
                         <p class="program-desc-main" style="color: var(--text-main);">Specialized program.</p>
                         
                         <div class="program-details">
@@ -2107,51 +1965,10 @@
                                     <li>High pull-ups</li>
                                     <li>Transition mechanics</li>
                                     <li>Swing understanding</li>
-                                    <li>Dip lockout strength</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL</div>
-                    </div>
-                </a>
-
-                <a href="advanced.html" class="program-card tilt-card">
-                    <div class="program-tag">15 Pull-Ups</div>
-                    <div class="program-card-img">
-                        <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
-                    </div>
-                    <div class="program-card-content">
-                        <h3 class="oswald">ADVANCED</h3>
-                        <p class="program-desc-main">Skill development phase.</p>
-                        
-                        <div class="program-details">
-                            <div class="detail-group">
-                                <span class="detail-title">REQUIREMENTS:</span>
-                                <ul class="detail-list">
-                                    <li>15 pull-ups</li>
-                                    <li>20 dips</li>
-                                    <li>Freestanding handstand</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title">GOAL:</span>
-                                <ul class="detail-list">
-                                    <li>Front lever progressions</li>
-                                    <li>Strict handstand push-ups</li>
-                                    <li>Strong weighted pull-ups</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title">FOCUS:</span>
-                                <ul class="detail-list">
-                                    <li>Front lever</li>
-                                    <li>Weighted calisthenics</li>
-                                    <li>Explosive pulling</li>
-                                    <li>Shoulder strength</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-action">UNLOCK PROTOCOL</div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $12.99</div>
                     </div>
                 </a>
 
@@ -2162,6 +1979,7 @@
                     </div>
                     <div class="program-card-content">
                         <h3 class="oswald">ELITE SYSTEM</h3>
+                        <div class="program-price">$12.99</div>
                         <p class="program-desc-main">The pinnacle of bodyweight mastery.</p>
                         
                         <div class="program-details">
@@ -2170,7 +1988,7 @@
                                 <ul class="detail-list">
                                     <li>Strict Muscle-Up</li>
                                     <li>Advanced Front Lever</li>
-                                    <li>Handstand Push-Ups</li>
+                                    <li>Strict Handstand Push-Ups</li>
                                 </ul>
                             </div>
                             <div class="detail-group">
@@ -2178,7 +1996,7 @@
                                 <ul class="detail-list">
                                     <li>Full Planche</li>
                                     <li>One-Arm Pull-up</li>
-                                    <li>Elite statics</li>
+                                    <li>90-Degree HSPU</li>
                                 </ul>
                             </div>
                             <div class="detail-group">
@@ -2186,11 +2004,11 @@
                                 <ul class="detail-list">
                                     <li>Planche training mechanics</li>
                                     <li>OAP progressions</li>
-                                    <li>Top-tier calisthenics mastery</li>
+                                    <li>Elite overhead pushing</li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="card-action">UNLOCK PROTOCOL</div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $12.99</div>
                     </div>
                 </a>
 
@@ -2198,31 +2016,14 @@
         </div>
     </section>
 
-    <section class="bundle-section">
+    <section class="newsletter-section">
         <div class="container">
-            <div class="bundle-card tilt-card animate-scale">
-                <div class="bundle-badge flicker-effect">LIMITED TIME OFFER</div>
-                <h2 class="section-title" style="font-size: clamp(40px, 6vw, 70px); margin-bottom: 10px;">THE IRON APEX<br>MASTER BUNDLE</h2>
-                <p class="section-subtitle" style="margin: 0 auto 30px; max-width: 600px;">Get absolute access to every single protocol from zero to elite statics. Never buy another program again.</p>
-                
-                <div class="program-details" style="text-align: left; max-width: 400px; margin: 0 auto; display: block;">
-                    <ul class="detail-list" style="font-size: 16px;">
-                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Beginner</strong> Foundation System</li>
-                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Intermediate</strong> Power System</li>
-                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Advanced</strong> Skill System</li>
-                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Elite</strong> Mechanics System</li>
-                        <li style="font-size: 16px; margin-bottom: 10px;">Includes <strong>Muscle-Up Master</strong> Class</li>
-                        <li style="font-size: 16px; margin-bottom: 10px; color: var(--accent-neon);">BONUS: 1 Free Form Check Video Analysis</li>
-                    </ul>
-                </div>
-
-                <div class="bundle-price-container">
-                    <span class="price-strike">$197.00</span>
-                    <span class="price-current">$97.00</span>
-                </div>
-
-                <a href="bundle.html" class="btn btn-solid" style="padding-left: 60px; padding-right: 60px; font-size: 20px;">UNLOCK LIFETIME BUNDLE</a>
-            </div>
+            <h2 class="oswald" style="font-size: 32px; margin-bottom: 10px;">JOIN THE ELITE MAILING LIST</h2>
+            <p class="text-secondary" style="max-width: 500px; margin: 0 auto;">Enter your email to receive weekly mechanical breakdowns, direct coaching tips, and exclusive discounts on new protocols.</p>
+            <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
+                <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
+                <button type="submit" class="btn btn-solid">SUBSCRIBE NOW</button>
+            </form>
         </div>
     </section>
 
@@ -2247,17 +2048,6 @@
                     <div class="faq-answer">Due to the digital nature of these incredibly comprehensive training blueprints, we do not offer refunds. We provide you the exact map; you must provide the work.</div>
                 </details>
             </div>
-        </div>
-    </section>
-
-    <section class="newsletter-section">
-        <div class="container">
-            <h2 class="oswald" style="font-size: 32px; margin-bottom: 10px;">JOIN THE ELITE MAILING LIST</h2>
-            <p class="text-secondary" style="max-width: 500px; margin: 0 auto;">Enter your email to receive weekly mechanical breakdowns, direct coaching tips, and exclusive discounts on new protocols.</p>
-            <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
-                <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
-                <button type="submit" class="btn btn-solid">SUBSCRIBE NOW</button>
-            </form>
         </div>
     </section>
 
@@ -2293,12 +2083,10 @@
         document.addEventListener("DOMContentLoaded", () => {
             
             // 1. Initial Load Animations (Hero Section)
-            // We want these to happen immediately, not waiting for a scroll
             const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-desc, .hero-links');
             heroElements.forEach((el, index) => {
                 el.classList.add('animate-up');
-                el.style.transitionDelay = `${index * 0.15}s`; // Stagger
-                // Trigger reflow then add the view class so they animate in
+                el.style.transitionDelay = `${index * 0.15}s`; 
                 setTimeout(() => el.classList.add('is-in-view'), 100); 
             });
 
@@ -2337,7 +2125,6 @@
                 });
             }, observerOptions);
 
-            // Observe all elements we prepped (excluding the hero ones we already triggered)
             document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
                 .forEach(el => observer.observe(el));
             
@@ -2357,9 +2144,8 @@
             const ctx = canvas.getContext('2d');
             
             let particlesArray = [];
-            const numberOfParticles = 80; // Adjust for density
+            const numberOfParticles = 80; 
             
-            // Resize canvas to match window
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             
@@ -2368,25 +2154,21 @@
                 canvas.height = window.innerHeight;
             });
             
-            // Particle Class
             class Particle {
                 constructor() {
                     this.x = Math.random() * canvas.width;
-                    this.y = Math.random() * canvas.height + canvas.height; // Start slightly below screen
-                    this.size = Math.random() * 3 + 0.5; // Chalk dust is small and varied
-                    this.speedY = (Math.random() * 1.5 + 0.5) * -1; // Floating upwards
-                    this.speedX = (Math.random() * 1 - 0.5); // Slight drift
-                    this.opacity = Math.random() * 0.4 + 0.1; // Very subtle visibility
+                    this.y = Math.random() * canvas.height + canvas.height;
+                    this.size = Math.random() * 3 + 0.5;
+                    this.speedY = (Math.random() * 1.5 + 0.5) * -1;
+                    this.speedX = (Math.random() * 1 - 0.5);
+                    this.opacity = Math.random() * 0.4 + 0.1;
                 }
                 
                 update() {
                     this.y += this.speedY;
                     this.x += this.speedX;
-                    
-                    // Add a slight wave/drift to the floating chalk
                     this.x += Math.sin(this.y * 0.01) * 0.5;
                     
-                    // Reset particle to bottom when it floats off the top
                     if (this.y < 0 - this.size) {
                         this.y = canvas.height + this.size;
                         this.x = Math.random() * canvas.width;
@@ -2407,7 +2189,6 @@
                 for (let i = 0; i < numberOfParticles; i++) {
                     particlesArray.push(new Particle());
                 }
-                // Randomize starting Y positions so they don't all appear from the bottom at once
                 particlesArray.forEach(p => p.y = Math.random() * canvas.height);
             }
             
@@ -2445,8 +2226,8 @@
                 entries.forEach(entry => {
                     if(entry.isIntersecting) {
                         const target = +entry.target.getAttribute('data-target');
-                        const duration = 2000; // ms
-                        const increment = target / (duration / 16); // 60fps
+                        const duration = 2000;
+                        const increment = target / (duration / 16);
                         let currentCount = 0;
                         
                         const updateCounter = () => {
@@ -2470,20 +2251,19 @@
             });
 
             // 7. 3D Tilt Hover Effect for Product Cards
-            // Excludes touch devices to preserve mobile UX
             if(window.matchMedia("(pointer: fine)").matches) {
                 const tiltElements = document.querySelectorAll('.tilt-card');
                 
                 tiltElements.forEach(el => {
                     el.addEventListener('mousemove', (e) => {
                         const rect = el.getBoundingClientRect();
-                        const x = e.clientX - rect.left; // x position within the element.
-                        const y = e.clientY - rect.top;  // y position within the element.
+                        const x = e.clientX - rect.left;
+                        const y = e.clientY - rect.top;
                         
                         const centerX = rect.width / 2;
                         const centerY = rect.height / 2;
                         
-                        const rotateX = ((y - centerY) / centerY) * -5; // Max rotation degrees
+                        const rotateX = ((y - centerY) / centerY) * -5;
                         const rotateY = ((x - centerX) / centerX) * 5;
 
                         el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(1.02, 1.02, 1.02)`;
@@ -2493,10 +2273,9 @@
                     el.addEventListener('mouseleave', () => {
                         el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)`;
                         el.style.zIndex = 1;
-                        // Smooth reset
                         el.style.transition = 'transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)';
                         setTimeout(() => {
-                            el.style.transition = ''; // Remove to prevent lag on enter
+                            el.style.transition = '';
                         }, 500);
                     });
                 });
