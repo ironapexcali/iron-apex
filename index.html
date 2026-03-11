@@ -350,12 +350,9 @@
             object-fit: cover;
             object-position: center 20%; /* Keeps the athlete in frame */
             z-index: 1;
-            animation: heroBreathing 20s infinite alternate ease-in-out;
-        }
-
-        @keyframes heroBreathing {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
+            /* Added transform to work with JS Parallax */
+            transform: scale(1.05);
+            transition: transform 0.1s linear; 
         }
 
         /* Gradient overlay so text is readable */
@@ -1150,6 +1147,34 @@
         }
 
         /* ==========================================================================
+           NEW COOL ANIMATIONS (NEON FLICKER & CANVAS SYSTEM)
+           ========================================================================== */
+        @keyframes neonFlicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                opacity: 1;
+                text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow-strong);
+            }
+            20%, 24%, 55% {
+                opacity: 0.4;
+                text-shadow: none;
+            }
+        }
+
+        .flicker-effect {
+            animation: neonFlicker 6s infinite alternate;
+        }
+
+        #chalkCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            pointer-events: none; /* Crucial so you can still click things */
+            z-index: 9998; /* Underneath the grain overlay, over the background */
+        }
+
+        /* ==========================================================================
            RESPONSIVE DESIGN
            ========================================================================== */
         @media (max-width: 1024px) {
@@ -1230,6 +1255,8 @@
 </head>
 <body>
 
+    <canvas id="chalkCanvas"></canvas>
+
     <div class="promo-banner">
         ELITE PROTOCOLS. ONE-TIME PAYMENT. LIFETIME ACCESS ⚡️
     </div>
@@ -1244,7 +1271,7 @@
             </div>
             
             <div class="logo-container">
-                <a href="#" class="logo">IRON<span>APEX</span></a>
+                <a href="#" class="logo">IRON<span class="flicker-effect">APEX</span></a>
             </div>
             
             <div class="nav-icons-right">
@@ -1309,7 +1336,7 @@
                 <div>
                     <span class="eyebrow">ORIGIN</span>
                     <h2 class="section-title" style="line-height: 1.0; margin-bottom: 40px;">
-                        BEFORE WE GO FURTHER,<br><span class="text-accent">MY STORY.</span>
+                        BEFORE WE GO FURTHER,<br><span class="text-accent flicker-effect">MY STORY.</span>
                     </h2>
                     
                     <p class="story-text">
@@ -1381,7 +1408,7 @@
 
     <section id="equipment" class="zero-excuses">
         <div class="container">
-            <h2 class="zero-title">ZERO<br><span class="text-accent">EXCUSES.</span></h2>
+            <h2 class="zero-title">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
             <p class="zero-subtitle">You don't need a $200/month gym membership or heavy machinery to build elite power. To master your bodyweight, the requirements are absolute and minimal.</p>
             
             <div class="equipment-box">
@@ -1627,7 +1654,7 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <a href="#" class="footer-logo">IRON<span>APEX</span></a>
+                    <a href="#" class="footer-logo">IRON<span class="flicker-effect">APEX</span></a>
                     <p class="footer-desc">
                         Elite bodyweight strength programs designed for those who refuse to remain average. Build raw mechanical power.
                     </p>
@@ -1700,6 +1727,88 @@
             // Observe all elements we prepped (excluding the hero ones we already triggered)
             document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
                 .forEach(el => observer.observe(el));
+            
+            // 4. Parallax Hero Image on Scroll
+            const heroBg = document.querySelector('.hero-img-bg');
+            window.addEventListener('scroll', () => {
+                let scrollPos = window.scrollY;
+                if(scrollPos < window.innerHeight) {
+                    heroBg.style.transform = `translateY(${scrollPos * 0.3}px) scale(1.05)`;
+                }
+            });
+
+            // =====================================================================
+            // ADVANCED CHALK DUST PARTICLE SYSTEM 
+            // =====================================================================
+            const canvas = document.getElementById('chalkCanvas');
+            const ctx = canvas.getContext('2d');
+            
+            let particlesArray = [];
+            const numberOfParticles = 80; // Adjust for density
+            
+            // Resize canvas to match window
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+            
+            // Particle Class
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height + canvas.height; // Start slightly below screen
+                    this.size = Math.random() * 3 + 0.5; // Chalk dust is small and varied
+                    this.speedY = (Math.random() * 1.5 + 0.5) * -1; // Floating upwards
+                    this.speedX = (Math.random() * 1 - 0.5); // Slight drift
+                    this.opacity = Math.random() * 0.4 + 0.1; // Very subtle visibility
+                }
+                
+                update() {
+                    this.y += this.speedY;
+                    this.x += this.speedX;
+                    
+                    // Add a slight wave/drift to the floating chalk
+                    this.x += Math.sin(this.y * 0.01) * 0.5;
+                    
+                    // Reset particle to bottom when it floats off the top
+                    if (this.y < 0 - this.size) {
+                        this.y = canvas.height + this.size;
+                        this.x = Math.random() * canvas.width;
+                        this.opacity = Math.random() * 0.4 + 0.1;
+                    }
+                }
+                
+                draw() {
+                    ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            }
+            
+            function initParticles() {
+                particlesArray = [];
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
+                // Randomize starting Y positions so they don't all appear from the bottom at once
+                particlesArray.forEach(p => p.y = Math.random() * canvas.height);
+            }
+            
+            function animateParticles() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                }
+                requestAnimationFrame(animateParticles);
+            }
+            
+            initParticles();
+            animateParticles();
         });
     </script>
 
