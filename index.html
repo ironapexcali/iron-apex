@@ -355,7 +355,7 @@
         }
 
         /* ==========================================================================
-           HERO SECTION (FULL-SCREEN, CENTERED)
+           HERO SECTION (FULL EDGE-TO-EDGE CINEMATIC)
            ========================================================================== */
         @keyframes cinematicPan {
             0% { transform: scale(1.05) translate(0, 0); }
@@ -387,13 +387,14 @@
             animation: cinematicPan 25s ease-in-out infinite alternate;
         }
 
+        /* Restored simple linear gradient so photo isn't blurred/obscured */
         .hero-overlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle at 70% 50%, transparent 0%, rgba(0,0,0,0.7) 100%), linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.2) 100%);
+            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
             z-index: 2;
         }
 
@@ -431,6 +432,7 @@
             margin-bottom: 15px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.8);
         }
 
         .hero-desc {
@@ -441,6 +443,7 @@
             margin: 0 auto 50px auto;
             font-weight: 400;
             line-height: 1.6;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
         }
 
         .hero-links {
@@ -475,8 +478,8 @@
         .marquee-container {
             width: 100%;
             background-color: var(--accent-neon);
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding-top: 15px;
+            padding-bottom: 15px;
             overflow: hidden;
             white-space: nowrap;
         }
@@ -1394,9 +1397,9 @@
 
         <div class="hero-content">
             <h1 class="hero-title animate-up"><span class="glitch-wrapper" data-text="IRON APEX">IRON APEX</span><br>+STRICT +ELITE</h1>
-            <p class="hero-subtitle animate-up" style="transition-delay: 0.1s;">NEW ELITE PROTOCOLS UNLOCKED</p>
+            <p class="hero-subtitle animate-up" style="transition-delay: 0.1s;">NEW ELITE PROTOCOLS & 1-ON-1 COACHING UNLOCKED</p>
             <p class="hero-desc animate-up" style="transition-delay: 0.2s;">
-                The structured bodyweight training system designed to break plateaus. Master the muscle-up, front lever, and raw pulling power.
+                The structured bodyweight training system designed to break plateaus. Get direct 1-on-1 coaching to master the muscle-up, front lever, and raw pulling power.
             </p>
             
             <div class="hero-links animate-up" style="transition-delay: 0.3s;">
@@ -1482,12 +1485,104 @@
         </div>
     </section>
 
+    <section class="section-elevated">
+        <div class="bg-text-massive" style="top: 5%;">EVOLUTION</div>
+        <div class="container text-center">
+            <span class="eyebrow animate-up">THE PROCESS</span>
+            <h2 class="section-title animate-up">THE 1.5 YEAR BLUEPRINT</h2>
+            <p class="section-subtitle animate-up">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
+        </div>
+
+        <div class="timeline-container container">
+            <div class="timeline-item left animate-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 01 - 03</span>
+                    <h3 class="timeline-title oswald">THE AWAKENING</h3>
+                    <p>Starting from zero. Building the absolute baseline of connective tissue strength. Focusing heavily on scapular retraction, dead hangs, and negative pull-ups. The nervous system begins to adapt to your own bodyweight.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 04 - 06</span>
+                    <h3 class="timeline-title oswald">THE FORGE</h3>
+                    <p>Strict reps unlock. Hitting the 10 clean pull-up mark and 15 strict dips. Basic pike push-ups begin setting the foundation for handstands. The core solidifies with L-sits, preparing the foundation for dynamic transitions.</p>
+                </div>
+            </div>
+            <div class="timeline-item left animate-right">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 07 - 10</span>
+                    <h3 class="timeline-title oswald">THE CATALYST</h3>
+                    <p>The first muscle-up is achieved. Wall handstand push-ups (HSPU) are introduced. Weight is added to pull-ups (+10kg to +20kg) to force hyper-adaptation. Shoulders broaden, lats flare.</p>
+                </div>
+            </div>
+            <div class="timeline-item right animate-left">
+                <div class="timeline-content">
+                    <span class="timeline-date">MONTH 11 - 18</span>
+                    <h3 class="timeline-title oswald">IRON APEX</h3>
+                    <p>Elite mastery. Advanced statics like the Front Lever, 90-Degree HSPU, and freestanding balance become the primary focus. One-arm pull-up progressions start. You are engineering power.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-dark">
+        <div class="container">
+            <div class="anatomy-grid">
+                <div>
+                    <h2 class="section-title animate-up" style="font-size: clamp(40px, 6vw, 70px); text-align: left;">THE ANATOMY OF<br><span class="text-accent flicker-effect">ELITE STRENGTH</span></h2>
+                    <p class="story-text animate-up" style="margin-bottom: 50px;">
+                        To master the bar, you must understand the machine. This is how the Iron Apex protocols force your musculature to adapt.
+                    </p>
+
+                    <div class="anatomy-feature animate-up">
+                        <div class="anatomy-icon">01</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">SCAPULAR ENGAGEMENT</h4>
+                            <p class="text-secondary" style="font-size: 15px;">The absolute foundation. Before the elbows bend, the shoulders must lock down and back. Our beginner drills bulletproof your rotator cuffs.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.15s">
+                        <div class="anatomy-icon">02</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">LATISSIMUS DORSI</h4>
+                            <p class="text-secondary" style="font-size: 15px;">The wings. We bypass bicep-dominant pulling through mechanical cues, forcing the massive muscles of your back to take 80% of the load.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.3s">
+                        <div class="anatomy-icon">03</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">CORE COMPRESSION</h4>
+                            <p class="text-secondary" style="font-size: 15px;">A weak core bleeds force. By integrating hollow body holds and L-sits, we ensure zero energy is lost in the kinetic chain from hands to toes.</p>
+                        </div>
+                    </div>
+
+                    <div class="anatomy-feature animate-up" style="transition-delay: 0.45s">
+                        <div class="anatomy-icon">04</div>
+                        <div>
+                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">OVERHEAD MECHANICS</h4>
+                            <p class="text-secondary" style="font-size: 15px;">Mastering the freestanding handstand and strict handstand push-up (HSPU) requires absolute spatial awareness, wrist conditioning, and shoulder stability.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="founder-img-wrapper animate-left" style="border: 1px solid var(--border-medium);">
+                    <img src="IMG_8792.jpg" alt="Anatomy mapping of upper body" style="opacity: 0.6;">
+                    <div style="position: absolute; top: 30%; left: 20%; width: 12px; height: 12px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 15px var(--accent-neon);"></div>
+                    <div style="position: absolute; top: 30%; left: 20%; border-top: 2px solid var(--accent-neon); width: 60px; transform: translate(15px, 5px);"></div>
+                    <div style="position: absolute; top: 50%; right: 20%; width: 12px; height: 12px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 15px var(--accent-neon);"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <section id="results" class="section-elevated">
         <div class="bg-text-massive" style="top: 15%;">DATA & PROOF</div>
         <div class="container text-center">
             <span class="eyebrow animate-up">DATA & PROOF</span>
             <h2 class="section-title animate-up">UNDENIABLE PROOF</h2>
-            <p class="section-subtitle animate-up">A 1.5 year physical and mechanical evolution. I built the system I use.</p>
+            <p class="section-subtitle animate-up" style="margin: 0 auto;">A 1.5 year physical and mechanical evolution. I built the system I use.</p>
             
             <div class="proof-grid">
                 <div class="proof-box animate-up">
@@ -1568,7 +1663,7 @@
             
             <div class="program-grid">
 
-                <a href="baseline.html" class="program-card tilt-card">
+                <a href="baseline.html" class="program-card tilt-card animate-up">
                     <div class="program-tag">1-on-1 Direct Coaching</div>
                     <div class="program-card-img">
                         <img src="program-cover-baseline.jpg" alt="Baseline Form Coaching">
@@ -1601,7 +1696,7 @@
                     </div>
                 </a>
 
-                <a href="beginner.html" class="program-card tilt-card">
+                <a href="beginner.html" class="program-card tilt-card animate-up">
                     <div class="program-tag">0–3 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
@@ -1609,7 +1704,7 @@
                     <div class="program-card-content">
                         <h3 class="oswald">BEGINNER</h3>
                         <div class="program-price">$7.99</div>
-                        <p class="program-desc-main">For people starting calisthenics.</p>
+                        <p class="program-desc-main">For people starting calisthenics. <br><span style="color: var(--text-main); font-weight: 700;">Includes 1-on-1 Direct Coaching.</span></p>
                         
                         <div class="program-details">
                             <div class="detail-group">
@@ -1643,7 +1738,7 @@
                     </div>
                 </a>
 
-                <a href="intermediate.html" class="program-card tilt-card">
+                <a href="intermediate.html" class="program-card tilt-card animate-up">
                     <div class="program-tag">8–10 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
@@ -1651,7 +1746,7 @@
                     <div class="program-card-content">
                         <h3 class="oswald">INTERMEDIATE</h3>
                         <div class="program-price">$8.99</div>
-                        <p class="program-desc-main">Strength building stage.</p>
+                        <p class="program-desc-main">Strength building stage. <br><span style="color: var(--text-main); font-weight: 700;">Includes 1-on-1 Direct Coaching.</span></p>
                         
                         <div class="program-details">
                             <div class="detail-group">
@@ -1684,7 +1779,46 @@
                     </div>
                 </a>
 
-                <a href="advanced.html" class="program-card tilt-card">
+                <a href="muscleup.html" class="program-card card-special tilt-card animate-up">
+                    <div class="program-tag">10 Pull-Ups / 12 Dips</div>
+                    <div class="program-card-img">
+                        <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
+                    </div>
+                    <div class="program-card-content">
+                        <h3 class="oswald">MUSCLE-UP MASTER</h3>
+                        <div class="program-price">$12.99</div>
+                        <p class="program-desc-main" style="color: var(--text-main);">Specialized program. <br><span style="font-weight: 700;">Includes 1-on-1 Direct Coaching.</span></p>
+                        
+                        <div class="program-details">
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS:</span>
+                                <ul class="detail-list">
+                                    <li>10 strict pull-ups</li>
+                                    <li>12 dips</li>
+                                    <li>Explosive pull strength</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">GOAL:</span>
+                                <ul class="detail-list">
+                                    <li>Achieve first clean muscle-up</li>
+                                </ul>
+                            </div>
+                            <div class="detail-group">
+                                <span class="detail-title" style="color: var(--text-main);">FOCUS:</span>
+                                <ul class="detail-list">
+                                    <li>Explosive pull-ups</li>
+                                    <li>High pull-ups</li>
+                                    <li>Transition mechanics</li>
+                                    <li>Swing understanding</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-action">UNLOCK PROTOCOL FOR $12.99</div>
+                    </div>
+                </a>
+
+                <a href="advanced.html" class="program-card tilt-card animate-up">
                     <div class="program-tag">15 Pull-Ups</div>
                     <div class="program-card-img">
                         <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
@@ -1692,7 +1826,7 @@
                     <div class="program-card-content">
                         <h3 class="oswald">ADVANCED</h3>
                         <div class="program-price">$9.99</div>
-                        <p class="program-desc-main">Skill development phase.</p>
+                        <p class="program-desc-main">Skill development phase. <br><span style="color: var(--text-main); font-weight: 700;">Includes 1-on-1 Direct Coaching.</span></p>
                         
                         <div class="program-details">
                             <div class="detail-group">
@@ -1725,46 +1859,7 @@
                     </div>
                 </a>
 
-                <a href="muscleup.html" class="program-card card-special tilt-card">
-                    <div class="program-tag">10 Pull-Ups / 12 Dips</div>
-                    <div class="program-card-img">
-                        <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
-                    </div>
-                    <div class="program-card-content">
-                        <h3 class="oswald">MUSCLE-UP MASTER</h3>
-                        <div class="program-price">$12.99</div>
-                        <p class="program-desc-main" style="color: var(--text-main);">Specialized program.</p>
-                        
-                        <div class="program-details">
-                            <div class="detail-group">
-                                <span class="detail-title" style="color: var(--text-main);">REQUIREMENTS:</span>
-                                <ul class="detail-list">
-                                    <li>10 strict pull-ups</li>
-                                    <li>12 dips</li>
-                                    <li>Explosive pull strength</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title" style="color: var(--text-main);">GOAL:</span>
-                                <ul class="detail-list">
-                                    <li>Achieve first clean muscle-up</li>
-                                </ul>
-                            </div>
-                            <div class="detail-group">
-                                <span class="detail-title" style="color: var(--text-main);">FOCUS:</span>
-                                <ul class="detail-list">
-                                    <li>Explosive pull-ups</li>
-                                    <li>High pull-ups</li>
-                                    <li>Transition mechanics</li>
-                                    <li>Swing understanding</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="card-action">UNLOCK PROTOCOL FOR $12.99</div>
-                    </div>
-                </a>
-
-                <a href="elite.html" class="program-card tilt-card">
+                <a href="elite.html" class="program-card tilt-card animate-up">
                     <div class="program-tag">Muscle-Up & Front Lever</div>
                     <div class="program-card-img">
                         <img src="program-cover-elite.jpg" alt="Elite Protocol">
@@ -1772,7 +1867,7 @@
                     <div class="program-card-content">
                         <h3 class="oswald">ELITE SYSTEM</h3>
                         <div class="program-price">$11.99</div>
-                        <p class="program-desc-main">The pinnacle of bodyweight mastery.</p>
+                        <p class="program-desc-main">The pinnacle of bodyweight mastery. <br><span style="color: var(--text-main); font-weight: 700;">Includes 1-on-1 Direct Coaching.</span></p>
                         
                         <div class="program-details">
                             <div class="detail-group">
@@ -1882,6 +1977,7 @@
             applyAnimation('.proof-box', 'animate-scale', true);
             applyAnimation('.zero-title, .zero-subtitle', 'animate-up');
             applyAnimation('.equipment-box', 'animate-scale');
+            // Program cards are intentionally left out of this animation call so they don't pop suddenly
             applyAnimation('.faq-wrapper details', 'animate-up', true);
 
             // 3. Intersection Observer to trigger animations on scroll
