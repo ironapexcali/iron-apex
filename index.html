@@ -7,7 +7,8 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;800&family=Oswald:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         /* ==========================================================================
@@ -15,15 +16,15 @@
            ========================================================================== */
 
         :root {
-            /* Brand Identity Colors - Deep Dark Theme */
-            --bg-pure: #000000;
-            --bg-elevated: #090909;
-            --bg-card: #111111;
-            --bg-card-hover: #161616;
+            /* Brand Identity Colors - Updated Dark Theme */
+            --bg-pure: #0f0f0f;
+            --bg-elevated: #141414;
+            --bg-card: #1a1a1a;
+            --bg-card-hover: #222222;
             
             /* E-Commerce Banner Color */
             --bg-promo: #f5f5f5;
-            --text-promo: #000000;
+            --text-promo: #0f0f0f;
             
             /* Border System */
             --border-light: rgba(255, 255, 255, 0.08);
@@ -32,19 +33,19 @@
             
             /* Typography System */
             --text-main: #ffffff;
-            --text-secondary: #999999;
+            --text-secondary: #b0b0b0;
             --text-tertiary: #666666;
             --text-dark: #000000;
             
-            /* The Apex Accent - Aggressive Red/Orange */
-            --accent-neon: #ff3300; 
-            --accent-glow: rgba(255, 51, 0, 0.25);
-            --accent-glow-strong: rgba(255, 51, 0, 0.5);
+            /* The Apex Accent - Updated Red */
+            --accent-neon: #ff3b3b; 
+            --accent-glow: rgba(255, 59, 59, 0.25);
+            --accent-glow-strong: rgba(255, 59, 59, 0.5);
             
             /* Spacing & Layout */
             --container-w: 1440px;
-            --section-padding-y: 160px;
-            --section-padding-x: 24px;
+            --section-padding-y: 100px;
+            --section-padding-x: 10vw;
             
             /* Transitions */
             --ease-fast: 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -78,6 +79,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: var(--text-main);
+            font-size: 18px;
             line-height: 1.6;
             padding-bottom: 90px;
             position: relative;
@@ -112,7 +114,7 @@
             left: 5%;
             width: 90%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 51, 0, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 59, 59, 0.15), transparent);
             z-index: 10;
             pointer-events: none;
         }
@@ -120,11 +122,11 @@
         /* ==========================================================================
            2. GLOBAL TYPOGRAPHY & UTILITIES
            ========================================================================== */
-        h1, h2, h3, h4, h5, .oswald {
-            font-family: 'Oswald', sans-serif;
+        h1, h2, h3, h4, h5, .bebas {
+            font-family: 'Bebas Neue', sans-serif;
             text-transform: uppercase;
             line-height: 1.1;
-            letter-spacing: -0.01em;
+            letter-spacing: 2px;
         }
 
         .text-accent { 
@@ -138,8 +140,8 @@
             max-width: var(--container-w);
             margin-left: auto;
             margin-right: auto;
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: var(--section-padding-x);
+            padding-right: var(--section-padding-x);
             position: relative;
             z-index: 2;
         }
@@ -149,9 +151,8 @@
             position: absolute;
             top: 5%;
             left: -5%;
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Bebas Neue', sans-serif;
             font-size: 22vw;
-            font-weight: 900;
             color: transparent;
             -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
             text-transform: uppercase;
@@ -163,17 +164,16 @@
         }
 
         .section-title {
-            font-size: clamp(50px, 8vw, 100px); 
-            font-weight: 900;
+            font-size: clamp(40px, 6vw, 50px); 
             margin-bottom: 25px;
-            letter-spacing: -2px;
+            letter-spacing: 2px;
             position: relative;
             z-index: 2;
             text-transform: uppercase;
         }
 
         .section-subtitle {
-            font-size: clamp(18px, 2vw, 22px);
+            font-size: 18px;
             color: var(--text-secondary);
             max-width: 700px;
             margin-bottom: 70px;
@@ -184,15 +184,14 @@
         }
 
         .eyebrow {
-            font-family: 'Oswald', sans-serif;
-            font-size: 16px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 20px;
             letter-spacing: 4px;
             color: var(--accent-neon);
             margin-bottom: 20px;
             display: inline-flex;
             align-items: center;
             gap: 15px;
-            font-weight: 700;
             text-transform: uppercase;
         }
         
@@ -213,6 +212,14 @@
             max-width: 600px;
         }
 
+        /* Hover Zoom for Images */
+        img {
+            transition: transform var(--ease-smooth);
+        }
+        a:hover img, .founder-img-wrapper:hover img {
+            transform: scale(1.05);
+        }
+
         /* ==========================================================================
            3. E-COMMERCE BUTTON SYSTEM
            ========================================================================== */
@@ -220,15 +227,15 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding-top: 24px;
-            padding-bottom: 24px;
-            padding-left: 55px;
-            padding-right: 55px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 18px;
+            padding-top: 14px;
+            padding-bottom: 14px;
+            padding-left: 32px;
+            padding-right: 32px;
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
             font-weight: 800;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-decoration: none;
             cursor: pointer;
             border: none;
@@ -236,7 +243,7 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border-radius: 2px;
+            border-radius: 8px;
         }
 
         .btn-solid {
@@ -249,7 +256,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #ff4d1a;
+            background-color: #d12e2e; /* Darker red */
             transform: translateY(100%);
             transition: var(--ease-smooth);
             z-index: -1;
@@ -257,8 +264,8 @@
 
         .btn-solid:hover {
             color: var(--text-main);
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px var(--accent-glow-strong);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px var(--accent-glow-strong);
         }
 
         .btn-solid:hover::after {
@@ -274,7 +281,7 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.75);
+            background-color: rgba(15, 15, 15, 0.85);
             backdrop-filter: blur(15px);
             -webkit-backdrop-filter: blur(15px);
             border-bottom: 1px solid var(--border-light);
@@ -298,7 +305,7 @@
             text-decoration: none;
             font-family: 'Inter', sans-serif;
             font-weight: 600;
-            font-size: 13px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: color 0.3s ease;
@@ -316,9 +323,8 @@
         }
 
         .logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 36px;
-            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 40px;
             text-decoration: none;
             color: var(--text-main);
             letter-spacing: 2px;
@@ -364,7 +370,7 @@
 
         .hero {
             position: relative;
-            min-height: 100vh;
+            height: 90vh;
             width: 100vw;
             display: flex;
             flex-direction: column;
@@ -393,7 +399,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            background: rgba(15, 15, 15, 0.75); /* Dark overlay */
             z-index: 2;
         }
 
@@ -403,8 +409,8 @@
             width: 100%;
             max-width: var(--container-w);
             margin: 0 auto;
-            padding-left: 40px;
-            padding-right: 40px;
+            padding-left: var(--section-padding-x);
+            padding-right: var(--section-padding-x);
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -412,14 +418,11 @@
         }
 
         .hero-title {
-            font-family: 'Oswald', sans-serif;
-            font-size: clamp(45px, 12vw, 170px);
-            font-weight: 900;
-            line-height: 0.85;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(70px, 12vw, 90px);
             color: var(--text-main);
-            margin-bottom: 30px;
-            text-transform: uppercase;
-            letter-spacing: -3px;
+            margin-bottom: 10px;
+            letter-spacing: 4px;
             text-shadow: 0 10px 40px rgba(0,0,0,0.9);
         }
 
@@ -436,7 +439,7 @@
 
         .hero-desc {
             font-family: 'Inter', sans-serif;
-            font-size: clamp(14px, 1.8vw, 18px);
+            font-size: 18px;
             color: #dddddd;
             max-width: 700px;
             margin: 0 auto 50px auto;
@@ -453,22 +456,24 @@
         }
 
         .hero-link {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Inter', sans-serif;
             font-size: 16px;
             font-weight: 700;
             color: var(--text-main);
             text-decoration: none;
             text-transform: uppercase;
-            padding: 20px 45px;
+            padding: 14px 32px;
             border: 2px solid var(--border-medium);
+            border-radius: 8px;
             transition: all 0.3s ease;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         .hero-link:hover {
             background-color: var(--text-main);
             color: var(--bg-pure);
             border-color: var(--text-main);
+            transform: scale(1.05);
         }
 
         /* ==========================================================================
@@ -486,11 +491,9 @@
         .marquee-content {
             display: inline-block;
             animation: marquee 25s linear infinite;
-            font-family: 'Oswald', sans-serif;
-            font-size: 24px;
-            font-weight: 800;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 28px;
             color: var(--text-main);
-            text-transform: uppercase;
             letter-spacing: 2px;
         }
 
@@ -524,15 +527,33 @@
         }
 
         /* ==========================================================================
-           THE PROBLEM / HONESTY SECTION (GRID CONVERSION)
+           CARD LAYOUT UPDATES (Global for Honesty, Program, etc)
+           ========================================================================== */
+        .honesty-card, .timeline-content, .anatomy-feature, .coaching-highlight, .equipment-box {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--border-light);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+            position: relative;
+        }
+
+        .honesty-card:hover, .timeline-content:hover, .anatomy-feature:hover, .equipment-box:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-medium);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            background-color: var(--bg-card-hover);
+        }
+
+        /* ==========================================================================
+           THE PROBLEM / HONESTY SECTION
            ========================================================================== */
         .honesty-intro {
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
             color: var(--text-main);
             margin-bottom: 10px;
             letter-spacing: 1px;
-            font-weight: 600;
             text-align: center;
         }
 
@@ -541,17 +562,6 @@
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
             margin-top: 80px;
-        }
-
-        .honesty-card {
-            background-color: var(--bg-card);
-            padding: 60px 40px;
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            text-align: center;
-            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
-            position: relative;
-            overflow: hidden;
         }
 
         /* Hover border top effect */
@@ -563,13 +573,7 @@
             transform: scaleX(0);
             transition: transform 0.4s ease;
             transform-origin: left;
-        }
-
-        .honesty-card:hover {
-            transform: translateY(-10px);
-            border-color: var(--border-medium);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            background-color: var(--bg-card-hover);
+            border-radius: 12px 12px 0 0;
         }
 
         .honesty-card:hover::before {
@@ -580,7 +584,7 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 30px auto;
-            background: rgba(255, 51, 0, 0.1);
+            background: rgba(255, 59, 59, 0.1);
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -597,16 +601,79 @@
         }
 
         .honesty-card h3 {
-            font-size: 28px;
-            margin-bottom: 20px;
+            font-size: 32px;
+            margin-bottom: 15px;
             color: var(--text-main);
-            letter-spacing: 1px;
         }
 
         .honesty-card p {
             color: var(--text-secondary);
             font-size: 16px;
             line-height: 1.7;
+        }
+
+        /* ==========================================================================
+           NEW SKILLS SECTION
+           ========================================================================== */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .skill-card {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            border: 1px solid var(--border-light);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.5);
+            border-color: var(--border-medium);
+            background-color: var(--bg-card-hover);
+        }
+        
+        .skill-icon {
+            font-size: 40px;
+            color: var(--accent-neon);
+            margin-bottom: 20px;
+        }
+
+        /* ==========================================================================
+           NEW QUOTE SECTION
+           ========================================================================== */
+        .quote-section {
+            position: relative;
+            background-image: url('IMG_8792.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            padding: 150px 0;
+            text-align: center;
+        }
+        
+        .quote-overlay {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 15, 15, 0.85);
+            z-index: 1;
+        }
+        
+        .quote-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .quote-text {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(50px, 8vw, 80px);
+            color: var(--text-main);
+            letter-spacing: 2px;
         }
 
         /* ==========================================================================
@@ -631,7 +698,7 @@
         .founder-img-wrapper {
             position: relative;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 12px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
 
@@ -639,12 +706,10 @@
             width: 100%;
             display: block;
             filter: grayscale(100%) contrast(1.1);
-            transition: filter 0.6s ease, transform 0.6s ease;
         }
 
         .founder-img-wrapper:hover img {
             filter: grayscale(0%) contrast(1);
-            transform: scale(1.03);
         }
 
         .stat-list {
@@ -656,9 +721,8 @@
             padding-top: 20px;
             padding-bottom: 20px;
             border-bottom: 1px solid var(--border-light);
-            font-family: 'Oswald', sans-serif;
-            font-size: 20px;
-            font-weight: 600;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -668,7 +732,6 @@
 
         .stat-list li span {
             color: var(--accent-neon);
-            font-weight: 800;
         }
 
         /* ==========================================================================
@@ -713,31 +776,18 @@
             box-shadow: 0 0 20px var(--accent-glow-strong);
         }
         .timeline-item.right::after { left: -12px; }
-        .timeline-content {
-            padding: 40px;
-            background-color: var(--bg-card);
-            position: relative;
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            transition: transform 0.4s ease, border-color 0.4s ease;
-        }
-        .timeline-content:hover {
-            transform: translateY(-5px);
-            border-color: var(--border-medium);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
-        }
+        
         .timeline-date {
-            font-family: 'Oswald', sans-serif;
+            font-family: 'Bebas Neue', sans-serif;
             color: var(--accent-neon);
-            font-size: 18px;
+            font-size: 22px;
             letter-spacing: 2px;
             margin-bottom: 10px;
             display: block;
         }
         .timeline-title {
-            font-size: 26px;
+            font-size: 30px;
             margin-bottom: 15px;
-            letter-spacing: 1px;
         }
         .timeline-content p {
             color: var(--text-secondary);
@@ -759,17 +809,6 @@
             align-items: flex-start;
             gap: 25px;
             margin-bottom: 40px;
-            padding: 30px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        .anatomy-feature:hover {
-            border-color: var(--accent-neon);
-            transform: translateX(10px);
-            background: var(--bg-card-hover);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
         }
         .anatomy-icon {
             width: 60px;
@@ -780,28 +819,27 @@
             align-items: center;
             justify-content: center;
             color: var(--accent-neon);
-            font-family: 'Oswald';
-            font-weight: 900;
-            font-size: 24px;
+            font-family: 'Bebas Neue';
+            font-size: 28px;
             flex-shrink: 0;
         }
 
         /* ==========================================================================
-           PROOF & TRANSFORMATIONS (GRID SPACING)
+           PROOF & TRANSFORMATIONS
            ========================================================================== */
         .proof-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px; /* Increased gap to avoid crowded look */
+            gap: 40px;
             margin-top: 60px;
         }
 
         .proof-box {
             position: relative;
-            height: 800px; /* Consistent size */
+            height: 800px;
             background-color: var(--bg-card);
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 12px;
             border: 1px solid var(--border-light);
         }
 
@@ -824,16 +862,15 @@
             position: absolute;
             bottom: 40px;
             left: 40px;
-            background-color: rgba(0,0,0,0.9);
+            background-color: rgba(15,15,15,0.9);
             color: var(--text-main);
             padding: 15px 30px;
-            font-family: 'Oswald', sans-serif;
-            font-size: 22px;
-            font-weight: 800;
-            text-transform: uppercase;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 24px;
             letter-spacing: 2px;
             z-index: 2;
             border-left: 4px solid var(--text-main);
+            border-radius: 4px;
         }
 
         .proof-label.accent {
@@ -844,22 +881,13 @@
         .client-grid {
             display: grid;
             grid-template-columns: 1fr;
-            max-width: 800px; /* Narrower max-width for focus */
+            max-width: 800px; 
             margin: 60px auto 0 auto;
         }
 
         /* ==========================================================================
              DEDICATED COACHING SECTION
              ========================================================================== */
-        .coaching-highlight {
-            padding: 80px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-medium);
-            border-radius: 4px;
-            position: relative;
-            overflow: hidden;
-        }
-        
         .coaching-highlight::before {
             content: '';
             position: absolute;
@@ -871,42 +899,28 @@
            ZERO EXCUSES SECTION
            ========================================================================== */
         .zero-title {
-            font-size: clamp(40px, 10vw, 150px); /* Mobile fix */
-            font-family: 'Oswald', sans-serif;
-            font-weight: 900;
+            font-size: clamp(40px, 10vw, 150px);
+            font-family: 'Bebas Neue', sans-serif;
             line-height: 0.9;
             margin-bottom: 30px;
-            letter-spacing: -2px;
+            letter-spacing: 2px;
         }
 
         .equipment-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-medium);
-            padding: 60px;
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 4px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-        }
-
-        .equipment-box:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border-color: var(--accent-neon);
         }
 
         .equipment-box h3 {
-            font-family: 'Oswald', sans-serif;
-            text-transform: uppercase;
-            font-size: 32px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 38px;
             color: var(--text-main);
             margin-bottom: 15px;
-            letter-spacing: 1px;
         }
 
         .equipment-box span {
-            font-family: 'Oswald', sans-serif;
-            font-size: 22px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 26px;
             color: var(--accent-neon);
             letter-spacing: 3px;
             text-shadow: 0 0 10px var(--accent-glow);
@@ -926,16 +940,16 @@
             flex-direction: column;
             text-decoration: none;
             color: var(--text-main);
-            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: var(--bg-card);
+            border: 1px solid var(--border-light);
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-radius: 12px;
         }
 
         .program-card-img {
-            height: 350px; 
+            height: 300px; 
             background-color: #1a1a1a;
             display: flex;
             align-items: center;
@@ -944,17 +958,15 @@
             overflow: hidden;
         }
 
-        /* Image Gradient Overlay for blending */
         .program-card-img::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, var(--bg-elevated) 100%);
+            background: linear-gradient(to bottom, transparent 50%, var(--bg-card) 100%);
             z-index: 3;
             pointer-events: none;
         }
 
-        /* Placeholder graphic for missing images */
         .program-card-img::before {
             content: '';
             position: absolute;
@@ -987,34 +999,29 @@
             left: 20px;
             background-color: var(--text-main);
             color: var(--text-dark);
-            font-family: 'Oswald', sans-serif;
-            font-size: 13px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 16px;
             padding: 8px 15px;
-            font-weight: 700;
-            text-transform: uppercase;
+            border-radius: 4px;
             letter-spacing: 1px;
             z-index: 5;
             transition: background-color 0.3s ease;
         }
 
         .program-card h3 {
-            font-size: 32px;
+            font-size: 38px;
             margin-bottom: 5px;
-            letter-spacing: 1px;
         }
 
-        /* MASSIVE PRICE TAG DESIGN */
         .program-price {
-            font-family: 'Oswald', sans-serif;
-            font-size: 38px;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
             color: var(--accent-neon);
             margin-bottom: 20px;
-            font-weight: 900;
-            letter-spacing: 1px;
             display: flex;
             align-items: center;
             gap: 10px;
-            text-shadow: 0 0 20px rgba(255, 51, 0, 0.3);
+            text-shadow: 0 0 20px rgba(255, 59, 59, 0.3);
         }
 
         .program-price::before {
@@ -1090,6 +1097,7 @@
             border: 2px solid var(--border-medium);
             text-align: center;
             padding: 20px;
+            border-radius: 8px;
             transition: all 0.3s ease;
             width: 100%;
             cursor: pointer;
@@ -1099,7 +1107,7 @@
         /* Hover Effects */
         .program-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255, 51, 0, 0.15);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255, 59, 59, 0.15);
             border-color: var(--accent-neon);
         }
 
@@ -1111,8 +1119,9 @@
         .program-card:hover .card-action {
             background-color: var(--accent-neon);
             border-color: var(--accent-neon);
-            color: var(--text-dark);
+            color: var(--text-main);
             box-shadow: 0 0 20px var(--accent-glow-strong);
+            transform: scale(1.02);
         }
 
         .program-card:hover .detail-group {
@@ -1126,12 +1135,12 @@
 
         /* Muscle-Up Special Card */
         .card-special {
-            border-color: rgba(255, 51, 0, 0.3);
+            border-color: rgba(255, 59, 59, 0.3);
         }
         
         .card-special .program-tag {
             background-color: var(--accent-neon);
-            color: var(--text-dark);
+            color: var(--text-main);
         }
 
         .card-special:hover {
@@ -1153,6 +1162,7 @@
             padding: 20px 30px;
             background-color: var(--bg-pure);
             border: 1px solid var(--border-medium);
+            border-radius: 8px;
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             font-size: 16px;
@@ -1216,7 +1226,7 @@
            FOOTER (MINIMAL & CLEAN)
            ========================================================================== */
         footer {
-            background-color: var(--bg-pure);
+            background-color: #000000;
             padding-top: 100px;
             padding-bottom: 50px;
             border-top: 1px solid var(--border-light);
@@ -1232,9 +1242,8 @@
         }
 
         .footer-logo {
-            font-family: 'Oswald', sans-serif;
-            font-size: 40px;
-            font-weight: 900;
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 44px;
             color: var(--text-main);
             text-decoration: none;
             letter-spacing: 2px;
@@ -1332,7 +1341,7 @@
         }
         .stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%; text-align: center; }
         .stat-item { display: flex; flex-direction: column; gap: 10px; }
-        .stat-number { font-family: 'Oswald', sans-serif; font-size: clamp(40px, 5vw, 70px); font-weight: 900; color: var(--accent-neon); line-height: 1; text-shadow: 0 0 20px var(--accent-glow); }
+        .stat-number { font-family: 'Bebas Neue', sans-serif; font-size: clamp(40px, 5vw, 70px); color: var(--accent-neon); line-height: 1; text-shadow: 0 0 20px var(--accent-glow); }
         .stat-label { font-family: 'Inter', sans-serif; font-size: 14px; text-transform: uppercase; letter-spacing: 2px; color: var(--text-secondary); font-weight: 600; }
 
         .tilt-card { transform-style: preserve-3d; transform: perspective(1000px); }
@@ -1345,11 +1354,11 @@
             .nav-links-left { display: none; }
             .logo-container { position: static; transform: none; }
             
-            .hero { height: auto; min-height: 100vh; }
+            .hero { height: auto; min-height: 90vh; }
             .hero-content { margin-top: 120px; }
             
             .founder-grid, .anatomy-grid { grid-template-columns: 1fr; gap: 60px; }
-            .proof-grid, .program-grid, .honesty-grid { grid-template-columns: 1fr; }
+            .proof-grid, .program-grid, .honesty-grid, .skills-grid { grid-template-columns: 1fr; }
             
             .stats-grid { grid-template-columns: 1fr; gap: 50px; }
             .timeline-container::after { left: 31px; }
@@ -1369,11 +1378,11 @@
             }
             
             .nav-inner { height: 70px; }
-            .logo { font-size: 24px; }
+            .logo { font-size: 30px; }
             
             .hero { padding-top: 80px; padding-bottom: 80px; }
             .hero-content { margin-top: 0; padding-left: 20px; padding-right: 20px; }
-            .hero-title { font-size: clamp(45px, 12vw, 70px); margin-bottom: 15px; letter-spacing: -1px; }
+            .hero-title { font-size: clamp(45px, 12vw, 70px); margin-bottom: 15px; letter-spacing: 2px; }
             .hero-subtitle { font-size: 16px; margin-bottom: 15px; }
             .hero-desc { font-size: 14px; margin-bottom: 30px; }
             
@@ -1388,7 +1397,7 @@
             .honesty-card { padding: 40px 20px; }
             
             .founder-grid { gap: 40px; }
-            .stat-list li { font-size: 16px; flex-direction: column; align-items: flex-start; gap: 5px; }
+            .stat-list li { font-size: 18px; flex-direction: column; align-items: flex-start; gap: 5px; }
             .stat-list li span { align-self: flex-start; }
 
             .timeline-container { padding: 20px 0; }
@@ -1397,7 +1406,7 @@
             .timeline-item.right { left: 0%; }
             .timeline-item::after, .timeline-item.right::after { left: 8px !important; top: 15px; width: 20px; height: 20px; }
             .timeline-content { padding: 25px 20px; }
-            .timeline-title { font-size: 22px; }
+            .timeline-title { font-size: 26px; }
 
             .anatomy-grid { gap: 40px; }
             .anatomy-feature { padding: 20px; flex-direction: column; align-items: center; text-align: center; }
@@ -1405,25 +1414,25 @@
             .proof-grid { gap: 20px; }
             .proof-box { height: 400px; }
             .client-grid .proof-box { height: 400px; }
-            .proof-label { font-size: 18px; padding: 10px 20px; bottom: 20px; left: 20px; }
+            .proof-label { font-size: 20px; padding: 10px 20px; bottom: 20px; left: 20px; }
 
             .coaching-highlight { padding: 40px 20px; }
             
             .equipment-box { padding: 40px 20px; }
-            .equipment-box h3 { font-size: 24px; }
-            .equipment-box span { font-size: 16px; }
+            .equipment-box h3 { font-size: 28px; }
+            .equipment-box span { font-size: 20px; }
 
             .program-grid { gap: 30px; }
             .program-card-content { padding: 30px 20px; }
-            .program-card h3 { font-size: 26px; }
-            .program-price { font-size: 30px; }
+            .program-card h3 { font-size: 30px; }
+            .program-price { font-size: 34px; }
             
             .container { padding-left: 20px; padding-right: 20px; }
             .footer-bottom { gap: 15px; }
             
             .mobile-sticky-cta { 
                 display: block; 
-                background: linear-gradient(to top, rgba(0,0,0,0.95) 60%, rgba(0,0,0,0));
+                background: linear-gradient(to top, rgba(15,15,15,0.95) 60%, rgba(15,15,15,0));
                 padding-bottom: 25px;
                 z-index: 10002; 
             }
@@ -1451,10 +1460,11 @@
     <header>
         <div class="container nav-inner">
             <div class="nav-links-left">
-                <a href="#results">Transformations</a>
-                <a href="#coaching">Coaching</a>
+                <a href="#home">Home</a>
                 <a href="#programs">Programs</a>
-                <a href="#clients">Client Progress</a>
+                <a href="#skills">Skills</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
             </div>
             
             <div class="logo-container">
@@ -1469,19 +1479,19 @@
         </div>
     </header>
 
-    <section class="hero">
+    <section id="home" class="hero">
         <img src="IMG_8792.jpg" alt="Iron Apex Training" class="hero-img-bg">
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1 class="hero-title animate-up"><span class="glitch-wrapper" data-text="IRON APEX">IRON APEX</span><br>+STRICT +ELITE</h1>            <p class="hero-subtitle animate-up" style="transition-delay: 0.1s;">NEW ELITE PROTOCOLS & 1-ON-1 COACHING</p>
+            <h1 class="hero-title animate-up"><span class="glitch-wrapper" data-text="IRON APEX">IRON APEX</span></h1>            
+            <p class="hero-subtitle animate-up" style="transition-delay: 0.1s;">ELITE CALISTHENICS TRAINING</p>
             <p class="hero-desc animate-up" style="transition-delay: 0.2s;">
                 A no-BS bodyweight training system built to crush plateaus. Let me personally coach you to master the muscle-up, front lever, and build serious pulling strength.
             </p>
             
             <div class="hero-links animate-up" style="transition-delay: 0.3s;">
-                <a href="#programs" class="hero-link">SHOP BEGINNER</a>
-                <a href="#programs" class="hero-link">SHOP ADVANCED</a>
+                <a href="#programs" class="btn btn-solid">START TRAINING</a>
             </div>
         </div>
     </section>
@@ -1496,40 +1506,83 @@
         <div class="container text-center">
             <span class="eyebrow animate-up">I'M GOING TO BE COMPLETELY HONEST.</span>
             <h2 class="section-title animate-up">THE HARSH TRUTH</h2>
-            <p class="section-subtitle animate-up">Most workout programs just want to make you sweat, not actually get you strong. If you want to unlock high-level skills, you have to stop guessing and start training smart.</p>
+            <p class="section-subtitle animate-up" style="margin: 0 auto 70px auto;">Most workout programs just want to make you sweat, not actually get you strong. If you want to unlock high-level skills, you have to stop guessing and start training smart.</p>
             
             <div class="honesty-grid">
                 <div class="honesty-card animate-up" data-num="01">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     </div>
-                    <h3 class="oswald">NO ENDLESS REPS</h3>
+                    <h3 class="bebas">NO ENDLESS REPS</h3>
                     <p>You don't need to bang out 500 pushups every day. You need smart, progressive overload that actually targets your weak links.</p>
                 </div>
                 <div class="honesty-card animate-up" data-num="02" style="transition-delay: 0.15s;">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     </div>
-                    <h3 class="oswald">NO GENETIC LOTTERY</h3>
+                    <h3 class="bebas">NO GENETIC LOTTERY</h3>
                     <p>Skills like the muscle-up and front lever aren't just for Olympic gymnasts. It's just about learning the right leverage and putting in the work.</p>
                 </div>
                 <div class="honesty-card animate-up" data-num="03" style="transition-delay: 0.3s;">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                     </div>
-                    <h3 class="oswald">NO RANDOM WORKOUTS</h3>
+                    <h3 class="bebas">NO RANDOM WORKOUTS</h3>
                     <p>Random workouts give you random results. Iron Apex gives you the exact step-by-step roadmap to reach your goals.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="founder" class="section-dark">
+    <section id="skills" class="section-dark">
+        <div class="container text-center">
+            <span class="eyebrow animate-up">CORE MASTERY</span>
+            <h2 class="section-title animate-up">ELITE CALISTHENICS SKILLS</h2>
+            <p class="section-subtitle animate-up" style="margin: 0 auto;">The pillars of bodyweight strength we focus on.</p>
+            
+            <div class="skills-grid">
+                <div class="skill-card animate-up">
+                    <i class="fa-solid fa-arrow-up-right-dots skill-icon"></i>
+                    <h3 class="bebas" style="font-size: 28px; margin-bottom: 10px;">Muscle Up</h3>
+                    <p class="text-secondary" style="font-size: 15px;">Explosive pulling power and strict transition mechanics.</p>
+                </div>
+                <div class="skill-card animate-up" style="transition-delay: 0.1s;">
+                    <i class="fa-solid fa-ruler-horizontal skill-icon"></i>
+                    <h3 class="bebas" style="font-size: 28px; margin-bottom: 10px;">Front Lever</h3>
+                    <p class="text-secondary" style="font-size: 15px;">Extreme core compression and straight-arm lat strength.</p>
+                </div>
+                <div class="skill-card animate-up" style="transition-delay: 0.2s;">
+                    <i class="fa-solid fa-hand-holding-hand skill-icon"></i>
+                    <h3 class="bebas" style="font-size: 28px; margin-bottom: 10px;">Planche</h3>
+                    <p class="text-secondary" style="font-size: 15px;">Elite anterior deltoid and straight-arm tendon integrity.</p>
+                </div>
+                <div class="skill-card animate-up" style="transition-delay: 0.3s;">
+                    <i class="fa-solid fa-child-reaching skill-icon"></i>
+                    <h3 class="bebas" style="font-size: 28px; margin-bottom: 10px;">Handstand Push-Up</h3>
+                    <p class="text-secondary" style="font-size: 15px;">Massive overhead pressing power balancing on your hands.</p>
+                </div>
+                <div class="skill-card animate-up" style="transition-delay: 0.4s;">
+                    <i class="fa-solid fa-flag skill-icon"></i>
+                    <h3 class="bebas" style="font-size: 28px; margin-bottom: 10px;">Human Flag</h3>
+                    <p class="text-secondary" style="font-size: 15px;">Unmatched lateral core strength and shoulder stability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quote-section">
+        <div class="quote-overlay"></div>
+        <div class="quote-content container">
+            <h2 class="quote-text animate-up" style="text-shadow: 0 5px 20px rgba(0,0,0,0.8);">"STRENGTH IS EARNED, NOT GIVEN."</h2>
+        </div>
+    </section>
+
+    <section id="about" class="section-elevated">
         <div class="container">
             <div class="founder-grid">
                 <div class="animate-up">
                     <span class="eyebrow" style="justify-content: flex-start; color: var(--text-main);">ORIGIN</span>
-                    <h2 class="section-title" style="text-align: left; margin-bottom: 40px; font-size: clamp(40px, 6vw, 80px);">
+                    <h2 class="section-title" style="text-align: left; margin-bottom: 40px; font-size: clamp(40px, 6vw, 70px);">
                         BEFORE WE GO FURTHER,<br><span class="text-accent flicker-effect">MY STORY.</span>
                     </h2>
                     
@@ -1545,7 +1598,7 @@
                         I've figured out the blueprint, and I'm ready to share it with you... 🔑
                     </p>
 
-                    <h4 class="animate-up" style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
+                    <h4 class="animate-up" style="font-size: 20px; font-family: 'Bebas Neue'; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px; letter-spacing: 2px;">CURRENT BENCHMARKS</h4>
                     <ul class="stat-list">
                         <li class="animate-left">One-Arm Pull-Up <span>Unlocked</span></li>
                         <li class="animate-left" style="transition-delay: 0.1s;">Handstand Push-Ups <span>Mastered</span></li>
@@ -1563,51 +1616,51 @@
         </div>
     </section>
 
-    <section class="section-elevated">
+    <section class="section-dark">
         <div class="bg-text-massive" style="top: 5%;">EVOLUTION</div>
         <div class="container text-center">
             <span class="eyebrow animate-up">THE PROCESS</span>
             <h2 class="section-title animate-up">THE 1.5 YEAR BLUEPRINT</h2>
-            <p class="section-subtitle animate-up">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
+            <p class="section-subtitle animate-up" style="margin: 0 auto;">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
         </div>
 
         <div class="timeline-container container">
             <div class="timeline-item left animate-right">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 01 - 03</span>
-                    <h3 class="timeline-title oswald">THE AWAKENING</h3>
+                    <h3 class="timeline-title bebas">THE AWAKENING</h3>
                     <p>We start from scratch. This phase is all about building a bulletproof foundation. We'll focus heavy on scapular strength, dead hangs, and controlled negatives so your body gets used to the load.</p>
                 </div>
             </div>
             <div class="timeline-item right animate-left">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 04 - 06</span>
-                    <h3 class="timeline-title oswald">THE FORGE</h3>
+                    <h3 class="timeline-title bebas">THE FORGE</h3>
                     <p>This is where the magic happens. You'll unlock strict, clean reps—hitting that 10 pull-up and 15 dip milestone. We'll also start basic pike push-ups for your shoulders and build a rock-solid core with L-sits.</p>
                 </div>
             </div>
             <div class="timeline-item left animate-right">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 07 - 10</span>
-                    <h3 class="timeline-title oswald">THE CATALYST</h3>
+                    <h3 class="timeline-title bebas">THE CATALYST</h3>
                     <p>Time for your first muscle-up. We'll also introduce wall handstand push-ups and start strapping weight to your pull-ups (+10kg to +20kg). This is when you really start seeing serious muscle growth.</p>
                 </div>
             </div>
             <div class="timeline-item right animate-left">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 11 - 18</span>
-                    <h3 class="timeline-title oswald">IRON APEX</h3>
+                    <h3 class="timeline-title bebas">IRON APEX</h3>
                     <p>Now we're in the elite territory. We shift focus to advanced static holds like the Front Lever, 90-degree HSPU, and balancing a freestanding handstand. One-arm pull-up training begins here.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="section-dark">
+    <section class="section-elevated">
         <div class="container">
             <div class="anatomy-grid">
                 <div>
-                    <h2 class="section-title animate-up" style="font-size: clamp(40px, 6vw, 70px); text-align: left;">THE ANATOMY OF<br><span class="text-accent flicker-effect">ELITE STRENGTH</span></h2>
+                    <h2 class="section-title animate-up" style="font-size: clamp(40px, 6vw, 60px); text-align: left;">THE ANATOMY OF<br><span class="text-accent flicker-effect">ELITE STRENGTH</span></h2>
                     <p class="story-text animate-up" style="margin-bottom: 50px;">
                         If you want to master the bar, you need to understand how your body works. Here's exactly how my programs build strength where it matters.
                     </p>
@@ -1615,7 +1668,7 @@
                     <div class="anatomy-feature animate-up">
                         <div class="anatomy-icon">01</div>
                         <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">SCAPULAR ENGAGEMENT</h4>
+                            <h4 class="bebas" style="font-size: 26px; margin-bottom: 5px;">SCAPULAR ENGAGEMENT</h4>
                             <p class="text-secondary" style="font-size: 15px;">This is everything. Before you even bend your elbows, your shoulders need to be locked in. My beginner drills will bulletproof your shoulders.</p>
                         </div>
                     </div>
@@ -1623,7 +1676,7 @@
                     <div class="anatomy-feature animate-up" style="transition-delay: 0.15s">
                         <div class="anatomy-icon">02</div>
                         <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">LATISSIMUS DORSI</h4>
+                            <h4 class="bebas" style="font-size: 26px; margin-bottom: 5px;">LATISSIMUS DORSI</h4>
                             <p class="text-secondary" style="font-size: 15px;">We're going to fix the habit of pulling with your biceps. I'll show you how to engage your lats so your back takes the brunt of the work.</p>
                         </div>
                     </div>
@@ -1631,7 +1684,7 @@
                     <div class="anatomy-feature animate-up" style="transition-delay: 0.3s">
                         <div class="anatomy-icon">03</div>
                         <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">CORE COMPRESSION</h4>
+                            <h4 class="bebas" style="font-size: 26px; margin-bottom: 5px;">CORE COMPRESSION</h4>
                             <p class="text-secondary" style="font-size: 15px;">A weak core makes everything harder. By training hollow body holds and L-sits, we make sure your whole body stays tight and powerful.</p>
                         </div>
                     </div>
@@ -1639,7 +1692,7 @@
                     <div class="anatomy-feature animate-up" style="transition-delay: 0.45s">
                         <div class="anatomy-icon">04</div>
                         <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">OVERHEAD MECHANICS</h4>
+                            <h4 class="bebas" style="font-size: 26px; margin-bottom: 5px;">OVERHEAD MECHANICS</h4>
                             <p class="text-secondary" style="font-size: 15px;">Getting a freestanding handstand and strict HSPU takes real shoulder stability and wrist strength. We build it from the ground up.</p>
                         </div>
                     </div>
@@ -1655,7 +1708,7 @@
         </div>
     </section>
 
-    <section id="results" class="section-elevated">
+    <section id="results" class="section-dark">
         <div class="bg-text-massive" style="top: 15%;">DATA & PROOF</div>
         <div class="container text-center">
             <span class="eyebrow animate-up">DATA & PROOF</span>
@@ -1673,8 +1726,8 @@
                 </div>
             </div>
             
-            <h2 class="section-title animate-up" style="margin-top: 120px; font-size: clamp(40px, 6vw, 80px);">ATHLETE EVOLUTION</h2>
-            <p class="section-subtitle animate-up">Real clients. Real mechanical mastery.</p>
+            <h2 class="section-title animate-up" style="margin-top: 120px; font-size: clamp(40px, 6vw, 70px);">ATHLETE EVOLUTION</h2>
+            <p class="section-subtitle animate-up" style="margin: 0 auto;">Real clients. Real mechanical mastery.</p>
             
             <div class="client-grid">
                 <div class="proof-box animate-up">
@@ -1685,13 +1738,13 @@
         </div>
     </section>
 
-    <section id="coaching" class="section-dark">
+    <section id="coaching" class="section-elevated">
         <div class="container">
             <div class="coaching-highlight animate-up">
                 <div class="founder-grid" style="gap: 50px;">
                     <div>
                         <span class="eyebrow" style="justify-content: flex-start;">DIRECT ACCESS</span>
-                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: clamp(40px, 6vw, 75px);">
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: clamp(40px, 6vw, 70px);">
                             1-ON-1 FORM<br><span class="text-accent">COACHING.</span>
                         </h2>
                         <p class="story-text">
@@ -1718,10 +1771,10 @@
         </div>
     </section>
 
-    <section id="equipment" class="section-elevated text-center">
+    <section id="equipment" class="section-dark text-center">
         <div class="container">
             <h2 class="zero-title animate-up">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
-            <p class="section-subtitle animate-up">You don't need a crazy expensive gym membership or heavy weights to get crazy strong. To master your bodyweight, you barely need any equipment.</p>
+            <p class="section-subtitle animate-up" style="margin: 0 auto 50px auto;">You don't need a crazy expensive gym membership or heavy weights to get crazy strong. To master your bodyweight, you barely need any equipment.</p>
             
             <div class="equipment-box tilt-card animate-up">
                 <h3>ALL YOU NEED IS A PULL-UP BAR AND A DIP BAR.</h3>
@@ -1730,13 +1783,13 @@
         </div>
     </section>
 
-    <section id="programs" class="section-dark">
+    <section id="programs" class="section-elevated">
         <div class="bg-text-massive" style="top: 2%;">THE SHOP</div>
         <div class="container">
             <div class="text-center" style="margin-bottom: 80px;">
                 <span class="eyebrow animate-up">THE ARSENAL</span>
                 <h2 class="section-title animate-up">CHOOSE YOUR PATH</h2>
-                <p class="section-subtitle animate-up">Select the protocol that matches your current baseline strength.</p>
+                <p class="section-subtitle animate-up" style="margin: 0 auto;">Select the protocol that matches your current baseline strength.</p>
             </div>
             
             <div class="program-grid">
@@ -1747,7 +1800,7 @@
                         <img src="program-cover-baseline.jpg" alt="Baseline Form Coaching">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">BASELINE</h3>
+                        <h3 class="bebas">BASELINE</h3>
                         <div class="program-price">$6.99</div>
                         <p class="program-desc-main"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px; font-weight: 700;">Real 1-on-1 Coaching.</u> DM me your workout videos on Instagram (@sambrooks1223) and I'll hit you back fast with exact form corrections.</p>
                         
@@ -1780,7 +1833,7 @@
                         <img src="program-cover-beginner.jpg" alt="Beginner Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">BEGINNER</h3>
+                        <h3 class="bebas">BEGINNER</h3>
                         <div class="program-price">$7.99</div>
                         <p class="program-desc-main">Perfect if you're just starting out. <br><span style="color: var(--text-main); font-weight: 700;"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px;">Includes 1-on-1 Direct Coaching.</u></span></p>
                         
@@ -1822,7 +1875,7 @@
                         <img src="program-cover-intermediate.jpg" alt="Intermediate Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">INTERMEDIATE</h3>
+                        <h3 class="bebas">INTERMEDIATE</h3>
                         <div class="program-price">$8.99</div>
                         <p class="program-desc-main">For when you're ready to pack on serious strength. <br><span style="color: var(--text-main); font-weight: 700;"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px;">Includes 1-on-1 Direct Coaching.</u></span></p>
                         
@@ -1863,7 +1916,7 @@
                         <img src="program-cover-advanced.jpg" alt="Advanced Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">ADVANCED</h3>
+                        <h3 class="bebas">ADVANCED</h3>
                         <div class="program-price">$9.99</div>
                         <p class="program-desc-main">Time to unlock the hard stuff. <br><span style="color: var(--text-main); font-weight: 700;"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px;">Includes 1-on-1 Direct Coaching.</u></span></p>
                         
@@ -1904,7 +1957,7 @@
                         <img src="program-cover-elite.jpg" alt="Elite Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">ELITE SYSTEM</h3>
+                        <h3 class="bebas">ELITE SYSTEM</h3>
                         <div class="program-price">$11.99</div>
                         <p class="program-desc-main">The final boss of bodyweight strength. <br><span style="color: var(--text-main); font-weight: 700;"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px;">Includes 1-on-1 Direct Coaching.</u></span></p>
                         
@@ -1944,7 +1997,7 @@
                         <img src="program-cover-muscleup.jpg" alt="Muscle Up Protocol">
                     </div>
                     <div class="program-card-content">
-                        <h3 class="oswald">MUSCLE-UP MASTER</h3>
+                        <h3 class="bebas">MUSCLE-UP MASTER</h3>
                         <div class="program-price">$12.99</div>
                         <p class="program-desc-main" style="color: var(--text-main);">Everything you need to get over the bar. <br><span style="font-weight: 700;"><u style="text-decoration-color: var(--accent-neon); text-underline-offset: 2px;">Includes 1-on-1 Direct Coaching.</u></span></p>
                         
@@ -1981,10 +2034,10 @@
         </div>
     </section>
 
-    <section class="newsletter-section section-elevated">
+    <section class="newsletter-section section-dark">
         <div class="container">
             <h2 class="section-title animate-up" style="font-size: clamp(35px, 5vw, 60px); text-align: center;">JOIN THE ELITE MAILING LIST</h2>
-            <p class="section-subtitle animate-up">Drop your email below to get weekly form tips, free coaching advice, and exclusive discounts on my programs.</p>
+            <p class="section-subtitle animate-up" style="margin: 0 auto;">Drop your email below to get weekly form tips, free coaching advice, and exclusive discounts on my programs.</p>
             <form class="newsletter-form animate-up" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
                 <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
                 <button type="submit" class="btn btn-solid">SUBSCRIBE NOW</button>
@@ -1992,7 +2045,7 @@
         </div>
     </section>
 
-    <section class="faq-section section-dark">
+    <section class="faq-section section-elevated">
         <div class="container">
             <h2 class="section-title animate-up" style="text-align: center; margin-bottom: 60px;">SYSTEM FAQ</h2>
             <div class="faq-wrapper">
@@ -2016,30 +2069,34 @@
         </div>
     </section>
 
-    <footer>
+    <footer id="contact">
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-bottom: 40px;">
                 <div>
-                    <a href="#" class="footer-logo">IRON<span class="flicker-effect">APEX</span></a>
+                    <a href="#" class="footer-logo logo" style="font-size: 40px;">IRON<span class="flicker-effect" style="color: var(--accent-neon);">APEX</span></a>
                     <p class="footer-desc">
                         Bodyweight strength programs built for people who want real results. Let's get to work.
                     </p>
                 </div>
                 <div>
-                    <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 20px;">SUPPORT</h4>
-                    <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
+                    <h4 style="font-family: 'Bebas Neue'; font-size: 20px; margin-bottom: 20px; letter-spacing: 2px;">SUPPORT & LINKS</h4>
+                    <div style="display: flex; flex-direction: column; gap: 10px;">
+                        <a href="#home" class="social-link">Home</a>
+                        <a href="#programs" class="social-link">Programs</a>
+                        <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
+                    </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
                 <span>&copy; 2026 Iron Apex Training. All rights reserved.</span>
-                <span>ENGINEERED FOR ELITE PERFORMANCE.</span>
+                <span style="font-family: 'Bebas Neue'; letter-spacing: 2px; font-size: 16px;">ENGINEERED FOR ELITE PERFORMANCE.</span>
             </div>
         </div>
     </footer>
 
     <div class="mobile-sticky-cta">
-        <a href="#programs" class="sticky-btn">SHOP PROGRAMS</a>
+        <a href="#programs" class="sticky-btn btn-solid" style="display: block; text-align: center; text-decoration: none;">SHOP PROGRAMS</a>
     </div>
 
     <script>
@@ -2064,11 +2121,11 @@
 
             applyAnimation('.section-title, .section-subtitle, .eyebrow', 'animate-up');
             applyAnimation('.bg-text-massive', 'animate-right');
-            applyAnimation('.honesty-card', 'animate-up', true);
+            applyAnimation('.honesty-card, .skill-card', 'animate-up', true);
             applyAnimation('.story-text, .story-highlight, .stat-list li', 'animate-left', true);
             applyAnimation('.founder-img-wrapper', 'animate-right');
             applyAnimation('.proof-box', 'animate-scale', true);
-            applyAnimation('.zero-title, .zero-subtitle', 'animate-up');
+            applyAnimation('.zero-title, .zero-subtitle, .quote-text', 'animate-up');
             applyAnimation('.equipment-box', 'animate-scale');
             // Program cards are intentionally left out of this animation call so they don't pop suddenly
             applyAnimation('.faq-wrapper details', 'animate-up', true);
