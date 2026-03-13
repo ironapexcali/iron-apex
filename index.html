@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+</html><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -11,39 +11,39 @@
 
     <style>
         /* ==========================================================================
-           IRON APEX V11.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
+           IRON APEX V12.0 - PREMIUM E-COMMERCE & EDITORIAL ARCHITECTURE
            ========================================================================== */
 
         :root {
             /* Brand Identity Colors - Deep Dark Theme */
             --bg-pure: #000000;
-            --bg-elevated: #090909;
-            --bg-card: #111111;
-            --bg-card-hover: #161616;
+            --bg-elevated: rgba(10, 10, 10, 0.6);
+            --bg-card: rgba(18, 18, 18, 0.85);
+            --bg-card-hover: rgba(25, 25, 25, 0.95);
             
             /* E-Commerce Banner Color */
             --bg-promo: #f5f5f5;
             --text-promo: #000000;
             
             /* Border System */
-            --border-light: rgba(255, 255, 255, 0.08);
-            --border-medium: rgba(255, 255, 255, 0.15);
+            --border-light: rgba(255, 255, 255, 0.06);
+            --border-medium: rgba(255, 255, 255, 0.12);
             --border-heavy: #222222;
             
             /* Typography System */
             --text-main: #ffffff;
-            --text-secondary: #999999;
+            --text-secondary: #a0a0a0;
             --text-tertiary: #666666;
             --text-dark: #000000;
             
             /* The Apex Accent - Aggressive Red/Orange */
             --accent-neon: #ff3300; 
-            --accent-glow: rgba(255, 51, 0, 0.25);
-            --accent-glow-strong: rgba(255, 51, 0, 0.5);
+            --accent-glow: rgba(255, 51, 0, 0.3);
+            --accent-glow-strong: rgba(255, 51, 0, 0.6);
             
-            /* Spacing & Layout */
+            /* Spacing & Layout - KILLED THE DEAD SPACE */
             --container-w: 1440px;
-            --section-padding-y: 160px;
+            --section-padding-y: 80px; /* Reduced from 160px */
             --section-padding-x: 24px;
             
             /* Transitions */
@@ -81,6 +81,8 @@
             line-height: 1.6;
             padding-bottom: 90px;
             position: relative;
+            /* Premium ambient dark-red glow behind the site */
+            background: radial-gradient(circle at 50% 20%, #170400 0%, var(--bg-pure) 50%, var(--bg-pure) 100%);
         }
 
         /* High-End Texture Overlay (The "Iron" Grain) */
@@ -112,7 +114,7 @@
             left: 5%;
             width: 90%;
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 51, 0, 0.15), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 51, 0, 0.25), transparent);
             z-index: 10;
             pointer-events: none;
         }
@@ -129,7 +131,7 @@
 
         .text-accent { 
             color: var(--accent-neon); 
-            text-shadow: 0 0 20px var(--accent-glow-strong);
+            text-shadow: 0 0 25px var(--accent-glow-strong);
         }
         .text-muted { color: var(--text-secondary); }
 
@@ -153,7 +155,7 @@
             font-size: 22vw;
             font-weight: 900;
             color: transparent;
-            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.02);
+            -webkit-text-stroke: 1px rgba(255, 255, 255, 0.03);
             text-transform: uppercase;
             line-height: 0.8;
             pointer-events: none;
@@ -170,13 +172,14 @@
             position: relative;
             z-index: 2;
             text-transform: uppercase;
+            text-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
 
         .section-subtitle {
             font-size: clamp(18px, 2vw, 22px);
             color: var(--text-secondary);
             max-width: 700px;
-            margin-bottom: 70px;
+            margin-bottom: 60px;
             font-weight: 300;
             line-height: 1.6;
             position: relative;
@@ -194,6 +197,7 @@
             gap: 15px;
             font-weight: 700;
             text-transform: uppercase;
+            text-shadow: 0 0 10px var(--accent-glow);
         }
         
         .eyebrow::before, .eyebrow::after {
@@ -201,7 +205,8 @@
             display: block;
             width: 40px;
             height: 2px;
-            background-color: var(--border-medium);
+            background-color: var(--accent-neon);
+            box-shadow: 0 0 8px var(--accent-neon);
         }
         
         /* Restrict paragraphs for readability */
@@ -236,20 +241,21 @@
             position: relative;
             overflow: hidden;
             z-index: 1;
-            border-radius: 2px;
+            border-radius: 4px;
         }
 
         .btn-solid {
-            background-color: var(--accent-neon);
+            background: linear-gradient(135deg, var(--accent-neon), #cc2900);
             color: var(--text-main);
             box-shadow: 0 10px 30px var(--accent-glow);
+            border: 1px solid #ff5500;
         }
 
         .btn-solid::after {
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #ff4d1a;
+            background: linear-gradient(to top, #d03800, #ff4d1a);
             transform: translateY(100%);
             transition: var(--ease-smooth);
             z-index: -1;
@@ -257,8 +263,9 @@
 
         .btn-solid:hover {
             color: var(--text-main);
-            transform: translateY(-5px);
+            transform: translateY(-5px) scale(1.02);
             box-shadow: 0 20px 40px var(--accent-glow-strong);
+            border-color: var(--accent-neon);
         }
 
         .btn-solid:hover::after {
@@ -274,10 +281,10 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            background-color: rgba(0, 0, 0, 0.75);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border-bottom: 1px solid var(--border-light);
+            background-color: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-medium);
         }
 
         .nav-inner {
@@ -301,11 +308,12 @@
             font-size: 13px;
             text-transform: uppercase;
             letter-spacing: 1px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
 
         .nav-links-left a:hover {
             color: var(--accent-neon);
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         .logo-container {
@@ -393,7 +401,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(to right, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, transparent 100%);
+            background: linear-gradient(to right, rgba(0,0,0,0.95) 0%, rgba(5,0,0,0.5) 50%, rgba(0,0,0,0.8) 100%);
             z-index: 2;
         }
 
@@ -439,7 +447,7 @@
             font-size: clamp(14px, 1.8vw, 18px);
             color: #dddddd;
             max-width: 700px;
-            margin: 0 auto 50px auto;
+            margin: 0 auto 40px auto;
             font-weight: 400;
             line-height: 1.6;
             text-shadow: 0 2px 10px rgba(0,0,0,0.8);
@@ -463,12 +471,17 @@
             border: 2px solid var(--border-medium);
             transition: all 0.3s ease;
             letter-spacing: 2px;
+            background: rgba(0,0,0,0.4);
+            backdrop-filter: blur(5px);
+            border-radius: 4px;
         }
 
         .hero-link:hover {
             background-color: var(--text-main);
             color: var(--bg-pure);
             border-color: var(--text-main);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
 
         /* ==========================================================================
@@ -481,6 +494,9 @@
             padding-bottom: 15px;
             overflow: hidden;
             white-space: nowrap;
+            box-shadow: 0 0 20px var(--accent-glow-strong);
+            position: relative;
+            z-index: 10;
         }
 
         .marquee-content {
@@ -510,13 +526,14 @@
            SECTION STRUCTURE & ALTERNATING BACKGROUNDS
            ========================================================================== */
         .section-dark {
-            background-color: var(--bg-pure);
+            background-color: transparent; /* Lets the body radial glow show */
             padding-top: var(--section-padding-y);
             padding-bottom: var(--section-padding-y);
         }
 
         .section-elevated {
             background-color: var(--bg-elevated);
+            backdrop-filter: blur(10px);
             padding-top: var(--section-padding-y);
             padding-bottom: var(--section-padding-y);
             border-top: 1px solid var(--border-light);
@@ -540,14 +557,15 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 40px;
-            margin-top: 80px;
+            margin-top: 60px;
         }
 
         .honesty-card {
-            background-color: var(--bg-card);
+            background: linear-gradient(180deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            backdrop-filter: blur(10px);
             padding: 60px 40px;
             border: 1px solid var(--border-light);
-            border-radius: 4px;
+            border-radius: 8px;
             text-align: center;
             transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
             position: relative;
@@ -567,9 +585,8 @@
 
         .honesty-card:hover {
             transform: translateY(-10px);
-            border-color: var(--border-medium);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
-            background-color: var(--bg-card-hover);
+            border-color: rgba(255, 51, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 30px var(--accent-glow);
         }
 
         .honesty-card:hover::before {
@@ -580,12 +597,14 @@
             width: 80px;
             height: 80px;
             margin: 0 auto 30px auto;
-            background: rgba(255, 51, 0, 0.1);
+            background: linear-gradient(135deg, rgba(255, 51, 0, 0.2), transparent);
+            border: 1px solid rgba(255, 51, 0, 0.15);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--accent-neon);
+            box-shadow: inset 0 0 20px rgba(255, 51, 0, 0.05);
         }
 
         .feature-icon svg {
@@ -615,7 +634,7 @@
         .founder-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 100px; /* Increased gap */
+            gap: 100px;
             align-items: center;
         }
 
@@ -631,8 +650,9 @@
         .founder-img-wrapper {
             position: relative;
             overflow: hidden;
-            border-radius: 4px;
+            border-radius: 8px;
             box-shadow: 0 20px 50px rgba(0,0,0,0.8);
+            border: 1px solid var(--border-medium);
         }
 
         .founder-img-wrapper img {
@@ -653,8 +673,7 @@
         }
 
         .stat-list li {
-            padding-top: 20px;
-            padding-bottom: 20px;
+            padding: 20px 0;
             border-bottom: 1px solid var(--border-light);
             font-family: 'Oswald', sans-serif;
             font-size: 20px;
@@ -669,6 +688,7 @@
         .stat-list li span {
             color: var(--accent-neon);
             font-weight: 800;
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         /* ==========================================================================
@@ -685,7 +705,7 @@
             content: '';
             position: absolute;
             width: 2px;
-            background-color: var(--border-medium);
+            background: linear-gradient(to bottom, transparent, var(--accent-neon), transparent);
             top: 0;
             bottom: 0;
             left: 50%;
@@ -705,7 +725,7 @@
             width: 24px;
             height: 24px;
             right: -12px;
-            background-color: var(--bg-elevated);
+            background-color: var(--bg-pure);
             border: 4px solid var(--accent-neon);
             top: 25px;
             border-radius: 50%;
@@ -715,16 +735,17 @@
         .timeline-item.right::after { left: -12px; }
         .timeline-content {
             padding: 40px;
-            background-color: var(--bg-card);
+            background: linear-gradient(145deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            backdrop-filter: blur(10px);
             position: relative;
             border: 1px solid var(--border-light);
-            border-radius: 4px;
-            transition: transform 0.4s ease, border-color 0.4s ease;
+            border-radius: 8px;
+            transition: transform 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
         }
         .timeline-content:hover {
             transform: translateY(-5px);
-            border-color: var(--border-medium);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            border-color: rgba(255, 51, 0, 0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.8), 0 0 20px var(--accent-glow);
         }
         .timeline-date {
             font-family: 'Oswald', sans-serif;
@@ -746,63 +767,23 @@
         }
 
         /* ==========================================================================
-           ANATOMY SECTION
-           ========================================================================== */
-        .anatomy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 80px;
-            align-items: center;
-        }
-        .anatomy-feature {
-            display: flex;
-            align-items: flex-start;
-            gap: 25px;
-            margin-bottom: 40px;
-            padding: 30px;
-            background: var(--bg-card);
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            transition: all 0.3s ease;
-        }
-        .anatomy-feature:hover {
-            border-color: var(--accent-neon);
-            transform: translateX(10px);
-            background: var(--bg-card-hover);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
-        .anatomy-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--accent-glow);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-neon);
-            font-family: 'Oswald';
-            font-weight: 900;
-            font-size: 24px;
-            flex-shrink: 0;
-        }
-
-        /* ==========================================================================
-           PROOF & TRANSFORMATIONS (GRID SPACING)
+           PROOF & TRANSFORMATIONS
            ========================================================================== */
         .proof-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px; /* Increased gap to avoid crowded look */
+            gap: 40px;
             margin-top: 60px;
         }
 
         .proof-box {
             position: relative;
-            height: 800px; /* Consistent size */
+            height: 800px;
             background-color: var(--bg-card);
             overflow: hidden;
-            border-radius: 4px;
-            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            border: 1px solid var(--border-medium);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
 
         .proof-box img {
@@ -825,6 +806,7 @@
             bottom: 40px;
             left: 40px;
             background-color: rgba(0,0,0,0.9);
+            backdrop-filter: blur(5px);
             color: var(--text-main);
             padding: 15px 30px;
             font-family: 'Oswald', sans-serif;
@@ -834,6 +816,7 @@
             letter-spacing: 2px;
             z-index: 2;
             border-left: 4px solid var(--text-main);
+            border-radius: 0 4px 4px 0;
         }
 
         .proof-label.accent {
@@ -844,7 +827,7 @@
         .client-grid {
             display: grid;
             grid-template-columns: 1fr;
-            max-width: 800px; /* Narrower max-width for focus */
+            max-width: 800px;
             margin: 60px auto 0 auto;
         }
 
@@ -853,11 +836,13 @@
              ========================================================================== */
         .coaching-highlight {
             padding: 80px;
-            background: var(--bg-card);
+            background: linear-gradient(145deg, rgba(20,20,20,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            backdrop-filter: blur(15px);
             border: 1px solid var(--border-medium);
-            border-radius: 4px;
+            border-radius: 8px;
             position: relative;
             overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8);
         }
         
         .coaching-highlight::before {
@@ -871,7 +856,7 @@
            ZERO EXCUSES SECTION
            ========================================================================== */
         .zero-title {
-            font-size: clamp(40px, 10vw, 150px); /* Mobile fix */
+            font-size: clamp(40px, 10vw, 150px);
             font-family: 'Oswald', sans-serif;
             font-weight: 900;
             line-height: 0.9;
@@ -880,19 +865,20 @@
         }
 
         .equipment-box {
-            background-color: var(--bg-card);
-            border: 1px solid var(--border-medium);
+            background: linear-gradient(145deg, rgba(25,25,25,0.8), rgba(10,10,10,0.9));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.08);
             padding: 60px;
             max-width: 800px;
             margin: 0 auto;
-            border-radius: 4px;
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            border-radius: 8px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
         }
 
         .equipment-box:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
-            border-color: var(--accent-neon);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 30px var(--accent-glow);
+            border-color: rgba(255, 51, 0, 0.5);
         }
 
         .equipment-box h3 {
@@ -926,17 +912,19 @@
             flex-direction: column;
             text-decoration: none;
             color: var(--text-main);
-            background: linear-gradient(180deg, var(--bg-elevated) 0%, var(--bg-card) 100%);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: linear-gradient(180deg, rgba(25,25,25,0.9) 0%, rgba(10,10,10,0.95) 100%);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
             transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
         }
 
         .program-card-img {
             height: 350px; 
-            background-color: #1a1a1a;
+            background-color: #111;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -949,7 +937,7 @@
             content: '';
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(to bottom, transparent 50%, var(--bg-elevated) 100%);
+            background: linear-gradient(to bottom, transparent 40%, rgba(10,10,10,0.95) 100%);
             z-index: 3;
             pointer-events: none;
         }
@@ -995,6 +983,7 @@
             letter-spacing: 1px;
             z-index: 5;
             transition: background-color 0.3s ease;
+            border-radius: 4px;
         }
 
         .program-card h3 {
@@ -1041,7 +1030,7 @@
         }
 
         .detail-group {
-            border-left: 2px solid var(--border-light);
+            border-left: 2px solid var(--border-medium);
             padding-left: 15px;
             transition: border-color 0.3s ease;
         }
@@ -1094,13 +1083,14 @@
             width: 100%;
             cursor: pointer;
             letter-spacing: 1px;
+            border-radius: 4px;
         }
 
         /* Hover Effects */
         .program-card:hover {
             transform: translateY(-12px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 40px rgba(255, 51, 0, 0.15);
-            border-color: var(--accent-neon);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 50px rgba(255, 51, 0, 0.15);
+            border-color: rgba(255, 51, 0, 0.6);
         }
 
         .program-card:hover .program-card-img img {
@@ -1109,8 +1099,8 @@
         }
 
         .program-card:hover .card-action {
-            background-color: var(--accent-neon);
-            border-color: var(--accent-neon);
+            background: linear-gradient(135deg, var(--accent-neon), #d03800);
+            border-color: transparent;
             color: var(--text-dark);
             box-shadow: 0 0 20px var(--accent-glow-strong);
         }
@@ -1126,16 +1116,17 @@
 
         /* Muscle-Up Special Card */
         .card-special {
-            border-color: rgba(255, 51, 0, 0.3);
+            border-color: rgba(255, 51, 0, 0.4);
         }
         
         .card-special .program-tag {
             background-color: var(--accent-neon);
             color: var(--text-dark);
+            box-shadow: 0 0 10px var(--accent-glow);
         }
 
         .card-special:hover {
-            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 50px var(--accent-glow-strong);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.9), 0 0 50px var(--accent-glow-strong);
             border-color: var(--accent-neon);
         }
 
@@ -1151,16 +1142,20 @@
         .newsletter-form input {
             flex: 1;
             padding: 20px 30px;
-            background-color: var(--bg-pure);
+            background-color: rgba(0,0,0,0.5);
             border: 1px solid var(--border-medium);
             color: var(--text-main);
             font-family: 'Inter', sans-serif;
             font-size: 16px;
             outline: none;
-            transition: border-color 0.3s ease;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 4px;
         }
-        .newsletter-form input:focus { border-color: var(--accent-neon); }
-        .newsletter-form button { white-space: nowrap; }
+        .newsletter-form input:focus { 
+            border-color: var(--accent-neon); 
+            box-shadow: 0 0 15px var(--accent-glow); 
+        }
+        .newsletter-form button { white-space: nowrap; border-radius: 4px; }
 
         /* ==========================================================================
            FAQ SECTION
@@ -1197,6 +1192,7 @@
             font-weight: 300;
             color: var(--accent-neon);
             transition: transform 0.3s ease;
+            text-shadow: 0 0 10px var(--accent-glow);
         }
 
         details[open] summary::after {
@@ -1216,8 +1212,8 @@
            FOOTER (MINIMAL & CLEAN)
            ========================================================================== */
         footer {
-            background-color: var(--bg-pure);
-            padding-top: 100px;
+            background-color: transparent;
+            padding-top: 80px;
             padding-bottom: 50px;
             border-top: 1px solid var(--border-light);
         }
@@ -1249,12 +1245,12 @@
             letter-spacing: 2px;
             text-transform: uppercase;
             text-decoration: none;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
         }
-        .social-link:hover { color: var(--accent-neon); }
+        .social-link:hover { color: var(--accent-neon); text-shadow: 0 0 10px var(--accent-glow); }
 
         .footer-bottom {
-            border-top: 1px solid var(--border-light);
+            border-top: 1px solid var(--border-medium);
             padding-top: 30px;
             display: flex;
             justify-content: space-between;
@@ -1263,35 +1259,9 @@
             font-size: 13px;
         }
 
-        /* SCROLL ANIMATIONS & UTILS */
-        .animate-up { 
-            opacity: 0; 
-            transform: translateY(20px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-left { 
-            opacity: 0; 
-            transform: translateX(-20px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-right { 
-            opacity: 0; 
-            transform: translateX(20px); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .animate-scale { 
-            opacity: 0; 
-            transform: scale(0.97); 
-            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1); 
-        }
-        .is-in-view { 
-            opacity: 1 !important; 
-            transform: translate(0) scale(1) !important; 
-        }
-
         @keyframes neonFlicker {
-            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; text-shadow: 0 0 10px var(--accent-glow), 0 0 20px var(--accent-glow-strong); }
-            20%, 24%, 55% { opacity: 0.4; text-shadow: none; }
+            0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; text-shadow: 0 0 10px var(--accent-glow), 0 0 25px var(--accent-glow-strong); }
+            20%, 24%, 55% { opacity: 0.5; text-shadow: none; }
         }
         .flicker-effect { animation: neonFlicker 6s infinite alternate; }
 
@@ -1337,7 +1307,7 @@
 
         .tilt-card { transform-style: preserve-3d; transform: perspective(1000px); }
         .tilt-card .program-card-content { transform: translateZ(30px); transition: transform 0.3s ease; }
-        .tilt-card .program-tag { transform: translateZ(50px); }
+        .tilt-card .program-tag { transform: translateZ(40px); }
 
         /* RESPONSIVE DESIGN */
         @media (max-width: 1024px) {
@@ -1365,7 +1335,7 @@
         /* MOBILE FIRST DEEP FIXES */
         @media (max-width: 768px) {
             :root {
-                --section-padding-y: 80px; 
+                --section-padding-y: 60px; 
             }
             
             .nav-inner { height: 70px; }
@@ -1451,9 +1421,9 @@
     <header>
         <div class="container nav-inner">
             <div class="nav-links-left">
-                <a href="#results">Transformations</a>
-                <a href="#coaching">Coaching</a>
                 <a href="#programs">Programs</a>
+                <a href="#coaching">Coaching</a>
+                <a href="#results">Transformations</a>
                 <a href="#clients">Client Progress</a>
             </div>
             
@@ -1474,14 +1444,18 @@
         <div class="hero-overlay"></div>
 
         <div class="hero-content">
-            <h1 class="hero-title animate-up"><span class="glitch-wrapper" data-text="IRON APEX">IRON APEX</span><br>+STRICT +ELITE</h1>            <p class="hero-subtitle animate-up" style="transition-delay: 0.1s;">NEW ELITE PROTOCOLS & 1-ON-1 COACHING</p>
-            <p class="hero-desc animate-up" style="transition-delay: 0.2s;">
+            <h1 class="hero-title"><span class="glitch-wrapper" data-text="IRON APEX">IRON APEX</span><br>+STRICT +ELITE</h1>            
+            <p class="hero-subtitle">NEW ELITE PROTOCOLS & 1-ON-1 COACHING</p>
+            <p class="hero-desc">
                 A no-BS bodyweight training system built to crush plateaus. Let me personally coach you to master the muscle-up, front lever, and build serious pulling strength.
             </p>
             
-            <div class="hero-links animate-up" style="transition-delay: 0.3s;">
-                <a href="#programs" class="hero-link">SHOP BEGINNER</a>
-                <a href="#programs" class="hero-link">SHOP ADVANCED</a>
+            <div class="hero-links" style="flex-direction: column; align-items: center; gap: 15px;">
+                <a href="#coaching" class="btn btn-solid" style="width: 100%; max-width: 450px;">APPLY FOR 1-ON-1 COACHING</a>
+                <div style="display: flex; gap: 20px; justify-content: center; flex-wrap: wrap;">
+                    <a href="#programs" class="hero-link">SHOP BEGINNER</a>
+                    <a href="#programs" class="hero-link">SHOP ADVANCED</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1494,26 +1468,26 @@
 
     <section id="philosophy" class="section-elevated">
         <div class="container text-center">
-            <span class="eyebrow animate-up">I'M GOING TO BE COMPLETELY HONEST.</span>
-            <h2 class="section-title animate-up">THE HARSH TRUTH</h2>
-            <p class="section-subtitle animate-up">Most workout programs just want to make you sweat, not actually get you strong. If you want to unlock high-level skills, you have to stop guessing and start training smart.</p>
+            <span class="eyebrow">I'M GOING TO BE COMPLETELY HONEST.</span>
+            <h2 class="section-title">THE HARSH TRUTH</h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">Most workout programs just want to make you sweat, not actually get you strong. If you want to unlock high-level skills, you have to stop guessing and start training smart.</p>
             
             <div class="honesty-grid">
-                <div class="honesty-card animate-up" data-num="01">
+                <div class="honesty-card" data-num="01">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="16"></line><line x1="8" y1="12" x2="16" y2="12"></line></svg>
                     </div>
                     <h3 class="oswald">NO ENDLESS REPS</h3>
                     <p>You don't need to bang out 500 pushups every day. You need smart, progressive overload that actually targets your weak links.</p>
                 </div>
-                <div class="honesty-card animate-up" data-num="02" style="transition-delay: 0.15s;">
+                <div class="honesty-card" data-num="02">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
                     </div>
                     <h3 class="oswald">NO GENETIC LOTTERY</h3>
                     <p>Skills like the muscle-up and front lever aren't just for Olympic gymnasts. It's just about learning the right leverage and putting in the work.</p>
                 </div>
-                <div class="honesty-card animate-up" data-num="03" style="transition-delay: 0.3s;">
+                <div class="honesty-card" data-num="03">
                     <div class="feature-icon">
                         <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="9" y1="3" x2="9" y2="21"></line></svg>
                     </div>
@@ -1527,36 +1501,36 @@
     <section id="founder" class="section-dark">
         <div class="container">
             <div class="founder-grid">
-                <div class="animate-up">
+                <div>
                     <span class="eyebrow" style="justify-content: flex-start; color: var(--text-main);">ORIGIN</span>
                     <h2 class="section-title" style="text-align: left; margin-bottom: 40px; font-size: clamp(40px, 6vw, 80px);">
                         BEFORE WE GO FURTHER,<br><span class="text-accent flicker-effect">MY STORY.</span>
                     </h2>
                     
-                    <p class="story-text animate-left">
+                    <p class="story-text">
                         What's up, I'm Sam—the guy behind @sambrooks1223. I've spent years obsessed with calisthenics, figuring out exactly what works and what doesn't through trial and error.
                     </p>
                     
-                    <p class="story-text animate-left" style="transition-delay: 0.1s;">
+                    <p class="story-text">
                         At this point, it's way more than just a hobby for me. I actually care about helping you build real, raw bodyweight strength so you can finally take control of what your body can do.
                     </p>
                     
-                    <p class="story-highlight animate-left" style="transition-delay: 0.2s;">
+                    <p class="story-highlight">
                         I've figured out the blueprint, and I'm ready to share it with you... 🔑
                     </p>
 
-                    <h4 class="animate-up" style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
+                    <h4 style="font-size: 20px; font-family: 'Oswald'; border-bottom: 1px solid rgba(255, 255, 255, 0.1); padding-bottom: 10px;">CURRENT BENCHMARKS</h4>
                     <ul class="stat-list">
-                        <li class="animate-left">One-Arm Pull-Up <span>Unlocked</span></li>
-                        <li class="animate-left" style="transition-delay: 0.1s;">Handstand Push-Ups <span>Mastered</span></li>
-                        <li class="animate-left" style="transition-delay: 0.2s;">Weighted Pull-Up <span>+50kg</span></li>
-                        <li class="animate-left" style="transition-delay: 0.3s;">Strict Pull-Ups <span>30 Reps</span></li>
-                        <li class="animate-left" style="transition-delay: 0.4s;">Front Lever <span>Mastered</span></li>
-                        <li class="animate-left" style="transition-delay: 0.5s;">Straddle Planche <span>Unlocked</span></li>
+                        <li>One-Arm Pull-Up <span>Unlocked</span></li>
+                        <li>Handstand Push-Ups <span>Mastered</span></li>
+                        <li>Weighted Pull-Up <span>+50kg</span></li>
+                        <li>Strict Pull-Ups <span>30 Reps</span></li>
+                        <li>Front Lever <span>Mastered</span></li>
+                        <li>Straddle Planche <span>Unlocked</span></li>
                     </ul>
                 </div>
                 
-                <div class="founder-img-wrapper animate-right">
+                <div class="founder-img-wrapper">
                     <img src="pullup-demo.jpg" alt="Founder Demonstration">
                 </div>
             </div>
@@ -1566,34 +1540,34 @@
     <section class="section-elevated">
         <div class="bg-text-massive" style="top: 5%;">EVOLUTION</div>
         <div class="container text-center">
-            <span class="eyebrow animate-up">THE PROCESS</span>
-            <h2 class="section-title animate-up">THE 1.5 YEAR BLUEPRINT</h2>
-            <p class="section-subtitle animate-up">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
+            <span class="eyebrow">THE PROCESS</span>
+            <h2 class="section-title">THE 1.5 YEAR BLUEPRINT</h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">This is not an overnight hack. This is a forged timeline of mechanical adaptation. Follow the map.</p>
         </div>
 
         <div class="timeline-container container">
-            <div class="timeline-item left animate-right">
+            <div class="timeline-item left">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 01 - 03</span>
                     <h3 class="timeline-title oswald">THE AWAKENING</h3>
                     <p>We start from scratch. This phase is all about building a bulletproof foundation. We'll focus heavy on scapular strength, dead hangs, and controlled negatives so your body gets used to the load.</p>
                 </div>
             </div>
-            <div class="timeline-item right animate-left">
+            <div class="timeline-item right">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 04 - 06</span>
                     <h3 class="timeline-title oswald">THE FORGE</h3>
                     <p>This is where the magic happens. You'll unlock strict, clean reps—hitting that 10 pull-up and 15 dip milestone. We'll also start basic pike push-ups for your shoulders and build a rock-solid core with L-sits.</p>
                 </div>
             </div>
-            <div class="timeline-item left animate-right">
+            <div class="timeline-item left">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 07 - 10</span>
                     <h3 class="timeline-title oswald">THE CATALYST</h3>
                     <p>Time for your first muscle-up. We'll also introduce wall handstand push-ups and start strapping weight to your pull-ups (+10kg to +20kg). This is when you really start seeing serious muscle growth.</p>
                 </div>
             </div>
-            <div class="timeline-item right animate-left">
+            <div class="timeline-item right">
                 <div class="timeline-content">
                     <span class="timeline-date">MONTH 11 - 18</span>
                     <h3 class="timeline-title oswald">IRON APEX</h3>
@@ -1603,140 +1577,13 @@
         </div>
     </section>
 
-    <section class="section-dark">
-        <div class="container">
-            <div class="anatomy-grid">
-                <div>
-                    <h2 class="section-title animate-up" style="font-size: clamp(40px, 6vw, 70px); text-align: left;">THE ANATOMY OF<br><span class="text-accent flicker-effect">ELITE STRENGTH</span></h2>
-                    <p class="story-text animate-up" style="margin-bottom: 50px;">
-                        If you want to master the bar, you need to understand how your body works. Here's exactly how my programs build strength where it matters.
-                    </p>
-
-                    <div class="anatomy-feature animate-up">
-                        <div class="anatomy-icon">01</div>
-                        <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">SCAPULAR ENGAGEMENT</h4>
-                            <p class="text-secondary" style="font-size: 15px;">This is everything. Before you even bend your elbows, your shoulders need to be locked in. My beginner drills will bulletproof your shoulders.</p>
-                        </div>
-                    </div>
-
-                    <div class="anatomy-feature animate-up" style="transition-delay: 0.15s">
-                        <div class="anatomy-icon">02</div>
-                        <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">LATISSIMUS DORSI</h4>
-                            <p class="text-secondary" style="font-size: 15px;">We're going to fix the habit of pulling with your biceps. I'll show you how to engage your lats so your back takes the brunt of the work.</p>
-                        </div>
-                    </div>
-
-                    <div class="anatomy-feature animate-up" style="transition-delay: 0.3s">
-                        <div class="anatomy-icon">03</div>
-                        <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">CORE COMPRESSION</h4>
-                            <p class="text-secondary" style="font-size: 15px;">A weak core makes everything harder. By training hollow body holds and L-sits, we make sure your whole body stays tight and powerful.</p>
-                        </div>
-                    </div>
-
-                    <div class="anatomy-feature animate-up" style="transition-delay: 0.45s">
-                        <div class="anatomy-icon">04</div>
-                        <div>
-                            <h4 class="oswald" style="font-size: 22px; margin-bottom: 5px;">OVERHEAD MECHANICS</h4>
-                            <p class="text-secondary" style="font-size: 15px;">Getting a freestanding handstand and strict HSPU takes real shoulder stability and wrist strength. We build it from the ground up.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="founder-img-wrapper animate-left" style="border: 1px solid var(--border-medium);">
-                    <img src="IMG_8792.jpg" alt="Anatomy mapping of upper body" style="opacity: 0.6;">
-                    <div style="position: absolute; top: 30%; left: 20%; width: 12px; height: 12px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 15px var(--accent-neon);"></div>
-                    <div style="position: absolute; top: 30%; left: 20%; border-top: 2px solid var(--accent-neon); width: 60px; transform: translate(15px, 5px);"></div>
-                    <div style="position: absolute; top: 50%; right: 20%; width: 12px; height: 12px; background: var(--accent-neon); border-radius: 50%; box-shadow: 0 0 15px var(--accent-neon);"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="results" class="section-elevated">
-        <div class="bg-text-massive" style="top: 15%;">DATA & PROOF</div>
-        <div class="container text-center">
-            <span class="eyebrow animate-up">DATA & PROOF</span>
-            <h2 class="section-title animate-up">UNDENIABLE PROOF</h2>
-            <p class="section-subtitle animate-up" style="margin: 0 auto;">My own 1.5-year transformation. I don't just sell this system, I live it.</p>
-            
-            <div class="proof-grid">
-                <div class="proof-box animate-up">
-                    <img src="IMG_8839.jpg" alt="Before Iron Apex">
-                    <div class="proof-label">DAY 01</div>
-                </div>
-                <div class="proof-box animate-up" style="transition-delay: 0.1s;">
-                    <img src="IMG_8841.jpg" alt="After Iron Apex">
-                    <div class="proof-label accent">YEAR 1.5</div>
-                </div>
-            </div>
-            
-            <h2 class="section-title animate-up" style="margin-top: 120px; font-size: clamp(40px, 6vw, 80px);">ATHLETE EVOLUTION</h2>
-            <p class="section-subtitle animate-up">Real clients. Real mechanical mastery.</p>
-            
-            <div class="client-grid">
-                <div class="proof-box animate-up">
-                    <img src="IMG_8851.jpg" alt="Client Transformation">
-                    <div class="proof-label accent">[CLIENT NAME] - TRANSFORMATION</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="coaching" class="section-dark">
-        <div class="container">
-            <div class="coaching-highlight animate-up">
-                <div class="founder-grid" style="gap: 50px;">
-                    <div>
-                        <span class="eyebrow" style="justify-content: flex-start;">DIRECT ACCESS</span>
-                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: clamp(40px, 6vw, 75px);">
-                            1-ON-1 FORM<br><span class="text-accent">COACHING.</span>
-                        </h2>
-                        <p class="story-text">
-                            A program only works if you actually do the moves right. If you're stuck, hit a plateau, or your pull-ups look uneven, you need someone to check your form.
-                        </p>
-                        <p class="story-highlight" style="border-left-color: var(--text-main);">
-                            Send me videos of your sets directly on Instagram (@sambrooks1223), and I will personally review your form and tell you exactly how to fix it. <br><br>
-                            <u style="text-decoration-color: var(--accent-neon); text-underline-offset: 4px;">I run real 1-on-1 coaching and I actually reply fast to my DMs.</u> You won't be left hanging.
-                        </p>
-                        <ul class="stat-list" style="margin-bottom: 50px; border-top: 1px solid var(--border-medium);">
-                            <li>Fast Response Times <span>Direct Insta DM</span></li>
-                            <li>Form Corrections <span>Fast Feedback</span></li>
-                            <li>Custom Cues & Tips <span>Tailored to you</span></li>
-                            <li>Plateau Breaking <span>Guaranteed</span></li>
-                        </ul>
-                        <a href="baseline.html" class="btn btn-solid" style="width: 100%;">APPLY FOR BASELINE COACHING - $6.99</a>
-                    </div>
-                    <div class="founder-img-wrapper tilt-card" style="box-shadow: none; border: 1px solid var(--border-medium);">
-                        <img src="program-cover-baseline.jpg" alt="Form Correction Coaching" style="filter: none;">
-                        <div class="proof-label accent" style="bottom: 20px; left: 20px;">FORM ANALYSIS</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="equipment" class="section-elevated text-center">
-        <div class="container">
-            <h2 class="zero-title animate-up">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
-            <p class="section-subtitle animate-up">You don't need a crazy expensive gym membership or heavy weights to get crazy strong. To master your bodyweight, you barely need any equipment.</p>
-            
-            <div class="equipment-box tilt-card animate-up">
-                <h3>ALL YOU NEED IS A PULL-UP BAR AND A DIP BAR.</h3>
-                <span>GRAVITY DOES THE REST.</span>
-            </div>
-        </div>
-    </section>
-
     <section id="programs" class="section-dark">
         <div class="bg-text-massive" style="top: 2%;">THE SHOP</div>
         <div class="container">
             <div class="text-center" style="margin-bottom: 80px;">
-                <span class="eyebrow animate-up">THE ARSENAL</span>
-                <h2 class="section-title animate-up">CHOOSE YOUR PATH</h2>
-                <p class="section-subtitle animate-up">Select the protocol that matches your current baseline strength.</p>
+                <span class="eyebrow">THE ARSENAL</span>
+                <h2 class="section-title">CHOOSE YOUR PATH</h2>
+                <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">Select the protocol that matches your current baseline strength.</p>
             </div>
             
             <div class="program-grid">
@@ -1981,34 +1828,109 @@
         </div>
     </section>
 
-    <section class="newsletter-section section-elevated">
+    <section id="results" class="section-elevated">
+        <div class="bg-text-massive" style="top: 15%;">DATA & PROOF</div>
+        <div class="container text-center">
+            <span class="eyebrow">DATA & PROOF</span>
+            <h2 class="section-title">UNDENIABLE PROOF</h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">My own 1.5-year transformation. I don't just sell this system, I live it.</p>
+            
+            <div class="proof-grid">
+                <div class="proof-box">
+                    <img src="IMG_8839.jpg" alt="Before Iron Apex">
+                    <div class="proof-label">DAY 01</div>
+                </div>
+                <div class="proof-box">
+                    <img src="IMG_8841.jpg" alt="After Iron Apex">
+                    <div class="proof-label accent">YEAR 1.5</div>
+                </div>
+            </div>
+            
+            <h2 class="section-title" style="margin-top: 120px; font-size: clamp(40px, 6vw, 80px);">ATHLETE EVOLUTION</h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">Real clients. Real mechanical mastery.</p>
+            
+            <div class="client-grid">
+                <div class="proof-box">
+                    <img src="IMG_8851.jpg" alt="Client Transformation">
+                    <div class="proof-label accent">[CLIENT NAME] - TRANSFORMATION</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="coaching" class="section-dark">
         <div class="container">
-            <h2 class="section-title animate-up" style="font-size: clamp(35px, 5vw, 60px); text-align: center;">JOIN THE ELITE MAILING LIST</h2>
-            <p class="section-subtitle animate-up">Drop your email below to get weekly form tips, free coaching advice, and exclusive discounts on my programs.</p>
-            <form class="newsletter-form animate-up" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
+            <div class="coaching-highlight">
+                <div class="founder-grid" style="gap: 50px;">
+                    <div>
+                        <span class="eyebrow" style="justify-content: flex-start;">DIRECT ACCESS</span>
+                        <h2 class="section-title" style="text-align: left; margin-bottom: 20px; font-size: clamp(40px, 6vw, 75px);">
+                            1-ON-1 FORM<br><span class="text-accent">COACHING.</span>
+                        </h2>
+                        <p class="story-text">
+                            A program only works if you actually do the moves right. If you're stuck, hit a plateau, or your pull-ups look uneven, you need someone to check your form.
+                        </p>
+                        <p class="story-highlight" style="border-left-color: var(--text-main);">
+                            Send me videos of your sets directly on Instagram (@sambrooks1223), and I will personally review your form and tell you exactly how to fix it. <br><br>
+                            <u style="text-decoration-color: var(--accent-neon); text-underline-offset: 4px;">I run real 1-on-1 coaching and I actually reply fast to my DMs.</u> You won't be left hanging.
+                        </p>
+                        <ul class="stat-list" style="margin-bottom: 50px; border-top: 1px solid var(--border-medium);">
+                            <li>Fast Response Times <span>Direct Insta DM</span></li>
+                            <li>Form Corrections <span>Fast Feedback</span></li>
+                            <li>Custom Cues & Tips <span>Tailored to you</span></li>
+                            <li>Plateau Breaking <span>Guaranteed</span></li>
+                        </ul>
+                        <a href="baseline.html" class="btn btn-solid" style="width: 100%;">APPLY FOR BASELINE COACHING - $6.99</a>
+                    </div>
+                    <div class="founder-img-wrapper tilt-card" style="box-shadow: none; border: 1px solid var(--border-medium);">
+                        <img src="program-cover-baseline.jpg" alt="Form Correction Coaching" style="filter: none;">
+                        <div class="proof-label accent" style="bottom: 20px; left: 20px;">FORM ANALYSIS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="equipment" class="section-elevated text-center">
+        <div class="container">
+            <h2 class="zero-title">ZERO<br><span class="text-accent flicker-effect">EXCUSES.</span></h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">You don't need a crazy expensive gym membership or heavy weights to get crazy strong. To master your bodyweight, you barely need any equipment.</p>
+            
+            <div class="equipment-box tilt-card">
+                <h3>ALL YOU NEED IS A PULL-UP BAR AND A DIP BAR.</h3>
+                <span>GRAVITY DOES THE REST.</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="newsletter-section section-dark">
+        <div class="container">
+            <h2 class="section-title" style="font-size: clamp(35px, 5vw, 60px); text-align: center;">JOIN THE ELITE MAILING LIST</h2>
+            <p class="section-subtitle" style="margin-left: auto; margin-right: auto;">Drop your email below to get weekly form tips, free coaching advice, and exclusive discounts on my programs.</p>
+            <form class="newsletter-form" action="#" method="POST" onsubmit="event.preventDefault(); alert('Subscribed to the Iron Apex network.');">
                 <input type="email" placeholder="YOUR EMAIL ADDRESS" required>
                 <button type="submit" class="btn btn-solid">SUBSCRIBE NOW</button>
             </form>
         </div>
     </section>
 
-    <section class="faq-section section-dark">
+    <section class="faq-section section-elevated">
         <div class="container">
-            <h2 class="section-title animate-up" style="text-align: center; margin-bottom: 60px;">SYSTEM FAQ</h2>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 60px;">SYSTEM FAQ</h2>
             <div class="faq-wrapper">
-                <details class="animate-up">
+                <details>
                     <summary>Do I need to go to a gym for this?</summary>
                     <div class="faq-answer">Nope. My entire system is built around using your own bodyweight. As long as you have a pull-up bar, some dip bars, and a little floor space, you're good to go.</div>
                 </details>
-                <details class="animate-up" style="transition-delay: 0.1s">
+                <details>
                     <summary>How many days a week do I train?</summary>
                     <div class="faq-answer">Most of the programs are 4 to 5 days a week. I highly recommend taking your rest days seriously—your muscles need time to recover and grow.</div>
                 </details>
-                <details class="animate-up" style="transition-delay: 0.2s">
+                <details>
                     <summary>I can't do a pull-up yet. Where do I start?</summary>
                     <div class="faq-answer">Start with the Beginner Protocol. It is specifically designed to build your foundational core stability and vertical pulling strength from zero up to your first 5 strict reps.</div>
                 </details>
-                <details class="animate-up" style="transition-delay: 0.3s">
+                <details>
                     <summary>Do you offer refunds?</summary>
                     <div class="faq-answer">Since these are digital training guides, I don't offer refunds. I give you the exact steps to succeed, but you have to be the one to put in the work.</div>
                 </details>
@@ -2018,15 +1940,15 @@
 
     <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div>
                     <a href="#" class="footer-logo">IRON<span class="flicker-effect">APEX</span></a>
-                    <p class="footer-desc">
+                    <p class="footer-desc" style="color: var(--text-secondary); margin-top: 10px;">
                         Bodyweight strength programs built for people who want real results. Let's get to work.
                     </p>
                 </div>
                 <div>
-                    <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 20px;">SUPPORT</h4>
+                    <h4 style="font-family: 'Oswald'; font-size: 16px; margin-bottom: 10px; text-transform: uppercase;">SUPPORT</h4>
                     <a href="https://instagram.com/sambrooks1223" target="_blank" class="social-link">Instagram (@sambrooks1223)</a>
                 </div>
             </div>
@@ -2045,53 +1967,7 @@
     <script>
         document.addEventListener("DOMContentLoaded", () => {
             
-            // 1. Initial Load Animations (Hero Section)
-            const heroElements = document.querySelectorAll('.hero-title, .hero-subtitle, .hero-desc, .hero-links');
-            heroElements.forEach((el, index) => {
-                el.classList.add('animate-up');
-                el.style.transitionDelay = `${index * 0.15}s`; 
-                setTimeout(() => el.classList.add('is-in-view'), 100); 
-            });
-
-            // 2. Prep remaining elements for the scroll observer (Excluding programs to prevent sudden popping)
-            const applyAnimation = (selector, animationClass, stagger = false) => {
-                const elements = document.querySelectorAll(selector);
-                elements.forEach((el, index) => {
-                    el.classList.add(animationClass);
-                    if (stagger) el.style.transitionDelay = `${index * 0.15}s`;
-                });
-            };
-
-            applyAnimation('.section-title, .section-subtitle, .eyebrow', 'animate-up');
-            applyAnimation('.bg-text-massive', 'animate-right');
-            applyAnimation('.honesty-card', 'animate-up', true);
-            applyAnimation('.story-text, .story-highlight, .stat-list li', 'animate-left', true);
-            applyAnimation('.founder-img-wrapper', 'animate-right');
-            applyAnimation('.proof-box', 'animate-scale', true);
-            applyAnimation('.zero-title, .zero-subtitle', 'animate-up');
-            applyAnimation('.equipment-box', 'animate-scale');
-            // Program cards are intentionally left out of this animation call so they don't pop suddenly
-            applyAnimation('.faq-wrapper details', 'animate-up', true);
-
-            // 3. Intersection Observer to trigger animations on scroll
-            const observerOptions = { 
-                threshold: 0.05, 
-                rootMargin: "0px 0px 50px 0px" 
-            };
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-in-view');
-                        observer.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-
-            document.querySelectorAll('.animate-up:not(.is-in-view), .animate-left, .animate-right, .animate-scale')
-                .forEach(el => observer.observe(el));
-            
-            // 4. Parallax Hero Image on Scroll
+            // 1. Parallax Hero Image on Scroll
             const heroBg = document.querySelector('.hero-img-bg');
             window.addEventListener('scroll', () => {
                 let scrollPos = window.scrollY;
@@ -2100,7 +1976,7 @@
                 }
             });
 
-            // 5. Scroll Progress Bar
+            // 2. Scroll Progress Bar
             const progressBar = document.getElementById('scrollProgressBar');
             window.addEventListener('scroll', () => {
                 const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
@@ -2109,7 +1985,7 @@
                 if(progressBar) progressBar.style.width = scrolled + "%";
             });
 
-            // 6. Advanced Chalk Dust Particle System 
+            // 3. Advanced Chalk Dust Particle System 
             const canvas = document.getElementById('chalkCanvas');
             const ctx = canvas.getContext('2d');
             
@@ -2174,7 +2050,7 @@
             initParticles();
             animateParticles();
 
-            // 7. 3D Tilt Hover Effect for Product Cards
+            // 4. 3D Tilt Hover Effect for Product Cards
             if(window.matchMedia("(pointer: fine)").matches) {
                 const tiltElements = document.querySelectorAll('.tilt-card');
                 
